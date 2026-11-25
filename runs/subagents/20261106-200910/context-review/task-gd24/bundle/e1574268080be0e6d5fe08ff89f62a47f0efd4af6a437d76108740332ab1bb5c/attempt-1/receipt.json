@@ -1,0 +1,9 @@
+{
+  "key": "task-gd24/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "e1574268080be0e6d5fe08ff89f62a47f0efd4af6a437d76108740332ab1bb5c",
+  "output_sha256": "8ec34c7a19b9ba3dd80e6c01b289ffc8683779500eea59ff3800be7e393ccd5a",
+  "start": "2026-11-06T20:09:11.772549+00:00",
+  "end": "2026-11-06T20:09:28.922583+00:00"
+}

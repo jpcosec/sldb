@@ -1,0 +1,103 @@
+{
+  "key": "task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/bundle",
+  "input_sha256": "06f5ae396d324d31d53604c3df40a5a511654178fb179cd6a854ec733518fdf2",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-080449/context-review/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/bundle/06f5ae396d324d31d53604c3df40a5a511654178fb179cd6a854ec733518fdf2/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el.md",
+      "sha256": "4ecc6aab8be09bf809c4c30c80638dfc2ed1a3b79c40e60acd6e3177c6307cd7",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/contexts/pill-pill-regla-de-aristas-en-el-test-de-on-write.md",
+      "sha256": "5d99cac15fd8ddb734d81effcabadb1fc8e1655887196c5d72dc86996cd22909",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md",
+      "sha256": "099f81066d13f882a6f947e947b10216326513289c83efc02ee2d63916fc907d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/rules/rules_on_write.py",
+      "sha256": "a992cb8297115f9764e90558916ef7283b60f280e93c0f65a8ff0ce036dcc8b0",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/rules/rule_graph.py",
+      "sha256": "25ec0697d9dd06132bd82755b8c0d88c648c19e81fd51ccab8187f0ae3177ec0",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/documents/payload_save.py",
+      "sha256": "e42379ddf2a1cd2cf2eb6f9f204b79231a3ea74eb9d324cd4f22e6277c1de83e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/core/finding_route.py",
+      "sha256": "9dcf2e2e081e9121bb96e0718d626984a21dc999388bff47d5bf3752a1fcb0dd",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_rules.py",
+      "sha256": "d8eca423de5fc9a3461bbe50c678b35fbf2b07137791d02fd1450c164366ba3a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_on_write_entering.py",
+      "sha256": "676ae0ae4ec21e84fc7c962ce705234be477c84bac3b658a33b9b090be5a738a",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T08:04:50.760202+00:00",
+  "finished": "2026-11-16T08:05:05.249690+00:00"
+}

@@ -1,0 +1,88 @@
+# Validación tester — task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
+
+Commit del ejecutor localizado por Task-Id:
+291910691e0904df644b876c836f1104f749bb13
+refuse_lossy_overwrite accepts dropping an undeclared heading whose text survives
+Task-Id: task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
+
+Archivos del commit:
+- CHANGELOG.md
+- src/sldb/api/documents/lossy_overwrite.py
+- tests/api/test_lossy_overwrite_content.py
+
+Entorno: /tmp/ws-venv no existe en este host; se usó /mnt/ssd/proyectos/SLDB_1/sldb/.venv (Python 3.13.18, pytest 9.1.1).
+
+## Tests del commit y módulo
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/api/test_lossy_overwrite_content.py
+2 passed, 1 warning in 0.35s
+RC=0
+
+No existe tests/test_lossy_overwrite.py.
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_extraction_segments.py
+6 passed, 1 warning in 0.63s
+RC=0
+
+## Reproducción del bloqueante (setext e indentado)
+
+Test temporal en tests/api (eliminado después de correr):
+
+```python
+# Documento: TicketDoc con "## Tags" declarado, más:
+#   Lost Section
+#   ------------
+#
+#   content only here
+# y también:
+#     ## Indented Lost
+#
+#   content only here
+# Se guarda con title="Lost" y el contenido no sobrevive.
+# Se espera SLDBValidationError; la escritura NO lo lanza.
+```
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/api/test_zz_tmp_repro.py
+FF                                                                       [100%]
+FAILED tests/api/test_zz_tmp_repro.py::test_setext_undeclared_heading_with_lost_body_still_blocks
+FAILED tests/api/test_zz_tmp_repro.py::test_indented_undeclared_heading_with_lost_body_still_blocks
+2 failed, 1 warning in 0.34s
+RC=1
+
+Causa observada:
+
+$ python - <<'PY'
+from sldb.api.documents.lossy_overwrite import _heading_bodies
+from sldb.api.documents.heading_scan import scan_headings
+sample = "## Tags\n\n- auth\n\nLost Section\n------------\n\ncontent only here\n\n  ## Indented Lost\n\ncontent only here\n"
+print(scan_headings(sample))
+print(_heading_bodies(sample))
+PY
+
+scan_headings: [(2, 'Tags'), (2, 'Lost Section'), (2, 'Indented Lost')]
+_heading_bodies: {'## Tags': ['- auth Lost Section ------------ content only here ## Indented Lost content only here']}
+
+`scan_headings` (AST) ve los encabezados setext e indentados, pero `_heading_bodies`
+solo reconoce ATX en columna 0. Para un encabezado perdido no-ATX,
+`bodies.get(line, [""])` devuelve `[""]`, y `all(body in target)` con `""` siempre
+es verdadero: el guard lo trata como conservado y deja perder su cuerpo.
+
+## Gate rápido
+
+$ PATH="$PWD/.venv/bin:$PATH" bash tools/check.sh --fast
+PASS núcleo aislado
+PASS capas
+FAIL identidad — 1 violación: directorio versionado sin clasificar en la raíz: workbench_demo
+PASS ejes
+PASS superficie
+FALLAN: identidad
+RC=1
+
+La roja de identidad por workbench_demo es la excepción autorizada f055723d y no
+es el motivo del veredicto. El motivo es el bloqueante funcional de setext/indentado.
+
+## Observación adicional
+
+src/sldb/api/documents/lossy_overwrite.py contiene el bloque `_HEADING_LINE` /
+`_squash` / `_heading_bodies` / `_without_kept_content` duplicado (y `import re`
+duplicado) en el commit. No es la causa del fallo funcional, pero es residuo del parche.

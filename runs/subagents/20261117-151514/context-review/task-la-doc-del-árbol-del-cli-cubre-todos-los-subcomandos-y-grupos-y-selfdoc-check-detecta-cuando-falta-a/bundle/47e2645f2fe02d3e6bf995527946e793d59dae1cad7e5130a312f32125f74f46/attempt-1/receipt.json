@@ -1,0 +1,9 @@
+{
+  "key": "task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "47e2645f2fe02d3e6bf995527946e793d59dae1cad7e5130a312f32125f74f46",
+  "output_sha256": "202c345869c3ee0bd3aa24f89725a9bb8562c06be395df96b4757c7b0077f3e4",
+  "start": "2026-11-17T15:15:16.650041+00:00",
+  "end": "2026-11-17T15:15:28.841958+00:00"
+}

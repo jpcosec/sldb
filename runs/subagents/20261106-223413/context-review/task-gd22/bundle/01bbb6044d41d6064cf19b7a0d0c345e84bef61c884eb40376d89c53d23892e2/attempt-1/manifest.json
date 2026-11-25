@@ -1,0 +1,137 @@
+{
+  "key": "task-gd22/bundle",
+  "input_sha256": "01bbb6044d41d6064cf19b7a0d0c345e84bef61c884eb40376d89c53d23892e2",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk-gd/runs/subagents/20261106-223413/context-review/task-gd22/bundle/01bbb6044d41d6064cf19b7a0d0c345e84bef61c884eb40376d89c53d23892e2/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md",
+      "sha256": "a22b58b203693ce3429b8bfbc3fec68e13ddc8e4b8c3df53667f5106c52b5d8d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "38b791e24e2349dc6a0d8d7e5335e890da81e6876689f5b52ccca5b4e233f390",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/edges.py",
+      "sha256": "d75a0bc48b25bb1295e42ed6fcfda8d3259c0fcc091ca1e9c6e8a943c53522a5",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/edges.py",
+      "sha256": "29b777a011ad7ea6b432dd36af3b8ee9664c1f2d73dccd21cdd4fd1711b76e0c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/edges_routes.py",
+      "sha256": "915c09152ab71ca62c729f313d0f5cbf4a159f2d9c074980009e0ddf96ac7bb9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/routes.py",
+      "sha256": "c1a17759f90321fd64b168b29b5fe0cbf45e7f1c30f2ae3835494c91f867601b",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/edges/referrers.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/referrer.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/rewrite_references.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/rewrite_report.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/rewrite_values.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/rewrite_mentions.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/cli/commands/edges_rewrite.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/cli/serve/edges_rewrite_routes.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_referrers.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_rewrite_references.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/test_serve.py",
+      "reason": "size>=60000",
+      "size": 68271
+    },
+    {
+      "path": "docs/architecture/references.md",
+      "reason": "missing"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 68611
+    }
+  ],
+  "started": "2026-11-06T22:34:14.660086+00:00",
+  "finished": "2026-11-06T22:34:30.726982+00:00"
+}

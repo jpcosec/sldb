@@ -1,0 +1,9 @@
+{
+  "key": "task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "c1ebd0a5bc8a411e942753e3b13675ae06b8b432f024d423cd655cf89a223431",
+  "output_sha256": "23a069b6386d31530dbb445a584debce6c1e2a758c9165d308ce869d22096d89",
+  "start": "2026-11-16T04:38:45.912108+00:00",
+  "end": "2026-11-16T04:38:55.116234+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "3d08a02d2372a850843ad1ff4ca11ae45fda6ddaafe9e72f7cd2bc9614909920",
+  "output_sha256": "f97083d940c00533342716abaf2354aae05206159d4fabb081680f0b16089f56",
+  "start": "2026-11-16T07:27:39.351762+00:00",
+  "end": "2026-11-16T07:27:51.672057+00:00"
+}

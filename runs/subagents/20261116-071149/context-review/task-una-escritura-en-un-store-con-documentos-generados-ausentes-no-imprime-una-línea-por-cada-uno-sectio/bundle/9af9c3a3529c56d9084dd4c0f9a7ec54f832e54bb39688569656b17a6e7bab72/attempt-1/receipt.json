@@ -1,0 +1,9 @@
+{
+  "key": "task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "9af9c3a3529c56d9084dd4c0f9a7ec54f832e54bb39688569656b17a6e7bab72",
+  "output_sha256": "5d5b95a66778bcb6a9328eea94929ab099745d544dbb7d17ede4549dd489e9e8",
+  "start": "2026-11-16T07:11:50.680134+00:00",
+  "end": "2026-11-16T07:12:01.105518+00:00"
+}

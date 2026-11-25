@@ -1,0 +1,9 @@
+{
+  "key": "task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "e9f753cfc2a74ce054b34be9e4e4377d4063ea50d37b9bb0dc08a89c553c02bd",
+  "output_sha256": "cbfeb36e2a6e468f6e1fcd0dcc75a4cb99986df97f1cfb6a689f70ebbcb0329d",
+  "start": "2026-11-16T08:01:00.927680+00:00",
+  "end": "2026-11-16T08:01:11.198493+00:00"
+}

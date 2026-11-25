@@ -1,0 +1,88 @@
+{
+  "key": "task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/bundle",
+  "input_sha256": "6d27d4717e573bd62caf9fec830ae6317973bc81fea41333b13b33ec6e8debca",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-075826/context-review/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/bundle/6d27d4717e573bd62caf9fec830ae6317973bc81fea41333b13b33ec6e8debca/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md",
+      "sha256": "472f52b7c09fad88fe9baa7bc2ab2170281c9917c587b42608f7ac5bfde13dca",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/contexts/pill-pill-salida-y-orden-de-sldb-notations-validate.md",
+      "sha256": "6abf2f42c78a9b9a58d5d3d25ecb9e59967cc1086afd63574a2569b35c61d137",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-las-vistas-de-notacion-y-proyeccion-se-resuelven-en-sldb-api-notations-por-cli-y-por-sldb-serve.md",
+      "sha256": "1380d73d2c1d98f92fd28d9dcd003768bbdf953397bb095ed69a3d10665ce0a4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/notations.py",
+      "sha256": "172d838c01b047ecfe002dc240b78525c984b4abf4b1f2771fb5250b43b78b42",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/notations.py",
+      "sha256": "977308a8d390d33989f3b660bc3e2030b67aa9a37cbdd0a62cce87d1c31d11b6",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/notations/test_notations_sync_spec_cli.py",
+      "sha256": "54e713f5218f029146214c2661430dc185f182b58b94fdaf6a5dcabbe8967f41",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:58:27.566540+00:00",
+  "finished": "2026-11-16T07:58:42.287900+00:00"
+}

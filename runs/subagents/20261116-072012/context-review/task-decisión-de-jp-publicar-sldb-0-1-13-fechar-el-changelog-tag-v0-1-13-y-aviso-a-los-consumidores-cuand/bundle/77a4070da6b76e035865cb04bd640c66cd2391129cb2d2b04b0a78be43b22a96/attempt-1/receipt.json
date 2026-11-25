@@ -1,0 +1,9 @@
+{
+  "key": "task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "77a4070da6b76e035865cb04bd640c66cd2391129cb2d2b04b0a78be43b22a96",
+  "output_sha256": "0fea2a6589323bfb131775aa83af8548000c50abc1695d887f26efca467b02ae",
+  "start": "2026-11-16T07:20:13.920334+00:00",
+  "end": "2026-11-16T07:20:25.006813+00:00"
+}

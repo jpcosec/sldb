@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "65a3f1c9425b3876ac241d2fa0a0ada6226775eb7a2026517bf8ae1615781c9e",
+  "output_sha256": "878302c003a2ed5a1b31d71c8c312f0f513ce437111fb002079d0ca415b78e64",
+  "start": "2026-11-16T06:48:56.697886+00:00",
+  "end": "2026-11-16T06:49:10.799553+00:00"
+}

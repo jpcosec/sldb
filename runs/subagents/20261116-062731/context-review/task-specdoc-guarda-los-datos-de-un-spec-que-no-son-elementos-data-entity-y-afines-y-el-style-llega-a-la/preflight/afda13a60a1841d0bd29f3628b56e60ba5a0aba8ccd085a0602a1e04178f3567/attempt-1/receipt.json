@@ -1,0 +1,9 @@
+{
+  "key": "task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "afda13a60a1841d0bd29f3628b56e60ba5a0aba8ccd085a0602a1e04178f3567",
+  "output_sha256": "7bf9796188e0d3aae75d9e29a1433f396a5bc4405e9a47dad3b1bb7680edc2c4",
+  "start": "2026-11-16T06:27:32.524418+00:00",
+  "end": "2026-11-16T06:27:49.704149+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "21a8a3eee93ccb979f41b7e8c507aecdd33ace5f2b8697cd94116629f95e2fd0",
+  "output_sha256": "4d5a82ff239de2f3180b67d2d4a9c4e52662a80af4f03383fe6091478aca17e3",
+  "start": "2026-11-19T14:07:47.592602+00:00",
+  "end": "2026-11-19T14:07:57.013968+00:00"
+}

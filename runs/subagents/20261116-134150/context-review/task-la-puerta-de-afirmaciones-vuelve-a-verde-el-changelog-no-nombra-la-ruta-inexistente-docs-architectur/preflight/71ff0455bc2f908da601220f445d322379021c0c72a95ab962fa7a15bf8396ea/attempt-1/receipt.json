@@ -1,0 +1,9 @@
+{
+  "key": "task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "71ff0455bc2f908da601220f445d322379021c0c72a95ab962fa7a15bf8396ea",
+  "output_sha256": "72e39b743f865124d261e2449794a569705e82e1456375eaa059148dbf989918",
+  "start": "2026-11-16T13:41:51.615167+00:00",
+  "end": "2026-11-16T13:41:58.781530+00:00"
+}

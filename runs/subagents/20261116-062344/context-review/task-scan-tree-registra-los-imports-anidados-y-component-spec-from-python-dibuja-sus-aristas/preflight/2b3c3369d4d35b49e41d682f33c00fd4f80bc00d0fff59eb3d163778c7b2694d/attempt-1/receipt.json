@@ -1,0 +1,9 @@
+{
+  "key": "task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "2b3c3369d4d35b49e41d682f33c00fd4f80bc00d0fff59eb3d163778c7b2694d",
+  "output_sha256": "f8f9b458be90032a95ead2f177993b01968e045cc3cf057ebf9afa1e63718fe1",
+  "start": "2026-11-16T06:23:46.076881+00:00",
+  "end": "2026-11-16T06:24:01.548815+00:00"
+}

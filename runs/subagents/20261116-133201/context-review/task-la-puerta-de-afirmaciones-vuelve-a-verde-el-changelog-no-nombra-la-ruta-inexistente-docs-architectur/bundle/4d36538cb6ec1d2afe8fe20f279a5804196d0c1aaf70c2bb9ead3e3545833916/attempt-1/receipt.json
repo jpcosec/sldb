@@ -1,0 +1,9 @@
+{
+  "key": "task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4d36538cb6ec1d2afe8fe20f279a5804196d0c1aaf70c2bb9ead3e3545833916",
+  "output_sha256": "e8bde72daa0f62117b09b0216bb06315728c3ce3183dff25d684430e9a42d262",
+  "start": "2026-11-16T13:32:02.978237+00:00",
+  "end": "2026-11-16T13:32:16.874771+00:00"
+}

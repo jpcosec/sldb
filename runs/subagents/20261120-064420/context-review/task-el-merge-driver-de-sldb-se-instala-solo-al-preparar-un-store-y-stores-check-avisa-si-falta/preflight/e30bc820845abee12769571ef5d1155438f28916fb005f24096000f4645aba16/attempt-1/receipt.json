@@ -1,0 +1,9 @@
+{
+  "key": "task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "e30bc820845abee12769571ef5d1155438f28916fb005f24096000f4645aba16",
+  "output_sha256": "3e309601df6a36a0cc674bb4b663727f3ff7fd303dff1b36ab447f54da6d25ad",
+  "start": "2026-11-20T06:44:21.831503+00:00",
+  "end": "2026-11-20T06:44:29.111901+00:00"
+}

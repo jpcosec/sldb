@@ -1,0 +1,538 @@
+FILE:desk/tasks/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra.md
+---
+sldb:
+  by: agent
+  at: '2026-11-17T02:43:45Z'
+  authority: generated
+  via: create_document
+id: task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra
+status: draft
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+- host:robocop2
+current_node: ritual-execution
+history: []
+references: []
+depends_on: []
+pills: []
+files:
+- desk/tasks/Board.md
+task_type: task.code
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
+---
+
+# Higiene del desk de sldb: cerrar con closeout resolved-by, citando el sha, las tareas abiertas cuyo trabajo ya está integrado en main
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+El board de sldb tiene entre 46 y 49 tareas abiertas y una parte tiene su trabajo ya integrado en origin/main (por otras tareas o por commits sueltos), así que el board no dice qué falta de verdad. Origen: un análisis de sldb que el supervisor del desk verificó en parte (2026-11-16).
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+Toda tarea abierta cuyo goal y done_when ya se cumplen en origin/main queda cerrada con deskops closeout en modo resolved-by citando el sha que la resolvió; las que no, siguen abiertas con una línea en el informe que dice por qué.
+
+## Scope
+
+_State what is in scope and what is out of scope._
+
+Entra: recorrer deskops list tasks --root . (abiertas), y para cada una buscar en git log de origin/main y en el código si su goal ya se cumple; si se cumple, cerrarla con el modo resolved-by de deskops closeout (ver deskops closeout --help) citando el sha, con la evidencia que pida el gate; si no, anotarla. Informe en result-summary.md con la tabla tarea -> cerrada (sha) o abierta (motivo). No entra: implementar nada, tocar src/, cerrar tareas a medias.
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+1) deskops list tasks y deskops closeout --help para el modo resolved-by. 2) Para cada tarea, leer su contrato y buscar evidencia en origin/main (git log --grep, git log -S, lectura del código). 3) Cerrar las resueltas una por una con su sha. 4) deskops graph missing en 0. 5) Informe.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- cd .. && TMPDIR=/dev/shm deskops graph missing --root sldb
+- cd .. && TMPDIR=/dev/shm deskops list tasks --root sldb
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+Cada tarea cerrada cita un sha de origin/main que la resuelve; result-summary.md tiene la tabla completa; deskops graph missing da 0; commit de desk con [skip ci].
+
+FILE:desk/rituals/execution.md
+---
+# ritual-xxx
+id: ritual-execution
+# Ordered prose steps; not document references
+steps:
+- 'Atomize: break the work into the smallest possible child tasks.'
+- 'Dedupe: merge overlapping items.'
+- 'Clean: delete legacy content that the work makes obsolete (with deskops retire,
+  closeout or drawer remove, never by hand).'
+- 'Audit existing work before claiming anything is done: check git history for relevant
+  commits, verify artifacts exist where specified, and run tests to confirm the current
+  state.'
+- Resolve contradictory end states between the desk and the repo.
+- Bind the pills the task depends on (the task's pills field or deskops bind).
+- Keep the Board current; deskops maintains it, so use deskops verbs instead of editing
+  it.
+- 'Execute with explicit boundaries: scope, touched files and validation targets stated
+  in the task.'
+- 'After each step, run the context audit: is every aspect of the task covered by
+  a pill, are the bound pills still accurate, update or retire the stale ones, and
+  bind new ones as needed.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Execution ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Review the board, bind the relevant pills, keep scope tight, and implement only the active task for sldb.
+
+## Trigger
+
+_State when this ritual should start._
+
+Before starting any task, and after each step while implementing it.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- Pre-execution gate: ask whether any aspect of the task is ambiguous or not covered by its task file, pills and atoms. If not, proceed. If so, create or request the missing context first; do not proceed until the task is unambiguous.
+- The Board (desk/tasks/Board.md) is the single entry point for active work: read it before starting any task.
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- Scope, touched files and validation targets are explicit in the task.
+- Every desk reference points at durable repo context: task files, pills, atoms, drawer notes, inbox messages, source files, tests, docs and commits.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Proceeding with an ambiguous task without creating or requesting the missing context.
+- Creating implementation artifacts instead of referencing existing pills.
+- Referencing surfaces below the current layer.
+- Desk documents pointing at chat memory or other non-durable context.
+- Trusting the task file over the code: the task file describes intent; git history is truth.
+
+## Completion
+
+_Describe what completion looks like._
+
+The task's change is implemented within its stated scope and the testing ritual can start.
+
+FILE:desk/rituals/testing.md
+---
+# ritual-xxx
+id: ritual-testing
+# Ordered prose steps; not document references
+steps:
+- 'Invalidate: check whether existing tests are broken by the change; update or delete
+  the ones that no longer describe the behavior.'
+- 'Verify: add new tests where the change needs them.'
+- 'Test: run the relevant test or validation suite, smallest first, then the full
+  suite when shared behavior changed. All required checks must pass.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Testing ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+No task is complete without testing. Run the smallest relevant validation first, then broaden coverage when sldb changes shared behavior.
+
+## Trigger
+
+_State when this ritual should start._
+
+When the implementation of a task is done, before closeout.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- 
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- All required checks pass: the test suite, plus stores check, tools/check.sh and tools/check_claims.py when the change touches the store, the gates or documented claims.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Skipping tests to get it done.
+- Declaring a check green from truncated output (a pipe through tail hides the exit status).
+
+## Completion
+
+_Describe what completion looks like._
+
+Every required check passes on the final change.
+
+FILE:desk/rituals/closeout.md
+---
+# ritual-xxx
+id: ritual-closeout
+# Ordered prose steps; not document references
+steps:
+- Update the CHANGELOG when the change is user-visible or release-relevant.
+- 'Run the context audit: check the task''s pills, update stale ones, and retire the
+  ones whose knowledge now lives in code or docs.'
+- 'Close the task with deskops closeout (commit, or supersede/retire when it was already
+  resolved): the task leaves the Board in the same atomic commit as its evidence.
+  Completed tasks are not kept on the Board.'
+- 'Commit atomically, only when the execution ritual is complete. Commit when a phase
+  or slice objective is fully checked (a concise scoped message), for a critical bug
+  fix mid-phase (fix(<scope>): <description>), or for chores such as dependencies
+  or config (chore(<scope>): <description>). A slice that is not done is not a commit:
+  work in progress is not committed.'
+- 'Write commit messages as <type>(<scope>): <description>, with type one of feat,
+  fix, docs, refactor, chore, test, perf, and scope the smallest accurate repo area,
+  component, command or workflow surface.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Closeout ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Close a sldb task only after validation passes, the board is updated, and the final change is ready to commit.
+
+## Trigger
+
+_State when this ritual should start._
+
+When the testing ritual passes for a task.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- Pre-completion audit, git history: the commits match the completed work; on a mismatch, correct the commit history or update the task state to reflect reality.
+- Pre-completion audit, artifacts: every specified output exists at the specified location; implement the missing ones.
+- Pre-completion audit, tests: all pass; fix failing tests first.
+- Pre-completion audit, clean tree: every untracked file is either gitignored or tracked; clean up a dirty tree before declaring done.
+- Trust the code, not the task file: the task file describes intent, git history is truth.
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- deskops closeout verify reports the tests, commit and atom gates as passing, and the tree is clean.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Marking a task complete without auditing git history.
+- Committing with untracked files (gitignore or track them first).
+- Force-pushing to hide failures.
+- Committing work in progress.
+
+## Completion
+
+_Describe what completion looks like._
+
+The closing commit exists, the task is off the Board, and the tree is clean.
+
+FILE:desk/rituals/phase.md
+---
+# ritual-xxx
+id: ritual-phase
+# Ordered prose steps; not document references
+steps:
+- 'Compile: rebuild when applicable (bundles, dist).'
+- 'Audit: run the relevant tests and quality checks.'
+- 'Regress: fix any test failure.'
+- 'Flow: move the pill knowledge that is still needed into code or docs, capture phase-level
+  learning into an atom, and retire the redundant pills.'
+- 'Advance: clear the Board for the next phase and move on.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Phase ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Close the active phase only when every task on the sldb board is complete, capture any phase-level learning into an atom, and clear the board for the next phase.
+
+## Trigger
+
+_State when this ritual should start._
+
+When every task in a phase or delivery slice is done.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- 
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- Tests and quality checks pass and no pill repeats what code or docs already say.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- 
+
+## Completion
+
+_Describe what completion looks like._
+
+The Board holds only the next phase's tasks.
+
+FILE:desk/tasks/Board.md
+---
+sldb:
+  by: agent
+  at: '2026-11-17T05:09:42Z'
+  authority: generated
+  via: save_document_payload
+# board-xxx
+id: board-sldb-desk
+# Affected workspace or domain
+scope: sldb-local-desk
+# List of task-xxx paths
+tasks:
+- desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
+- desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
+- desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
+- desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
+- desk/tasks/task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e.md
+- desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md
+- desk/tasks/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document.md
+- desk/tasks/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430.md
+- desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
+- desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
+- desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md
+- desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
+- desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
+- desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
+- desk/tasks/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con.md
+- desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
+- desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
+- desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
+- desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
+- desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
+- desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
+- desk/tasks/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
+- desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
+- desk/tasks/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com.md
+- desk/tasks/task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand.md
+- desk/tasks/task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti.md
+- desk/tasks/task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam.md
+- desk/tasks/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.md
+- desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
+- desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
+- desk/tasks/task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz.md
+- desk/tasks/task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la.md
+- desk/tasks/task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb.md
+- desk/tasks/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el.md
+- desk/tasks/task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció.md
+- desk/tasks/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co.md
+- desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
+- desk/tasks/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople.md
+- desk/tasks/task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr.md
+- desk/tasks/task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum.md
+- desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
+- desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
+- desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
+- desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
+- desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md
+- desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
+- desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
+- desk/tasks/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone.md
+- desk/tasks/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi.md
+- desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
+- desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md
+- desk/tasks/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder.md
+- desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
+- desk/tasks/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar.md
+- desk/tasks/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización.md
+- desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
+- desk/tasks/task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do.md
+- desk/tasks/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid.md
+- desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
+- desk/tasks/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra.md
+- desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md
+- desk/tasks/task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene.md
+- desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
+- desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
+- desk/tasks/task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse.md
+- desk/tasks/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent.md
+- desk/tasks/task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t.md
+- desk/tasks/task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp.md
+- desk/tasks/task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti.md
+- desk/tasks/task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op.md
+- desk/tasks/task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l.md
+- desk/tasks/task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado.md
+- desk/tasks/task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie.md
+- desk/tasks/task-sw4a-sldb-serve-expone-escribir-un-anclaje-y-leer-su-estado-y-la-cobertura-por-fuente-sobre-la-api-p.md
+- desk/tasks/task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr.md
+- desk/tasks/task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops.md
+- desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
+- desk/tasks/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari.md
+# List of pill-xxx paths
+pills:
+- desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
+- desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
+- desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
+- desk/contexts/pill-model-registration-must-be-queryable.md
+- desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
+- desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+- desk/contexts/pill-store-health-is-owned-by-sldb.md
+- desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+- desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+- desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
+# List of ritual-xxx paths
+rituals:
+- desk/rituals/execution.md
+- desk/rituals/testing.md
+- desk/rituals/closeout.md
+- desk/rituals/phase.md
+# e.g., system:sldb, workspace:desk
+tags:
+- system:sldb
+- system:deskops
+- workspace:desk
+- topic:routing
+---
+
+# Desk Board
+
+## Purpose
+
+_Explain what this board routes and why it exists._
+
+Enruta las tasks activas del desk local de sldb, las pills que las acompañan y los rituales del ciclo de vida.
+
+## Notes
+
+_Add short operational notes about the current routed set._
+
+Activa: task-congelar-journal-autoridad-arbol (diseño, en borrador). La auditoría de documentación de septiembre de 2026 está cerrada: autodocumentación (aca36681), contexto del store y federación (f16688d0), y ownership de AST y secciones (closeout del 2026-10-18). El trabajo diferido vive en desk/drawer/; lo que espera decisión del dueño está en las notas abiertas del inbox.
+
+## Task Details
+
+_Generated from the task references above._
+
+- Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
+- Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
+- reglas: rule_graph no compone la federación entera de stores enlazados (27 s por comando de deskops) [draft] - La evaluación de reglas (on_write, on_transition, edges_holding/edges_blocked, rules check/explain) no compone la federación entera de stores enlazados salvo que una regla lo necesite. Los findings quedan idénticos a los de hoy, y un comando de deskops sobre el desk de deskops vuelve a tardar del orden de 1-2 s.
+- main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024) [draft] - El workflow CI de sldb (jobs test 3.12/3.13 y store) termina en success sobre main.
+- stores check no aborta ante un documento que su modelo rechaza: lo nombra como hallazgo y sigue con el resto (H1 de la nota 3895e9f7); H2 y H3 quedan con tests de regresión [draft] - sldb stores check sobre un store con documentos que su modelo rechaza termina el diagnóstico: cada documento inválido es un hallazgo por documento con su código, el resto del store se diagnostica como hoy y la salida JSON está completa. Además (corrección del 2026-11-12), con caché frío una escritura o un untrack de un documento ya no cae por otro inválido del mismo modelo (H2), y una transacción fallida restaura todo lo que escribió, shards derivados incluidos (H3).
+- sldb: create_document y track_document_file evalúan las reglas on_write (H4), declare --write conserva la declaración de tags (H5), la familia de tags da su evaluación estructurada (H6) y se documenta qué documentos ve (H7) [draft] - create_document y track_document_file evalúan on_write como save (H4); stores declare --write conserva tag_namespaces y tag_models (H5); un hallazgo de la familia de tags lleva su evaluación estructurada y rules check, rules explain y tags check la exponen en su salida JSON (H6); la guía de reglas y de tags dice qué documentos ve la familia (H7).
+- sldb views run board en menos de 1 s: caché de disco de los shards de documentos para select_documents y costo del import de sldb.api (H11b) [draft] - sldb views run board, con el store construido y en un proceso nuevo, tarda menos de 1 s (mediana de 3) sobre el layout del benchmark de H11; el resultado y la revision de la vista no cambian, y un documento escrito o cambiado se nota en la siguiente corrida.
+- apply_batch: dry_run público que valida sin escribir (inbox 20261115-022430) [draft] - apply_batch acepta dry_run=True: corre la prevalidación (forma, modelo, round-trip, guardas, destinos) y devuelve el informe o los errores, sin abrir transacción ni escribir.
+- apply_batch: aristas validadas antes de escribir, alertas on_write en BatchReport, rules_check sobre RelationDoc y via/authority (inbox 20261115-022655) [draft] - Cerrar los cuatro puntos del pedido.
+- API pública: búsqueda rankeada, escrituras recientes y store_hash como precondición atómica (brechas de IR01, inbox 20261114-074447) [draft] - Resolver o documentar con decisión cada brecha.
+- check_edges clasifica como stale propio los de stores enlazados cuyo nombre lleva dos puntos (inbox 20261115-015936) [draft] - Clasificar el stale por el store dueño del nodo, no por el conteo de ':'.
+- sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.
+- V0: benchmark fijo de velocidad (sldb bench) y punto de partida [draft] - Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.
+- El emparejamiento de átomos de sldb.api.matching pasa a su propio eje y recuperacion vuelve a ser un puerto puro [draft] - El emparejamiento de átomos (explicit_atoms, explicit_refs, atom_*, coverage*, spec_view*, store_reader, store_documents, store_edges, matching_findings, unknown_atom_error) vive en un eje propio en contracts/layers.toml; recuperacion vuelve a sus 4 dependencias medidas y sigue siendo extraíble.
+- Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog [draft] - docs/architecture/spec2viz/vistas.yml y sus specs se construyen con specir catalog build y se sincronizan al store con sldb notations sync --catalog; ninguna instrucción ni contrato de sldb invoca spec2viz para ellos.
+- sldb.api.notations reexporta lo que specIR importa hoy de módulos internos (estilos, paletas, errores, modelos de spec y rutas del catálogo) [draft] - Todos los nombres listados en Scope se importan desde sldb.api.notations y están en su __all__; specIR puede quitar sus excepciones de import sin cambiar comportamiento.
+- sldb notations validate valida una notación, una paleta o un spec por nombre o ruta e imprime findings [draft] - `sldb notations validate <nombre|ruta>` detecta si el objetivo es una notación, una paleta o un spec, corre la validación que sldb ya tiene para ese tipo y devuelve findings en el formato de findings de sldb, con exit 0 si no hay errores y 1 si los hay.
+- SpecDoc guarda los datos de un spec que no son elementos (data.entity y afines) y el style llega a la vista resuelta [draft] - Sincronizar un spec con data.entity (y cualquier otra clave de data que no sea elementos) y leerlo de vuelta con el SpecDoc devuelve esos datos sin pérdida, y la vista resuelta de ese SpecDoc incluye su style.
+- matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos) [draft] - attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
+- EdgeIndex.stale manda a la operación correcta: una edición externa se resuelve con sldb stores update, no con edges rebuild [draft] - Los tres textos nombran `sldb stores update` (API update_store_indexes) como la operación que resuelve un documento stale por edición externa, y un test prueba que después de stores update el documento editado sale de stale.
+- Reproducir si sldb docs update reescribe índices de documentos ajenos al que actualiza (ReviewDoc de un store enlazado con otro contrato) [draft] - Saber, con un test que lo prueba, si `sldb docs update <doc>` sobre un store que enlaza a otro store cuyo modelo rechaza algunos de sus documentos modifica algún archivo fuera del documento actualizado, su shard y los índices derivados del store (store_index.yaml y models/<Modelo>.yaml del modelo del documento).
+- sldb stores add guarda tal cual un enlace absoluto, con ~ o con variable de entorno [draft] - `sldb stores add <ruta>` guarda la ruta como la escribió el usuario si empieza por /, ~ o $ (absoluta, home o variable de entorno) y relativa a la raíz del proyecto en cualquier otro caso (como hoy); la lectura expande ~ y variables de entorno al resolver el enlace.
+- run_view dice que el store no está construido en vez de Unknown view (H12) y se reproduce si la revision depende de cachés del proceso (H13) [draft] - (H12) run_view sobre un store cuyo índice compuesto está vacío o sin construir lanza SLDBStoreError con "store index not built: run `sldb stores build`" en lugar de "Unknown view"; (H13) un test dice si la revision cambia entre el proceso que escribió y uno nuevo, y si cambia, la revision deja de depender de cachés en memoria.
+- Decisión de JP: qué de las vistas de deskops (H1-H8 de CC34) expresa la ViewDoc de sldb y qué queda como agregado del consumidor [draft] - JP decide, para cada una de H1-H8, "sldb" (la ViewDoc lo expresa y se crea una tarea de código en sldb) o "consumidor" (deskops lo agrega fuera de run_view y quita la marca "pendiente de sldb Hn"); la decisión queda escrita en docs/architecture/views.md, sección "Decisión H1-H8 (CC34)", con la fecha y una línea por hipótesis.
+- Decisión de JP: publicar sldb 0.1.13 (fechar el CHANGELOG, tag v0.1.13 y aviso a los consumidores) cuando la suite conjunta esté verde [draft] - JP decide si se publica 0.1.13 y cuándo; si dice que sí, el encabezado 0.1.13 de CHANGELOG.md queda fechado, el tag v0.1.13 está en origin y deskops, graph_ui y spec2viz recibieron el aviso; si dice que no o "más adelante", la decisión y su condición quedan escritas en CHANGELOG.md bajo el encabezado 0.1.13 como línea "Release: <decisión de JP, fecha>".
+- Decisión de JP: resolver la colisión de SpecDoc entre el modelo local docs.models:SpecDoc y el builtin de sldb [draft] - JP elige una opción y queda escrita en docs/architecture/notations-and-views.md, sección "SpecDoc local frente al builtin", con la fecha; se crea con deskops add task la tarea de código que la implementa.
+- Decisión de JP: cómo se resuelve un conflicto de git en los índices derivados de .sldb (store_index.yaml y models/*.yaml) [draft] - JP elige una opción y queda escrita en docs/versionado-y-colaboracion.md, sección "Conflictos en los índices derivados", con la fecha; se crea con deskops add task la tarea de código que la implementa.
+- docs show sobre un store enlazado dice que no pudo importar el modelo en vez de Unknown document target [draft] - Cuando el documento pedido existe en el índice pero su modelo no se pudo importar, docs show (y runtime_document) lanza un error que dice "could not import model <Modelo> of store <store>: <excepción original>"; y se sabe, con un test, por qué la raíz enlazada no bastó en el caso de deskops.
+- Una sola forma de serializar un escalar al sustituir llaves: effects (GO09) y where_subject usan la misma función [draft] - Existe una función brace_text(value) -> str en src/sldb/store/query_engine/where_literal.py que usan tanto edge_effects._written como fill_braces, con estas salidas exactas: int y Decimal sin exponente (1e20 -> 100000000000000000000), float con repr más corto sin exponente cuando sea posible (0.5 -> 0.5), bool -> true/false, datetime.date -> ISO 8601 (2026-11-16), str tal cual; cualquier otro tipo lanza TypeError con el tipo.
+- rule_graph en frío y deskops show task: perfilar de nuevo y bajar el costo de leer el índice local (meta rule_graph < 1 s en frío) [draft] - Con un perfil nuevo (cProfile) guardado en el informe, rule_graph en frío sobre una copia en /dev/shm del store del desk de deskops tarda menos de 1 s y deskops show task menos de 2 s, con los mismos findings que antes del cambio.
+- Decisión de JP: arreglar en sldb las referencias por ruta que no resuelven a través de un store enlazado, o cerrarlo como wontfix [draft] - JP decide (a) arreglar: se crea la tarea de código con test en tests/api/test_unresolved_references.py; o (b) wontfix: queda escrito en docs/architecture/references.md, sección "Rutas a través de un store enlazado", que una ruta relativa se resuelve solo en su store local y por qué.
+- sldb docs track --canonical: un Markdown escrito a mano se lleva a su render canónico, con el diff a la vista, antes de trackearlo [draft] - `sldb docs track <ruta> --model <M> --canonical` extrae el payload del archivo, lo renderiza con el modelo, imprime el diff unificado entre el archivo y el render canónico, reescribe el archivo con el render canónico y lo trackea; si el payload no se puede extraer o no valida, no escribe nada y sale con 1 mostrando el error. Sin --canonical, track se comporta como hoy.
+- Decisión de JP: dónde vive un hook que bloquea Write/Edit sobre rutas trackeadas por un store de sldb [draft] - JP decide (a) sldb ofrece `sldb guard-path` y un ejemplo de hook documentado, y se crea su tarea de código; (b) el hook vive solo en ~/setup y sldb no cambia; o (c) no se hace. La decisión queda en docs/user-manual.md, sección "Escritura por agentes", con fecha.
+- on_write: save_document_payload devuelve las alertas de la escritura y la regla ve las aristas que el payload nuevo declara [draft] - save_document_payload devuelve en el DocumentReference un campo alerts: list[dict] con las alertas on_write de esa escritura (además de enviarlas por route como hoy), y una regla on_write cuya condición depende de una arista declarada por el payload nuevo la ve al evaluarse.
+- Decisión de JP: python-sync o stores build destrackean los PythonSymbolDoc cuyo símbolo desapareció [draft] - JP decide (a) python-sync destrackea los PythonSymbolDoc de su system cuyo símbolo ya no existe y conserva los documentos de comandos y superficies escritos por personas; (b) también destrackea los de comandos y superficies; o (c) se mantiene la retención y solo se reportan. La decisión queda en docs/self-documentation.md, sección "Símbolos que desaparecen", y si es (a) o (b) se crea la tarea de código que cambia report.py y test_sync.py.
+- stores check sobre un clon sin build reporta los documentos generados ausentes como una alerta, no como miles de errores [draft] - En un store cuyo store.yaml declara rutas derived, un documento trackeado ausente cuya ruta cae bajo una de ellas no es error: stores check emite una sola alerta store/generated-missing con el número y el modelo ("2453 PythonSymbolDoc documents are generated and not on disk: run `sldb stores build`"), sigue reportando como error cualquier otro ausente, y su exit code depende solo de los errores.
+- R6: el tokenizer y el parser del lenguaje de reglas bajan a core para cerrar la arista de capas models -> store [draft] - predicate_tokens, predicate_cursor, predicate_parser y predicate_ast viven en un paquete de core (sldb.core.rules_language), sldb.store.graph.language los reexporta con los mismos nombres, rule_doc._parse importa de core, y contracts/layers.toml ya no tiene la excepción upward [models, store] ni el pending R6; python tools/check_layers.py pasa.
+- Decisión de JP (decisión 6): separar el store de sldb en un paquete propio o quedarse con el desacople interno [draft] - JP toma la decisión 6: (a) separar: se crea la tarea de refactor que inyecta las tres costuras y crea el paquete con su pyproject y su suite; o (b) quedarse con el desacople interno. La decisión queda escrita en docs/architecture/store-extraction-proposal.md, sección "Decisión 6", con fecha, y desk/STANDARDS.md:19 deja de decir que está pendiente (vía la CLI que corresponda o en el commit del doc si STANDARDS.md no es un documento modelado).
+- Surface dev: prosa generada con marca y hash de sus átomos de origen, y extractor externo de átomos propuesto (decisiones 3 y 4 de OPERACIONALIZACION-VISTAS §6) [draft] - En los stores de surface/dev, un documento de prosa generada guarda la marca generado y el sha256 de los source_hash de sus átomos de origen, y una función de lectura dice si está desactualizado; un extractor por línea de comandos escribe AtomDoc nuevos con status propuesto sin modificar ninguno confirmado; §6 del doc dice que las cuatro decisiones están tomadas y dónde quedó cada una.
+- Decisión de JP: si sldb agrega un AST intermedio entre marcador y campo y clases anidadas en un documento (dos features del drawer) [draft] - JP decide una de: (a) no se hacen (se retiran las dos features); (b) se hace solo (2), clases anidadas sobre listas y tablas, sin AST intermedio; (c) se hacen las dos juntas. La decisión queda en docs/architecture/model-authoring.md, sección "AST intermedio y clases anidadas", con fecha, y si no es (a) se crea la tarea de diseño correspondiente.
+- Átomos del catálogo sin rutas absolutas: atom_payload y store_documents emiten la ruta relativa al proyecto y no la del store [draft] - El payload de átomos y las filas de store_documents traen "path" relativo a la raíz del proyecto del store que tiene el documento (con "/" como separador) y ya no traen la ruta absoluta del store; un catálogo construido con ellos no contiene "/mnt/" ni "/home/".
+- raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno [draft] - raw_atoms_by_view(views, atoms_dir=d) devuelve para todas las vistas los átomos de d y no consulta ningún store; sin atoms_dir, el comportamiento es el de hoy.
+- sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación [draft] - from-graph acepta --label-field <campo>, --kind-field <campo|tag:<namespace>> y --group-field <campo|tag:<namespace>>; con ellos, el label del nodo es el valor de ese campo del payload (o el id si falta), el kind es el valor del campo o del tag con ese namespace (o el modelo si falta), y los nodos con el mismo valor de agrupación quedan dentro de un nodo contenedor con aristas contains.
+- Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
+- sldb.code lee las claves del SQL de Postgres: PK con IDENTITY, constraints de tabla y FK de ALTER TABLE ADD CONSTRAINT (C4 de IR) [draft] - Sobre una migración de sqlmigrate de Django para Postgres, sldb.code publica la columna id con su tipo y marca de clave primaria, y un hecho por cada clave (primaria, foránea y única) con sus columnas y, en las foráneas, la tabla y columnas referenciadas, incluidas las que vienen de ALTER TABLE ADD CONSTRAINT.
+- sldb.code publica facts genéricos de Python: bases de clase, decoradores con argumentos, llamadas entre símbolos y asignaciones de clase con llamada (C3 de IR, parte genérica) [draft] - Los facts de Python llevan, sin conocer ningún framework: las bases de cada clase, los decoradores de cada definición con sus argumentos, las llamadas que hace cada función o método a otros nombres, y las asignaciones a nivel de módulo o de clase cuyo valor es una llamada (nombre, función llamada y argumentos), incluidas las de una clase anidada como Meta; con eso specIR reconstruye rutas, campos, serializers y cadenas de llamadas de un proyecto Django/DRF.
+- sldb.code publica facts genéricos de TS, TSX, JS y JSX: llamadas entre símbolos, llamadas HTTP como llamadas y handlers JSX (C3 de IR para IR09) [draft] - Los facts de TS, TSX, JS y JSX llevan las llamadas que hace cada función, componente o hook (fetch(...), axios.get(...), api.posts.create(...) y llamadas a otros símbolos) con su primer argumento literal si lo hay, y los atributos JSX que ligan un evento a un handler (onClick={handleSave}), sin conocer ningún framework.
+- component_spec_from_python lee solo .py: los .js vendorizados o minificados del árbol ya no dan component-spec/syntax-error (regresión de B2) [draft] - component_spec_from_python construye el spec solo a partir de los archivos .py del árbol, como antes de B2; ningún archivo de otro lenguaje produce hallazgos en ese spec.
+- sldb mcp sirve undo_changes: apply_changes guarda el lote inverso de cada lote en una pila de la sesión y undo_changes lo aplica con guardas (IR04b) [draft] - En una sesión de sldb mcp, cada apply_changes exitoso apila su report.inverse; undo_changes deshace el último lote aplicado (o los N últimos) aplicando su inverso con apply_batch, con las mismas guardas: si alguien escribió entre medio, se rechaza con ConflictError sin escritura parcial y el lote queda en la pila.
+- pron contra sldb: deshacer restaura el hash del mundo, untrack + track recupera el documento y find con where en un mundo solo vuelve a encontrar [draft] - Cada uno de los tres síntomas queda clasificado con evidencia como regresión de sldb (y arreglado aquí con test) o como cambio de contrato (documentado en el CHANGELOG, con la forma que pron debe adoptar), y las pruebas de pron nombradas en la nota pasan contra este sldb salvo las que dependan de un cambio de contrato que pron deba adoptar.
+- sldb models validate importa los modelos de deskops.models:* como lo hacen extract y render (No module named deskops.base) [draft] - sldb models validate <Modelo> importa el modelo con la misma resolución que extract y render, y valida los modelos de deskops.models:* sin error de import.
+- Higiene del CLI para sldb-ui: fields update/append con --string y --format, inbox --show con error por stderr e inbox --store sin .sldb que falla [draft] - fields update y append aceptan --string (el valor se toma literal, sin YAML) y --format json|text|yaml como el resto de comandos; inbox --show de una nota inexistente escribe el error por stderr con exit distinto de 0; inbox con un --store que no contiene .sldb falla con un error que lo dice y no escribe nada.
+- sldb stores remove quita el enlace también de la declaración store.yaml, así otra sesión no lo reintroduce [draft] - sldb stores remove <alias> deja el enlace fuera del índice y de la declaración store.yaml en una sola operación, bajo el lock del store; un store sin store.yaml se comporta como hoy.
+- La regla builtin tag_namespace:domain sugiere un fix concreto en stores check (qué namespace declarar o qué tag cambiar) [draft] - Cada hallazgo de la regla builtin tag_namespace:domain trae en fix un texto accionable: el namespace a declarar en la política del store (con el comando o la clave exacta) o los tags válidos de ese namespace.
+- declared_target_nodes acepta un directorio existente como target declarado de una materialización [draft] - Un target declarado que es un directorio existente del proyecto produce un nodo del grafo (de directorio) y graph missing no lo reporta; un directorio inexistente sigue siendo missing.
+- sldb.api expone render con roundtrip: renderizar el payload de un modelo a Markdown y validar que vuelve igual antes de escribir [draft] - Una función pública de sldb.api.documents recibe un modelo (registrado, por nombre, o la clase) y un payload, devuelve el Markdown renderizado y el resultado del roundtrip (ok y diferencias), sin escribir nada; graph_ui puede dejar de importar sldb.runtime.validation.
+- docs list y docs show leen la misma fuente: no se lista un documento que show no encuentra (Unknown document target) [draft] - docs list y docs show coinciden: todo nombre que lista docs list se puede mostrar con docs show, o docs list lo marca como no resoluble con su causa.
+- La escritura por campos (save_document_payload y el update de apply_batch) falla nombrando el contenido que se perdería en vez de borrarlo en silencio [draft] - Una escritura por campos sobre un documento cuyo archivo actual tiene ruido estructural o frontmatter no declarado falla antes de escribir, con un error que nombra lo que se perdería, y deja el archivo intacto; los documentos limpios se escriben igual que hoy.
+- store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.
+- Higiene del desk de sldb: cerrar con closeout resolved-by, citando el sha, las tareas abiertas cuyo trabajo ya está integrado en main [draft] - Toda tarea abierta cuyo goal y done_when ya se cumplen en origin/main queda cerrada con deskops closeout en modo resolved-by citando el sha que la resolvió; las que no, siguen abiertas con una línea en el informe que dice por qué.
+- La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno [draft] - current-cli-tree.md lista todos los grupos y subcomandos que define el parser de sldb, y selfdoc check falla nombrando cada grupo o subcomando del parser que la doc no menciona (y cada uno que la doc nombra y ya no existe).
+- La documentación de sldb serve nombra todas sus rutas HTTP, con un chequeo que lo mantiene [draft] - Un documento de sldb lista cada ruta de sldb serve (método, path, parámetros y qué devuelve en una línea), y un test falla si una ruta del código no está en el documento o viceversa.
+- El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [draft] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
+- Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph) [draft] - Cada uno de esos archivos y cada cáscara vacía de sldb.api queda borrado si nada lo usa, o reducido a lo que se usa, sin cambiar ningún comportamiento observable (CLI, API pública, tests).
+- El parámetro actor de la API de escritura se respeta en lugar de aceptarse e ignorarse [draft] - Toda función pública de escritura que acepta actor lo pasa hasta donde se registra la procedencia (sello sldb.by del documento), de modo que un documento escrito con actor=X queda firmado por X; ninguna lo descarta.
+- El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2) [draft] - El conjunto de documentos sucios se guarda en .sldb_cache (regenerable, sin versionar) y una corrida nueva lo lee, de modo que una actualización incremental en un proceso nuevo procesa solo lo que cambió; si el archivo falta o está corrupto, se vuelve al cálculo completo sin error.
+- SW1: documentación y arranque de surface como la UI de SLDB (README, maqueta histórica, tareas T7-T9 y puerto configurable documentado) [draft] - surface tiene un README que la presenta como la UI de SLDB para cualquier store y describe cómo levantarla; las referencias a la maqueta están corregidas o marcadas como históricas; docs/surface/tasks/README.md dice el estado real de T7, T8 y T9; el puerto de vite es configurable (variable de entorno, con un valor por defecto) y está documentado, sin strictPort.
+- SW9, primera pasada: capturas y tiempos de las cuatro vistas del Workbench sobre df3903db, para que JP vea el punto de partida [draft] - En runs/ queda un índice con capturas y tiempos de las cuatro vistas (#/workbench, #/diagram, #/source, #/studio), con las lentes lectura y fierros, sobre documentos reales de un store SLDB real (el del repo), tomadas en df3903db.
+- SW7: Model Studio edita campos existentes, crea modelos, deja que sldb compruebe los slots de la plantilla y confirma el plan antes de promover [draft] - Model Studio edita tipo y descripción de un campo existente, ofrece los tipos que pide §6, crea modelos por POST /models/create, muestra la comprobación de slots que devuelve sldb (POST /models/validate) sin parsear la plantilla en la UI, pide confirmación con el plan de backfill antes de promover y guarda la plantilla con ⌘↵.
+- SW2: la edición en el lugar confirma con Enter o ⌘↵, falla cerrada sin autoridad conocida y muestra la operación y su resultado con el hash al día [draft] - Enter confirma en campos de una línea y ⌘↵ en los de bloque; sin autoridad conocida todo es solo lectura; la etiqueta de operación (POST /save · expected <hash>) aparece también en el título y en bloques transcluidos; tras guardar se muestra el hash nuevo o el error accionable; el hash de la etiqueta coincide siempre con el expected que se envía.
+- SW3: las referencias abren la vista que corresponde a su modelo, el árbol enfoca en vez de navegar y la paleta busca por símbolo y hash [draft] - Un ref a un diagrama abre el Inspector y uno a una fuente abre Extracción y Anclaje (también desde los refs del Inspector); el clic en un nodo que es parte del documento abierto enfoca su bloque; ⌘K encuentra por símbolo y por hash; la tecla 3 sin modelo activo está deshabilitada con el motivo; cambiar el hash a o desde #/legacy cambia la app sin recargar.
+- SW5: quién puede editar cada documento sale de lo que entrega sldb (describe_model), sin listas de modelos en la UI; 'gestionado por deskops' es un caso particular [draft] - La UI decide si un campo es editable solo con lo que entrega sldb (autoridad y model_ref de describe_model), en un solo lugar y sin listas de nombres de modelos; cuando sldb dice que un modelo lo gestiona otro sistema (por ejemplo deskops), el campo se ve de solo lectura con el texto y el verbo que sldb o el modelo declaren; Model Studio usa la misma fuente.
+- SW6 (opcional, al final de la serie): caso de uso con deskops: volver a la UI de deskops y mostrar gates y evidencia de una tarea desde deskops view [draft] - Con lo que ya existe: enlace de regreso a la UI de deskops (a la tarea si el documento abierto es un TaskDoc) y gates y evidencia de la tarea leídos de /desk/api/view/task; las operaciones que faltan quedan pedidas por nota a deskops y a graph_ui y sus controles se muestran deshabilitados con el motivo. Nada se dibuja sin fuente real.
+- SW4a: sldb serve expone escribir un anclaje y leer su estado y la cobertura por fuente, sobre la API pública de anclas [draft] - sldb serve tiene rutas para escribir un anclaje (con offsets o cita), leer el estado de los anclajes de un documento (intact, changed, lost, reconnected) y la cobertura de anclajes por fuente, todas sobre la API pública de sldb.api.anchors, con la misma autenticación y forma de error que el resto de rutas.
+- SW4b: surface ancla de verdad por las rutas de sldb serve, borra el cálculo local de anclajes y muestra changed como alerta [draft] - Crear un átomo desde una selección guarda su anclaje con offsets por sldb serve; el estado y la cobertura se leen de sldb (sin indexOf en surface); el umbral es 75 %, los parecidos enlazan al átomo y el mensaje muestra el porcentaje; changed se muestra como alerta (no error, no bloquea) en la ficha, en la lente Fierros y en el panel de cobertura, también al editar un átomo transcluido.
+- SW9: aceptación del Workbench sobre el desk real (vistas, flujos, atajos, colores y enlace desde deskops) con capturas para el repaso de UI con JP [draft] - En runs/ queda un índice con la matriz vista x flujo (PASA o FALLA con severidad), tiempos y capturas por vista y lente sobre stores SLDB reales (el del repo sirve) y no solo sobre un desk; las fallas nuevas quedan como notas a este desk.
+- SW8, decisión de JP: qué queda de la superficie anterior de surface (vistas legacy, stores demo y caso Levira, T8 identidad de sección) [draft] - JP decide: (A) qué vistas legacy se retiran y cuáles sobreviven dentro del Workbench; (B) si los stores demo y el código del caso Levira quedan como fixture de desarrollo o se retiran con la maqueta; (C) si T8 sigue como tarea de sldb o se descarta. La decisión queda escrita y de ella salen las tareas de retiro.
+- El valor de un campo se renderiza literal: render_model_markdown deja de pasar los valores del usuario por Jinja [draft] - El valor de un campo se guarda literal, byte a byte, y vuelve igual en extract; solo la plantilla del modelo es Jinja. Ningún valor con llaves, porcentajes o almohadillas cambia el render ni lo rompe.
+
+FILE:instruccion
+Cold-bundle de la tarea task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra: con el TaskDoc, los rituales enrutados por el Board, las pills ligadas, los átomos ligados y los archivos que el TaskDoc nombra, reformula el encargo, lista ambigüedades con cita textual del input y da el DRY-RUN sin ejecutar nada. No ejecutes nada.
+
+Sección de validación del TaskDoc:
+- cd .. && TMPDIR=/dev/shm deskops graph missing --root sldb
+- cd .. && TMPDIR=/dev/shm deskops list tasks --root sldb
+

@@ -1,0 +1,5 @@
+bash tools/check.sh --fast -> rc 0
+cd surface && npx tsc --noEmit -> rc 0
+npx vitest run src/core src/react src/views src/app -> 374 passed, 1 failed (src/app/workbench.test.tsx:396, wiki-business-name)
+node scripts/check-layers.mjs -> OK
+grep residuos -> solo la linea del alias businessName

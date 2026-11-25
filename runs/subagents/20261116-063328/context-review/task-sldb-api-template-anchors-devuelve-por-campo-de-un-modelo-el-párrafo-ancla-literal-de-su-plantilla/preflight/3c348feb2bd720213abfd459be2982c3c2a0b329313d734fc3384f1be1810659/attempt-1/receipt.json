@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "3c348feb2bd720213abfd459be2982c3c2a0b329313d734fc3384f1be1810659",
+  "output_sha256": "84b1f2b43d177cedd33157c9e2ca937d83259c7b42311360b76994eca168207e",
+  "start": "2026-11-16T06:33:30.359484+00:00",
+  "end": "2026-11-16T06:33:43.939700+00:00"
+}

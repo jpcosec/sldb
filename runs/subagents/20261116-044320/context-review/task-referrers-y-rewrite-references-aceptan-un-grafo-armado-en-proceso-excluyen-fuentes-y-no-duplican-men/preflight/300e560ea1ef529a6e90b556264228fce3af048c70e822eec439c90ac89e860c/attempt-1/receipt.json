@@ -1,0 +1,9 @@
+{
+  "key": "task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "300e560ea1ef529a6e90b556264228fce3af048c70e822eec439c90ac89e860c",
+  "output_sha256": "8a48e80d1bfa64edf31fe702857732116ab0ed75811ab4b4ab117dcc08341803",
+  "start": "2026-11-16T04:43:21.787441+00:00",
+  "end": "2026-11-16T04:43:32.220058+00:00"
+}

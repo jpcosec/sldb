@@ -1,0 +1,9 @@
+{
+  "key": "task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "024ff5d93a92b14262cb158744b2d459bb44f9ebf6796d52fb226feb3836ade7",
+  "output_sha256": "be9266482ff22e5498249b38c92d84bfe6a35d9a21fa462661b0fb1c2684096f",
+  "start": "2026-11-17T12:39:22.117096+00:00",
+  "end": "2026-11-17T12:39:39.380156+00:00"
+}

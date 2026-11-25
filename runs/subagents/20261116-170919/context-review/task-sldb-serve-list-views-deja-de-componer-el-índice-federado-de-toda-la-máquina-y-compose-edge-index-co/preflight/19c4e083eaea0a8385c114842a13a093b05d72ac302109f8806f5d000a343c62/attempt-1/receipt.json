@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "19c4e083eaea0a8385c114842a13a093b05d72ac302109f8806f5d000a343c62",
+  "output_sha256": "ed68b8d0e6e5f548ba408eb613a734529d037b5bd7bf3939016d8fbfa72f4404",
+  "start": "2026-11-16T17:09:21.279284+00:00",
+  "end": "2026-11-16T17:09:31.285674+00:00"
+}

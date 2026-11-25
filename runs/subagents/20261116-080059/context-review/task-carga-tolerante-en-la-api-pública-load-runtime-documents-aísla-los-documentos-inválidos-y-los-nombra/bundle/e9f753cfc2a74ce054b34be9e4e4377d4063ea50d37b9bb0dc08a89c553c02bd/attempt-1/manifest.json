@@ -1,0 +1,93 @@
+{
+  "key": "task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/bundle",
+  "input_sha256": "e9f753cfc2a74ce054b34be9e4e4377d4063ea50d37b9bb0dc08a89c553c02bd",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-080059/context-review/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/bundle/e9f753cfc2a74ce054b34be9e4e4377d4063ea50d37b9bb0dc08a89c553c02bd/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra.md",
+      "sha256": "d3af6f2be085e87da8165df5a38de38d30a04fe5c5c6361e9348d4c47e8dd32b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/contexts/pill-pill-rechazados-de-la-carga-tolerante.md",
+      "sha256": "771a824496fb242ba81fe3491dac08543e0de23942a6478c06b21e79e7b9a0f4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-una-vista-de-todo-el-store-no-puede-depender-de-que-importen-todos-sus-modelos.md",
+      "sha256": "ec7747eae271d79a187851a6c1dcd818451343b5e50414b03cd158f171f6f130",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/documents/runtime_documents.py",
+      "sha256": "da00fb1f239ffd5785b3f37d0625fdbe297328c209d58bd3911f2d4cf7705cea",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/edge_index.py",
+      "sha256": "695935d958a70e25d5a300adc2816ed0375502eeda23f745b6d24259106b4362",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_api_documents.py",
+      "sha256": "d3ee318e7ec837f6aee9fab0802f42cfda7bdd1457208d675dd97e014fe9a5e0",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_api_edges.py",
+      "sha256": "a85d85135a551b2334a85f02db39f44082e4872c447602a1548ff3d02fbef2d4",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T08:01:00.927680+00:00",
+  "finished": "2026-11-16T08:01:11.198493+00:00"
+}

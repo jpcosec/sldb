@@ -1,0 +1,9 @@
+{
+  "key": "task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "76dc69778e3966c6688abe0929046554e84f0daafb3a7d5bf0f9fb4593c664b6",
+  "output_sha256": "1ceba1f67ae6ac54bd27fa8f3f61a634a4b4c5d964bb8e7b97f9052505649b21",
+  "start": "2026-11-16T04:49:18.549091+00:00",
+  "end": "2026-11-16T04:49:28.551376+00:00"
+}

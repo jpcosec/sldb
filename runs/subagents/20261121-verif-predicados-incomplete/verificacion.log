@@ -1,0 +1,8 @@
+### Verificación del coordinador sobre cc7f30f8 (worktree limpio), 2026-11-21: la tarea agotó sus dos intentos de tester; el último defecto (cabecera de rules-language.md) lo cerró una tarea aparte
+== tests/api/test_rules.py 13 passed, 1 warning in 7.80s
+== tests/api/test_rules_evaluation.py 13 passed, 1 warning in 9.13s
+== tests/test_rules_language_spec.py 52 passed, 1 warning in 1.60s
+== tests/test_clean_code_rules.py 1236 passed, 2 warnings in 2.42s
+== grep incomplete en src/sldb (valor del lenguaje):
+== grep trivaluad: 0
+== selfdoc check: }

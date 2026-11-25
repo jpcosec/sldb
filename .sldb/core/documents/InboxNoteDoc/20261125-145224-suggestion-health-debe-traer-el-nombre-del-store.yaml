@@ -1,0 +1,25 @@
+name: 20261125-145224-suggestion-health-debe-traer-el-nombre-del-store
+path: desk/inbox/20261125-145224-suggestion-health-debe-traer-el-nombre-del-store.md
+source_hash: 73ec320aa28570d0cad14a8a99934b83a3ac975dddccd2e37a529d946a3eade7
+content_hash: 3450917a2beedfe9d214611d093b6242c9bd77f1cb37fe67adc2f6230bf1c685
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: b7f1051fe856f69c316e66da3e89af3b88ed6c1307fd9ea0e76b198ffa53f653
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 8ff792468d85e296788fd429008fba1d07e49a81a3a68756b8a79582986b5dfe
+  ack_reason: 3b19102e59583a6b7997be0b09b5a7c0891bace07f9bbec6aa362b8693b551da
+  title: 5514c3cb16dd8899ba6c74fd2534b58118e55ae9748275cfaacb9e82a4cf6080
+  body: b8a0adf82bac772806e160c36446cb261c153022efa501e7de0aa948593dbe0e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-25T15:33:53Z'
+  authority: generated
+  via: save_document_payload

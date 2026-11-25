@@ -1,0 +1,219 @@
+=== pytest -q tests/test_links.py
+...................                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+19 passed, 1 warning in 3.35s
+rc=0
+=== pytest -q tests/test_links_batch_cli.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 3.93s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+........................................................                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1208 passed, 2 warnings in 3.63s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 978 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== vecino tests/store/test_semantic_rebuild.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 1.35s
+rc=0
+=== vecino tests/test_composition_sections.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.47s
+rc=0
+=== vecino tests/test_cli_reconciliation.py
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 1.65s
+rc=0
+DIFF span-cross-item 'Usa el carácter ` para abrir código; ver [[real]].\n- otro ` suelto en un ítem\n' got [] cm ['real'] HEAD ['real']
+DIFF span-cross-heading 'Un ` suelto y [[real]].\n# Título con ` suelto\n' got [] cm ['real'] HEAD ['real']
+DIFF span-cross-quote 'Un ` suelto y [[real]].\n> cita con ` suelto\n' got [] cm ['real'] HEAD ['real']
+ok   span-cross-fence 'Un ` suelto y [[real]].\n```\nx ` y\n```\n' got ['real'] cm ['real'] HEAD ['real']
+DIFF span-cross-items '- uno ` y [[real]]\n- dos ` y\n' got [] cm ['real'] HEAD ['real']
+DIFF span-cross-hr 'Un ` y [[real]]\n***\notro `\n' got [] cm ['real'] HEAD ['real']
+ok   span-in-fence-close '```\na ` b\n```\nVer [[real]] y ` suelto\n\n' got ['real'] cm ['real'] HEAD ['real']
+=== edges.py
+ok   ind-li '- item\n\n        [[c]]\n\n- b [[r]]\n' got ['r'] cm ['r']
+ok   ind-sub3 '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] cm ['para']
+ok   ind-ol-paren '1) item\n\n       [[c]]\n\n2) [[r]]\n' got ['r'] cm ['r']
+ok   ind-ol-10 '10. item\n\n        [[c]]\n\n    [[p]]\n' got ['p'] cm ['p']
+DIFF ind-gap5 '-     [[x]]\n\n  [[y]]\n' got ['x', 'y'] cm ['y']
+ok   ind-tab '-\titem\n\n\t\t[[c]]\n\n[[r]]\n' got ['r'] cm ['r']
+DIFF ind-empty-item '-\n\n    [[x]]\n' got ['x'] cm []
+ok   ind-after-list '- a\n\n[[t]]\n\n    [[c]]\n' got ['t'] cm ['t']
+ok   ind-plus '+ a\n\n      [[c]]\n' got [] cm []
+ok   esc1 '\\`[[b]]\\`\n' got ['b'] cm ['b']
+ok   esc2 '\\\\`[[a]]` [[b]]\n' got ['b'] cm ['b']
+ok   esc3 '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-in-span '`a\\` [[b]]` [[c]]\n' got ['b', 'c'] cm ['b', 'c']
+ok   esc-double '\\``[[a]]`` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-run '``x`` \\``[[a]]``\n' got ['a'] cm ['a']
+ok   crlf-fence '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-tilde '~~~ \r\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-mixed '```\n[[a]]\r\n```\r\n[[b]]\n' got ['b'] cm ['b']
+ok   crlf-ind-li '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   crlf-blank-inline '`[[a]]\r\n\r\n[[b]]` [[c]]\r\n' got ['a', 'b', 'c'] cm ['a', 'b', 'c']
+ok   crlf-item-fence '- ```\r\n  [[x]]\r\n  ```\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   f1 '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n' got ['real'] cm ['real']
+ok   f2 '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n' got ['real', 'otro'] cm ['real', 'otro']
+ok   f3 '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n' got ['item'] cm ['item']
+ok   f4 '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] cm ['r']
+ok   f5-star-tilde '* ~~~\n  [[x]]\n  ~~~\n* [[y]]\n' got ['y'] cm ['y']
+ok   f6-paren '1) ~~~~\n   [[x]]\n   ~~~\n   ~~~~\n[[y]]\n' got ['y'] cm ['y']
+ok   f7-nested-markers '- 1. ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f8-sub '- a\n  - ```\n    [[x]]\n    ```\n  [[y]]\n' got ['y'] cm ['y']
+ok   f9-close-shallow '- ```\n  [[x]]\n```\n[[y]]\n' got [] cm []
+ok   f10-close-deep '- ```\n  [[x]]\n      ```\n  [[y]]\n  ```\n[[z]]\n' got ['z'] cm ['z']
+ok   f11-blank-inside '- ```\n  [[x]]\n\n  [[w]]\n  ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f12-gap2 '-  ```\n   [[x]]\n   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f13-lazy '- ```\n[[x]]\n[[y]]\n' got ['x', 'y'] cm ['x', 'y']
+ok   f14-10item '10. ```\n    [[x]]\n    ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f15-backtick-info '- ```a`b\n  [[x]]\n' got ['x'] cm ['x']
+ok   f16-hr '- - -\n```\n[[x]]\n```\n[[y]]\n' got ['y'] cm ['y']
+ok   f17-gap5 '-     ```\n  [[x]]\n' got ['x'] cm ['x']
+ok   f18-orphan-close-top '   ```\n[[x]]\n' got [] cm []
+ok   f19-ol-start '3. ```\n   [[x]]\n   ```\n4. [[y]]\n' got ['y'] cm ['y']
+ok   f20-quote '> - ```\n>   [[x]]\n>   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f21-two-items '- ```\n  [[a]]\n- ```\n  [[b]]\n  ```\n[[c]]\n' got ['c'] cm ['c']
+ok   f22-indent-item '   - ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f23-fence-after-para-in-item '- texto\n  ```\n  [[x]]\n  ```\n  [[y]]\n' got ['y'] cm ['y']
+total 44 diffs 2
+=== corpus cmp
+files 2354 gain 0 lose 17 real_lost 0 cm_diff 0
+=== fuzz seed 1
+N 20000 loss 90 extra 420
+LOSS '`[[b]]  \n* `- ---\n' got [] cm ['b']
+LOSS '\r\n\\``\n> py---\n[[a6]]`' got [] cm ['a6']
+LOSS '\r\n1. `\t\n* [[a1]]> \\`1. \n\n' got [] cm ['a1']
+LOSS '10) ```\\````\n1. 10) [[b]]```\t`' got [] cm ['b']
+LOSS '> \r\n`[[b]]>     ~~~```\n1. `txt ' got [] cm ['b']
+LOSS '\n1. \n\n\npy  \\`````\n10) ~~~10) [[b]]' got [] cm ['b']
+LOSS '```- \t````\\`- 10) \\`[[b]]\n* ---```\n\n' got [] cm ['b']
+LOSS '\t1. 1. \n10)   10) \r\n\t````\n\n[[b]]10) ' got [] cm ['b']
+LOSS '> [[b]]~~~- ````[[a0]]    \n1. ```---````' got ['b'] cm ['b', 'a0']
+LOSS '````* [[a5]]\\`\n\\`10) [[a5]]\n* \t[[b]]````' got [] cm ['a5', 'a5', 'b']
+LOSS 'txt 1. * \\````[[a6]]---\n> ```\n\r\n\r\n10) \r\n\r\n' got [] cm ['a6']
+LOSS '\r\n[[b]]`txt \t\r\n- [[a1]]\r\n1. \n`[[b]]\r\n\ntxt ' got ['b', 'b'] cm ['b', 'a1', 'b']
+LOSS '---10) `---> > [[a5]]```\t---\n> `\ntxt \\`    ' got [] cm ['a5']
+LOSS '  ---````py\n* py\r\n[[b]]txt py\r\n- \\`10) ````' got [] cm ['b']
+LOSS '\n\n1. \n[[a0]]- \n> [[a0]]* \r\n    ```[[b]]10) ' got ['a0', 'a0'] cm ['a0', 'a0', 'b']
+LOSS '\r\n* \t1. py    \\`* \n\n\n\n\n  1. `\n- \n[[a0]]---`' got [] cm ['a0']
+LOSS 'txt     ---`\r\n- [[a3]]- ---\\`- >   \n\r\n[[b]]`' got ['b'] cm ['a3', 'b']
+LOSS '- 1. -     `\r\n```~~~[[a3]]`[[b]]\n\t* 1. txt \n' got ['b'] cm ['a3', 'b']
+LOSS '\t\n\n`[[b]]\n\t~~~  * \n1. \\`---\n\n~~~~~~  1. 10) ' got [] cm ['b']
+LOSS '1. * \t```\n\n1. txt `    [[b]]\n10) \n\\`\n\n[[a2]]' got ['a2'] cm ['b', 'a2']
+LOSS '\npy`> `````  \n[[b]]---\n> \r\n---txt     `~~~---' got [] cm ['b']
+LOSS '`    > - \n> [[a0]][[b]]1. [[a0]]\t> * `[[a0]]* ' got ['a0'] cm ['a0', 'b', 'a0', 'a0']
+LOSS '\\````\n\n  * `~~~- - \n1. \n`\n`\n[[b]][[a6]]> \t`~~~' got [] cm ['b', 'a6']
+LOSS '`---- [[a2]]10) txt 1. ---\n1. \\`- [[b]]```- py' got ['b'] cm ['a2', 'b']
+LOSS '\n10) \r\n`\n``\n\n\r\npy---\ttxt py1. `\r\n> \n1. \n[[b]]\\`' got [] cm ['b']

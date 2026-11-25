@@ -1,0 +1,9 @@
+{
+  "key": "task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "76d3ca68af23e3c4a15de7aafbaabc2575d485a99a70fef6c73d67316fa28e21",
+  "output_sha256": "ae7db2bee76086c7c8906d54755128cc62aef512f3d205a8d8c22de84cc6c82a",
+  "start": "2026-11-20T07:57:33.162081+00:00",
+  "end": "2026-11-20T07:57:48.139405+00:00"
+}

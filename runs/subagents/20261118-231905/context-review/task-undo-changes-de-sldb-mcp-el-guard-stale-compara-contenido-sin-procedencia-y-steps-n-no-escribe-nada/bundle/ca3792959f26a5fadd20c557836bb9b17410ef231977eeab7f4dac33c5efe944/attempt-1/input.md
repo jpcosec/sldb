@@ -1,0 +1,320 @@
+FILE:desk/tasks/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada.md
+---
+sldb:
+  by: agent
+  at: '2026-11-18T23:17:22Z'
+  authority: generated
+  via: save_document_payload
+id: task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
+status: draft
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+current_node: ritual-execution
+history: []
+references: []
+depends_on: []
+pills: []
+files: []
+task_type: task.debug
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
+---
+
+# undo_changes de sldb mcp: el guard stale compara contenido sin procedencia y steps=N no escribe nada si rechaza un paso
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+Nota 20261117-135338-suggestion-ir04b-undo-changes-de-sldb-mcp-falla-tras-re-sellar-procedencia-stale-imposible-de-satisfacer-steps-2-escribe-a-medias de IR (IR04b, evidencia en IR/runs/subagents/deskops-e-674fcb14989b-a2/: result-summary.md, undo-run3.log y tests/test_mcp_undo.py en el árbol de IR, sin commit). Probado con un cliente MCP real sobre una copia del store, undo_changes (d0ee07a3) cumple los niveles, pero: (2) el guard stale compara source_hash, que incluye la procedencia re-sellada (sldb.at, via), así que después de un cambio ajeno y su reversión al contenido anterior el lote queda en rejected: stale para siempre y atascado en la pila; (3) con dos lotes donde el segundo edita un documento del primero, undo_changes(steps=2) responde applied: False, rejected: stale, written: True, es decir que escribió el inverso del segundo y rechazó el primero. IR04b está bloqueada esperando esto.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+(1) El contrato de undo queda documentado como 'mismo contenido salvo procedencia': deshacer es una escritura nueva y re-sella sldb.at, via y los hashes derivados. (2) El guard stale de undo compara el contenido del documento sin el bloque de procedencia, así que un documento que volvió al contenido esperado ya no queda stale. (3) undo_changes(steps=N) valida la cadena entera antes de escribir: cada paso se compara contra el estado que dejaría el paso anterior y, si alguno se rechaza, no se escribe nada (written: False) y la pila queda intacta.
+
+## Scope
+
+_State what is in scope and what is out of scope._
+
+Dentro: el código de undo_changes de sldb mcp y la pila de lotes inversos de apply_batch (src/sldb/mcp y src/sldb/api, donde están el guard y la pila), sus tests, el CHANGELOG y la documentación del contrato de undo. Fuera: cambiar el formato de la procedencia o el source_hash del índice; specIR (IR04b relaja su validación según el contrato documentado).
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+Ubicaciones (sldb en el HEAD local al despachar): la pila es UndoStack en src/sldb/mcp/write/undo.py (undo_changes y _undo_last, con rejected('stale', ...) en la línea 48). El guard del inverso lo pone _undo en src/sldb/api/documents/batch_inverse.py (líneas 51-52: undo['expected_source_hash'] = source_hash del documento rastreado, que incluye la procedencia). apply_batch en src/sldb/api/documents/apply_batch.py chequea los guards y escribe bajo store_lock(location.store_path, wait=True) (línea 55), todo o nada. Hoy el docstring de UndoStack.undo_changes documenta a propósito el comportamiento parcial ('what was undone stays undone'); esta tarea lo cambia a atómico. La evidencia de IR está en /mnt/ssd/proyectos/SLDB_1/IR/runs/subagents/deskops-e-674fcb14989b-a2/ (result-summary.md, undo-run3.log) y /mnt/ssd/proyectos/SLDB_1/IR/tests/test_mcp_undo.py (sin commit en IR). p1: dos tests nuevos en tests/mcp que fallen antes: (a) inverso guardado, cambio ajeno por api.apply_batch y reversión al contenido anterior, y después undo_changes debe aplicar (hoy da stale); (b) dos lotes donde el segundo edita un documento del primero; undo_changes(steps=2) con un rechazo forzado en el más viejo debe responder written: False y dejar el store y la pila como estaban. p2 (guard): el guard del inverso compara el contenido sin el bloque de procedencia. No hay hoy una función de hash de contenido de documento (api/views/view_revision.content_hash es de vistas), así que se crea una sola en src/sldb/api/documents (hash del payload sin el bloque sldb de procedencia); el inverso guarda ese valor y apply_batch lo chequea como guard nuevo ('expected_content_hash'), sin cambiar expected_source_hash para los demás llamadores. p3 (steps=N): encadenar los N inversos, del más nuevo al más viejo, en una sola llamada a apply_batch, que ya es todo o nada bajo un cerrojo, y sacarlos de la pila solo si se aplicó. Con el guard de contenido, cada inverso más viejo espera el contenido que deja el más nuevo. p4: docs/architecture/mcp.md (la sección de undo) y el docstring de undo_changes documentan el contrato 'mismo contenido salvo procedencia' y el todo o nada de steps; CHANGELOG. p5: el ejecutor corre solo tests/mcp y los tests de los archivos que toque; la suite completa (pytest -n 4 y sldb selfdoc check) la corre integrate. p6: después de su commit con Task-Id, avisa a IR con: deskops message send --root /mnt/ssd/proyectos/SLDB_1/sldb --to IR --kind suggestion --title 'sldb: undo_changes con guard de contenido y steps atómico (IR04b)' '<sha corto del commit, qué cambió y el contrato>'.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- TMPDIR=/tmp python -m pytest -q -p no:cacheprovider tests/mcp
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+Los dos tests nuevos fallan antes y pasan después, la suite completa de sldb pasa (la corre integrate) e IR recibió la nota con el commit.
+
+FILE:desk/rituals/execution.md
+---
+# ritual-xxx
+id: ritual-execution
+# Ordered prose steps; not document references
+steps:
+- 'Atomize: break the work into the smallest possible child tasks.'
+- 'Dedupe: merge overlapping items.'
+- 'Clean: delete legacy content that the work makes obsolete (with deskops retire,
+  closeout or drawer remove, never by hand).'
+- 'Audit existing work before claiming anything is done: check git history for relevant
+  commits, verify artifacts exist where specified, and run tests to confirm the current
+  state.'
+- Resolve contradictory end states between the desk and the repo.
+- Bind the pills the task depends on (the task's pills field or deskops bind).
+- Keep the Board current; deskops maintains it, so use deskops verbs instead of editing
+  it.
+- 'Execute with explicit boundaries: scope, touched files and validation targets stated
+  in the task.'
+- 'After each step, run the context audit: is every aspect of the task covered by
+  a pill, are the bound pills still accurate, update or retire the stale ones, and
+  bind new ones as needed.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Execution ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Review the board, bind the relevant pills, keep scope tight, and implement only the active task for sldb.
+
+## Trigger
+
+_State when this ritual should start._
+
+Before starting any task, and after each step while implementing it.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- Pre-execution gate: ask whether any aspect of the task is ambiguous or not covered by its task file, pills and atoms. If not, proceed. If so, create or request the missing context first; do not proceed until the task is unambiguous.
+- The Board (desk/tasks/Board.md) is the single entry point for active work: read it before starting any task.
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- Scope, touched files and validation targets are explicit in the task.
+- Every desk reference points at durable repo context: task files, pills, atoms, drawer notes, inbox messages, source files, tests, docs and commits.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Proceeding with an ambiguous task without creating or requesting the missing context.
+- Creating implementation artifacts instead of referencing existing pills.
+- Referencing surfaces below the current layer.
+- Desk documents pointing at chat memory or other non-durable context.
+- Trusting the task file over the code: the task file describes intent; git history is truth.
+
+## Completion
+
+_Describe what completion looks like._
+
+The task's change is implemented within its stated scope and the testing ritual can start.
+
+FILE:desk/rituals/testing.md
+---
+# ritual-xxx
+id: ritual-testing
+# Ordered prose steps; not document references
+steps:
+- 'Invalidate: check whether existing tests are broken by the change; update or delete
+  the ones that no longer describe the behavior.'
+- 'Verify: add new tests where the change needs them.'
+- 'Test: run the relevant test or validation suite, smallest first, then the full
+  suite when shared behavior changed. All required checks must pass.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Testing ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+No task is complete without testing. Run the smallest relevant validation first, then broaden coverage when sldb changes shared behavior.
+
+## Trigger
+
+_State when this ritual should start._
+
+When the implementation of a task is done, before closeout.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- 
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- All required checks pass: the test suite, plus stores check, tools/check.sh and tools/check_claims.py when the change touches the store, the gates or documented claims.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Skipping tests to get it done.
+- Declaring a check green from truncated output (a pipe through tail hides the exit status).
+
+## Completion
+
+_Describe what completion looks like._
+
+Every required check passes on the final change.
+
+FILE:desk/rituals/closeout.md
+---
+# ritual-xxx
+id: ritual-closeout
+# Ordered prose steps; not document references
+steps:
+- Update the CHANGELOG when the change is user-visible or release-relevant.
+- 'Run the context audit: check the task''s pills, update stale ones, and retire the
+  ones whose knowledge now lives in code or docs.'
+- 'Close the task with deskops closeout (commit, or supersede/retire when it was already
+  resolved): the task leaves the Board in the same atomic commit as its evidence.
+  Completed tasks are not kept on the Board.'
+- 'Commit atomically, only when the execution ritual is complete. Commit when a phase
+  or slice objective is fully checked (a concise scoped message), for a critical bug
+  fix mid-phase (fix(<scope>): <description>), or for chores such as dependencies
+  or config (chore(<scope>): <description>). A slice that is not done is not a commit:
+  work in progress is not committed.'
+- 'Write commit messages as <type>(<scope>): <description>, with type one of feat,
+  fix, docs, refactor, chore, test, perf, and scope the smallest accurate repo area,
+  component, command or workflow surface.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Closeout ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Close a sldb task only after validation passes, the board is updated, and the final change is ready to commit.
+
+## Trigger
+
+_State when this ritual should start._
+
+When the testing ritual passes for a task.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- Pre-completion audit, git history: the commits match the completed work; on a mismatch, correct the commit history or update the task state to reflect reality.
+- Pre-completion audit, artifacts: every specified output exists at the specified location; implement the missing ones.
+- Pre-completion audit, tests: all pass; fix failing tests first.
+- Pre-completion audit, clean tree: every untracked file is either gitignored or tracked; clean up a dirty tree before declaring done.
+- Trust the code, not the task file: the task file describes intent, git history is truth.
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- deskops closeout verify reports the tests, commit and atom gates as passing, and the tree is clean.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Marking a task complete without auditing git history.
+- Committing with untracked files (gitignore or track them first).
+- Force-pushing to hide failures.
+- Committing work in progress.
+
+## Completion
+
+_Describe what completion looks like._
+
+The closing commit exists, the task is off the Board, and the tree is clean.
+
+FILE:desk/rituals/phase.md
+---
+# ritual-xxx
+id: ritual-phase
+# Ordered prose steps; not document references
+steps:
+- 'Compile: rebuild when applicable (bundles, dist).'
+- 'Audit: run the relevant tests and quality checks.'
+- 'Regress: fix any test failure.'
+- 'Flow: move the pill knowledge that is still needed into code or docs, capture phase-level
+  learning into an atom, and retire the redundant pills.'
+- 'Advance: clear the Board for the next phase and move on.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Phase ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Close the active phase only when every task on the sldb board is complete, capture any phase-level learning into an atom, and clear the board for the next phase.
+
+## Trigger
+
+_State when this ritual should start._
+
+When every task in a phase or delivery slice is done.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- 
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- Tests and quality checks pass and no pill repeats what code or docs already say.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- 
+
+## Completion
+
+_Describe what completion looks like._
+
+The Board holds only the next phase's tasks.
+
+FILE:instruccion
+Cold-bundle de la tarea task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada: con el TaskDoc, los rituales enrutados por el Board, las pills ligadas, los átomos ligados y los archivos que el TaskDoc nombra, reformula el encargo, lista ambigüedades con cita textual del input y da el DRY-RUN sin ejecutar nada. No ejecutes nada.
+
+Sección de validación del TaskDoc:
+- TMPDIR=/tmp python -m pytest -q -p no:cacheprovider tests/mcp
+

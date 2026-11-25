@@ -1,0 +1,93 @@
+{
+  "key": "task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/bundle",
+  "input_sha256": "416e80eb927b14059677c3eb884d551c070a4da9c0688cd2abb4e6d8591558b0",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-175927/context-review/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/bundle/416e80eb927b14059677c3eb884d551c070a4da9c0688cd2abb4e6d8591558b0/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md",
+      "sha256": "8a626a2c9bddc13baef947615a1c2b0e2a93d1d880ec6a32b89fcf475643c7d6",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/graph/analyze.py",
+      "sha256": "2037e12ed304138fe5e4a77bba692fe6f0437b6a85951d90eba6cf7c76263124",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/backend/networkx_backend.py",
+      "sha256": "72fba8885822a0ad2fec003203b9f46e7d40c63c23f0da1b832594e4edf6bcbd",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/graph_analysis.py",
+      "sha256": "95108a0f6e4063f4f3e08eb7a3ecd27ec59c29ffaeb6926d9fa2a6694a78b970",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/graph_analysis.py",
+      "sha256": "3e29158e51877eb099ce274a43716b26330cfe3f0e44ea20788c834f7726f587",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/graph_routes.py",
+      "sha256": "777f8c38f6f170ebd9592d5e2cc87dbc9a8b452d9febe299545262a56af2cd7a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_api_graph_analysis.py",
+      "sha256": "8396eade3e821cc6fc2b89e94057589992a0a56144f0973f391e461a0440d297",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 116767
+    }
+  ],
+  "started": "2026-11-16T17:59:30.363345+00:00",
+  "finished": "2026-11-16T17:59:47.705883+00:00"
+}

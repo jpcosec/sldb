@@ -1,0 +1,9 @@
+{
+  "key": "task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "90dd0dd3deaf0de50852a10a5e6378df7c9a21ed27d940d506c315cf38047c69",
+  "output_sha256": "b3782eab7b8476865665fc14d4cf86ae7a6f6bca0670482840f95a6bd0205f16",
+  "start": "2026-11-17T15:06:20.764971+00:00",
+  "end": "2026-11-17T15:06:40.972598+00:00"
+}

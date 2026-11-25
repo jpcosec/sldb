@@ -1,0 +1,349 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 5c13f721..b16c8b53 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
+ 
+ ## 0.1.13 — not released yet (no tag, not on PyPI)
+ 
++- El scan de enlaces de Markdown no lee el código (task `task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com`; nota del inbox `20261117-021700`, de sldb-ui, donde un documento real daba dos veces `target` como enlace roto por ejemplos dentro de bloques de código). `sldb.links.parse_links`, que usan `recover_links`, `sldb docs recover` y `sldb recover`, busca `[[...]]`, `![[...]]` y `[predicado:: [[...]]]` en el texto después de reemplazar el código por espacios (`sldb/links/code_mask.py` y `sldb/links/code_blocks.py`, sin mover offsets), con las reglas de CommonMark: un bloque cercado abre con 3 o más backticks o tildes a 0-3 columnas del contenido de su contenedor, también en la línea del marcador de un ítem de lista (`` - ``` ``, `` 1. ```python ``, `* ~~~`, donde se mide en la columna de contenido del ítem), y cierra con una línea del mismo carácter de largo igual o mayor a 0-3 columnas de esa misma columna; una línea no vacía a la izquierda de esa columna termina el ítem y el bloque con él, así que el cierre indentado de un fence de ítem nunca abre un bloque nuevo que se trague el resto del archivo; fuera de una lista, un bloque sin cierre llega al fin del archivo; una línea indentada 4 columnas (un tab cuenta hasta la siguiente columna múltiplo de 4) más allá del contenido del ítem de lista que la contiene, o de la columna 0 fuera de una lista, después de una línea en blanco, es código (`- item\n\n        [[x]]` y lo mismo en un subítem; `- item\n\n    [[x]]` es un párrafo del ítem y su enlace cuenta, y tampoco es código la línea que continúa un párrafo); el código en línea abre con una racha de N backticks no escapada con `\` y cierra con la siguiente de exactamente N en el mismo párrafo, y una racha sin cierre es texto (`` \`[[b]]\` `` es un enlace); los fences y las líneas en blanco aceptan `\r\n` al llamar a `parse_links` con un string CRLF. Los enlaces fuera del código salen igual que antes. Cambia de comportamiento un texto indentado 4 espacios tras una línea en blanco: es código y sus enlaces ya no se cuentan (dos tests de `tests/test_links.py` escribían su Markdown así y ahora lo pasan por `dedent`). Sobre los 1955 `.md` legibles de los 2354 versionados del repo, solo 17 cambian de enlaces respecto de HEAD y lo que pierden son ejemplos en código (`x`, `...`, `target`, `links`). Sobre esos mismos `.md`, los enlaces que da `parse_links` son los mismos que fuera de `<code>` en el HTML de markdown-it-py en modo `commonmark`. No cambian `sldb docs compose` (expande con `LINK_PATTERN` sobre el texto completo), el render de predicados ni las referencias de modelos o del project graph. Tests: `tests/test_links.py` (`test_parse_links_skips_code`, `test_parse_links_fence_rules`, `test_docs_recover_ignores_links_in_code`, que reproduce el caso de sldb-ui con rc 0 y sin `unresolved`, y `test_parse_links_indented_code_in_list_item`, `test_parse_links_escaped_backtick_is_text`, `test_parse_links_crlf_line_ends` y los cuatro `test_parse_links_fence_on_*` y `test_parse_links_fence_in_list_item_ends_with_the_item`, con fences abiertos en la línea del marcador, que además comparan con markdown-it-py en modo `commonmark` cuando está instalado, sin agregarlo como dependencia).
+ - `sldb.api.read_store` distingue un store inexistente de uno sin preparar (task `task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared`; nota del inbox `20261117-021515`, de graph_ui). Antes lanzaba `SLDBStoreError` 'store not prepared: run `sldb stores update` (<ruta>)' también cuando el directorio `.sldb` no existía, y correr `sldb stores update` no servía. Ahora, si el directorio `.sldb` resuelto no existe, lanza `SLDBStoreError` 'store not found: <ruta .sldb resuelta>'; el mensaje 'store not prepared' no cambia y sigue saliendo cuando el store existe pero le falta el índice o su layout no es canónico. `store_is_prepared` no cambia. Tests: `tests/api/test_api_stores.py` (los dos mensajes).
+ - `sldb.code` publica facts genéricos de TS, TSX, JS y JSX sin conocer ningún framework (task `task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam`, C3 de IR para IR09; nota del inbox `20261116-211648`), con la forma de la parte Python. Cada `function`, `hook` o `component` lleva `attrs.calls`, un `{name, line, first_arg, canonical}` por llamada de su cuerpo en orden de fuente (`line` absoluta en el archivo), y una relación `calls` por destino canónico distinto. `name` es la expresión llamada completa, sin partirla ni resolver imports (`fetch`, `axios.get`, `api.posts.create`). Cuando la cadena empieza en un identificador, `this`, `super` o una función, `name` está en una forma canónica que se arma desde el árbol y no desde el texto, y `canonical` es `true`: identificadores y propiedades unidos por `.` (`?.` y `!` si están escritos), sin espacios ni saltos de línea (`client\n  .documents()` da `client.documents`), sin `await` y sin argumentos de tipo (`await get<T>('/x')` y `api.get<T>('/y')` dan `get` y `api.get`). Un tramo de la cadena que es a su vez una llamada se escribe `()` sin sus argumentos (`fetch(url).then(cb).then(f)` da `fetch().then().then`; `(await listDocuments(m)).slice(0)` da `listDocuments().slice`), una función anónima o una IIFE da `(fn)` y un acceso por índice da `[]` (`x[1].y` da `x[].y`). Cuando la cadena empieza en otra expresión (un array, un binario, un `new`, un literal, un regex, un `import(...)`), la llamada se publica igual con `canonical: false` y `name` es el texto de la expresión llamada sin `await` ni argumentos de tipo, con cada tramo de espacios en blanco colapsado a un espacio, también dentro de un literal (`new Set(xs).has`, `(a ?? []).map`, `'a b'.split`, `[...x].sort`); esas llamadas no dan relación `calls`, para no poner en el grafo destinos que no son símbolos. Canonizarlas queda para otra tarea. Los handlers JSX usan el mismo `name`. `first_arg` es el valor de un primer argumento string o template sin `${...}`, sin comillas ni backticks (`/api/posts`); si no, `null`. Como un `def` anidado en Python, una declaración `function`, generadora o `class` anidada no se recorre; una arrow o function expression sí (callbacks, handlers inline), como un `lambda`. `new X()` no es llamada. Un `type` o `interface` no lleva `calls`. Cada `component` lleva además `attrs.handlers`: un `{element, attribute, handler}` por atributo JSX cuyo nombre es `on` seguido de mayúscula (`onClick` sí, `only` no) y cuyo valor es `{identificador}` (`onClick={handleSave}` da `handleSave`), `{llamada(...)}` o una función cuyo cuerpo es una llamada (`{() => save(x)}` da `save`); `element` es el tag tal como está escrito (`button`, `Form.Item`). Un `{props.onFocus}`, un string o un spread no son handler. Cada handler suma su relación `calls`, salvo uno con el `name` de una llamada no canónica. Readers nuevos en `sldb/code/ts_calls.py`, `sldb/code/ts_callee.py`, `sldb/code/ts_loose.py` y `sldb/code/ts_jsx.py`; salen por `scan_tree`, `scan_file` y `sldb.api.code.code_facts`. No hay kinds nuevos: los ids, spans y huellas de los facts TS no cambian (solo se agregan relaciones y atributos), los de `.py` y SQL tampoco, y `NORMALIZATION` sigue en 1; las anclas TS no cambian de estado. Fixture nuevo `tests/fixtures/treesitter/frontend/src/PostForm.tsx` (fetch, axios y un botón con `onClick`).
+ - El valor de un campo se renderiza literal: `render_model_markdown` ya no pasa los valores del usuario por Jinja (task `task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari`; nota del inbox `20261117-015212`, de deskops). `BaseRenderer.replace_markers` (`sldb/core/renderer_engine/base.py`) pegaba el valor de cada marcador en el texto fuente del bloque y compilaba el resultado con `jinja_env.from_string(...)`, así que un valor era código de plantilla: dos o tres llaves de apertura seguidas daban `TemplateSyntaxError`, y una expresión válida se evaluaba y se guardaba alterada con rc 0 (`{{ 7*7 }}` quedaba como `49` y un comentario `{# ... #}` desaparecía). Ahora cada marcador se reemplaza por una referencia a una variable de contexto (`{{ _sldb_marker_values[i] }}`, en `BaseRenderer._bind`) y Jinja imprime el valor sin compilarlo; solo la plantilla del modelo es Jinja. Como Jinja solo descarta el salto de línea final del texto fuente, el de un valor que cierra el bloque se quita a mano (con `unshield_trailing_newline` cuando el valor lleva los centinelas del span recorder), igual que antes. Las líneas de un `optrev` ausente y la salida de los valores sin llaves no cambian: 58452 llamadas a `replace_markers` de los tests del renderer dan los mismos bytes que en HEAD. Tests: `tests/test_list_items_round_trip.py` (`test_a_value_is_never_compiled_as_jinja`: dos y tres llaves, expresión, comentario, bloques `{% %}`, `raw`, llaves de cierre sueltas y un valor con `⸢marcador⸥`, en un campo escalar, un título y un ítem de lista; 9 de los 11 casos fallan en HEAD).
+diff --git a/src/sldb/links/parser.py b/src/sldb/links/parser.py
+index 765b59f5..de0ae09c 100644
+--- a/src/sldb/links/parser.py
++++ b/src/sldb/links/parser.py
+@@ -1,6 +1,7 @@
+ from __future__ import annotations
+ import re
+ from collections.abc import Mapping
++from .code_mask import mask_code
+ from .parsed_link import ParsedLink
+ 
+ LINK_PATTERN = re.compile(r"(!)?\[\[([^\]]+)\]\]")
+@@ -15,6 +16,7 @@ def _parse_standard(m: re.Match, seen: set) -> ParsedLink | None:
+     return ParsedLink(m.group(0), m.group(2).strip(), "transclusion" if m.group(1) else "link", None, None)
+ 
+ def parse_links(markdown: str, predicate_types: Mapping[str, str] | None = None) -> list[ParsedLink]:
+-    seen, p_types = set(), predicate_types or {}
+-    inline = [_parse_inline(m, p_types, seen) for m in INLINE_PREDICATE_LINK_PATTERN.finditer(markdown)]
+-    return inline + [p for m in LINK_PATTERN.finditer(markdown) if (p := _parse_standard(m, seen))]
++    """Links of the Markdown outside code: fenced, indented and inline code are not scanned."""
++    seen, p_types, text = set(), predicate_types or {}, mask_code(markdown)
++    inline = [_parse_inline(m, p_types, seen) for m in INLINE_PREDICATE_LINK_PATTERN.finditer(text)]
++    return inline + [p for m in LINK_PATTERN.finditer(text) if (p := _parse_standard(m, seen))]
+diff --git a/tests/test_links.py b/tests/test_links.py
+index ab0b5c23..88694651 100644
+--- a/tests/test_links.py
++++ b/tests/test_links.py
+@@ -1,6 +1,7 @@
+ import json
+ 
+ from pathlib import Path
++from textwrap import dedent
+ 
+ from sldb.cli import main as cli_main
+ 
+@@ -305,11 +306,11 @@ def test_parse_predicate_links():
+     """Test parsing of [predicate:: [[target]]] syntax."""
+     from sldb.links import parse_links
+ 
+-    markdown = """
++    markdown = dedent("""
+     This task [implements:: [[spec-001]]].
+     Another [is_solved_by:: [[solution-002]]].
+     [custom_predicate:: [[some-doc]]].
+-    """
++    """)
+     links = parse_links(
+         markdown,
+         {"implements": "HOW", "is_solved_by": "HOW"},
+@@ -353,14 +354,14 @@ def test_parse_mixed_links_with_predicates():
+     """Test parsing of documents with both regular links and predicate links."""
+     from sldb.links import parse_links
+ 
+-    markdown = """
++    markdown = dedent("""
+     See [[background]] for context.
+ 
+     This solution [implements:: [[spec-v2]]] and
+     [grounded_by:: [[research-paper]]].
+ 
+     Also check [[related-work]].
+-    """
++    """)
+     links = parse_links(
+         markdown,
+         {"implements": "HOW", "grounded_by": "PROVENANCE"},
+@@ -534,3 +535,154 @@ def test_recover_predicate_links_cli(tmp_path, capsys):
+         link for link in predicate_links if link["predicate"] == "grounded_by"
+     )
+     assert grounded_link["w5h1_type"] == "PROVENANCE"
++
++
++# =============================================================================
++# Code is not scanned for links (fenced, indented and inline code)
++# =============================================================================
++
++CODE_EXAMPLES_DOC = """# Guía de enlaces
++
++Ver [[concept]] y [implements:: [[spec-001]]].
++
++```markdown
++Un enlace se escribe [[target]] y una transclusión ![[target]].
++```
++
++~~~~
++[depends_on:: [[target]]]
++~~~
++sigue dentro: el cierre de tildes es más corto que la apertura [[target]]
++~~~~
++
++    [[target]] en un bloque indentado
++
++- un ítem de lista con [[item-link]]
++
++    [[nested-link]] dentro del ítem no es código
++
++Usa `[[target]]` o ``[[target]] con ` adentro``; un ` suelto no abre código, y [[after-tick]] cuenta.
++
++Cierre: [[closing]].
++
++```
++bloque sin cerrar: [[target]]
++"""
++
++
++def test_parse_links_skips_code():
++    from sldb.links import parse_links
++
++    links = parse_links(CODE_EXAMPLES_DOC, {"implements": "HOW"})
++
++    assert [(link.target, link.kind) for link in links] == [
++        ("spec-001", "predicate_link"),
++        ("concept", "link"),
++        ("item-link", "link"),
++        ("nested-link", "link"),
++        ("after-tick", "link"),
++        ("closing", "link"),
++    ]
++
++
++def test_parse_links_fence_rules():
++    from sldb.links import parse_links
++
++    def targets(markdown):
++        return [link.target for link in parse_links(markdown)]
++
++    assert targets("```\n[[a]]\n```\n[[b]]\n") == ["b"]
++    assert targets("~~~python\n[[a]]\n~~~\n[[b]]\n") == ["b"]
++    assert targets("````\n[[a]]\n```\n[[b]]\n````\n[[c]]\n") == ["c"]
++    assert targets("```\n[[a]]\n~~~\n[[b]]\n") == []
++    assert targets("```x``` [[a]]\n") == ["a"]
++    assert targets("texto\n    [[a]] continúa el párrafo\n") == ["a"]
++    assert targets("texto\n\n\t[[a]]\n\n[[b]]\n") == ["b"]
++    assert targets("`` [[a]] ` `` [[b]] ```[[c]]`` [[d]]\n") == ["b", "c", "d"]
++    assert targets("`abre\n\n[[a]] cierra`\n") == ["a"]
++
++
++def test_docs_recover_ignores_links_in_code(tmp_path, capsys):
++    """The sldb-ui case: example links inside code are not reported as broken."""
++    pythonpath = _write_models(tmp_path)
++    store = tmp_path / ".sldb"
++    assert cli_main(["stores", "init", "--path", str(tmp_path)]) == 0
++    assert cli_main(["models", "add", "link_models:NoteDoc", "--store", str(store), "--pythonpath", pythonpath]) == 0
++    for name in ("concept", "item-link", "nested-link", "after-tick", "closing"):
++        note = tmp_path / f"{name}.md"
++        note.write_text(f"# {name}\n\nBody.\n", encoding="utf-8")
++        assert cli_main(["docs", "track", str(note), "--model", "NoteDoc", "--store", str(store), "--pythonpath", pythonpath]) == 0
++    doc = tmp_path / "guide.md"
++    doc.write_text(CODE_EXAMPLES_DOC.replace("[implements:: [[spec-001]]]", "[[concept]]"), encoding="utf-8")
++
++    capsys.readouterr()
++    rc = cli_main(["docs", "recover", str(doc), "--store", str(store), "--format", "json", "--include-transclusions"])
++    recovered = json.loads(capsys.readouterr().out)
++
++    assert rc == 0
++    assert [link["target"] for link in recovered["links"]] == ["concept", "item-link", "nested-link", "after-tick", "closing"]
++    assert all(link["resolved"] for link in recovered["links"])
++    assert recovered["unresolved"] == []
++
++
++def _commonmark_targets(markdown):
++    """Link targets outside code per markdown-it-py in commonmark mode, or None if it is not installed."""
++    import re
++
++    try:
++        from markdown_it import MarkdownIt
++    except ImportError:
++        return None
++    html = re.sub(r"<code[^>]*>.*?</code>", "", MarkdownIt("commonmark").render(markdown.replace("\r\n", "\n")), flags=re.S)
++    return [m.group(1).strip() for m in re.finditer(r"\[\[([^\]]+)\]\]", html)]
++
++
++def _assert_targets(markdown, expected):
++    from sldb.links import parse_links
++
++    assert [link.target for link in parse_links(markdown)] == expected
++    reference = _commonmark_targets(markdown)
++    assert reference is None or reference == expected
++
++
++def test_parse_links_indented_code_in_list_item():
++    """Code inside a list item starts 4 columns past the item's content, also in a sub-item."""
++    _assert_targets("- item\n\n        [[code8]]\n\n- b [[real]]\n", ["real"])
++    _assert_targets("- item\n  - sub\n\n          [[c]]\n", [])
++    _assert_targets("- item\n  - sub\n\n      [[para]]\n", ["para"])
++    _assert_targets("1. item\n\n       [[c]]\n\n[[d]]\n\n    [[e]]\n", ["d"])
++
++
++def test_parse_links_escaped_backtick_is_text():
++    _assert_targets("\\`[[b]]\\`\n", ["b"])
++    _assert_targets("\\``[[a]]` [[b]]\n", ["b"])
++    _assert_targets("\\\\`[[a]]` [[b]]\n", ["b"])
++
++
++def test_parse_links_crlf_line_ends():
++    _assert_targets("```\r\n[[a]]\r\n```\r\n[[b]]\r\n", ["b"])
++    _assert_targets("~~~\r\n[[a]]\r\n~~~ \r\n[[b]]\r\n", ["b"])
++    _assert_targets("`[[a]]\r\n\r\n[[b]]` [[c]]\r\n", ["a", "b", "c"])
++
++
++def test_parse_links_fence_on_numbered_item_line_keeps_links_after_it():
++    _assert_targets("1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n", ["real"])
++
++
++def test_parse_links_fence_on_bullet_item_line_keeps_links_after_it():
++    _assert_targets("- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n", ["real", "otro"])
++
++
++def test_parse_links_fence_on_item_line_skips_its_content_before_next_item():
++    _assert_targets("- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n", ["item"])
++
++
++def test_parse_links_fence_on_item_line_skips_its_content_before_text():
++    _assert_targets("- ```\n  [[f]]\n  ```\n[[r]]\n", ["r"])
++
++
++def test_parse_links_fence_in_list_item_ends_with_the_item():
++    """An unclosed fence inside a list item ends with the item, not at the end of the file."""
++    _assert_targets("- a\n  ```\n  [[x]]\n[[y]]\n", ["y"])
++    _assert_targets("* ~~~\n  [[x]]\n\n[[y]]\n", ["y"])
++    _assert_targets("- a\n  - ```\n    [[x]]\n    ```\n  [[y]]\n", ["y"])
+diff --git a/src/sldb/links/code_mask.py b/src/sldb/links/code_mask.py
+new file mode 100644
+index 00000000..60dff66c
+--- /dev/null
++++ b/src/sldb/links/code_mask.py
+@@ -0,0 +1,33 @@
++"""Blank the code of a Markdown text so the link scan does not read it.
++
++CommonMark rules: fenced and indented code blocks come from `code_blocks.mask_blocks`; an
++inline code span opens with a run of N backticks not escaped by `\\` and closes with the next
++run of exactly N in the same paragraph. `\\r\\n` line ends count like `\\n`. Code is replaced
++by spaces (newlines kept), so every offset outside it stays the same.
++"""
++from __future__ import annotations
++import re
++from .code_blocks import mask_blocks
++
++INLINE_TOKEN = re.compile(r"\\[\s\S]|`+")
++BLANK_LINE = re.compile(r"\n[ \t\r]*\n")
++
++def _blank(text: str, start: int, end: int) -> str:
++    return text[:start] + re.sub(r"[^\n]", " ", text[start:end]) + text[end:]
++
++def _inline_close(md: str, opening: re.Match) -> re.Match | None:
++    if opening.group(0).startswith("\\"): return None
++    limit = BLANK_LINE.search(md, opening.end())
++    return re.compile(rf"(?<!`){opening.group(0)}(?!`)").search(md, opening.end(), limit.start() if limit else len(md))
++
++def _mask_inline(md: str) -> str:
++    pos = 0
++    while opening := INLINE_TOKEN.search(md, pos):
++        close = _inline_close(md, opening)
++        pos = close.end() if close else opening.end()
++        if close: md = _blank(md, opening.start(), pos)
++    return md
++
++def mask_code(markdown: str) -> str:
++    """Return markdown with fenced, indented and inline code replaced by spaces."""
++    return _mask_inline(mask_blocks(markdown))
+diff --git a/src/sldb/links/code_blocks.py b/src/sldb/links/code_blocks.py
+new file mode 100644
+index 00000000..1784de17
+--- /dev/null
++++ b/src/sldb/links/code_blocks.py
+@@ -0,0 +1,71 @@
++"""Find the lines of fenced and indented code blocks of a Markdown text (CommonMark).
++
++One pass over the lines keeps the stack of content columns of the open list items. A fence
++opens 0-3 columns past the content of its container, also on the line of a list marker
++(`- ```` or `1. ```python`), and closes with a line of the same character at least as long,
++0-3 columns past that same column; a non-blank line left of that column ends the item and
++the fence with it. Unclosed outside a list, a fence runs to the end. A line 4 columns past
++the content of its container after a blank line is indented code. Tabs count to the next
++multiple of 4 and `\\r\\n` counts like `\\n`.
++"""
++from __future__ import annotations
++import re
++
++FENCE = re.compile(r"(`{3,}(?=[^`]*$)|~{3,})")
++LIST_ITEM = re.compile(r" *([-*+]|\d{1,9}[.)])( +|$)")
++THEMATIC_BREAK = re.compile(r" {0,3}([-*_])( *\1){2,} *$")
++
++def _indent(text: str) -> int:
++    return len(text) - len(text.lstrip(" "))
++
++def _close_items(cols: list[int], indent: int) -> None:
++    while cols and indent < cols[-1]: cols.pop()
++
++def _in_fence(text: str, st: dict) -> bool | None:
++    """True for a line of the open fence (its closing line too); None once its list item ended."""
++    char, size, col = st["fence"]
++    indent = _indent(text)
++    if text.strip() and indent < col:
++        st["fence"], st["prev"] = None, "blank"
++        _close_items(st["cols"], indent)
++        return None
++    if indent - col <= 3 and re.fullmatch(rf"{re.escape(char)}{{{size},}}", text.strip()):
++        st["fence"], st["prev"] = None, "blank"
++    return True
++
++def _open_items(text: str, cols: list[int], base: int) -> tuple[int, int]:
++    """Open the list items whose markers start the line; return its content column and container column."""
++    pos, ref = 0, base
++    while not THEMATIC_BREAK.match(text) and (item := LIST_ITEM.match(text, pos)) and item.start(1) < ref + 4:
++        gap = len(item.group(2))
++        _close_items(cols, item.start(1))
++        ref = pos = item.end(1) + (gap if 1 <= gap <= 4 else 1)
++        cols.append(ref)
++    return (pos, ref) if pos else (_indent(text), base)
++
++def _open_fence(text: str, st: dict, start: int, ref: int) -> bool:
++    fence = FENCE.match(text, start)
++    if not fence or start - ref >= 4: return False
++    _close_items(st["cols"], start)
++    st["fence"] = (fence.group(1)[0], len(fence.group(1)), st["cols"][-1] if st["cols"] else 0)
++    return True
++
++def _outside(text: str, st: dict) -> bool:
++    cols, indent, after_blank = st["cols"], _indent(text), st["prev"] != "text"
++    if not text.strip():
++        st["prev"] = "blank"
++        return False
++    if after_blank: _close_items(cols, indent)
++    base = cols[-1] if cols else 0
++    st["prev"] = "code" if after_blank and indent >= base + 4 else "text"
++    return st["prev"] == "code" or _open_fence(text, st, *_open_items(text, cols, base))
++
++def _is_code(line: str, st: dict) -> bool:
++    text = line.rstrip("\r").expandtabs(4)
++    if st["fence"] and (code := _in_fence(text, st)) is not None: return code
++    return _outside(text, st)
++
++def mask_blocks(markdown: str) -> str:
++    """Return markdown with every line of a fenced or indented code block replaced by spaces."""
++    st = {"cols": [], "prev": "blank", "fence": None}
++    return "\n".join(" " * len(line) if _is_code(line, st) else line for line in markdown.split("\n"))

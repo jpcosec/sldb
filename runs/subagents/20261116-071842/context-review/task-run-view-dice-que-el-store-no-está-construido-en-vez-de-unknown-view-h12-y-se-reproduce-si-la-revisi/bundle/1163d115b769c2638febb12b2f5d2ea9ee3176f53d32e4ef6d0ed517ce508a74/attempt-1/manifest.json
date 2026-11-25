@@ -1,0 +1,83 @@
+{
+  "key": "task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi/bundle",
+  "input_sha256": "1163d115b769c2638febb12b2f5d2ea9ee3176f53d32e4ef6d0ed517ce508a74",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-071842/context-review/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi/bundle/1163d115b769c2638febb12b2f5d2ea9ee3176f53d32e4ef6d0ed517ce508a74/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md",
+      "sha256": "ceb2967a6358abebc1d9969e34acd5d80549be1feacf921ec4e142c507d24a1b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-una-vista-es-un-documento-que-declara-qué-leer-y-sldb-la-ejecuta.md",
+      "sha256": "b1b75145eb3f835cfe37292363b7b273b96815db569a594c7a5bad577c411607",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/views/view_source.py",
+      "sha256": "a29b92d58f1c6466acb7b2cf3184474da74c67392fbaa86c37b0a875fb75d5f6",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/views/view_revision.py",
+      "sha256": "1198762c784b7b6978c2b0068f0ade3062727ffa86e63b853e3ce457e8b83b7c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_run_view_reads.py",
+      "sha256": "ee9e8c8447cd12322ca2e0097126305d604b12cb390d2e65339c787136db91dd",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:18:43.982589+00:00",
+  "finished": "2026-11-16T07:19:05.663780+00:00"
+}

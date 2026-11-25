@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "6cdb2bae6fa39ddd1fc3cdc42602ffe7a49ac25a40b0c141dc29a0cf56f58d97",
+  "output_sha256": "8af319f8b007b7ac1ec83e70da670831ab5bba0c64e8568d72c6c46845a778f5",
+  "start": "2026-11-17T06:44:47.060062+00:00",
+  "end": "2026-11-17T06:44:57.962613+00:00"
+}

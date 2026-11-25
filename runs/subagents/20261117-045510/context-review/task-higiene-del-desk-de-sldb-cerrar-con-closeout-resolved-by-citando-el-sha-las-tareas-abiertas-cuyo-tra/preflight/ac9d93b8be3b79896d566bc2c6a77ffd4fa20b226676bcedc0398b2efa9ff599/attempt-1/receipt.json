@@ -1,0 +1,9 @@
+{
+  "key": "task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "ac9d93b8be3b79896d566bc2c6a77ffd4fa20b226676bcedc0398b2efa9ff599",
+  "output_sha256": "11343d253aea2725f93640ff4ad9cf5f199b74799f9f72790b98f6df9bfae477",
+  "start": "2026-11-17T04:55:12.155268+00:00",
+  "end": "2026-11-17T04:55:31.190307+00:00"
+}

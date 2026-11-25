@@ -1,0 +1,98 @@
+{
+  "key": "task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable/bundle",
+  "input_sha256": "10e205845762ac159f960ab0d77ccb7f32a0a7620dfcd3b68eeb40acd8f69bf7",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-133310/context-review/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable/bundle/10e205845762ac159f960ab0d77ccb7f32a0a7620dfcd3b68eeb40acd8f69bf7/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md",
+      "sha256": "075e0e76aafd2355fe41f97bb6adb20dad2f8852c0dde6253bbe298e132e683b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-the-store-is-sldb-versioned-plus-sldb-cache-regenerable-ignored-git-history-is-the-past.md",
+      "sha256": "061f80f6f42911ddeb1c6b52a5439b7febac329d4783dc6adac89864b5e24f5c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/layout.py",
+      "sha256": "6b462fc6f6ef3fb004e6e7e83fceae4737e3c44ce531f256605932ab6243d26b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/migration.py",
+      "sha256": "a5e14561f69f4aef068095bfaf7af6b7ee4393388167753439969f2af46be039",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/stores/init_store.py",
+      "sha256": "e5f754ff70ad14626174a7a39188a7a26473ac67a0f74cf8e4344604b66422ab",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/stores/store_declaration.py",
+      "sha256": "8e4e8a0615e6ecae49eebc9be870d12f9dac41df4b470171b04d00c352170b74",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/store/test_legacy_layout_migration.py",
+      "sha256": "87d074d24e85e811db73d6737798ce5d14610ad65e0f2bb3d4f0608c4267ec66",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/derived-store-boundary.md",
+      "sha256": "0288a5e7e3cd350f9a34132e30cd922c649dd590a301ec9e7e6356c3e8a6a808",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 114552
+    }
+  ],
+  "started": "2026-11-16T13:33:12.172881+00:00",
+  "finished": "2026-11-16T13:33:25.403356+00:00"
+}

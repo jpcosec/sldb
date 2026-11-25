@@ -1,0 +1,98 @@
+{
+  "key": "task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes/bundle",
+  "input_sha256": "525b944018027d018fdb98fd794bdd2583069a36de7927845f1fa2ed2409d797",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-080131/context-review/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes/bundle/525b944018027d018fdb98fd794bdd2583069a36de7927845f1fa2ed2409d797/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes.md",
+      "sha256": "77d39a7279327fe0018b7e7590989e7cd659129dc213b5695184900afba2dd10",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/contexts/pill-pill-forma-del-rechazo-de-dominio-en-sldb-mcp.md",
+      "sha256": "a88bcc851f3449f0535f7c31666a52e54e359e8bef482bbfaa079c4e326daad2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/mcp/context.py",
+      "sha256": "f291334d8176e5ff0e6a9124d160e54450aea2ab8e65a59a5ad7ba0f1a70a53b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/mcp/extension.py",
+      "sha256": "7f96deaa6683a3a2a58db8b3b4aa45711c3c75f535ec71cf8bd2c706837e6f8e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/mcp/server.py",
+      "sha256": "c6dcf496ca6e2068c32764dd9a7536b19c15090dabfb42527bfacdf341a63043",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/mcp/write/tools.py",
+      "sha256": "9c268023931421129ada828a5835bc2b424cc91fdba15d74909bf35ac15e0f75",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/mcp/test_extension.py",
+      "sha256": "44704a7c2cb36ad02f7c24688ab83bd3945976e3d1ed96b1bab64443bc069291",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/mcp/example_extension.py",
+      "sha256": "ba08e262868cf82ba08aee3cc74c0e7c6b737590136fd35a14a3e8922c4f2ef3",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T08:01:33.255310+00:00",
+  "finished": "2026-11-16T08:01:54.595682+00:00"
+}

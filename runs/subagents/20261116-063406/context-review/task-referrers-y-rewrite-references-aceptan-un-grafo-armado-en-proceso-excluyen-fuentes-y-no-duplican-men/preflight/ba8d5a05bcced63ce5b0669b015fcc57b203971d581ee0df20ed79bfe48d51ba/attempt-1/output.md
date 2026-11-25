@@ -1,0 +1,11 @@
+## REFORMULACION
+El nodo debe modificar la API de SLDB en el repo SLDB_1 (`src/sldb/api/edges/`): que `referrers` y `rewrite_references` acepten un `ProjectGraph` armado en proceso y lo usen en lugar de `optional_graph`; que `rewrite_references` excluya fuentes nombradas por ruta trackeada o `Model:name`; y que `find_hits` no duplique como mención un campo del frontmatter ya devuelto como schema. Resultado: ambas funciones con `graph=None` conservan el comportamiento actual, las fuentes excluidas quedan intactas y los tests nuevos y existentes pasan. Límites: no tocar deskops ni el `store.yaml` de deskops, no cambiar el formato de `Referrer`, no hacer push; el commit lo hace el coordinador.
+
+## AMBIGUEDADES
+1. Cita: «find_hits no devuelve como mention una línea del frontmatter que ya es un hit schema del mismo documento» frente a «descartar las mentions cuya ruta es la de un documento con un hit schema y cuya línea cae dentro del frontmatter de ese documento». Obliga a inventar si se descarta solo la mención duplicada de esa línea o toda mención del frontmatter en cualquier documento que tenga algún hit schema.
+
+## DRY-RUN
+Lecturas: `referrers.py`, `rewrite_references.py`, `project_graph.py`/`resolve_target`, `LineMentions`, los dos tests y `CHANGELOG.md`; localizar por nombre de función, no por línea. Cambios previstos: añadir `graph` keyword-only y pasarlo a `find_hits`; añadir `excluded_sources`, resolver cada fuente con `resolve_target` y filtrar campos y menciones de esas fuentes; deduplicar en `find_hits` según frontmatter y hits schema; agregar casos H-a, H-b y H-c; añadir la entrada de CHANGELOG. Dependencias: import de `ProjectGraph`, semántica de `resolve_target`, numeración de líneas existente y fixtures/helpers de los tests. Validaciones futuras: ejecutar `TMPDIR=/dev/shm pytest -q tests/api/test_referrers.py` y `... test_rewrite_references.py`, comprobar que los tests previos siguen verdes y que sin `graph`/`excluded_sources` no hay cambios.
+
+## FUTURO
+El ejecutor dejará el informe en `runs/subagents/<run-dir>/result-summary.md`; el coordinador hará el commit con `deskops closeout commit` y enviará el aviso a deskops. Un humano decidirá la aceptación final o el merge.

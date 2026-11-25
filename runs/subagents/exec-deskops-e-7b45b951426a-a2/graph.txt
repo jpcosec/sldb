@@ -1,0 +1,5 @@
+Missing graph references:
+- missing_declared_target: task:task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta -> test_file:tests/test_transaction.py
+  provenance: desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta.md:line:17:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+1 missing, 0 informational

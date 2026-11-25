@@ -1,0 +1,79 @@
+== entorno ==
+repo=/workspace/sldb HEAD=617e008ae3c7b7d241da2f54c399ef864824270b
+node=v20.20.2 npm=10.8.2
+python venv usado: /workspace/sldb/.venv (no existía /tmp/ws-venv)
+
+== done-when 1: grep -rniE 'NegocioDoc|businessName|negocio' surface/src ==
+surface/src/core/wiki-index.ts:128:export const businessName = (_documents: GraphDocument[]): string | null => null;
+rc=0
+
+== done-when 2: grep -n 'informe' surface/src/app/WorkbenchShell.tsx ==
+rc=1
+
+== tsc ==
+rc=0
+
+== vitest src/core src/react src/views src/app src/workbench ==
+
+ RUN  v4.1.11 /workspace/sldb/surface
+
+
+ Test Files  35 passed (35)
+      Tests  471 passed (471)
+   Start at  14:25:52
+   Duration  23.12s (transform 4.78s, setup 5.83s, import 20.63s, tests 35.19s, environment 38.90s)
+
+rc=0
+
+== check-layers ==
+✓ Contrato de capas verificado (76 módulos en L0..L3 sin violaciones ni mocks).
+rc=0
+
+== desk fast gates ==
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   242 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   3 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 1001 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   1 de 3 consumidores presentes: deskops
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  39 símbolos pedidos sin puerta que los declare
+PASS: superficie — 129 símbolos pedidos, 597 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0

@@ -1,0 +1,9 @@
+{
+  "key": "task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "11cdb4f8e5f1c082250895f0721c0adaec3d442c1d191e95dde6ef4af9cf8536",
+  "output_sha256": "b48a4aa3110675988697043b412ee4df51bb033ee52eea3c917c61a2ff18935e",
+  "start": "2026-11-19T11:45:00.185697+00:00",
+  "end": "2026-11-19T11:45:15.755167+00:00"
+}

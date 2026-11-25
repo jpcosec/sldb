@@ -1,0 +1,3 @@
+cd surface && npx tsc --noEmit && npx vitest run src/core src/react src/views src/app src/workbench && node scripts/check-layers.mjs  -> rc 0 (471 tests)
+bash tools/check.sh --fast -> rc 0
+grep -rniE 'NegocioDoc|businessName|negocio' surface/src -> sin resultados

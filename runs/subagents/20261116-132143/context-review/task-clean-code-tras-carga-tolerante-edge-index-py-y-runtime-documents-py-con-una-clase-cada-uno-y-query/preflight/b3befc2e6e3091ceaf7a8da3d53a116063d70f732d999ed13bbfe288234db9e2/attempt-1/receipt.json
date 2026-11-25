@@ -1,0 +1,9 @@
+{
+  "key": "task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b3befc2e6e3091ceaf7a8da3d53a116063d70f732d999ed13bbfe288234db9e2",
+  "output_sha256": "3772e24936774f8e19ef55d93d6a258ebf5087da69dfdbee074c4ab8e5a16404",
+  "start": "2026-11-16T13:21:44.871125+00:00",
+  "end": "2026-11-16T13:22:03.497676+00:00"
+}

@@ -1,0 +1,103 @@
+{
+  "key": "task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/bundle",
+  "input_sha256": "b79120769cb1ce5cea17f748c701c2119a70e7aa26fa6b958a5b5ef661184244",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-175800/context-review/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/bundle/b79120769cb1ce5cea17f748c701c2119a70e7aa26fa6b958a5b5ef661184244/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md",
+      "sha256": "cd53111653092987752fcee46f8f99e642fb1939f8a1487fe50c53bdd2b4958c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "1031dca7ec329a9c42d66a03fbbadfba37025f5af01790a6eff0e9bc8163b9cd",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/runtime.py",
+      "sha256": "e74c0173745645f5f8258dfbc6ad64e9fb62457c8fb1792ed89387913977366f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/scan.py",
+      "sha256": "9d7cebf40d40eec2645c9b3943015a300c00a13fe8717227f61bf9a7915e5002",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/code_ref.py",
+      "sha256": "16a233f4af69647a54574b7eedf602a8911b1b4f2410ebd9d048b9a6d2e0763e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/anchors/record_anchor.py",
+      "sha256": "ecaf5256afbbea064f8faeac5394c0a96ff37674cdfc46c4d20d666e218774a0",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_anchors.py",
+      "sha256": "b715a7674bd62c9d0b94c7823b97e60967292dbec40eded4c7008b4523905d56",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/selfdoc/test_treesitter_symbols.py",
+      "sha256": "c106e1db863f1ba5e091983c87eb148bc26ab8e6491382d9601c206d06d96cc0",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "uv.lock",
+      "reason": "size>=60000",
+      "size": 150687
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 116767
+    }
+  ],
+  "started": "2026-11-16T17:58:03.015434+00:00",
+  "finished": "2026-11-16T17:58:17.107412+00:00"
+}

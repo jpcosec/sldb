@@ -1,0 +1,9 @@
+{
+  "key": "task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "a1077188395e41e57c919357907d9f4cb3859057c6bbdf9a3b3cb1f903abe013",
+  "output_sha256": "675418f78756a3fa1b769267ed2a2e0789bd6836025c04dbcb2b6a7e659e62f2",
+  "start": "2026-11-16T06:37:01.950234+00:00",
+  "end": "2026-11-16T06:37:18.947043+00:00"
+}

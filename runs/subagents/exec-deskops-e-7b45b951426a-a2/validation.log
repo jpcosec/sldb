@@ -1,0 +1,4 @@
+pytest tests/store/test_migrate_layout.py tests/store/test_merge_driver_auto_install.py tests/store/test_stores_build.py -> 50 passed (rc 0)
+pytest tests/store tests/cli -> 459 passed, 1 failed (test_migrate_layout, fixed afterwards, re-run passes)
+deskops: PYTHONPATH=sldb/src pytest tests/test_transaction.py -k second_atom_create_fails -> 1 passed (rc 0)
+bash tools/check.sh --fast -> rc 1: only "FAIL: identidad" (workbench_demo sin clasificar), preexistente y ajeno (ver commit f055723d); el resto PASS.

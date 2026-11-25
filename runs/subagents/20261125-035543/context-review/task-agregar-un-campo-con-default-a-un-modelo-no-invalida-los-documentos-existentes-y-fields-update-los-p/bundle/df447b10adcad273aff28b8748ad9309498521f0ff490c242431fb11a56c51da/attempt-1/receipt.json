@@ -1,0 +1,9 @@
+{
+  "key": "task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "df447b10adcad273aff28b8748ad9309498521f0ff490c242431fb11a56c51da",
+  "output_sha256": "b7a87736c57873cdc85b9eb3197823133de2342e8906a5576ee9ae36e696a7ac",
+  "start": "2026-11-25T03:55:44.930839+00:00",
+  "end": "2026-11-25T03:55:55.550360+00:00"
+}

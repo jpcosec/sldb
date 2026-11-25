@@ -1,0 +1,9 @@
+{
+  "key": "task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "ce18aef218a8179c901fd09b6391c5b97ab356659e855d928cfed29e67641a51",
+  "output_sha256": "4fa6c9df4d3e745a9e6723b7433bfbbbdba90d350b7b76a7bd7269b41523ad06",
+  "start": "2026-11-17T15:03:24.078402+00:00",
+  "end": "2026-11-17T15:03:43.555666+00:00"
+}

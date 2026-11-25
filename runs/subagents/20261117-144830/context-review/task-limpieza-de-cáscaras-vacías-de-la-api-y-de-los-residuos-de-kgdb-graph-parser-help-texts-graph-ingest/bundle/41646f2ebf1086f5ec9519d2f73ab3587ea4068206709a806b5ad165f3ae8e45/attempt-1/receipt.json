@@ -1,0 +1,9 @@
+{
+  "key": "task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "41646f2ebf1086f5ec9519d2f73ab3587ea4068206709a806b5ad165f3ae8e45",
+  "output_sha256": "fa3989918735a2c039db80d8ef4ffa73fdeabb010c684a4e393b246bce532be3",
+  "start": "2026-11-17T14:48:32.404704+00:00",
+  "end": "2026-11-17T14:48:43.202496+00:00"
+}

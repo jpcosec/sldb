@@ -1,0 +1,14 @@
+# Intento 2 (cambios staged, sin commit)
+git log -1 --grep "Task-Id: task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta" -> 68d4ee1d (intento 1, no el intento 2)
+python -m pytest -q -p no:cacheprovider tests/store/test_merge_driver_auto_install.py -> 7 passed (rc 0)
+python -m pytest -q -p no:cacheprovider tests/store/test_migrate_layout.py -> 8 passed (rc 0)
+python -m pytest -q -p no:cacheprovider tests/store/test_stores_build.py -> 35 passed (rc 0)
+python -m pytest -q -p no:cacheprovider tests/store/test_cli_store.py -> 38 passed (rc 0)
+python -m pytest -q -p no:cacheprovider tests/api/test_api_stores.py tests/api/test_scaffold_store.py tests/api/test_gitignore_policy.py tests/api/test_store_init_failures.py -> 43 passed, 3 failed (rc 1)
+python -m pytest -q -p no:cacheprovider tests/api/test_gitignore_policy.py -> 3 failed, 6 passed (rc 1)
+  FAILED test_a_repo_that_ignores_the_cache_and_versions_the_store_is_fine
+  FAILED test_the_cache_not_ignored_is_an_alert
+  FAILED test_any_rule_that_covers_the_cache_counts
+  causa: el alert merge-driver-missing aparece porque _repo() usa init_store() de la API y el intento 2 solo instala por CLI
+deskops: PYTHONPATH=/workspace/sldb/src python -m pytest -q -p no:cacheprovider tests/test_transaction.py -k second_atom_create_fails -> 1 passed (rc 0)
+PATH=/tmp/ws-venv/bin:$PATH TMPDIR=/tmp bash tools/check.sh --fast -> rc 1 (solo FAIL: identidad, workbench_demo preexistente; resto PASS)

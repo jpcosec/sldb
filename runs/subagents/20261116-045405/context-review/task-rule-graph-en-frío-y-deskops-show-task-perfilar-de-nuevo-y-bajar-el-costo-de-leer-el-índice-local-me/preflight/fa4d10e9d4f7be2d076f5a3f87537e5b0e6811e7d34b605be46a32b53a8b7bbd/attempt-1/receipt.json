@@ -1,0 +1,9 @@
+{
+  "key": "task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "fa4d10e9d4f7be2d076f5a3f87537e5b0e6811e7d34b605be46a32b53a8b7bbd",
+  "output_sha256": "a801c2ecf09ebb8d73b75e8ee52e227beea0e7e968cd4af436567b9294363077",
+  "start": "2026-11-16T04:54:06.919047+00:00",
+  "end": "2026-11-16T04:54:17.852321+00:00"
+}

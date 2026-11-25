@@ -1,0 +1,9 @@
+{
+  "key": "task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4158787f03f0c9a38813c64cdbac37bdf2fb8ffcb7e1f9aaaf34dce972e7fc56",
+  "output_sha256": "c2de9dabf9615ec2b0ba6c50e2110774434aa6e05c2fe343fa34d6e16858cfe5",
+  "start": "2026-11-23T17:41:11.146094+00:00",
+  "end": "2026-11-23T17:41:26.971885+00:00"
+}

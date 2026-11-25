@@ -1,0 +1,25 @@
+name: 20261125-114135-unclear-queue-20261125t143817z-dispatch-executor-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura
+path: desk/inbox/20261125-114135-unclear-queue-20261125t143817z-dispatch-executor-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
+source_hash: 5582fd26d6a8288cff49c2f5907a6fb77ebaced18098939dd21ec30aaea2a628
+content_hash: 5556710a32d8afa8abc1b01836a8b6f89a4bd527d23ca0f3298b803a9fa842ba
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: f999596ca0f3b8232a81f740c4802ee957b2070fa20a9583f0c419e9f3e54ff9
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: cbe8a4f8e9bd581e14c37c9bc426f9d9c1b1d89b83ee6f0f5fdf991bacec11c2
+  ack_reason: f4dd18d68cfd372f57d9e740f5aff1f7cad64e04d6d4f9c5272f831643e34c88
+  title: 0de4ee41b2e54dcce82d59088491669370a76bb8b2f435ed2ef8f6dc739d2d42
+  body: 49a16f21958f210c62b254a974f66c579827208de0e08378dbbae85c4c0f70a7
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-25T14:43:28Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,9 @@
+{
+  "key": "task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b0768657fa6e09fe4e64691af14e3dcb30e3b8b5de4ee0a267f02e8fb3c01a53",
+  "output_sha256": "5749900b433384df6ad63ba19f07b6fe42e78a4b9dbcf8f0e48560e8e37ec660",
+  "start": "2026-11-15T16:47:22.151907+00:00",
+  "end": "2026-11-15T16:47:37.514927+00:00"
+}

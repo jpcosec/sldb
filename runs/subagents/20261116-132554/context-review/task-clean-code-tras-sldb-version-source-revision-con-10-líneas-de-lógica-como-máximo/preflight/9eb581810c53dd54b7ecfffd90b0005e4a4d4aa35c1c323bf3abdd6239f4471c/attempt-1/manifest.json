@@ -1,0 +1,37 @@
+{
+  "key": "task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo/preflight",
+  "input_sha256": "9eb581810c53dd54b7ecfffd90b0005e4a4d4aa35c1c323bf3abdd6239f4471c",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-132554/context-review/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo/preflight/9eb581810c53dd54b7ecfffd90b0005e4a4d4aa35c1c323bf3abdd6239f4471c/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo.md",
+      "sha256": "3c48bcbac9859586b60c871d7cc6523807a057f18c59724c89729d92e998c73e",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [],
+  "started": "2026-11-16T13:25:55.586712+00:00",
+  "finished": "2026-11-16T13:26:15.735013+00:00"
+}

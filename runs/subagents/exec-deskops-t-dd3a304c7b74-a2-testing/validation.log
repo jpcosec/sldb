@@ -1,0 +1,35 @@
+# Validación del tester — task-el-tercer-valor...
+# Worktree: /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-5cfcba8143e9-a2
+# Commit probado: 50a0cd167f6b135cfda317ac41437005d20eb88c (incluye 22cfafb2c29e62a391d23be53d690a21955fe0ee)
+# Python: /mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python (3.13.18), TMPDIR=/tmp
+
+tests/api/test_rules.py: 13 passed, rc=0
+tests/api/test_rules_evaluation.py: 13 passed, rc=0
+tests/test_rules_language_spec.py: 52 passed, rc=0
+tests/test_predicates_cli.py: 4 passed, rc=0
+tests/test_clean_code_rules.py: 1235 passed, rc=0
+tests/store/test_predicate_language.py: 16 passed, rc=0
+tests/store/test_graph_language.py: 3 passed, rc=0
+tests/store/test_graph_backend.py: 9 passed, rc=0
+tests/store/test_where_empty_and_errors.py: 25 passed, rc=0
+tests/store/test_where_retired.py: 4 passed, rc=0
+tests/api/test_rules_end_to_end.py: 1 passed, rc=0
+tests/api/test_rules_linked_reach.py: 4 passed, rc=0
+tests/api/test_transaction_rules_dirty.py: 4 passed, rc=0
+
+bash tools/check.sh --fast: rc=1
+  FAIL: identidad — workbench_demo sin clasificar en la raíz (excepción autorizada f055723d)
+  PASS: núcleo aislado, capas, ejes, superficie
+
+PATH=.venv/bin:$PATH PYTHONPATH=src python -m sldb selfdoc check: rc=0, ok: true, alerts=[], changed=[]
+
+Verificación del retiro:
+  git grep -n incomplete -- src/sldb: sin usos del valor del lenguaje
+  docs/architecture/graph-backend.md: sin incomplete/unavailable como vigentes
+  knowledge/commands/cmd-sldb-rules-explain.md: exit 0 true, 1 false, 3 not applicable
+  tests/api/test_rules.py::test_save_document_payload_returns_the_on_write_alerts_without_a_listener: 1 passed
+  diff del test restaurado contra 22cfafb2^: idéntico
+
+Defecto bloqueante:
+  docs/architecture/rules-language.md:5 sigue diciendo "la semántica trivaluada"
+  mientras §3 (167-188) dice bivaluado y "Retirado: incomplete".

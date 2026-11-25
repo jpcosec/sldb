@@ -1,0 +1,9 @@
+{
+  "key": "task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "69bd5da46067572fbf25a152db9dec0ea6332cedefad3f7fb88b68725ab18195",
+  "output_sha256": "64a325ef4aeeb58ef786f611c66c0645bec49fc12436aaf3c8eeb9789e4c2990",
+  "start": "2026-11-16T13:27:15.490708+00:00",
+  "end": "2026-11-16T13:27:33.550124+00:00"
+}

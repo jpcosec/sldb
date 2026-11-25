@@ -1,0 +1,9 @@
+{
+  "key": "task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "f102234d50451ef05a7ae26bd3960f9793c471b2ceaaa9f1ba1a32b2076c5746",
+  "output_sha256": "d2d90652241d2f5e1c2708f9918ac09324e72236eb73cad39cd774fc3b801063",
+  "start": "2026-11-16T08:06:04.394746+00:00",
+  "end": "2026-11-16T08:06:14.832156+00:00"
+}

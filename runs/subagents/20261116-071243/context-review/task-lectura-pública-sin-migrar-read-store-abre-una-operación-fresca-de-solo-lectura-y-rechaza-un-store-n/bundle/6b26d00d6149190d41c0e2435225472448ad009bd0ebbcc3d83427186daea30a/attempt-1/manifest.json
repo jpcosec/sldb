@@ -1,0 +1,91 @@
+{
+  "key": "task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/bundle",
+  "input_sha256": "6b26d00d6149190d41c0e2435225472448ad009bd0ebbcc3d83427186daea30a",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-071243/context-review/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/bundle/6b26d00d6149190d41c0e2435225472448ad009bd0ebbcc3d83427186daea30a/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n.md",
+      "sha256": "3d2fde30924facadcbb7ca3d6befdd8254ea3cce47b1cd094cf89bfdd1fb6b1f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-un-consumidor-pregunta-al-store-por-la-api-no-leyendo-sus-archivos-de-índice.md",
+      "sha256": "05f958c3203772ca18b1bfcdbce8bef4231d2fe868f96ecc1e21ddcdc0c6e7fb",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "3a32bae95b9535c90e3216dc59c8ea4b17f13f5c9354ada1a56dcd82d1b40889",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/migration.py",
+      "sha256": "a5e14561f69f4aef068095bfaf7af6b7ee4393388167753439969f2af46be039",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_api_stores.py",
+      "sha256": "1b0ba4a6a5207081b436a1b83e833d15e14c934161110bace8f19eb5f4a34727",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/stores/read_store.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/documents/extract_payload.py",
+      "reason": "missing"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:12:44.812030+00:00",
+  "finished": "2026-11-16T07:13:03.435205+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "46eec823d540f7ad0488dc57cd81ca8e803700bb99d5b8159b49d7c345e0e918",
+  "output_sha256": "42b83aa83afbcea91b0a4fe633f12a96faca059920a9a506af5555f241515395",
+  "start": "2026-11-16T06:26:51.707629+00:00",
+  "end": "2026-11-16T06:27:12.165858+00:00"
+}

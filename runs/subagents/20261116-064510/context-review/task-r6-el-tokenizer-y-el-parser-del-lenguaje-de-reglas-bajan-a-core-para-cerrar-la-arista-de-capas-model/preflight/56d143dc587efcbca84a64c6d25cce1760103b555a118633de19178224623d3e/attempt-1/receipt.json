@@ -1,0 +1,9 @@
+{
+  "key": "task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "56d143dc587efcbca84a64c6d25cce1760103b555a118633de19178224623d3e",
+  "output_sha256": "244f9f8ea491fc5ee6f69524f0a94f677adbf74f399ce21c403d7ee022feaaed",
+  "start": "2026-11-16T06:45:11.731571+00:00",
+  "end": "2026-11-16T06:45:23.713389+00:00"
+}

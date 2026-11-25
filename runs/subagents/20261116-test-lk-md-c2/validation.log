@@ -1,0 +1,674 @@
+=== pytest -q tests/test_links.py
+.........................                                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+25 passed, 1 warning in 6.46s
+rc=0
+=== pytest -q tests/test_links_batch_cli.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 4.08s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+.......................................................                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1207 passed, 2 warnings in 9.45s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   226 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 977 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== [cambio] pytest -q tests/test_cli_reconciliation.py
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 1.87s
+rc=0
+=== [HEAD] pytest -q tests/test_cli_reconciliation.py
+Using CPython 3.13.18
+Creating virtual environment at: .venv
+   Building structuredlanguagedb @ file:///dev/shm/tlkmdc2/base
+      Built structuredlanguagedb @ file:///dev/shm/tlkmdc2/base
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+Installed 29 packages in 7.05s
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /dev/shm/tlkmdc2/base/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 2.61s
+rc=0
+=== [cambio] pytest -q tests/test_composition_sections.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.28s
+rc=0
+=== [HEAD] pytest -q tests/test_composition_sections.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /dev/shm/tlkmdc2/base/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.26s
+rc=0
+=== [cambio] pytest -q tests/store/test_semantic_rebuild.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 1.08s
+rc=0
+=== [HEAD] pytest -q tests/store/test_semantic_rebuild.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /dev/shm/tlkmdc2/base/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.90s
+rc=0
+=== bordes previos: e1.py
+ok   list + indented code after item para: got=['real'] exp=['real'] offsets_ok=True
+ok   list nested para 4sp: got=['inlist'] exp=['inlist'] offsets_ok=True
+ok   indented code after list ends: got=[] exp=[] offsets_ok=True
+ok   fence ~~~ : got=['b'] exp=['b'] offsets_ok=True
+ok   fence 4 backticks w/ ``` inside: got=['b'] exp=['b'] offsets_ok=True
+ok   fence 5 tildes closed by 3 not: got=['b'] exp=['b'] offsets_ok=True
+ok   unclosed fence: got=['b'] exp=['b'] offsets_ok=True
+ok   double backtick with one inside: got=['b'] exp=['b'] offsets_ok=True
+ok   link glued before fence: got=['b'] exp=['b'] offsets_ok=True
+ok   link glued after fence: got=['b'] exp=['b'] offsets_ok=True
+ok   link glued to inline code: got=['b'] exp=['b'] offsets_ok=True
+ok   link wrapping code: got=['b', 'c'] exp=['b', 'c'] offsets_ok=True
+ok   fence in list indented 4 (CommonMark: code): got=['b'] exp=['b'] offsets_ok=True
+ok   fence in list indented 2: got=['b'] exp=['b'] offsets_ok=True
+ok   fence in blockquote: got=['b'] exp=['b'] offsets_ok=True
+ok   escaped backticks are not code: got=['b'] exp=['b'] offsets_ok=True
+ok   fence close w/ info is not close: got=['b'] exp=['b'] offsets_ok=True
+ok   CRLF fence via API: got=['b'] exp=['b'] offsets_ok=True
+ok   CRLF inline across paragraph: got=['b'] exp=['b'] offsets_ok=True
+ok   4sp-indented ``` is code not fence: got=['b'] exp=['b'] offsets_ok=True
+ok   transclusion in fence: got=['b'] exp=['b'] offsets_ok=True
+ok   predicate in inline code: got=['b'] exp=['b'] offsets_ok=True
+INFO html <code>: got=['a', 'b'] exp=None offsets_ok=True
+fails 0
+rc=0
+=== bordes previos: e2.py
+ok   '- item\n\n        [[code8]]\n\n- b [[real]]\n' got ['real'] ref ['real']
+ok   '- item\n  - sub\n\n          [[c]]\n' got [] ref []
+ok   '\\`[[b]]\\`\n' got ['b'] ref ['b']
+ok   '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] ref ['b']
+ok   '1. a\n   1. b\n\n          [[c]]\n\n   [[p]]\n' got ['p'] ref ['p']
+ok   '10. a\n\n         [[c]]\n\n     [[p]]\n' got ['p'] ref ['p']
+ok   '1) a\n\n       [[c]]\n' got [] ref []
+ok   '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] ref ['para']
+ok   '- a\n\n      [[x]]\n' got [] ref []
+ok   '-    a\n\n         [[x]]\n' got [] ref []
+ok   '-     a\n\n      [[x]]\n' got [] ref []
+ok   '- a\n\n    [[x]]\n- b\n\n        [[y]]\n' got ['x'] ref ['x']
+ok   '* a\n\n  + b\n\n          [[y]]\n' got [] ref []
+ok   '- a\n\n[[out]]\n\n    [[code]]\n' got ['out'] ref ['out']
+ok   '-\n  foo\n\n      [[c]]\n' got [] ref []
+ok   '- a\n\n\t\t[[c]]\n' got [] ref []
+ok   '- a\n\n  ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] ref ['r']
+ok   '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] ref ['r']
+ok   '- a\n  - b\n\n        ```\n        [[f]]\n        ```\n' got [] ref []
+ok   '> ```\n> [[f]]\n> ```\n' got [] ref []
+ok   '2. a\n\n       [[c]]\n' got [] ref []
+ok   '\\\\`[[a]]` [[b]]\n' got ['b'] ref ['b']
+ok   '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] ref ['a', 'b']
+ok   '`a\\`[[b]]` [[c]]\n' got ['b', 'c'] ref ['b', 'c']
+ok   '\\``[[a]]``\n' got ['a'] ref ['a']
+ok   '``\\`[[a]]`` [[b]]\n' got ['b'] ref ['b']
+ok   'a\\\n`[[x]]`\n' got [] ref []
+ok   '```\r\n[[a]]\n```\r\n[[b]]\n' got ['b'] ref ['b']
+ok   '~~~\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] ref ['b']
+ok   '`[[a]]\r\n\n[[b]]` [[c]]\n' got ['a', 'b', 'c'] ref ['a', 'b', 'c']
+ok   '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] ref ['r']
+ok   'x\r\n\r\n    [[c]]\r\n[[d]]\n' got ['d'] ref ['d']
+ok   '\\`[[b]]\\`\r\n```\r\n[[a]]\r\n```  \r\n[[z]]\n' got ['b', 'z'] ref ['b', 'z']
+diffs 0
+rc=0
+=== bordes previos: e2b.py
+['real'] ['real'] '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n'
+['real', 'otro'] ['real', 'otro'] '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n'
+['item'] ['item'] '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n'
+['r'] ['r'] '> ```\n> [[f]]\n> ```\n\n[[r]]\n'
+['r'] ['r'] '> ```py\n> a\n\n[[r]]\n'
+rc=0
+=== bordes previos: edges.py
+ok   ind-li '- item\n\n        [[c]]\n\n- b [[r]]\n' got ['r'] cm ['r']
+ok   ind-sub3 '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] cm ['para']
+ok   ind-ol-paren '1) item\n\n       [[c]]\n\n2) [[r]]\n' got ['r'] cm ['r']
+ok   ind-ol-10 '10. item\n\n        [[c]]\n\n    [[p]]\n' got ['p'] cm ['p']
+ok   ind-gap5 '-     [[x]]\n\n  [[y]]\n' got ['y'] cm ['y']
+ok   ind-tab '-\titem\n\n\t\t[[c]]\n\n[[r]]\n' got ['r'] cm ['r']
+ok   ind-empty-item '-\n\n    [[x]]\n' got [] cm []
+ok   ind-after-list '- a\n\n[[t]]\n\n    [[c]]\n' got ['t'] cm ['t']
+ok   ind-plus '+ a\n\n      [[c]]\n' got [] cm []
+ok   esc1 '\\`[[b]]\\`\n' got ['b'] cm ['b']
+ok   esc2 '\\\\`[[a]]` [[b]]\n' got ['b'] cm ['b']
+ok   esc3 '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-in-span '`a\\` [[b]]` [[c]]\n' got ['b', 'c'] cm ['b', 'c']
+ok   esc-double '\\``[[a]]`` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-run '``x`` \\``[[a]]``\n' got ['a'] cm ['a']
+ok   crlf-fence '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-tilde '~~~ \r\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-mixed '```\n[[a]]\r\n```\r\n[[b]]\n' got ['b'] cm ['b']
+ok   crlf-ind-li '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   crlf-blank-inline '`[[a]]\r\n\r\n[[b]]` [[c]]\r\n' got ['a', 'b', 'c'] cm ['a', 'b', 'c']
+ok   crlf-item-fence '- ```\r\n  [[x]]\r\n  ```\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   f1 '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n' got ['real'] cm ['real']
+ok   f2 '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n' got ['real', 'otro'] cm ['real', 'otro']
+ok   f3 '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n' got ['item'] cm ['item']
+ok   f4 '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] cm ['r']
+ok   f5-star-tilde '* ~~~\n  [[x]]\n  ~~~\n* [[y]]\n' got ['y'] cm ['y']
+ok   f6-paren '1) ~~~~\n   [[x]]\n   ~~~\n   ~~~~\n[[y]]\n' got ['y'] cm ['y']
+ok   f7-nested-markers '- 1. ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f8-sub '- a\n  - ```\n    [[x]]\n    ```\n  [[y]]\n' got ['y'] cm ['y']
+ok   f9-close-shallow '- ```\n  [[x]]\n```\n[[y]]\n' got [] cm []
+ok   f10-close-deep '- ```\n  [[x]]\n      ```\n  [[y]]\n  ```\n[[z]]\n' got ['z'] cm ['z']
+ok   f11-blank-inside '- ```\n  [[x]]\n\n  [[w]]\n  ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f12-gap2 '-  ```\n   [[x]]\n   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f13-lazy '- ```\n[[x]]\n[[y]]\n' got ['x', 'y'] cm ['x', 'y']
+ok   f14-10item '10. ```\n    [[x]]\n    ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f15-backtick-info '- ```a`b\n  [[x]]\n' got ['x'] cm ['x']
+ok   f16-hr '- - -\n```\n[[x]]\n```\n[[y]]\n' got ['y'] cm ['y']
+ok   f17-gap5 '-     ```\n  [[x]]\n' got ['x'] cm ['x']
+ok   f18-orphan-close-top '   ```\n[[x]]\n' got [] cm []
+ok   f19-ol-start '3. ```\n   [[x]]\n   ```\n4. [[y]]\n' got ['y'] cm ['y']
+ok   f20-quote '> - ```\n>   [[x]]\n>   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f21-two-items '- ```\n  [[a]]\n- ```\n  [[b]]\n  ```\n[[c]]\n' got ['c'] cm ['c']
+ok   f22-indent-item '   - ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f23-fence-after-para-in-item '- texto\n  ```\n  [[x]]\n  ```\n  [[y]]\n' got ['y'] cm ['y']
+total 44 diffs 0
+rc=0
+=== bordes previos: e3c.py
+ok   ind-li '- item\n\n        [[c]]\n\n- b [[r]]\n' got ['r'] cm ['r']
+ok   ind-sub3 '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] cm ['para']
+ok   ind-ol-paren '1) item\n\n       [[c]]\n\n2) [[r]]\n' got ['r'] cm ['r']
+ok   ind-ol-10 '10. item\n\n        [[c]]\n\n    [[p]]\n' got ['p'] cm ['p']
+ok   ind-gap5 '-     [[x]]\n\n  [[y]]\n' got ['y'] cm ['y']
+ok   ind-tab '-\titem\n\n\t\t[[c]]\n\n[[r]]\n' got ['r'] cm ['r']
+ok   ind-empty-item '-\n\n    [[x]]\n' got [] cm []
+ok   ind-after-list '- a\n\n[[t]]\n\n    [[c]]\n' got ['t'] cm ['t']
+ok   ind-plus '+ a\n\n      [[c]]\n' got [] cm []
+ok   esc1 '\\`[[b]]\\`\n' got ['b'] cm ['b']
+ok   esc2 '\\\\`[[a]]` [[b]]\n' got ['b'] cm ['b']
+ok   esc3 '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-in-span '`a\\` [[b]]` [[c]]\n' got ['b', 'c'] cm ['b', 'c']
+ok   esc-double '\\``[[a]]`` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-run '``x`` \\``[[a]]``\n' got ['a'] cm ['a']
+ok   crlf-fence '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-tilde '~~~ \r\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-mixed '```\n[[a]]\r\n```\r\n[[b]]\n' got ['b'] cm ['b']
+ok   crlf-ind-li '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   crlf-blank-inline '`[[a]]\r\n\r\n[[b]]` [[c]]\r\n' got ['a', 'b', 'c'] cm ['a', 'b', 'c']
+ok   crlf-item-fence '- ```\r\n  [[x]]\r\n  ```\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   f1 '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n' got ['real'] cm ['real']
+ok   f2 '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n' got ['real', 'otro'] cm ['real', 'otro']
+ok   f3 '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n' got ['item'] cm ['item']
+ok   f4 '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] cm ['r']
+ok   f5-star-tilde '* ~~~\n  [[x]]\n  ~~~\n* [[y]]\n' got ['y'] cm ['y']
+ok   f6-paren '1) ~~~~\n   [[x]]\n   ~~~\n   ~~~~\n[[y]]\n' got ['y'] cm ['y']
+ok   f7-nested-markers '- 1. ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f8-sub '- a\n  - ```\n    [[x]]\n    ```\n  [[y]]\n' got ['y'] cm ['y']
+ok   f9-close-shallow '- ```\n  [[x]]\n```\n[[y]]\n' got [] cm []
+ok   f10-close-deep '- ```\n  [[x]]\n      ```\n  [[y]]\n  ```\n[[z]]\n' got ['z'] cm ['z']
+ok   f11-blank-inside '- ```\n  [[x]]\n\n  [[w]]\n  ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f12-gap2 '-  ```\n   [[x]]\n   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f13-lazy '- ```\n[[x]]\n[[y]]\n' got ['x', 'y'] cm ['x', 'y']
+ok   f14-10item '10. ```\n    [[x]]\n    ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f15-backtick-info '- ```a`b\n  [[x]]\n' got ['x'] cm ['x']
+ok   f16-hr '- - -\n```\n[[x]]\n```\n[[y]]\n' got ['y'] cm ['y']
+ok   f17-gap5 '-     ```\n  [[x]]\n' got ['x'] cm ['x']
+ok   f18-orphan-close-top '   ```\n[[x]]\n' got [] cm []
+ok   f19-ol-start '3. ```\n   [[x]]\n   ```\n4. [[y]]\n' got ['y'] cm ['y']
+ok   f20-quote '> - ```\n>   [[x]]\n>   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f21-two-items '- ```\n  [[a]]\n- ```\n  [[b]]\n  ```\n[[c]]\n' got ['c'] cm ['c']
+ok   f22-indent-item '   - ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f23-fence-after-para-in-item '- texto\n  ```\n  [[x]]\n  ```\n  [[y]]\n' got ['y'] cm ['y']
+total 44 diffs 0
+ok   span-cross-item 'Usa el carácter ` para abrir código; ver [[real]].\n- otro ` suelto en un ítem\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-heading 'Un ` suelto y [[real]].\n# Título con ` suelto\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-quote 'Un ` suelto y [[real]].\n> cita con ` suelto\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-fence 'Un ` suelto y [[real]].\n```\nx ` y\n```\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-items '- uno ` y [[real]]\n- dos ` y\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-hr 'Un ` y [[real]]\n***\notro `\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-in-fence-close '```\na ` b\n```\nVer [[real]] y ` suelto\n\n' got ['real'] cm ['real'] HEAD ['real']
+rc=0
+=== bordes previos: fm.py
+ok   fm-normal '---\ntitle: x [[fm]]\n---\n\nTexto [[a]] y `[[c]]`\n' new ['fm', 'a'] cm ['fm', 'a']
+ok   fm-sin-cierre '---\n\n# T\n\nTexto [[a]]\n' new ['a'] cm ['a']
+ok   hr-con-texto-l0 '--- [[b]]\n\nTexto [[a]]\n' new ['b', 'a'] cm ['b', 'a']
+ok   hr-pegado-l0+cierre '---[[b]]\n---\n\n[[a]]\n' new ['b', 'a'] cm ['b', 'a']
+ok   item-l0-guiones '- --- nota [[b]]\n- otro [[c]]\n' new ['b', 'c'] cm ['b', 'c']
+ok   item-l0-no-fm '- nota --- [[b]]\n' new ['b'] cm ['b']
+ok   linea1-guiones 'Intro\n--- [[b]]\n' new ['b'] cm ['b']
+rc=0
+=== bordes previos: fmvar.py
+orig1                  new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+orig2                  new=['b', 'c'] head=['b', 'c'] cm=['b', 'c'] 
+crlf                   new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+cr-solo                new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+espacios               new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+cuatro-guiones         new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+item-ordenado          new=['b', 'c'] head=['b', 'c'] cm=['b', 'c'] 
+cita                   new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+fm-y-fence-despues     new=['b', 'a'] head=['b', 'code', 'a'] cm=['b', 'a'] 
+fm-normal-y-code       new=['fm', 'a'] head=['fm', 'c', 'a'] cm=['fm', 'a'] 
+fm-sin-cierre-texto    new=['b', 'y'] head=['b', 'y'] cm=['b', 'y'] 
+fm-vacio               new=['a'] head=['a'] cm=['a'] 
+bom                    new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+u2028-dentro-fm        new=['fm', 'a'] head=['fm', 'a'] cm=['fm', 'a'] 
+x85-dentro-fm          new=['fm', 'a'] head=['fm', 'a'] cm=['fm', 'a'] 
+ff-dentro-fm           new=['fm', 'a'] head=['fm', 'a'] cm=['fm', 'a'] 
+u2028-linea0           new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+rc=0
+=== separadores de línea: lsep.py (cambio vs commonmark vs HEAD)
+casos 152 diffs 0
+=== lsep.py -v
+ok   VT   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   VT   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   VT   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   VT   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   VT   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   VT   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   VT   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   VT   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   VT   parrafo-sep-en-enlace  new=['a\x0bb', 'c'] cm=['a\x0bb', 'c'] head=['a\x0bb', 'c'] lost={} extra={}
+ok   VT   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   VT   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   VT   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   VT   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   VT   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   VT   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   VT   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   VT   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   VT   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   VT   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   FF   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   FF   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   FF   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   FF   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   FF   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   FF   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   FF   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   FF   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   FF   parrafo-sep-en-enlace  new=['a\x0cb', 'c'] cm=['a\x0cb', 'c'] head=['a\x0cb', 'c'] lost={} extra={}
+ok   FF   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   FF   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   FF   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   FF   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   FF   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   FF   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   FF   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   FF   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   FF   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   FF   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   FS   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   FS   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   FS   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   FS   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   FS   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   FS   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   FS   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   FS   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   FS   parrafo-sep-en-enlace  new=['a\x1cb', 'c'] cm=['a\x1cb', 'c'] head=['a\x1cb', 'c'] lost={} extra={}
+ok   FS   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   FS   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   FS   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   FS   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   FS   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   FS   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   FS   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   FS   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   FS   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   FS   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   GS   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   GS   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   GS   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   GS   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   GS   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   GS   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   GS   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   GS   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   GS   parrafo-sep-en-enlace  new=['a\x1db', 'c'] cm=['a\x1db', 'c'] head=['a\x1db', 'c'] lost={} extra={}
+ok   GS   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   GS   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   GS   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   GS   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   GS   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   GS   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   GS   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   GS   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   GS   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   GS   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   RS   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   RS   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   RS   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   RS   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   RS   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   RS   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   RS   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   RS   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   RS   parrafo-sep-en-enlace  new=['a\x1eb', 'c'] cm=['a\x1eb', 'c'] head=['a\x1eb', 'c'] lost={} extra={}
+ok   RS   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   RS   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   RS   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   RS   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   RS   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   RS   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   RS   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   RS   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   RS   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   RS   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   NEL  fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   NEL  fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   NEL  fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   NEL  fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   NEL  fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   NEL  fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   NEL  fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   NEL  parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   NEL  parrafo-sep-en-enlace  new=['a\x85b', 'c'] cm=['a\x85b', 'c'] head=['a\x85b', 'c'] lost={} extra={}
+ok   NEL  fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   NEL  fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   NEL  inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   NEL  indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   NEL  lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   NEL  cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   NEL  tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   NEL  html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   NEL  encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   NEL  predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   LS   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   LS   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   LS   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   LS   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   LS   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   LS   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   LS   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   LS   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   LS   parrafo-sep-en-enlace  new=['a\u2028b', 'c'] cm=['a\u2028b', 'c'] head=['a\u2028b', 'c'] lost={} extra={}
+ok   LS   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   LS   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   LS   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   LS   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   LS   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   LS   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   LS   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   LS   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   LS   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   LS   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   PS   fm-1                   new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   PS   fm-3                   new=['fm', 'fm2', 'a'] cm=['fm', 'fm2', 'a'] head=['fm', 'fm2', 'a'] lost={} extra={}
+ok   PS   fm-linea0              new=['b', 'a'] cm=['b', 'a'] head=['b', 'a'] lost={} extra={}
+ok   PS   fm-cierre              new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   PS   fm-crlf                new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'a'] lost={} extra={}
+ok   PS   fm-luego-fence         new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   PS   fm-luego-inline        new=['fm', 'a'] cm=['fm', 'a'] head=['fm', 'code', 'a'] lost={} extra={}
+ok   PS   parrafo                new=['a', 'b', 'c'] cm=['a', 'b', 'c'] head=['a', 'b', 'c'] lost={} extra={}
+ok   PS   parrafo-sep-en-enlace  new=['a\u2029b', 'c'] cm=['a\u2029b', 'c'] head=['a\u2029b', 'c'] lost={} extra={}
+ok   PS   fence                  new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   PS   fence-info             new=['a'] cm=['a'] head=['c', 'a'] lost={} extra={}
+ok   PS   inline-code            new=['a', 'b'] cm=['a', 'b'] head=['c', 'd', 'a', 'b'] lost={} extra={}
+ok   PS   indentado              new=['a'] cm=['a'] head=['c', 'd', 'a'] lost={} extra={}
+ok   PS   lista                  new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   PS   cita                   new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+ok   PS   tabla                  new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   PS   html                   new=['h', 'i', 'a'] cm=['h', 'i', 'a'] head=['h', 'i', 'a'] lost={} extra={}
+ok   PS   encabezado             new=['x'] cm=['x'] head=['x', 'c'] lost={} extra={}
+ok   PS   predicado              new=['x', 'y'] cm=['x', 'y'] head=['x', 'c', 'y'] lost={} extra={}
+casos 152 diffs 0
+=== fuzz3.py seed 1
+seed 1 N 20000 {('extra', 'front_matter_linea0'): 6}
+('extra', 'front_matter_linea0') '---  * * > \\`      \t\tpy````* > \r\n\n\n\t[[a4]]`````\n---' new ['a4'] cm []
+('extra', 'front_matter_linea0') '- ---    `txt [[a1]][[a1]]txt 1. \n`[[a1]]\\`> [[a1]]py' new ['a1', 'a1', 'a1'] cm ['a1', 'a1']
+('extra', 'front_matter_linea0') '---`````````\n`\n````\n\n---    \\`\n    [[b]]~~~\ntxt \n------\n' new ['b'] cm []
+('extra', 'front_matter_linea0') '---~~~~~~1. \r\n\r\n\t> [[b]]py\n\n---\n1. > \n\n[[b]]\n\n```\n\n[[b]]10) * ' new ['b', 'b'] cm ['b']
+rc=0
+=== fuzz3.py seed 2
+seed 2 N 20000 {('extra', 'front_matter_linea0'): 8, ('loss', 'front_matter_linea0'): 1}
+('extra', 'front_matter_linea0') '-   `---```txt [[a6]]`  \t\r\n`    * \n\n- ````\n\t[[b]]' new ['a6'] cm []
+('extra', 'front_matter_linea0') '---\n1. > \n10) \t`\n\r\n*   `````- [[b]]\n  ---\n[[a3]]  ' new ['b', 'a3'] cm ['a3']
+('extra', 'front_matter_linea0') '---1. \t> ````> \t[[b]]10) \n```\r\n\n\n> ```[[b]]\\`* \ntxt \n---' new ['b', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---```---````txt - ````\r\n\r\n\t\t  py````[[b]]\n\n> * `\n\n\n\n---\t' new ['b'] cm []
+('loss', 'front_matter_linea0') '- ---\t`\n`txt > 1. \r\n\n\n    - [[a3]][[b]]---\r\n\\`' new [] cm ['a3', 'b']
+rc=0
+=== fuzz3.py seed 3
+seed 3 N 20000 {('extra', 'front_matter_linea0'): 5}
+('extra', 'front_matter_linea0') '-     ---[[a5]]\n[[b]]> ---* `        \n```\r\n> > ' new ['a5', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---\n\n\t[[b]][[b]]````  \n  ````~~~[[a6]]```\r\n\n---\n\n' new ['b', 'b', 'a6'] cm ['a6']
+('extra', 'front_matter_linea0') '---\n\n\r\n\\`    py[[a4]]\n\r\n* 1. ~~~\n```\n10) py* [[a4]]\n\n\n\n---\n  ' new ['a4', 'a4'] cm ['a4']
+('extra', 'front_matter_linea0') '- ---~~~\n    - ~~~~~~txt `  [[a6]]\\`- > \n\n> \n[[a6]]* \n1. [[b]]    ' new ['a6', 'a6', 'b'] cm ['a6', 'b']
+rc=0
+=== fuzzsep.py seed 1
+seed 1 N 20000 {('extra', 'front_matter_linea0'): 10, ('loss', 'otra'): 3, ('extra', 'otra'): 3}
+('extra', 'front_matter_linea0') '---\n\r```[[a2]]\n---\n[[a2]]' new ['a2', 'a2'] cm []
+('extra', 'front_matter_linea0') '---\n````\r---\n\u2029\\`* \n[[b]]\n\n[[a6]]\r\n' new ['b', 'a6'] cm []
+('extra', 'front_matter_linea0') '---1. \x1c\n````\t\n10) - \n\n---\n`\u2029- [[b]]    \r\n\x85' new ['b'] cm []
+('extra', 'front_matter_linea0') '---\r\n```````\r---\x1c\u2028- py\x0b> \n\n---\n\u2029\n[[a2]]\u2029---\n`\\`\t' new ['a2'] cm []
+('loss', 'otra') '    \t1. \r\n---    ```\\`> \r\r\n\t\x85[[a0]]10) \n' new [] cm ['a0']
+('loss', 'otra') 'py````1. \r\r\n    ---\r\n`[rel:: [[p]]]````py[[b]]py\x0b[[a3]]\u2028`- ---\n\n\n1. * \n' new [] cm ['b', 'a3']
+('loss', 'otra') '[rel:: [[p]]]\x0c\r\r\n    1. [[a4]][rel:: [[p]]][[a4]]py* \r\n\n[[a4]]10) \u2029    \x1c* \x85' new ['p', 'a4'] cm ['p', 'a4', 'p', 'a4', 'a4']
+('extra', 'otra') '\u2029  ---\n---\ntxt `\r\r\n[[a0]]`---\x0b\u2029* \n\n' new ['a0'] cm []
+('extra', 'otra') '1.     \u2028`------\n```[[a0]]\\`\x85\r\r\n  \\`* - ```* \r\u2029' new ['a0'] cm []
+('extra', 'otra') '\x0b\x85`\u2029\r\r\n\u2028~~~1. [[a0]]* 10) \x1c`\\`1. [[a0]]txt [[b]]\x1c\n\n\t---\n---\n' new ['a0', 'a0', 'b'] cm ['a0', 'b']
+rc=0
+=== fuzzsep.py seed 2
+seed 2 N 20000 {('extra', 'otra'): 4, ('loss', 'otra'): 1, ('extra', 'front_matter_linea0'): 8}
+('extra', 'otra') '- \x0b\x0c\u2029```---\u2028\u2029\r\r\n\x0c[[b]]- \x0c\x0b```\\`~~~' new ['b'] cm []
+('extra', 'otra') '````[[b]]```[[a3]]---\n\t\\`\\`\\`py\x0b\r\r\n````\\`\n\n' new ['b', 'a3'] cm []
+('extra', 'otra') '\\`> `[[b]]10) \x85\r\r\n\x0b````[[b]]\\`txt \x1c[rel:: [[p]]]' new ['p', 'b', 'b'] cm ['p']
+('extra', 'otra') '---* txt 1. `    \r\r\n[rel:: [[p]]]\u2028\\`\\`\t[[b]]txt \n\x1c\u20281. ~~~txt - \x1c[[b]]' new ['p', 'b', 'b'] cm ['b', 'b']
+('loss', 'otra') '\u2029\t\u2029\r\t> ---\npy1. py```\u2028py~~~\\`\t\r\r\n    ~~~[[a3]]' new [] cm ['a3']
+('extra', 'front_matter_linea0') '---\n> ---\n\n\n    [[b]]\n\n* * \n\r\n------\n- txt ' new ['b'] cm []
+('extra', 'front_matter_linea0') '---\n```---~~~\n\r\u2028py````---\n```[[b]]---\npy[[b]]\n\n---' new ['b', 'b'] cm []
+('extra', 'front_matter_linea0') '---\n    \n\x1c> 10) ~~~1. \r````\r\n\x0b\x1c\r\n\u2028[[b]]------\n---\n`py' new ['b'] cm []
+('extra', 'front_matter_linea0') '--->   \u2029\\`---\ntxt ~~~- \n\r~~~> \u2029\x0b---\n---\n\x0c[rel:: [[p]]]\t`' new ['p'] cm []
+rc=0
+=== fuzzsep.py seed 3
+seed 3 N 20000 {('extra', 'front_matter_linea0'): 9, ('loss', 'otra'): 2, ('extra', 'otra'): 2}
+('extra', 'front_matter_linea0') '---\n10)     [[a2]][[b]]py\n---' new ['a2', 'b'] cm []
+('extra', 'front_matter_linea0') '---\n`\r\x1c[[b]]\x0c\x0c- \x1c\\`\\`txt 10) \r\n---\npy[[b]]`' new ['b', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---\n\n1. * ```* [[b]]---\n\n1. \x85\\`\n---\n---\u2029---\n1. \r\n\x0b' new ['b'] cm []
+('extra', 'front_matter_linea0') '---[[b]]\r\n```1. ---\n---\n\\`---- 10) [[a6]]\u2028[[a6]]\x85---\n      `' new ['b', 'a6', 'a6'] cm ['b']
+('loss', 'otra') '\n\x1c[[b]][[a4]]\r\r\n    \x0c  \x0b[rel:: [[p]]]\r```\x1c\x0c\r\x1c---\n' new ['b', 'a4'] cm ['b', 'a4', 'p']
+('loss', 'otra') 'txt txt \u20291. \u2028~~~\u2028\t\r````\x0b\x0b```````* \\`\r\r\n    [[b]]    ---\n\n\n\x0b' new [] cm ['b']
+('extra', 'otra') '\x1c```> \r\r\npy---\ntxt \t[[a2]][rel:: [[p]]]`\x0c```' new ['p', 'a2'] cm []
+('extra', 'otra') '`1. > [[b]]\r\r\n\x0b````\\`\t1. \r[[b]][[a0]]\x0b\n\t-     1. > \n  \x0c\x1c' new ['b', 'b', 'a0'] cm ['b', 'a0']
+rc=0
+=== fuzzsep con oráculo commonmark sin replace(\r\n) seed 1
+demo \r\r\n: <p>p</p>
+<pre><code>[[b]]
+</code></pre>
+ | con replace: <p>p
+[[b]]</p>
+
+seed 1 N 20000 {('extra', 'front_matter_linea0'): 10}
+('extra', 'front_matter_linea0') '---\n\r```[[a2]]\n---\n[[a2]]' new ['a2', 'a2'] cm []
+('extra', 'front_matter_linea0') '---\n````\r---\n\u2029\\`* \n[[b]]\n\n[[a6]]\r\n' new ['b', 'a6'] cm []
+('extra', 'front_matter_linea0') '---1. \x1c\n````\t\n10) - \n\n---\n`\u2029- [[b]]    \r\n\x85' new ['b'] cm []
+('extra', 'front_matter_linea0') '---\r\n```````\r---\x1c\u2028- py\x0b> \n\n---\n\u2029\n[[a2]]\u2029---\n`\\`\t' new ['a2'] cm []
+=== fuzzsep con oráculo commonmark sin replace(\r\n) seed 2
+demo \r\r\n: <p>p</p>
+<pre><code>[[b]]
+</code></pre>
+ | con replace: <p>p
+[[b]]</p>
+
+seed 2 N 20000 {('extra', 'front_matter_linea0'): 8}
+('extra', 'front_matter_linea0') '---\n> ---\n\n\n    [[b]]\n\n* * \n\r\n------\n- txt ' new ['b'] cm []
+('extra', 'front_matter_linea0') '---\n```---~~~\n\r\u2028py````---\n```[[b]]---\npy[[b]]\n\n---' new ['b', 'b'] cm []
+('extra', 'front_matter_linea0') '---\n    \n\x1c> 10) ~~~1. \r````\r\n\x0b\x1c\r\n\u2028[[b]]------\n---\n`py' new ['b'] cm []
+('extra', 'front_matter_linea0') '--->   \u2029\\`---\ntxt ~~~- \n\r~~~> \u2029\x0b---\n---\n\x0c[rel:: [[p]]]\t`' new ['p'] cm []
+=== fuzzsep con oráculo commonmark sin replace(\r\n) seed 3
+demo \r\r\n: <p>p</p>
+<pre><code>[[b]]
+</code></pre>
+ | con replace: <p>p
+[[b]]</p>
+
+seed 3 N 20000 {('extra', 'front_matter_linea0'): 9}
+('extra', 'front_matter_linea0') '---\n10)     [[a2]][[b]]py\n---' new ['a2', 'b'] cm []
+('extra', 'front_matter_linea0') '---\n`\r\x1c[[b]]\x0c\x0c- \x1c\\`\\`txt 10) \r\n---\npy[[b]]`' new ['b', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---\n\n1. * ```* [[b]]---\n\n1. \x85\\`\n---\n---\u2029---\n1. \r\n\x0b' new ['b'] cm []
+('extra', 'front_matter_linea0') '---[[b]]\r\n```1. ---\n---\n\\`---- 10) [[a6]]\u2028[[a6]]\x85---\n      `' new ['b', 'a6', 'a6'] cm ['b']
+=== corpus: dump.py HEAD (git archive HEAD) vs cambio, 3 corridas cada uno
+/dev/shm/tlkmdc2/base/src files 1987 links 328 time_s 0.333
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.842
+/dev/shm/tlkmdc2/base/src files 1987 links 328 time_s 0.33
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.801
+/dev/shm/tlkmdc2/base/src files 1987 links 328 time_s 0.339
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.676
+=== corpus: cmp.py head.json new.json (oráculo commonmark sin replace)
+CHANGELOG.md lost 10 gained 0 lost_real {}
+docs/architecture/current-system-overview.md lost 2 gained 0 lost_real {}
+docs/architecture/graph-backend.md lost 2 gained 0 lost_real {}
+docs/atoms/compose-vs-recover.atom.md lost 2 gained 0 lost_real {}
+docs/atoms/predicate-links.atom.md lost 4 gained 0 lost_real {}
+docs/composition_modes.md lost 2 gained 0 lost_real {}
+docs/documentation-review.md lost 2 gained 0 lost_real {}
+docs/faq.md lost 3 gained 0 lost_real {}
+docs/user-manual.md lost 3 gained 0 lost_real {}
+knowledge/commands/cmd-sldb-docs-compose.md lost 1 gained 0 lost_real {}
+knowledge/commands/cmd-sldb-predicates-add.md lost 1 gained 0 lost_real {}
+propuesta/06-NIVELES-NO-SON-UNIDADES.md lost 1 gained 0 lost_real {}
+propuesta/09-DUDAS-CERRADAS.md lost 1 gained 0 lost_real {}
+runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go10-retiro-de-where-parse-y-fieldcondition/bundle/2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200/attempt-1/input.md lost 2 gained 0 lost_real {}
+runs/subagents/20261116-test-b2sql-c1/result-summary.md lost 1 gained 0 lost_real {}
+runs/subagents/secrest2-worker-report.md lost 2 gained 0 lost_real {}
+runs/subagents/sldb-ci-worker-report.md lost 3 gained 0 lost_real {}
+files 1987 changed 17 links HEAD 328 new 286 lost 42 gained 0 lost_real 0 reordered_same_set 0
+=== bordes propios: mine.py (cambio vs HEAD real)
+igual soft-break-en-enlace   new [['[[a\nb]]', 'a\nb', None], ['[[c]]', 'c', None]] HEAD [['[[a\nb]]', 'a\nb', None], ['[[c]]', 'c', None]]
+DIFF  soft-break-sangria     new [['[[a\nb]]', 'a\nb', None]] HEAD [['[[a\n   b]]', 'a\n   b', None]]
+DIFF  espacio-final-soft     new [['[[a\nb]]', 'a\nb', None]] HEAD [['[[a \nb]]', 'a \nb', None]]
+DIFF  hardbreak-2sp          new [['[[a\nb]]', 'a\nb', None]] HEAD [['[[a  \nb]]', 'a  \nb', None]]
+DIFF  hardbreak-barra        new [['[[a\nb]]', 'a\nb', None]] HEAD [['[[a\\\nb]]', 'a\\\nb', None]]
+igual predicado-2-lineas     new [['[rel::\n[[a]]]', 'a', 'rel'], ['[[c]]', 'c', None]] HEAD [['[rel::\n[[a]]]', 'a', 'rel'], ['[[c]]', 'c', None]]
+igual entidad                new [['[[a&amp;b]]', 'a&amp;b', None], ['[[c&#35;d]]', 'c&#35;d', None]] HEAD [['[[a&amp;b]]', 'a&amp;b', None], ['[[c&#35;d]]', 'c&#35;d', None]]
+igual enfasis                new [['[[*a* _b_ ~~c~~]]', '*a* _b_ ~~c~~', None]] HEAD [['[[*a* _b_ ~~c~~]]', '*a* _b_ ~~c~~', None]]
+igual escape                 new [['[[a\\_b]]', 'a\\_b', None], ['[[x]]', 'x', None]] HEAD [['[[a\\_b]]', 'a\\_b', None], ['[[x]]', 'x', None]]
+igual url-linkify            new [['[[https://x.y/z]]', 'https://x.y/z', None]] HEAD [['[[https://x.y/z]]', 'https://x.y/z', None]]
+DIFF  autolink-dentro        new [['[[http://a.b]]', 'http://a.b', None]] HEAD [['[[<http://a.b>]]', '<http://a.b>', None]]
+DIFF  nul                    new [['[[a�b]]', 'a�b', None], ['[[c]]', 'c', None]] HEAD [['[[a\x00b]]', 'a\x00b', None], ['[[c]]', 'c', None]]
+igual imagen-md              new [['[[x]]', 'x', None], ['[[y]]', 'y', None]] HEAD [['[[x]]', 'x', None], ['[[y]]', 'y', None]]
+DIFF  transclusion-tabla     new [['![[t]]', 't', None]] HEAD [['![[t]]', 't', None], ['[[c]]', 'c', None]]
+instancia única: True | otro MarkdownASTHandler conserva linkify/text_join: True
+=== mutación: scannable_text con str.splitlines (copia en /dev/shm), pytest tests/test_links.py
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_links.py::test_parse_links_front_matter_lines_split_like_markdown_it
+1 failed, 24 passed, 1 warning in 3.06s

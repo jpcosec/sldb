@@ -1,0 +1,9 @@
+{
+  "key": "task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "e1f3706722c4c73b2e310e52bbe727238eb154cd5a7074762e1880d1bc8b10c6",
+  "output_sha256": "ff60978e7bd1e064f91588f25a522cb551012818a71b4fac5a871a0c2685a906",
+  "start": "2026-11-17T14:42:59.227838+00:00",
+  "end": "2026-11-17T14:43:21.151836+00:00"
+}

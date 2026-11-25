@@ -1,0 +1,93 @@
+{
+  "key": "task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/bundle",
+  "input_sha256": "a646b33a308b99e83502e97c39e519effbad338b1023242c1b6449072dafbb5b",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-075939/context-review/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/bundle/a646b33a308b99e83502e97c39e519effbad338b1023242c1b6449072dafbb5b/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md",
+      "sha256": "c72842514951564e358187786fff9988d7cce4a3bf05ff706fe9c41fd24af64b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md",
+      "sha256": "6c486d1b54d3c4b49500c952318968cae5908df4fa95c6f9a64e81b9289c2a71",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-un-escaneo-por-documento-se-cachea-por-lo-que-lo-determina-texto-contrato-y-lector.md",
+      "sha256": "27dd6913f7f8718366dbc82db32515229318ab17bc478719e1854279a4adeeda",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/matching/store_reader.py",
+      "sha256": "dfca2e39f8da51270f8958c44f3f409ce373824de6af7d79dad29a1c015cf9ae",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/matching/store_edges.py",
+      "sha256": "24d0b955b23a983925f1cbe2bdda821f345f32ebee2d52ab8c4afdeb6af76b79",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/composed_reading.py",
+      "sha256": "578a6a0f6f64dcefedea23de89393e08aab4363b96a8577d9e9e2b71091338e4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/matching/test_matching_refs.py",
+      "sha256": "b08ed73efe1e2b7a344470c2c643d5081eb343b3b1547bfdc6031cf05ae24160",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:59:40.656431+00:00",
+  "finished": "2026-11-16T07:59:55.186302+00:00"
+}

@@ -1,0 +1,164 @@
+{
+  "key": "task-gd21/bundle",
+  "input_sha256": "771bc0cb432e070350cb6a308d931cb961f0375db619bb61059e42364890bc9f",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk-gd/runs/subagents/20261106-212715/context-review/task-gd21/bundle/771bc0cb432e070350cb6a308d931cb961f0375db619bb61059e42364890bc9f/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md",
+      "sha256": "e0e48322d5f65a27707c3940245ef2f78a72534989dcaeb4888eceae1057d2fb",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/project_graph_config.py",
+      "sha256": "39f53333871334b3a88547a250f9aead199f1ce4f5ecc8b7b0d434e8066217ef",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/project_graph.py",
+      "sha256": "a561e79aeafc8e51da6eaa0d63250f629ad6a4670641a9b0ba2dd21f2ddb0290",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/project_texts.py",
+      "sha256": "aac66e8dcc48a035144cef6042019d33a70c30beced2d578b8d6ffa32e355342",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/__init__.py",
+      "sha256": "10cc80ca394e779bf1ea4c6353cddfaafbed28b7fb5a3d132c61999844865468",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/stores/store_declaration.py",
+      "sha256": "5d77ddc3b56d094a03e3c8c68061dc35374c828961821d9c6147a34199d7f6b3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/stores/tracked_documents.py",
+      "sha256": "e5830e064ecb5fba1508066a3a056570db88052e39e89fca3971b4c1eefe4928",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "785e53bba87e57e1eab69395820ef3c5174afc69f1c8bc3c039f141128d19177",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/graph.py",
+      "sha256": "5bfb6d28140b5817c703567d437543c5a7a4dca0287fb73c7de50d3188aed0ad",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/graph.py",
+      "sha256": "2050df798ecaadf3ac2f88ded254cbcb4a398b66366148730703d35a7eff24b7",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/routes.py",
+      "sha256": "738567bb6f1718310df2c868ea727fdf267b6607f93267df5c82b922db5b26ea",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/edges_routes.py",
+      "sha256": "45156815ec019bee2e7304504c2815c5106adee40c509638bbcf3a5d5d7595f9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_project_graph.py",
+      "sha256": "fd9de69a3e416dfefc3f27bd536cf0308d512cf834604f714ece8e96622628a5",
+      "projection": "whole_file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "087a9d98998f53d877d1afde399ae7c909cd6b86e31a8ad00875492f247d5f7d",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/edges/project_graph/project_graph_config_mapping.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/inverse_edges.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/project_graph_memo.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/project_graph/store_project_graph.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/cli/parsers/graph_project.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/cli/commands/graph_project.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/cli/serve/project_graph_routes.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_project_graph_config.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/test_serve.py",
+      "reason": "size>=60000",
+      "size": 64870
+    },
+    {
+      "path": "docs/architecture/project-graph.md",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T21:27:16.920632+00:00",
+  "finished": "2026-11-06T21:27:38.746382+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b655641e607f48430a9978c5b688f3e02dc263e51a73f5993dba9c4ea8c3b30b",
+  "output_sha256": "56b623746a2c1a0c333de03118dc05f3384f234a35d539dc33b47c400187895e",
+  "start": "2026-11-16T06:47:00.075693+00:00",
+  "end": "2026-11-16T06:47:19.285061+00:00"
+}

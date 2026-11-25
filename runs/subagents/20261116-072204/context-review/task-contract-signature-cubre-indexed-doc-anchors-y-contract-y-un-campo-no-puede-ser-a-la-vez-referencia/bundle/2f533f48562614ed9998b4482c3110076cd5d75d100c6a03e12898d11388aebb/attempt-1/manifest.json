@@ -1,0 +1,93 @@
+{
+  "key": "task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/bundle",
+  "input_sha256": "2f533f48562614ed9998b4482c3110076cd5d75d100c6a03e12898d11388aebb",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-072204/context-review/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/bundle/2f533f48562614ed9998b4482c3110076cd5d75d100c6a03e12898d11388aebb/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia.md",
+      "sha256": "02d084ab2e65db033aa91a9aeee4521436ad92e3fb040ae1475f367a4813f10d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-lo-que-la-clase-declara-se-relee-cada-vez-que-el-store-firma-el-modelo.md",
+      "sha256": "b27022952c42bc12699700cc2a7ad7d51680ba28fcba40927ab150c1d7a9ad7c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/model_contract.py",
+      "sha256": "3c373a903c8138e6a76c58d2f600b00b32bbd044345698e577291c22ead28f0a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/models/edge_node_record.py",
+      "sha256": "ffa58f7e7bf57b4a2911a4a4af8b2df9013c3b9fd79faef9ab77396fa97cd507",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/doc_anchor_value.py",
+      "sha256": "2a9d06f2adaf0fe70ca5d248089ee70d565da05d184365688a8eb6bbea4957e0",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/store/test_payload_projection.py",
+      "sha256": "dac8c0a409c4aa1c6d980a96b282605763903c23cf8c61a5c237842c25a09f24",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_doc_anchors.py",
+      "sha256": "d2ccc11cf1f54f3ed58b8505df5d8e2438224af0e85252679ad0c69556b413fa",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:22:05.866187+00:00",
+  "finished": "2026-11-16T07:22:30.235389+00:00"
+}

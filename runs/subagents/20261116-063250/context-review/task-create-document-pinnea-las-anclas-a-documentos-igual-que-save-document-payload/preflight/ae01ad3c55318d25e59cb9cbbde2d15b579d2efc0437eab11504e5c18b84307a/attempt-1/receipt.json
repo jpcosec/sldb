@@ -1,0 +1,9 @@
+{
+  "key": "task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "ae01ad3c55318d25e59cb9cbbde2d15b579d2efc0437eab11504e5c18b84307a",
+  "output_sha256": "ec1e423d91613a66971800d01f0a98042a138e18794e8e3a524f8587e11d61f7",
+  "start": "2026-11-16T06:32:51.527464+00:00",
+  "end": "2026-11-16T06:33:06.665950+00:00"
+}

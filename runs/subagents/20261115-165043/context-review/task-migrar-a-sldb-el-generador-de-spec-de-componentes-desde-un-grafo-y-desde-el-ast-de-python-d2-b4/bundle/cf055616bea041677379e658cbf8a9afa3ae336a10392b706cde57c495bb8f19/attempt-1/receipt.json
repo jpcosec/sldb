@@ -1,0 +1,9 @@
+{
+  "key": "task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "cf055616bea041677379e658cbf8a9afa3ae336a10392b706cde57c495bb8f19",
+  "output_sha256": "e27f5d92deb94227d5c199743c9cd0ae75da5dc4b687e2f2e4b2a06d6026cf51",
+  "start": "2026-11-15T16:50:44.018406+00:00",
+  "end": "2026-11-15T16:50:53.509698+00:00"
+}

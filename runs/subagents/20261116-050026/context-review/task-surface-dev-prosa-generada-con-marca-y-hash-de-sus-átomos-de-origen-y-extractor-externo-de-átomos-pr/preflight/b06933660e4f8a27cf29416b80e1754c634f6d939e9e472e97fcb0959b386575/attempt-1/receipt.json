@@ -1,0 +1,9 @@
+{
+  "key": "task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b06933660e4f8a27cf29416b80e1754c634f6d939e9e472e97fcb0959b386575",
+  "output_sha256": "cde3c53b03b93950d80e9e2ae2601e41e280e9b0d47ae4aa6a0cbd8bb99d9a00",
+  "start": "2026-11-16T05:00:28.024324+00:00",
+  "end": "2026-11-16T05:00:42.042635+00:00"
+}

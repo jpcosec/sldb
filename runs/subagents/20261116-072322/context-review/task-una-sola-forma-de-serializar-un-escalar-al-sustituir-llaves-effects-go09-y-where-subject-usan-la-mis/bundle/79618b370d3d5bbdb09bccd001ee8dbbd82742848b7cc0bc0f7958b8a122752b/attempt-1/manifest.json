@@ -1,0 +1,93 @@
+{
+  "key": "task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis/bundle",
+  "input_sha256": "79618b370d3d5bbdb09bccd001ee8dbbd82742848b7cc0bc0f7958b8a122752b",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-072322/context-review/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis/bundle/79618b370d3d5bbdb09bccd001ee8dbbd82742848b7cc0bc0f7958b8a122752b/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md",
+      "sha256": "42b0b0e74d392f48a08d2837e19d22b40e2011d2ec83e5561c89071fcc5e4b9e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md",
+      "sha256": "099f81066d13f882a6f947e947b10216326513289c83efc02ee2d63916fc907d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/where_literal.py",
+      "sha256": "03f2db02170a1b327fb9aa66bb0b18529017a7720d3f7fe51791195cb0a5db4f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/where_subject.py",
+      "sha256": "527e613653dff6ff0d919f621cd7987623983c16742a834fd7eaafc764c70e5e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/edge_effects.py",
+      "sha256": "b8a344c4f823b6e11541f113973380f368c8b823b0bc5745581e40e822bee0d9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/store/test_predicate_language.py",
+      "sha256": "f8f0852302a744f45bc7594546eef7a28a028ce378e4aea8c6f50760b3bf236b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_edge_effects.py",
+      "sha256": "4a4bb8a6958fb2e6bfe5de18d37c355c0c382e9149473748bf54ab3a92695d36",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:23:23.855804+00:00",
+  "finished": "2026-11-16T07:23:52.929400+00:00"
+}

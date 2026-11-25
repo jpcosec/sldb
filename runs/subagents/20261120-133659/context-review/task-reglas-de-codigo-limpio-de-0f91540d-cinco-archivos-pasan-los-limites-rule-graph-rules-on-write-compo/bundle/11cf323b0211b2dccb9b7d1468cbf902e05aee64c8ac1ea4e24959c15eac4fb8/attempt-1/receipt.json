@@ -1,0 +1,9 @@
+{
+  "key": "task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "11cf323b0211b2dccb9b7d1468cbf902e05aee64c8ac1ea4e24959c15eac4fb8",
+  "output_sha256": "12b028e5acbdbc549c5b456db5da4dc48e58a72ec766068a77b2e641c7d6f60d",
+  "start": "2026-11-20T13:37:01.461971+00:00",
+  "end": "2026-11-20T13:37:17.157794+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "9e39b3630cb287732fe44369359a0fecd8f8c406c3543337f8c00dc67598c391",
+  "output_sha256": "e5294d79ca1146c345d88b664f59114598a22a854677ebdafc3833c2533d0e67",
+  "start": "2026-11-16T04:41:04.679274+00:00",
+  "end": "2026-11-16T04:41:15.035301+00:00"
+}

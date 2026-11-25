@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "28da99013384e06d005cc296ecd896c80df5501665afdf595a0008535d28330e",
+  "output_sha256": "fe4cc5e099a70f00806ea6094dc3766d5b002d090a32d294c57282684bcae43e",
+  "start": "2026-11-17T00:34:56.110291+00:00",
+  "end": "2026-11-17T00:35:09.581352+00:00"
+}

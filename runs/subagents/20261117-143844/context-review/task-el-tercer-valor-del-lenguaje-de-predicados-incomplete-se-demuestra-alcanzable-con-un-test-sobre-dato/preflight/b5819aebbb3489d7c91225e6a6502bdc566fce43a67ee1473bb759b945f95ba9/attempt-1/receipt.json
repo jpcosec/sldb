@@ -1,0 +1,9 @@
+{
+  "key": "task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b5819aebbb3489d7c91225e6a6502bdc566fce43a67ee1473bb759b945f95ba9",
+  "output_sha256": "afacedecadc2628600e8dbbf127cb1b21ae72cbf4fbc8579894c00c0e7ed09ad",
+  "start": "2026-11-17T14:38:51.590839+00:00",
+  "end": "2026-11-17T14:40:22.406046+00:00"
+}

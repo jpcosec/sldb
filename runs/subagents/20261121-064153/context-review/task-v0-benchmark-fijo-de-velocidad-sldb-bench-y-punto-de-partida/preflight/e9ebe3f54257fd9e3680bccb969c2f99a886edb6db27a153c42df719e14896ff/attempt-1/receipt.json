@@ -1,0 +1,9 @@
+{
+  "key": "task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "e9ebe3f54257fd9e3680bccb969c2f99a886edb6db27a153c42df719e14896ff",
+  "output_sha256": "b569d4e32e62f0b7d7ce151e33163b8b1b3d6958dfa9adc585d1524e45391cad",
+  "start": "2026-11-21T06:41:55.471921+00:00",
+  "end": "2026-11-21T06:42:09.887656+00:00"
+}

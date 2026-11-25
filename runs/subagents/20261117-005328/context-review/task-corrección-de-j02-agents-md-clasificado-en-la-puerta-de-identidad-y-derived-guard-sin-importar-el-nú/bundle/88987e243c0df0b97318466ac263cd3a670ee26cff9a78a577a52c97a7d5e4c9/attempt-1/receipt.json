@@ -1,0 +1,9 @@
+{
+  "key": "task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "88987e243c0df0b97318466ac263cd3a670ee26cff9a78a577a52c97a7d5e4c9",
+  "output_sha256": "9e2b9eaacaa79fbc666e770151f4d12fd7afe55909f573e3380d040fe5eda167",
+  "start": "2026-11-17T00:53:30.063705+00:00",
+  "end": "2026-11-17T00:53:39.359684+00:00"
+}

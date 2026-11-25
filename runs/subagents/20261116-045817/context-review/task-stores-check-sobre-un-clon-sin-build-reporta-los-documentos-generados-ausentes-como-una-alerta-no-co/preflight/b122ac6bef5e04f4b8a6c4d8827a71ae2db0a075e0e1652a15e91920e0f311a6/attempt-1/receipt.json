@@ -1,0 +1,9 @@
+{
+  "key": "task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b122ac6bef5e04f4b8a6c4d8827a71ae2db0a075e0e1652a15e91920e0f311a6",
+  "output_sha256": "6b1a2b886fb5c1b4149aadddce57901fd33ae0cf02c7d1c1ba1a995185eb3bd1",
+  "start": "2026-11-16T04:58:19.388970+00:00",
+  "end": "2026-11-16T04:58:33.405034+00:00"
+}

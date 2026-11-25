@@ -1,0 +1,75 @@
+FILE:desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
+---
+sldb:
+  by: agent
+  at: '2026-11-16T04:28:04Z'
+  authority: generated
+  via: save_document_payload
+id: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
+status: draft
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+current_node: ritual-execution
+history: []
+references:
+- desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md
+depends_on: []
+pills: []
+files:
+- src/sldb/api/matching/store_reader.py
+- src/sldb/api/matching/store_edges.py
+- src/sldb/store/edge_index/composed_reading.py
+- tests/matching/test_matching_refs.py
+- CHANGELOG.md
+task_type: task.debug
+inherits_from: []
+inherit_acceptance_context: false
+atoms:
+- atom-un-escaneo-por-documento-se-cachea-por-lo-que-lo-determina-texto-contrato-y-lector
+---
+
+# matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos)
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+IR13 midió que `specir catalog build --config <project.yml de ejemplo del catálogo en las fixtures visuales del repo IR>` (repo IR) no termina en 300 s; el tiempo es de sldb. cProfile: 146 de 149 s en sldb.api.matching.attach_atom_edges -> StoreReader.edges_of (31 llamadas) -> store_edges.edges_of -> edges_from + edges_to -> load_edge_index (62 llamadas, ~1,1 s cada una). compose_edge_index acierta la caché _COMPOSED, pero with_live_stale corre stale_of_facts en cada llamada y el model_copy resultante reconstruye los mapas (_ensure_maps). Origen: desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+attach_atom_edges sobre N referencias carga el índice de aristas una sola vez por store y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
+
+## Scope
+
+_State what is in scope and what is out of scope._
+
+Entra, en este orden: (1) reproducir con un test de rendimiento acotado en tests/matching/ que cuenta llamadas (monkeypatch de load_edge_index o de stale_of_facts con un contador) para 10 referencias sobre un store de prueba y falla si load_edge_index se llama más de 2 veces; (2) arreglar en src/sldb/api/matching/store_reader.py (StoreReader, líneas 45-57) para que cargue el índice una vez por store y resuelva edges_from y edges_to de cada referencia sobre ese índice ya cargado, en lugar de llamar store_edges.edges_of por referencia; (3) solo si (2) no basta para la meta, memoizar with_live_stale en src/sldb/store/edge_index/composed_reading.py (líneas 43-47) por firma de shards y stats de fuentes. Medición antes y después con el comando de IR de la nota (cd al repo IR, timeout 300) y guardada en el informe del ejecutor. CHANGELOG.md. No entra: cambiar la semántica de stale (sigue reportando las ediciones externas), tocar compose.py salvo que (3) lo exija, ni la configuración de federación del store de IR (la doble federación deskops/sldb de SLDB_1 y ~/herramientas es configuración de IR, no código de sldb).
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+1) Leer src/sldb/api/matching/store_reader.py, src/sldb/api/matching/store_edges.py (línea 28), src/sldb/api/edges/edge_reading.py (edges_from línea 45, edges_to línea 61), src/sldb/store/edge_index/compose.py (línea 48), composed_reading.py (43-47) y edge_index.py (_ensure_maps, línea 43). 2) Test contador que falla hoy. 3) Cambio en StoreReader. 4) Medir; si no alcanza, memoización del paso (3). 5) Correr los tests de Validation.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- TMPDIR=/dev/shm pytest -q tests/matching/
+- TMPDIR=/dev/shm pytest -q tests/api/test_api_edges.py
+- TMPDIR=/dev/shm pytest -q tests/store/test_live_stale_security.py
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+El test contador pasa (load_edge_index a lo sumo 2 veces para 10 referencias); los tres comandos de Validation pasan; la medición del catalog build de IR antes/después queda en el informe con el después bajo 60 s; commit.
+
+FILE:instruccion
+Preflight solo-TaskDoc de la tarea task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg: reformula el encargo tal como lo leería un ejecutor sin ningún otro contexto, lista ambigüedades con cita textual del input y da el DRY-RUN sin ejecutar nada. No ejecutes nada.
+

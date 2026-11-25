@@ -1,0 +1,9 @@
+{
+  "key": "task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "6b26d00d6149190d41c0e2435225472448ad009bd0ebbcc3d83427186daea30a",
+  "output_sha256": "cbb59eb287a51a6bd876d3fe7b9c14b7999bf564cd11f867a353bd9856daefc5",
+  "start": "2026-11-16T07:12:44.812030+00:00",
+  "end": "2026-11-16T07:13:03.435205+00:00"
+}

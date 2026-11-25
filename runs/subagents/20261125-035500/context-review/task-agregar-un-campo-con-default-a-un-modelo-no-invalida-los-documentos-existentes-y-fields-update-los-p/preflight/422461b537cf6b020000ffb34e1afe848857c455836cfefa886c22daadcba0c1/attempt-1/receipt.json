@@ -1,0 +1,9 @@
+{
+  "key": "task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "422461b537cf6b020000ffb34e1afe848857c455836cfefa886c22daadcba0c1",
+  "output_sha256": "d1f88b077c04fd397835d6e773fcf76822c9aa3199c26c06ed4887c354dae5f8",
+  "start": "2026-11-25T03:55:02.158226+00:00",
+  "end": "2026-11-25T03:55:13.244014+00:00"
+}

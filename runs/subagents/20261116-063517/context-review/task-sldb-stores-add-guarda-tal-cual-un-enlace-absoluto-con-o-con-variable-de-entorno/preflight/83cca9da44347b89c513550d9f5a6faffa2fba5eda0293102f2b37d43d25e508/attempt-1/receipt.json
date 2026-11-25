@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "83cca9da44347b89c513550d9f5a6faffa2fba5eda0293102f2b37d43d25e508",
+  "output_sha256": "986b6865254684d15db92015ef94da691e8d2883859b2ff1739e78a13c0f1b53",
+  "start": "2026-11-16T06:35:18.507762+00:00",
+  "end": "2026-11-16T06:35:28.801543+00:00"
+}

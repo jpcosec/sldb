@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "437384559a80de57c791abbceb171aed64568b602e7fbee7df462a1e570b0cc9",
+  "output_sha256": "8f070423d187bc0075d2034b0508fcdfc130afdef5703d008d7be85efd3749fc",
+  "start": "2026-11-15T16:02:48.904656+00:00",
+  "end": "2026-11-15T16:03:03.831479+00:00"
+}

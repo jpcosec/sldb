@@ -1,0 +1,9 @@
+{
+  "key": "task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "0c1a50661e10723822aa0ec27b01316372ed40611167a619d3d1b5f22a75eb8d",
+  "output_sha256": "077c3d32cc19add2f1ade1a895c34fc819a476c4c16857b3eb185b8cd2e2c64c",
+  "start": "2026-11-25T03:26:31.934747+00:00",
+  "end": "2026-11-25T03:26:40.121381+00:00"
+}

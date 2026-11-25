@@ -1,0 +1,2 @@
+python -m pytest -q -p no:cacheprovider tests/store/test_merge_driver_auto_install.py tests/store/test_stores_build.py tests/store/test_update_fault_tolerance.py -> rc 0 (49 passed)
+bash tools/check.sh --fast -> rc 1 (only gate "identidad" fails: ERROR directorio versionado sin clasificar en la raíz: workbench_demo; pre-existing, unrelated; see check-fast.log)

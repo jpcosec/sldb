@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "c9297520ac2cd63af9d2a18d2f05ad24a3c6b9d94c3897bd66a080251a3cf4ba",
+  "output_sha256": "8e63f7a6182c53d96a4361e459b14d5b893e523c6bf841332e06ed4e146aacf3",
+  "start": "2026-11-16T07:30:32.169810+00:00",
+  "end": "2026-11-16T07:30:48.152048+00:00"
+}

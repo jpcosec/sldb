@@ -1,0 +1,9 @@
+{
+  "key": "task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "5527b0b37cc0691545c779811b5f9965f85390e0b04d4199658b4b8c1ab09197",
+  "output_sha256": "8ae98a32f1cd17212ea51abf947752d023e0a2039a435827af08270ae219f970",
+  "start": "2026-11-21T06:37:09.057680+00:00",
+  "end": "2026-11-21T06:37:20.573130+00:00"
+}

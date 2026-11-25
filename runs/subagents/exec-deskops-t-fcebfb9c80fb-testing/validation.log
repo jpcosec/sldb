@@ -1,0 +1,64 @@
+# Validacion — task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura
+
+Fecha: 2026-11-25
+Commit del ejecutor: 9384682fbaaf0ddc68aacbab955e97687f3685c4
+  "surface: borra el alias businessName de wiki-index"
+  Archivos: surface/src/core/wiki-index.ts (2 lineas borradas)
+  Nota: no lleva Task-Id (el encargo pide no ponerlo). 283bb73c es el commit de despacho.
+Entorno: /tmp/ws-venv no existia; se uso /dev/shm/tester-venv/bin/python (3.12.16).
+
+## grep de residuos
+
+$ grep -rniE 'NegocioDoc|businessName|negocio' surface/src
+(sin coincidencias; rc=1)
+
+## TypeScript / pruebas surface
+
+$ cd surface && npx tsc --noEmit
+rc=0
+
+$ npx vitest run src/core src/react src/views src/app src/workbench
+Test Files  35 passed (35)
+     Tests  471 passed (471)
+rc=0
+
+$ npx vitest run src/core/wiki-index.test.ts src/app/workbench.test.tsx
+Test Files  2 passed (2)
+     Tests  26 passed (26)
+rc=0
+
+$ node scripts/check-layers.mjs
+Contrato de capas verificado (76 modulos en L0..L3 sin violaciones ni mocks).
+rc=0
+
+## Puertas rapidas del desk
+
+$ export PATH=/dev/shm/tester-venv/bin:$PATH
+$ export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-fcebfb9c80fb"
+$ bash tools/check.sh --fast
+PASS nucleo aislado, capas, identidad, ejes, superficie
+TODAS LAS PUERTAS PASAN
+rc=0
+
+## Prueba que demuestra que sldb serve SI expone la ruta del store
+
+$ python -m pytest -q -p no:cacheprovider tests/test_serve.py::test_stores_describe_current_store
+1 passed
+rc=0
+
+tests/test_serve.py:895-905 afirma:
+  body == {
+      "store": str(store),
+      "root": str(tmp_path),
+      "model_count": 2,
+      "doc_count": 2,
+      "hash_a": load_store_index(store).hash_a,
+      "stores": [],
+  }
+src/sldb/cli/serve/stores_routes.py:_describe devuelve:
+  {"store": str(store_path), "root": str(root), ...}
+
+## Pruebas Python del commit
+
+El commit 9384682f no toca archivos .py ni tests de Python. No hay
+tests/test_wiki_index.py ni equivalente en Python. No se corrio la suite completa.

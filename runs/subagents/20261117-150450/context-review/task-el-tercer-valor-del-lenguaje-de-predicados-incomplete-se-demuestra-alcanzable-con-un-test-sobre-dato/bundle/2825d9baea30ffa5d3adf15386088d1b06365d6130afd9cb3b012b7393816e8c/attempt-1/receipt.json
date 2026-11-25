@@ -1,0 +1,9 @@
+{
+  "key": "task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "2825d9baea30ffa5d3adf15386088d1b06365d6130afd9cb3b012b7393816e8c",
+  "output_sha256": "7c8a4763c7ddf0e5384b07d69d2b37e273c5f3831f93324e563412b182892aba",
+  "start": "2026-11-17T15:04:52.862534+00:00",
+  "end": "2026-11-17T15:05:07.550178+00:00"
+}

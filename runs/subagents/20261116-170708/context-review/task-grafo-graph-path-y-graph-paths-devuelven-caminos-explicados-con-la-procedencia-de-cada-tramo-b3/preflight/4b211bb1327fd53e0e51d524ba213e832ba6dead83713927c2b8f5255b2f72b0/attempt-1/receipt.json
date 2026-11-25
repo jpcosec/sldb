@@ -1,0 +1,9 @@
+{
+  "key": "task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4b211bb1327fd53e0e51d524ba213e832ba6dead83713927c2b8f5255b2f72b0",
+  "output_sha256": "2038de428d113e0c7f5ba11d9977fea86a2a8f0329f5688f426d7356891921d4",
+  "start": "2026-11-16T17:07:12.920984+00:00",
+  "end": "2026-11-16T17:07:25.561294+00:00"
+}

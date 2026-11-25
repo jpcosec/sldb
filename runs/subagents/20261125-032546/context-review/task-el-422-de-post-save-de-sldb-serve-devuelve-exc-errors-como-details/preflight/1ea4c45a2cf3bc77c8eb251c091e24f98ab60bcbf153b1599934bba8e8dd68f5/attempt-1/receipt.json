@@ -1,0 +1,9 @@
+{
+  "key": "task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "1ea4c45a2cf3bc77c8eb251c091e24f98ab60bcbf153b1599934bba8e8dd68f5",
+  "output_sha256": "f033e83077f0fdf5728511bd6e7a2d3f638f4ff173c1f6651e3b63b09cb68940",
+  "start": "2026-11-25T03:25:48.003688+00:00",
+  "end": "2026-11-25T03:26:01.574078+00:00"
+}

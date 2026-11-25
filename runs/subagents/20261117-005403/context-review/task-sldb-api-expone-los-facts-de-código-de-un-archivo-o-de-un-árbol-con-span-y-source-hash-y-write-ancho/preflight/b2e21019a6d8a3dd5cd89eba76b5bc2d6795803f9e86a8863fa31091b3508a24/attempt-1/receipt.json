@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "b2e21019a6d8a3dd5cd89eba76b5bc2d6795803f9e86a8863fa31091b3508a24",
+  "output_sha256": "504a6639cd2d0efa1df69494b45166c95eaaf4af0e82388d35c461c549925aca",
+  "start": "2026-11-17T00:54:05.098599+00:00",
+  "end": "2026-11-17T00:54:17.360902+00:00"
+}

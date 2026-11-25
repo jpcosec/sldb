@@ -1,0 +1,9 @@
+{
+  "key": "task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4755d386f0be77e3db3eb1360faa3b10c0a60953d944b0f99b84578bf0570fea",
+  "output_sha256": "ff843630164c60d91ad8090ec41e66c141e6739b0e063aa912a3e6f975f6515d",
+  "start": "2026-11-25T03:30:59.721626+00:00",
+  "end": "2026-11-25T03:31:17.307354+00:00"
+}

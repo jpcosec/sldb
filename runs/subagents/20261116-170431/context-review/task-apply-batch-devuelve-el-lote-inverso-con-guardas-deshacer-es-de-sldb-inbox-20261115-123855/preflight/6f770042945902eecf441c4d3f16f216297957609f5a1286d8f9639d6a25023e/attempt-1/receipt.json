@@ -1,0 +1,9 @@
+{
+  "key": "task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "6f770042945902eecf441c4d3f16f216297957609f5a1286d8f9639d6a25023e",
+  "output_sha256": "a25d9337b204f7fdeefda52e5e78478c7b7b15d7379675401b001ee92f67d031",
+  "start": "2026-11-16T17:04:33.543503+00:00",
+  "end": "2026-11-16T17:04:52.499994+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "26c35d3eb7f111b28d6b8f0ed77068417e9cff81735fd180480da331c8aa348c",
+  "output_sha256": "ab09ae00b7bc3dc8cf6839b7b3d263b69ab80f0b0c12a5e02c1456f3dcbdd20b",
+  "start": "2026-11-16T07:24:12.957613+00:00",
+  "end": "2026-11-16T07:24:23.895430+00:00"
+}

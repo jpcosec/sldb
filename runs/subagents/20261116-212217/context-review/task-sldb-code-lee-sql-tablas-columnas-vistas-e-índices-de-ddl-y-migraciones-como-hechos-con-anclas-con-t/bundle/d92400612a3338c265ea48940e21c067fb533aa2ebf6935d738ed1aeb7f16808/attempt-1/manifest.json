@@ -1,0 +1,99 @@
+{
+  "key": "task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/bundle",
+  "input_sha256": "d92400612a3338c265ea48940e21c067fb533aa2ebf6935d738ed1aeb7f16808",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-212217/context-review/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/bundle/d92400612a3338c265ea48940e21c067fb533aa2ebf6935d738ed1aeb7f16808/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md",
+      "sha256": "dd9c1e3aea6b9f12d5dc3b32a6716a51ab07488cf1dd197184d8334e4fd1f8f5",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-el-inventario-de-código-de-sldb-se-publica-como-hechos-de-fuente-y-cada-consumidor-los-proyecta.md",
+      "sha256": "1b40cce39d00ea8ecdcda71ecf931cb15ebf771c04ac8dd856295c0ce371213e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "2056c701aa49b5194e3f67366b9c7f7d5415dcdb79932ff80fe54909f174927c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/runtime.py",
+      "sha256": "fde0befc82fdfa506c7291a9db16ac1a8e2f9482c334925b57b9126a81b47242",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/code_ref.py",
+      "sha256": "c4652cfda16c024904db462574390f34536a0e4bfc5694d2751cedf532527351",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_anchors.py",
+      "sha256": "5b5cbf06302b3403a7065400e9018f15876d824001eee8ba0b51c6880402444a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/selfdoc/test_treesitter_symbols.py",
+      "sha256": "69546dbb9f505f98896dddaf82decd62d733c20026f958c04c59dda810ae0ae0",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "uv.lock",
+      "reason": "size>=60000",
+      "size": 247662
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 124250
+    }
+  ],
+  "started": "2026-11-16T21:22:19.130093+00:00",
+  "finished": "2026-11-16T21:22:36.255514+00:00",
+  "retry_reason": "Input cambiado de verdad: JP fijó el dialecto PostgreSQL y el scope ganó las Precisiones del intento 3 (forma del ancla con esquema, vistas normales y materializadas, unión de líneas --, sufijo ~N, granularidad del descarte)."
+}

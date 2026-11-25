@@ -1,0 +1,41 @@
+# Validación tester — task-matching-attach-atom-edges (intento a2)
+
+Commit: 9d09537c8dc4a8cc3786a8a1bd9415db4bd3e12a
+Entorno: /tmp/ws-venv no existe; /workspace/sldb/.venv (Python 3.13.18, pytest 9.1.1).
+TMPDIR=/tmp y PYTEST_ADDOPTS con un --basetemp distinto por corrida.
+
+$ .venv/bin/python -m pytest -q tests/matching/
+33 passed, 1 warning in 4.79s
+rc=0
+
+$ .venv/bin/python -m pytest -q tests/api/test_api_edges.py
+17 passed, 1 warning in 27.03s
+rc=0
+
+$ .venv/bin/python -m pytest -q tests/store/test_live_stale_security.py
+8 passed, 1 warning in 7.11s
+rc=0
+
+$ PATH=/workspace/sldb/.venv/bin:$PATH bash tools/check.sh --fast
+PASS: núcleo aislado, capas, ejes, superficie
+FAIL: identidad — directorio versionado sin clasificar en la raíz: workbench_demo
+FALLAN: identidad
+rc=1
+(preexistente: idéntico en el commit padre)
+
+## Contador real vs. test del commit
+
+El test del commit monkeypatchea sldb.api.edges.edge_reading.load_edge_index, pero
+store_edges.py importó load_edge_index como nombre local y el camino nuevo lo llama ahí:
+el contador del test queda en 0 y no ve las cargas reales.
+
+Script temporal con el patch en sldb.api.matching.store_edges.load_edge_index:
+- commit 9d09537c (10 refs): 1 llamada
+- commit padre f9846e9b (10 refs, patch en edge_reading): 20 llamadas
+
+Mutación sobre un worktree del commit: se quitó el caché self._index de
+StoreReader._read_edges para cargar por referencia. El test del commit siguió pasando
+(1 passed), así que no detecta la regresión que debía detectar.
+
+## Medición de referencia (informe del ejecutor, runs/subagents/exec-deskops-e-3617fe0f6a32)
+antes: timeout 300, rc 124; después: 54,9 s, rc 0 (< 60 s).

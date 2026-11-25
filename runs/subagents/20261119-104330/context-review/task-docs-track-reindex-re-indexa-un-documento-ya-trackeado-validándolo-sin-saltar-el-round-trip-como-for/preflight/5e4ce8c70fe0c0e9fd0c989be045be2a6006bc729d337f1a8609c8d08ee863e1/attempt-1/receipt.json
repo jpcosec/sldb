@@ -1,0 +1,9 @@
+{
+  "key": "task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "5e4ce8c70fe0c0e9fd0c989be045be2a6006bc729d337f1a8609c8d08ee863e1",
+  "output_sha256": "32f3074ea20d05c3ae3bd079f8da5653ff884875fc42253ca56782a450badcc3",
+  "start": "2026-11-19T10:43:31.883044+00:00",
+  "end": "2026-11-19T10:43:42.329333+00:00"
+}

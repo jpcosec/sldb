@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "525b944018027d018fdb98fd794bdd2583069a36de7927845f1fa2ed2409d797",
+  "output_sha256": "55c6486d1825114c79bbbb75f67b997ae266d0878a68dd68cb44b6052344bb7d",
+  "start": "2026-11-16T08:01:33.255310+00:00",
+  "end": "2026-11-16T08:01:54.595682+00:00"
+}

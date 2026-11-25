@@ -1,0 +1,100 @@
+{
+  "key": "task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/bundle",
+  "input_sha256": "3fe834611302a8d9de0fe6da56da927c917ce7004b2d50a6ff34c5cf28aaf9f2",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261121-070420/context-review/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/bundle/3fe834611302a8d9de0fe6da56da927c917ce7004b2d50a6ff34c5cf28aaf9f2/attempt-1/input.md"
+  ],
+  "binary": "pi",
+  "model": "deepseek/deepseek-flash",
+  "input_delivery": "file",
+  "isolation_flags": [
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools"
+  ],
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md",
+      "sha256": "df3988b3b5671519f8afed9f25e8bd76a0fbb69e9aa30ec1027e8eaa0d451f50",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/graph.py",
+      "sha256": "dfd5d84c08df8d4e60bb156e23f524005ddb6547a9de4e37e6741ea64fdd8bda",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/stores.py",
+      "sha256": "7991cc3b675f6e3606f15dcc37468fa115116bb5d2b3f5850d6876114c5f4c94",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/help_texts_graph.py",
+      "sha256": "0046a9cff86cfdf31445f08294bee5e03aa716ee03f2874ea6f09574f3688248",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/ingest_sldb.py",
+      "sha256": "4080692b87c2b94b84489346f6df3451416221278668bbcb6cb068b24527847e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/selfdoc/python_source_graph.py",
+      "sha256": "d4993684ffb6ac80c43b4b99ff0483095464b7697bff0085b5b5b493663f00dd",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 175337
+    }
+  ],
+  "started": "2026-11-21T07:04:22.895915+00:00",
+  "finished": "2026-11-21T07:04:46.647869+00:00",
+  "retry_reason": "El bundle-2 quedó stale (review status): cambió el input de la tarea desde el 17-11; se repite sobre el input vigente."
+}

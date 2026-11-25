@@ -1,0 +1,9 @@
+{
+  "key": "task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "10e205845762ac159f960ab0d77ccb7f32a0a7620dfcd3b68eeb40acd8f69bf7",
+  "output_sha256": "cf35c7780c8090fcb6dc2a4cf9ebbd8123d1da9e4bbb2ab2f2eddc53cda54410",
+  "start": "2026-11-16T13:33:12.172881+00:00",
+  "end": "2026-11-16T13:33:25.403356+00:00"
+}

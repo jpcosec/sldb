@@ -1,0 +1,238 @@
+=== pytest -q tests/test_links.py
+........................                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+24 passed, 1 warning in 2.69s
+rc=0
+=== pytest -q tests/test_links_batch_cli.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 2.40s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+.......................................................                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1207 passed, 2 warnings in 3.33s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   226 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 977 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== variantes front matter (fmvar.py)
+orig1                  new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+orig2                  new=['b', 'c'] head=['b', 'c'] cm=['b', 'c'] 
+crlf                   new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+cr-solo                new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+espacios               new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+cuatro-guiones         new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+item-ordenado          new=['b', 'c'] head=['b', 'c'] cm=['b', 'c'] 
+cita                   new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+fm-y-fence-despues     new=['b', 'a'] head=['b', 'code', 'a'] cm=['b', 'a'] 
+fm-normal-y-code       new=['fm', 'a'] head=['fm', 'c', 'a'] cm=['fm', 'a'] 
+fm-sin-cierre-texto    new=['b', 'y'] head=['b', 'y'] cm=['b', 'y'] 
+fm-vacio               new=['a'] head=['a'] cm=['a'] 
+bom                    new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+u2028-dentro-fm        new=['a'] head=['fm', 'a'] cm=['fm', 'a']   <-- PIERDE
+x85-dentro-fm          new=['a'] head=['fm', 'a'] cm=['fm', 'a']   <-- PIERDE
+ff-dentro-fm           new=['a'] head=['fm', 'a'] cm=['fm', 'a']   <-- PIERDE
+u2028-linea0           new=['b', 'a'] head=['b', 'a'] cm=['b', 'a'] 
+=== fm.py
+ok   fm-normal '---\ntitle: x [[fm]]\n---\n\nTexto [[a]] y `[[c]]`\n' new ['fm', 'a'] cm ['fm', 'a']
+ok   fm-sin-cierre '---\n\n# T\n\nTexto [[a]]\n' new ['a'] cm ['a']
+ok   hr-con-texto-l0 '--- [[b]]\n\nTexto [[a]]\n' new ['b', 'a'] cm ['b', 'a']
+ok   hr-pegado-l0+cierre '---[[b]]\n---\n\n[[a]]\n' new ['b', 'a'] cm ['b', 'a']
+ok   item-l0-guiones '- --- nota [[b]]\n- otro [[c]]\n' new ['b', 'c'] cm ['b', 'c']
+ok   item-l0-no-fm '- nota --- [[b]]\n' new ['b'] cm ['b']
+ok   linea1-guiones 'Intro\n--- [[b]]\n' new ['b'] cm ['b']
+=== e1.py
+ok   CRLF inline across paragraph: got=['b'] exp=['b'] offsets_ok=True
+ok   4sp-indented ``` is code not fence: got=['b'] exp=['b'] offsets_ok=True
+ok   transclusion in fence: got=['b'] exp=['b'] offsets_ok=True
+ok   predicate in inline code: got=['b'] exp=['b'] offsets_ok=True
+INFO html <code>: got=['a', 'b'] exp=None offsets_ok=True
+fails 0
+=== e2.py
+ok   '~~~\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] ref ['b']
+ok   '`[[a]]\r\n\n[[b]]` [[c]]\n' got ['a', 'b', 'c'] ref ['a', 'b', 'c']
+ok   '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] ref ['r']
+ok   'x\r\n\r\n    [[c]]\r\n[[d]]\n' got ['d'] ref ['d']
+ok   '\\`[[b]]\\`\r\n```\r\n[[a]]\r\n```  \r\n[[z]]\n' got ['b', 'z'] ref ['b', 'z']
+diffs 0
+=== e2b.py
+['real'] ['real'] '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n'
+['real', 'otro'] ['real', 'otro'] '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n'
+['item'] ['item'] '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n'
+['r'] ['r'] '> ```\n> [[f]]\n> ```\n\n[[r]]\n'
+['r'] ['r'] '> ```py\n> a\n\n[[r]]\n'
+=== edges.py
+ok   f19-ol-start '3. ```\n   [[x]]\n   ```\n4. [[y]]\n' got ['y'] cm ['y']
+ok   f20-quote '> - ```\n>   [[x]]\n>   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f21-two-items '- ```\n  [[a]]\n- ```\n  [[b]]\n  ```\n[[c]]\n' got ['c'] cm ['c']
+ok   f22-indent-item '   - ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f23-fence-after-para-in-item '- texto\n  ```\n  [[x]]\n  ```\n  [[y]]\n' got ['y'] cm ['y']
+total 44 diffs 0
+=== e3c.py
+ok   span-cross-heading 'Un ` suelto y [[real]].\n# Título con ` suelto\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-quote 'Un ` suelto y [[real]].\n> cita con ` suelto\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-fence 'Un ` suelto y [[real]].\n```\nx ` y\n```\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-items '- uno ` y [[real]]\n- dos ` y\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-hr 'Un ` y [[real]]\n***\notro `\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-in-fence-close '```\na ` b\n```\nVer [[real]] y ` suelto\n\n' got ['real'] cm ['real'] HEAD ['real']
+=== fuzz3 seed 1
+seed 1 N 20000 {('extra', 'front_matter_linea0'): 6}
+('extra', 'front_matter_linea0') '---  * * > \\`      \t\tpy````* > \r\n\n\n\t[[a4]]`````\n---' new ['a4'] cm []
+('extra', 'front_matter_linea0') '- ---    `txt [[a1]][[a1]]txt 1. \n`[[a1]]\\`> [[a1]]py' new ['a1', 'a1', 'a1'] cm ['a1', 'a1']
+('extra', 'front_matter_linea0') '---`````````\n`\n````\n\n---    \\`\n    [[b]]~~~\ntxt \n------\n' new ['b'] cm []
+('extra', 'front_matter_linea0') '---~~~~~~1. \r\n\r\n\t> [[b]]py\n\n---\n1. > \n\n[[b]]\n\n```\n\n[[b]]10) * ' new ['b', 'b'] cm ['b']
+=== fuzz3 seed 2
+seed 2 N 20000 {('extra', 'front_matter_linea0'): 8, ('loss', 'front_matter_linea0'): 1}
+('extra', 'front_matter_linea0') '-   `---```txt [[a6]]`  \t\r\n`    * \n\n- ````\n\t[[b]]' new ['a6'] cm []
+('extra', 'front_matter_linea0') '---\n1. > \n10) \t`\n\r\n*   `````- [[b]]\n  ---\n[[a3]]  ' new ['b', 'a3'] cm ['a3']
+('extra', 'front_matter_linea0') '---1. \t> ````> \t[[b]]10) \n```\r\n\n\n> ```[[b]]\\`* \ntxt \n---' new ['b', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---```---````txt - ````\r\n\r\n\t\t  py````[[b]]\n\n> * `\n\n\n\n---\t' new ['b'] cm []
+('loss', 'front_matter_linea0') '- ---\t`\n`txt > 1. \r\n\n\n    - [[a3]][[b]]---\r\n\\`' new [] cm ['a3', 'b']
+=== fuzz3 seed 3
+seed 3 N 20000 {('extra', 'front_matter_linea0'): 5}
+('extra', 'front_matter_linea0') '-     ---[[a5]]\n[[b]]> ---* `        \n```\r\n> > ' new ['a5', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---\n\n\t[[b]][[b]]````  \n  ````~~~[[a6]]```\r\n\n---\n\n' new ['b', 'b', 'a6'] cm ['a6']
+('extra', 'front_matter_linea0') '---\n\n\r\n\\`    py[[a4]]\n\r\n* 1. ~~~\n```\n10) py* [[a4]]\n\n\n\n---\n  ' new ['a4', 'a4'] cm ['a4']
+('extra', 'front_matter_linea0') '- ---~~~\n    - ~~~~~~txt `  [[a6]]\\`- > \n\n> \n[[a6]]* \n1. [[b]]    ' new ['a6', 'a6', 'b'] cm ['a6', 'b']
+=== corpus
+/dev/shm/lkmd-t2/base/src files 1987 links 328 time_s 0.341
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.891
+/dev/shm/lkmd-t2/base/src files 1987 links 328 time_s 0.322
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.643
+/dev/shm/lkmd-t2/base/src files 1987 links 328 time_s 0.321
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.634
+CHANGELOG.md lost 10 gained 0 lost_real {}
+docs/architecture/current-system-overview.md lost 2 gained 0 lost_real {}
+docs/architecture/graph-backend.md lost 2 gained 0 lost_real {}
+docs/atoms/compose-vs-recover.atom.md lost 2 gained 0 lost_real {}
+docs/atoms/predicate-links.atom.md lost 4 gained 0 lost_real {}
+docs/composition_modes.md lost 2 gained 0 lost_real {}
+docs/documentation-review.md lost 2 gained 0 lost_real {}
+docs/faq.md lost 3 gained 0 lost_real {}
+docs/user-manual.md lost 3 gained 0 lost_real {}
+knowledge/commands/cmd-sldb-docs-compose.md lost 1 gained 0 lost_real {}
+knowledge/commands/cmd-sldb-predicates-add.md lost 1 gained 0 lost_real {}
+propuesta/06-NIVELES-NO-SON-UNIDADES.md lost 1 gained 0 lost_real {}
+propuesta/09-DUDAS-CERRADAS.md lost 1 gained 0 lost_real {}
+runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go10-retiro-de-where-parse-y-fieldcondition/bundle/2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200/attempt-1/input.md lost 2 gained 0 lost_real {}
+runs/subagents/20261116-test-b2sql-c1/result-summary.md lost 1 gained 0 lost_real {}
+runs/subagents/secrest2-worker-report.md lost 2 gained 0 lost_real {}
+runs/subagents/sldb-ci-worker-report.md lost 3 gained 0 lost_real {}
+files 1987 changed 17 links HEAD 328 new 286 lost 42 gained 0 lost_real 0 reordered_same_set 0
+=== pytest tests/test_cli_reconciliation.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 0.94s
+=== pytest tests/test_composition_sections.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.24s
+=== pytest tests/store/test_semantic_rebuild.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.78s
+=== fixprobe (monkeypatch en memoria)
+antes {'u2028': ['a'], 'x85': ['a'], 'ff': ['a'], 'crlf': ['b', 'a'], 'cr': ['b', 'a']}
+despues {'u2028': ['fm', 'a'], 'x85': ['fm', 'a'], 'ff': ['fm', 'a'], 'crlf': ['b', 'a'], 'cr': ['b', 'a']}
+=== grep tests que importan sldb.links
+tests/test_composition_sections.py
+tests/test_links.py
+=== git status --short (sin runs/)
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M CHANGELOG.md
+ M contracts/layers.toml
+ M src/sldb/links/parser.py
+ M tests/test_links.py
+?? .herdr-coordination.md
+?? .sldb/core/documents/RunDoc/run-deskops-e-2793fe94705d-a2.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-e-2793fe94705d.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-t-fd80ce2d0b55-a2.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-t-fd80ce2d0b55.yaml
+?? desk/runtimes/
+?? src/sldb/links/scan_text.py

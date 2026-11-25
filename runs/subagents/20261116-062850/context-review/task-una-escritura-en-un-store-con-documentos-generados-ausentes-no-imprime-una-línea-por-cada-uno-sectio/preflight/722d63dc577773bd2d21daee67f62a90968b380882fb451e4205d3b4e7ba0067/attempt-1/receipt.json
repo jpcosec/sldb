@@ -1,0 +1,9 @@
+{
+  "key": "task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "722d63dc577773bd2d21daee67f62a90968b380882fb451e4205d3b4e7ba0067",
+  "output_sha256": "527855403d911a639954cbdf2dabf1a7a65ba449fbf5da50ecbaa48ff51fe9ca",
+  "start": "2026-11-16T06:28:52.433697+00:00",
+  "end": "2026-11-16T06:29:04.754018+00:00"
+}

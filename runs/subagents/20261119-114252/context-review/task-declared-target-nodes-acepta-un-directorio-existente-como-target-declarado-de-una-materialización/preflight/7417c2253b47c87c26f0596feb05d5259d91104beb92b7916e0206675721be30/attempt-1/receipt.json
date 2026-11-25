@@ -1,0 +1,9 @@
+{
+  "key": "task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "7417c2253b47c87c26f0596feb05d5259d91104beb92b7916e0206675721be30",
+  "output_sha256": "34cbef638d03bf35916c6d8ffdf93e47893d60c6f914e6baf2c888e62b3bae70",
+  "start": "2026-11-19T11:42:54.265320+00:00",
+  "end": "2026-11-19T11:43:10.193171+00:00"
+}

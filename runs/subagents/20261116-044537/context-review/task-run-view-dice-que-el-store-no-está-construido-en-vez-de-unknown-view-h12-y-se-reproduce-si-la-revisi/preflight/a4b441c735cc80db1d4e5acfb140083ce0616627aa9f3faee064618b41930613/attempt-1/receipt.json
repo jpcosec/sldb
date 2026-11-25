@@ -1,0 +1,9 @@
+{
+  "key": "task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "a4b441c735cc80db1d4e5acfb140083ce0616627aa9f3faee064618b41930613",
+  "output_sha256": "2eba5373f437f994439b4fa18fd124a31a146ffc1106e182c665f47fed266b5e",
+  "start": "2026-11-16T04:45:38.868380+00:00",
+  "end": "2026-11-16T04:45:47.550809+00:00"
+}

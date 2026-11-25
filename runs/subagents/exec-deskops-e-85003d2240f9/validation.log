@@ -1,0 +1,2 @@
+bash tools/check.sh --fast (en worktree deskops-e-85003d2240f9)
+rc=0

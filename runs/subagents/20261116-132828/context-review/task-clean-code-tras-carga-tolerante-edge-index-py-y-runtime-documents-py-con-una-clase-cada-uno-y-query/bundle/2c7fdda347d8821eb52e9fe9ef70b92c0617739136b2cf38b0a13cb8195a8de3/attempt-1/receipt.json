@@ -1,0 +1,9 @@
+{
+  "key": "task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "2c7fdda347d8821eb52e9fe9ef70b92c0617739136b2cf38b0a13cb8195a8de3",
+  "output_sha256": "beb3ade1b27e8011a324dd991c51c8e04f7f6b0a8141a14ca6cbbed57dc56de3",
+  "start": "2026-11-16T13:28:29.414647+00:00",
+  "end": "2026-11-16T13:28:43.359596+00:00"
+}

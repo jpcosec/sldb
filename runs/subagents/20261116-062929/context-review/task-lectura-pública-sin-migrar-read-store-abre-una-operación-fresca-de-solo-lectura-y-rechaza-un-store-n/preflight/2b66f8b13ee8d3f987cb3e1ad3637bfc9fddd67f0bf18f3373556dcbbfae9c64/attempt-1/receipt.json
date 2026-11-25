@@ -1,0 +1,9 @@
+{
+  "key": "task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "2b66f8b13ee8d3f987cb3e1ad3637bfc9fddd67f0bf18f3373556dcbbfae9c64",
+  "output_sha256": "5be7e7023aaa131976d749bee62499949b5fc4492e1cdb92db851378b6d4fc42",
+  "start": "2026-11-16T06:29:30.726595+00:00",
+  "end": "2026-11-16T06:29:44.320872+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "36c9190bb76594bb7f760df3cda147ff75873828f5f2d7c8b73a81bf240bbe79",
+  "output_sha256": "fe14df68a45bac4250da5675a957b0ab3e03727172d245dfaed7691eb16a4cb0",
+  "start": "2026-11-16T07:22:50.382629+00:00",
+  "end": "2026-11-16T07:23:03.922637+00:00"
+}

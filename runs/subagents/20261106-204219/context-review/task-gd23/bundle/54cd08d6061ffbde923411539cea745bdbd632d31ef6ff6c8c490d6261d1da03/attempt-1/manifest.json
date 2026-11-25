@@ -1,0 +1,125 @@
+{
+  "key": "task-gd23/bundle",
+  "input_sha256": "54cd08d6061ffbde923411539cea745bdbd632d31ef6ff6c8c490d6261d1da03",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk-gd/runs/subagents/20261106-204219/context-review/task-gd23/bundle/54cd08d6061ffbde923411539cea745bdbd632d31ef6ff6c8c490d6261d1da03/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md",
+      "sha256": "b0311aeb4b96c2ceebcc511b7c5a898e1f8dd89402825d7d177b4160df97cf43",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "92ba240c64a2edc8e9b8bc3d5eccd8d9ae500333297ce028d20e1e5028fa69f3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/structural_queries.py",
+      "sha256": "776bfe47c8ca4f866ed0b0d82e4d4b5167f076e5d5678c21eacdae754cfcb878",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/docs1.py",
+      "sha256": "5cf9cbfdf558ac02841aa0514fd909bc76d19fd506849bb8962f8e9873a5f925",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/docs2.py",
+      "sha256": "03dc96b9dc33d554fb19216af8a183b18a39b1025665a571cef399e1062ea2f1",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/docs.py",
+      "sha256": "f0438c0507b796e0b907f0e74d768c792e8ad43d87c4fd4b33276182f0057e4e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/docs_routes.py",
+      "sha256": "b298dbb7b88e6f4d9ac19f88217214dda92450efebcaef6612dbd18f9b5b349b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/routes.py",
+      "sha256": "2a93461ac050c94bd94a78c9bedc7911662459fb941cb8afd9a976b0997a60a3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/store/test_queries_expanded.py",
+      "sha256": "be7eb73e964ddd34c00efd5973f87455aa44848a3f3b1d3abf4241ad74905d72",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/test_linked_structural.py",
+      "sha256": "55e48abed2da509e97a09e9422d053fa14f5ac8a55ddd8f456666f4692d04b1a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "5f2a42517588eb59bf89167fa0f0641c48cd6f7972598f242bc666fde97bd827",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/documents/select_documents.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_select_documents.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/test_serve.py",
+      "reason": "size>=60000",
+      "size": 60041
+    },
+    {
+      "path": "docs/architecture/selectors.md",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T20:42:21.135846+00:00",
+  "finished": "2026-11-06T20:42:50.664131+00:00"
+}

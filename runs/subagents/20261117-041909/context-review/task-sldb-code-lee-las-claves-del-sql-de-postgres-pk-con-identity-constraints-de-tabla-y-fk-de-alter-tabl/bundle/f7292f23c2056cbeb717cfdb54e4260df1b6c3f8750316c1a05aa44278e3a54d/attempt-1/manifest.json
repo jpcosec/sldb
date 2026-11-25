@@ -1,0 +1,100 @@
+{
+  "key": "task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle",
+  "input_sha256": "f7292f23c2056cbeb717cfdb54e4260df1b6c3f8750316c1a05aa44278e3a54d",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261117-041909/context-review/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle/f7292f23c2056cbeb717cfdb54e4260df1b6c3f8750316c1a05aa44278e3a54d/attempt-1/input.md"
+  ],
+  "binary": "pi",
+  "model": "deepseek/deepseek-flash",
+  "input_delivery": "file",
+  "isolation_flags": [
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools"
+  ],
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md",
+      "sha256": "78a6909dcea2d77ac45b22f9506541712e7f641e5039434658505a48030b3f8f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-sldb-code-lee-ddl-de-postgres-y-migraciones-de-sqlmigrate-como-hechos-de-tablas-columnas-vistas-e-ín.md",
+      "sha256": "42fff65c4d49271b5f7058d71c37d3a0ec7a6114ece8de43fd127ab8850737b9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/lang_sql.py",
+      "sha256": "90e9c404ac8f59adb898ee7c7f3e37a9c5517f912d662299488e62b8772ef492",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/sql_readers.py",
+      "sha256": "105338b95848dcad1b7cbb6ce50bc99c284ee6bcc78b0d401109c6f7809bef27",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/selfdoc/test_treesitter_symbols.py",
+      "sha256": "bc1577f1c760ae83fd35c3c39fc940ca42c0e3b5408ae0e1607ee336bc153eca",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_anchors.py",
+      "sha256": "22b460354027e2ee0dbb80677fbbdf3087a2fab51338ae20f5533d2e505760ba",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 137278
+    }
+  ],
+  "started": "2026-11-17T04:19:12.394636+00:00",
+  "finished": "2026-11-17T04:19:28.880791+00:00",
+  "retry_reason": "Corrección 2 tras dos testers con FALLA: el scope suma una precisión (FK sin columnas referenciadas también en CREATE TABLE, comillas escapadas, lectura desde el árbol)."
+}

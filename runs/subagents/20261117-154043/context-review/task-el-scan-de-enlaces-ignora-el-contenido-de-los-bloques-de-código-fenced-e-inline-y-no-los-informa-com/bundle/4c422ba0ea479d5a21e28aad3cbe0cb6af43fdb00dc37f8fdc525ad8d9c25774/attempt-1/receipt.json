@@ -1,0 +1,9 @@
+{
+  "key": "task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4c422ba0ea479d5a21e28aad3cbe0cb6af43fdb00dc37f8fdc525ad8d9c25774",
+  "output_sha256": "242834ed84b1b021c3b732791ffe23841593a5bf53eccf1fb13c3f6c6ab278a1",
+  "start": "2026-11-17T15:40:45.238081+00:00",
+  "end": "2026-11-17T15:41:05.956007+00:00"
+}

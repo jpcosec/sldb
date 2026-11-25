@@ -1,0 +1,103 @@
+{
+  "key": "task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/bundle",
+  "input_sha256": "3d9b4a1f05eefe0c00a235ebf32ab2abbc0b7295363ffbd906e52c084c9a375f",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-080526/context-review/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/bundle/3d9b4a1f05eefe0c00a235ebf32ab2abbc0b7295363ffbd906e52c084c9a375f/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md",
+      "sha256": "3c59439c48816dfca75f83c2141c67a76273df0349f626b30cccf5c63abf6883",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/contexts/pill-pill-alcance-real-del-traslado-del-parser-a-core.md",
+      "sha256": "2ecccc89de40364be807cadda64fdcaf41ef686dd14d381a47cdb0f637d971cd",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-el-store-depende-del-resto-de-sldb-solo-por-costuras-y-un-test-lo-hace-cumplir.md",
+      "sha256": "6f1b8ad400eaf17580d0f2523091cb4e3d05e35abad93a0fb102d505b6931210",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_tokens.py",
+      "sha256": "95d1ef3d2debbec3bd93417ac0a75460a7ab8a2a64cf885b1309a858527f3c4b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_cursor.py",
+      "sha256": "2e0b02e6792d25fdd0fcf3f62b569b66a2739e2088204714f47501bad6368061",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_parser.py",
+      "sha256": "8b7562587ccd9a2f887b85a79c5730df64aeeae992c8b34a353a0bc9353e56e2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_ast.py",
+      "sha256": "6f0af6d8a2f4282d11b98fab7e97cf538ec6f669da497bc617148f5888a099fe",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/rule_doc.py",
+      "sha256": "9c8f03a2185cfe89428d2b4a4da644482d21c3be836c2f7d67e7d07338cc22f4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/layers.toml",
+      "sha256": "ccfae268b4b825f40cc2c50f2a372ca918330aa0eb473772245b76774ddc63e9",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T08:05:27.646826+00:00",
+  "finished": "2026-11-16T08:05:42.304711+00:00"
+}

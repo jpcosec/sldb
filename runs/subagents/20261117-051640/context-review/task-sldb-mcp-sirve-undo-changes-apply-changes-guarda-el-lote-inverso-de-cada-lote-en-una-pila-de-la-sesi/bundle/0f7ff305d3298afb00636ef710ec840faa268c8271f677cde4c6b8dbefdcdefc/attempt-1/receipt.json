@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "0f7ff305d3298afb00636ef710ec840faa268c8271f677cde4c6b8dbefdcdefc",
+  "output_sha256": "77359ba0593bcf62b59de184c9018619eb46726b64d747726a85f88e89c63d00",
+  "start": "2026-11-17T05:16:42.897862+00:00",
+  "end": "2026-11-17T05:17:11.708940+00:00"
+}

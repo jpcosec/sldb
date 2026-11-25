@@ -1,0 +1,5 @@
+cd surface && npx tsc --noEmit  -> rc 0
+npx vitest run src/core src/react src/views src/app src/workbench -> 35 files, 472 tests passed
+node scripts/check-layers.mjs -> rc 0
+grep -rniE 'NegocioDoc|businessName|negocio' surface/src -> sin resultados
+bash tools/check.sh --fast -> TODAS LAS PUERTAS PASAN (rc 0)

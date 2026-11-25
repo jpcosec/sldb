@@ -1,0 +1,326 @@
+FILE:desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
+---
+sldb:
+  by: agent
+  at: '2026-11-16T04:48:55Z'
+  authority: generated
+  via: save_document_payload
+id: task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida
+status: draft
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+current_node: ritual-execution
+history: []
+references: []
+depends_on: []
+pills: []
+files: []
+task_type: task.code
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
+---
+
+# V0: benchmark fijo de velocidad (sldb bench) y punto de partida
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+sldb y deskops son lentos (stores build --check ~50 min, doctor 10-14 s, status >60 s en MEPU) y ninguna mejora de V1/V2 cuenta sin una medición fija y repetible contra la que comparar.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.
+
+## Scope
+
+_State what is in scope and what is out of scope._
+
+Solo medición: src/sldb/cli/bench/ (verbo y medición por subprocess con os.wait4), su parser y handler, tests unitarios en tests/test_bench_*.py, referencia de CLI regenerada con selfdoc sync y el informe del baseline. Fuera de alcance: cualquier arreglo de velocidad (V1/V2) y cambios en deskops o MEPU; deskops se invoca como CLI externo y MEPU solo se copia. Protocolo fijado: (1) Copias: --desk NOMBRE=RUTA repetible; se copia el árbol de trabajo de cada origen sin .sldb_cache (no un clon: los documentos generados como knowledge/symbols están fuera de git) en <workdir>/<NOMBRE>, para que los enlaces relativos entre stores hermanos resuelvan; --sibling NOMBRE=RUTA copia sin medir; el JSON anota sha y rutas sin commitear de cada origen; --workdir por defecto $TMPDIR/sldb-bench (el baseline usa /dev/shm/v0-bench); el workdir se borra al terminar salvo --keep. (2) Frío: antes de cada corrida medida se borran <copia>/.sldb_cache y <workdir>/xdg, que se pasa como XDG_CACHE_HOME a todos los hijos (nunca se toca ~/.cache/sldb). Caliente: una corrida no medida de la misma operación calienta (para build-check, un stores update) y luego --repeat N corridas medidas (por defecto 1). Orden: cli-start, update-noop, update-one, check, doctor, status y build-check, este último solo si se pide en --ops. (3) Documento cambiado: el primero de sldb docs list --format json cuyo path es .md y existe, o --touch NOMBRE=RUTA; el cambio es agregar un salto de línea al final antes de cada corrida de sldb stores update. (4) Arranque: python -m sldb --help con el sldb bajo prueba y deskops --help (el del PATH o --deskops), cwd en el workdir; --timeout por operación, por defecto 7200 s. (5) Salida: JSON en --output con meta (sha y ruta de sldb, ejecutable de deskops y el sldb que importa, máquina, fecha) y results [{desk, op, mode, sample, argv, rc, wall_s, user_s, sys_s, cpu_s, maxrss_mb}]; por stdout una tabla desk | op | modo | pared s | cpu s | rss MB | rc (mediana si N>1). rc distinto de 0 se registra, no aborta. Precisiones (bundle-1): (a) el documento cambiado es el primero en el orden que devuelve sldb docs list (orden del índice del store), con path relativo a la raíz de la copia; (b) --touch NOMBRE=RUTA: NOMBRE es el del --desk y RUTA es relativa a su copia; reemplaza la autodetección solo para ese desk; (c) la copia es shutil.copytree con symlinks=True (los symlinks se copian como symlinks), incluye .git y solo excluye .sldb_cache; (d) --repeat vale para ambos modos: en frío se purga antes de cada corrida medida, en caliente se calienta una vez; (e) rutas sin commitear = cantidad de líneas de git status --porcelain del origen, en meta.desks.<NOMBRE>.dirty, junto a sha (git rev-parse HEAD) y source; (f) meta.machine = host, system (platform.platform), python, cpus, cpu (model name de /proc/cpuinfo) y mem_gb.
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+src/sldb/cli/bench/
+
+## Validation
+
+_List the checks required before this task can close._
+
+- python -m pytest -q -p no:cacheprovider tests/test_bench_measure.py tests/test_bench_cli.py
+- python -m pytest -q -p no:cacheprovider tests/test_clean_code_rules.py
+- bash tools/check.sh --fast
+- python -m sldb selfdoc check
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+sldb bench corre sobre copias en /dev/shm de los desks de sldb, deskops y MEPU, en frío y en caliente, y emite JSON y tabla; reports/velocidad-baseline-20261115.md tiene shas, máquina, tabla por desk y operación y la metodología; tests nuevos, test_clean_code_rules.py, tools/check.sh --fast y sldb selfdoc check pasan.
+
+FILE:desk/rituals/execution.md
+---
+# ritual-xxx
+id: ritual-execution
+# Ordered prose steps; not document references
+steps:
+- 'Atomize: break the work into the smallest possible child tasks.'
+- 'Dedupe: merge overlapping items.'
+- 'Clean: delete legacy content that the work makes obsolete (with deskops retire,
+  closeout or drawer remove, never by hand).'
+- 'Audit existing work before claiming anything is done: check git history for relevant
+  commits, verify artifacts exist where specified, and run tests to confirm the current
+  state.'
+- Resolve contradictory end states between the desk and the repo.
+- Bind the pills the task depends on (the task's pills field or deskops bind).
+- Keep the Board current; deskops maintains it, so use deskops verbs instead of editing
+  it.
+- 'Execute with explicit boundaries: scope, touched files and validation targets stated
+  in the task.'
+- 'After each step, run the context audit: is every aspect of the task covered by
+  a pill, are the bound pills still accurate, update or retire the stale ones, and
+  bind new ones as needed.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Execution ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Review the board, bind the relevant pills, keep scope tight, and implement only the active task for sldb.
+
+## Trigger
+
+_State when this ritual should start._
+
+Before starting any task, and after each step while implementing it.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- Pre-execution gate: ask whether any aspect of the task is ambiguous or not covered by its task file, pills and atoms. If not, proceed. If so, create or request the missing context first; do not proceed until the task is unambiguous.
+- The Board (desk/tasks/Board.md) is the single entry point for active work: read it before starting any task.
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- Scope, touched files and validation targets are explicit in the task.
+- Every desk reference points at durable repo context: task files, pills, atoms, drawer notes, inbox messages, source files, tests, docs and commits.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Proceeding with an ambiguous task without creating or requesting the missing context.
+- Creating implementation artifacts instead of referencing existing pills.
+- Referencing surfaces below the current layer.
+- Desk documents pointing at chat memory or other non-durable context.
+- Trusting the task file over the code: the task file describes intent; git history is truth.
+
+## Completion
+
+_Describe what completion looks like._
+
+The task's change is implemented within its stated scope and the testing ritual can start.
+
+FILE:desk/rituals/testing.md
+---
+# ritual-xxx
+id: ritual-testing
+# Ordered prose steps; not document references
+steps:
+- 'Invalidate: check whether existing tests are broken by the change; update or delete
+  the ones that no longer describe the behavior.'
+- 'Verify: add new tests where the change needs them.'
+- 'Test: run the relevant test or validation suite, smallest first, then the full
+  suite when shared behavior changed. All required checks must pass.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Testing ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+No task is complete without testing. Run the smallest relevant validation first, then broaden coverage when sldb changes shared behavior.
+
+## Trigger
+
+_State when this ritual should start._
+
+When the implementation of a task is done, before closeout.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- 
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- All required checks pass: the test suite, plus stores check, tools/check.sh and tools/check_claims.py when the change touches the store, the gates or documented claims.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Skipping tests to get it done.
+- Declaring a check green from truncated output (a pipe through tail hides the exit status).
+
+## Completion
+
+_Describe what completion looks like._
+
+Every required check passes on the final change.
+
+FILE:desk/rituals/closeout.md
+---
+# ritual-xxx
+id: ritual-closeout
+# Ordered prose steps; not document references
+steps:
+- Update the CHANGELOG when the change is user-visible or release-relevant.
+- 'Run the context audit: check the task''s pills, update stale ones, and retire the
+  ones whose knowledge now lives in code or docs.'
+- 'Close the task with deskops closeout (commit, or supersede/retire when it was already
+  resolved): the task leaves the Board in the same atomic commit as its evidence.
+  Completed tasks are not kept on the Board.'
+- 'Commit atomically, only when the execution ritual is complete. Commit when a phase
+  or slice objective is fully checked (a concise scoped message), for a critical bug
+  fix mid-phase (fix(<scope>): <description>), or for chores such as dependencies
+  or config (chore(<scope>): <description>). A slice that is not done is not a commit:
+  work in progress is not committed.'
+- 'Write commit messages as <type>(<scope>): <description>, with type one of feat,
+  fix, docs, refactor, chore, test, perf, and scope the smallest accurate repo area,
+  component, command or workflow surface.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Closeout ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Close a sldb task only after validation passes, the board is updated, and the final change is ready to commit.
+
+## Trigger
+
+_State when this ritual should start._
+
+When the testing ritual passes for a task.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- Pre-completion audit, git history: the commits match the completed work; on a mismatch, correct the commit history or update the task state to reflect reality.
+- Pre-completion audit, artifacts: every specified output exists at the specified location; implement the missing ones.
+- Pre-completion audit, tests: all pass; fix failing tests first.
+- Pre-completion audit, clean tree: every untracked file is either gitignored or tracked; clean up a dirty tree before declaring done.
+- Trust the code, not the task file: the task file describes intent, git history is truth.
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- deskops closeout verify reports the tests, commit and atom gates as passing, and the tree is clean.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- Marking a task complete without auditing git history.
+- Committing with untracked files (gitignore or track them first).
+- Force-pushing to hide failures.
+- Committing work in progress.
+
+## Completion
+
+_Describe what completion looks like._
+
+The closing commit exists, the task is off the Board, and the tree is clean.
+
+FILE:desk/rituals/phase.md
+---
+# ritual-xxx
+id: ritual-phase
+# Ordered prose steps; not document references
+steps:
+- 'Compile: rebuild when applicable (bundles, dist).'
+- 'Audit: run the relevant tests and quality checks.'
+- 'Regress: fix any test failure.'
+- 'Flow: move the pill knowledge that is still needed into code or docs, capture phase-level
+  learning into an atom, and retire the redundant pills.'
+- 'Advance: clear the Board for the next phase and move on.'
+# e.g., layer:workflow, system:sldb
+tags:
+- workspace:desk
+---
+
+# Phase ritual
+
+## Purpose
+
+_Explain why this ritual exists._
+
+Close the active phase only when every task on the sldb board is complete, capture any phase-level learning into an atom, and clear the board for the next phase.
+
+## Trigger
+
+_State when this ritual should start._
+
+When every task in a phase or delivery slice is done.
+
+## Preconditions
+
+_List the conditions that must hold before running the ritual._
+
+- 
+
+## Validation
+
+_List the checks that prove the ritual was performed correctly._
+
+- Tests and quality checks pass and no pill repeats what code or docs already say.
+
+## Failure Modes
+
+_List common mistakes this ritual prevents._
+
+- 
+
+## Completion
+
+_Describe what completion looks like._
+
+The Board holds only the next phase's tasks.
+
+FILE:instruccion
+Cold-bundle de la tarea task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida: con el TaskDoc, los rituales enrutados por el Board, las pills ligadas, los átomos ligados y los archivos que el TaskDoc nombra, reformula el encargo, lista ambigüedades con cita textual del input y da el DRY-RUN sin ejecutar nada. No ejecutes nada.
+
+Sección de validación del TaskDoc:
+- python -m pytest -q -p no:cacheprovider tests/test_bench_measure.py tests/test_bench_cli.py
+- python -m pytest -q -p no:cacheprovider tests/test_clean_code_rules.py
+- bash tools/check.sh --fast
+- python -m sldb selfdoc check
+

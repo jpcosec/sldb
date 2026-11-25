@@ -1,0 +1,9 @@
+{
+  "key": "task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "c6dcbd758625ad01c8173bda7f997f1aced6f848712e1e25d201efc5c31043c5",
+  "output_sha256": "23482d5f16a1e724e3bf780e118f225e4815168b19c808c5f4aafc334106541c",
+  "start": "2026-11-16T06:38:16.530285+00:00",
+  "end": "2026-11-16T06:38:27.575046+00:00"
+}

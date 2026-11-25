@@ -1,0 +1,9 @@
+{
+  "key": "task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "86c2d926f9a3c6075fdec98ba9bd4104d09bb31e5bb5ba1de19f8fbc73a082ab",
+  "output_sha256": "57c17ee69bc7d6dbf80a51b5700bf9fa43951f5651afc203e60643f57e49db52",
+  "start": "2026-11-22T12:17:10.164817+00:00",
+  "end": "2026-11-22T12:17:17.965259+00:00"
+}

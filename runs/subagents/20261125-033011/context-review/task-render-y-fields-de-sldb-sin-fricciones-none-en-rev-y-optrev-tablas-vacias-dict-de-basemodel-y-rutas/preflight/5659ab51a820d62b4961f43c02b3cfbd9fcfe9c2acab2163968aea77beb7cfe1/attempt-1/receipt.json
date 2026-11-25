@@ -1,0 +1,9 @@
+{
+  "key": "task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "5659ab51a820d62b4961f43c02b3cfbd9fcfe9c2acab2163968aea77beb7cfe1",
+  "output_sha256": "311a417f0035435b7c5f8d92b1d5d2204a547ddecd76012cbbab2f44c0b982ec",
+  "start": "2026-11-25T03:30:13.042364+00:00",
+  "end": "2026-11-25T03:30:25.920392+00:00"
+}

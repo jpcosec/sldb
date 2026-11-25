@@ -1,0 +1,9 @@
+{
+  "key": "task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "653d5cc843b6c7b7c2f7bb45b32561e2a01dbf1373408d74a2b70f74ebc59e54",
+  "output_sha256": "cd9f57e31aadbd4a194c7e364b0c37332da457989c00d78f5abae22e494dca1f",
+  "start": "2026-11-19T09:44:47.658316+00:00",
+  "end": "2026-11-19T09:45:00.751098+00:00"
+}

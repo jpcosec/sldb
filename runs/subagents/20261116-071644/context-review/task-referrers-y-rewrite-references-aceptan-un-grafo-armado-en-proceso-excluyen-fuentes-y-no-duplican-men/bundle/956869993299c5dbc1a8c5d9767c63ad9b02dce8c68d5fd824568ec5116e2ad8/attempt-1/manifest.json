@@ -1,0 +1,88 @@
+{
+  "key": "task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/bundle",
+  "input_sha256": "956869993299c5dbc1a8c5d9767c63ad9b02dce8c68d5fd824568ec5116e2ad8",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261116-071644/context-review/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/bundle/956869993299c5dbc1a8c5d9767c63ad9b02dce8c68d5fd824568ec5116e2ad8/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men.md",
+      "sha256": "541ca4a6e25bc7ca4b5f4aaaa8b9ae287e02cbb4742a96f74e3dfc9fc67d8707",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada.md",
+      "sha256": "a8f4c477d57f8b380a50fe216b2ca25283911c7d33fd7f29cfbed891841e1c1f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/referrers.py",
+      "sha256": "705209fb8d985c47e7f73a92bc358bc71cb851b1faea80777d20b7a76ef5d9cf",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/rewrite_references.py",
+      "sha256": "4181f682d40924c13189156771f15897ecef590604b2e4626d0fb8a9587f0031",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_referrers.py",
+      "sha256": "38095eab77baa8d4ac9a898057fe65e6087c13d14199a28a5ee5cf10ff229fcb",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_rewrite_references.py",
+      "sha256": "49451816cbb593b4e443dc5a67a34b18f13e79f5954a4a2c51105d4fd39b07a6",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 98166
+    }
+  ],
+  "started": "2026-11-16T07:16:46.183377+00:00",
+  "finished": "2026-11-16T07:17:05.091659+00:00"
+}

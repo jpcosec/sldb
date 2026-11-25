@@ -1,0 +1,99 @@
+{
+  "key": "task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle",
+  "input_sha256": "7423157778e023115bb02108144afaee3abe46c59c2dc005ab9b4fdfefb66f94",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb/runs/subagents/20261117-003412/context-review/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle/7423157778e023115bb02108144afaee3abe46c59c2dc005ab9b4fdfefb66f94/attempt-1/input.md"
+  ],
+  "binary": "pi",
+  "model": "deepseek/deepseek-flash",
+  "input_delivery": "file",
+  "isolation_flags": [
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools"
+  ],
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md",
+      "sha256": "035ce6a768b98464823cedf4e6052c8dbc7301ff887841c8e53f4728e65d0227",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-sldb-code-lee-ddl-de-postgres-y-migraciones-de-sqlmigrate-como-hechos-de-tablas-columnas-vistas-e-ín.md",
+      "sha256": "42fff65c4d49271b5f7058d71c37d3a0ec7a6114ece8de43fd127ab8850737b9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/lang_sql.py",
+      "sha256": "e9a7958954c794e280144069421afbb808879599e5a953ec50fe8778ce4ae196",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/code/sql_readers.py",
+      "sha256": "f4f4c6eca709cb55faf8ff6f57da943edeb0df0fc42b0bb7935304c23c5c9897",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/selfdoc/test_treesitter_symbols.py",
+      "sha256": "94357ca1605d1f6db01f4bdc28a23c090cd37db864fad67d72b12959e36061a4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_anchors.py",
+      "sha256": "faa97d43aa378f0fc881095c2d191050b628e70581148084b070eff79def091b",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 130928
+    }
+  ],
+  "started": "2026-11-17T00:34:13.842743+00:00",
+  "finished": "2026-11-17T00:34:26.964946+00:00"
+}

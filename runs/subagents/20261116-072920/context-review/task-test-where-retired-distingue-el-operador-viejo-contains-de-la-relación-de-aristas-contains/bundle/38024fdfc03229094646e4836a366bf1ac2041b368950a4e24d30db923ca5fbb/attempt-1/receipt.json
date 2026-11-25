@@ -1,0 +1,9 @@
+{
+  "key": "task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "38024fdfc03229094646e4836a366bf1ac2041b368950a4e24d30db923ca5fbb",
+  "output_sha256": "24801e07a4e3419880be4e2faeed70c8fd9bb7b216e3e8d2668caf391e635d1c",
+  "start": "2026-11-16T07:29:21.260912+00:00",
+  "end": "2026-11-16T07:29:35.102296+00:00"
+}

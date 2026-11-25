@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "dd213ec7ea199fce32113e99618d118a875689254bafc2ca9cb362ae11d70f2c",
+  "output_sha256": "262a41ff634a01c49a90d0cea7f4bcaad982634df1020e420a2addce7acaae59",
+  "start": "2026-11-16T08:02:16.819290+00:00",
+  "end": "2026-11-16T08:02:30.411888+00:00"
+}

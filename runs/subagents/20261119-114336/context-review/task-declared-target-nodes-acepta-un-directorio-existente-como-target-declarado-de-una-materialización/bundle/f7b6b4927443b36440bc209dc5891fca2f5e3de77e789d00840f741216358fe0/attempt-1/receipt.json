@@ -1,0 +1,9 @@
+{
+  "key": "task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "f7b6b4927443b36440bc209dc5891fca2f5e3de77e789d00840f741216358fe0",
+  "output_sha256": "e63f478e933c09708a87d898c670610a739050f9d9a0119e8ae60769d8e1224c",
+  "start": "2026-11-19T11:43:37.606020+00:00",
+  "end": "2026-11-19T11:43:51.705245+00:00"
+}

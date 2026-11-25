@@ -1,0 +1,137 @@
+{
+  "key": "task-gd24/bundle",
+  "input_sha256": "e1574268080be0e6d5fe08ff89f62a47f0efd4af6a437d76108740332ab1bb5c",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk-gd/runs/subagents/20261106-200910/context-review/task-gd24/bundle/e1574268080be0e6d5fe08ff89f62a47f0efd4af6a437d76108740332ab1bb5c/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction.md",
+      "sha256": "7bff73884339f7ede70974409c2647a968213c0c80027147f38bdd977036cbd2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "12ea4ae0ce270532f2b11cb1f145d4b5c27a3929a0cf764a337127a4e608d65a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/io/rollback.py",
+      "sha256": "c63bc2f2ea04b8d5ce459cddbe24366bfc223d01277bd20c5c221c851fd37806",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/save_routes.py",
+      "sha256": "408aea16fbc3ba42fb7534082f884f5d7ded4f54a81587ca07b1bf42b5d8ff38",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/serve/save_plan.py",
+      "sha256": "1609af5dd465164b6d90f10e25c1b9d0760e6c69564bb47549823686f9b84b3f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/fields_mutate.py",
+      "sha256": "6ce9ecc229027b9de19dc03c04c67aa1889b99e877a749643ac1f39bf3ffe00c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/fields_save.py",
+      "sha256": "dfa90f349fecf44915da47a16fc41cff86d780b9b9a495d819a2b57b8988240e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/docs.py",
+      "sha256": "f0438c0507b796e0b907f0e74d768c792e8ad43d87c4fd4b33276182f0057e4e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/test_serve_auth.py",
+      "sha256": "57d982365bdb9a5d42f461c17eacce8d7cd57da18593bfaf50110a9040b851c2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/api/test_api_documents.py",
+      "sha256": "b1b23d1c4560946c6ca99286fbc9b5f0e24fd87730687e61806eebb07b40e01b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "0bbab5905c9403b8352a81275a7c94fc278dc4f0711251a36d9e5245edfe8a66",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/documents/transaction.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/documents/apply_batch.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/documents/move_document.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_transaction.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_write_paths_validate.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/test_serve.py",
+      "reason": "size>=60000",
+      "size": 60041
+    },
+    {
+      "path": "docs/architecture/transactions.md",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T20:09:11.772549+00:00",
+  "finished": "2026-11-06T20:09:28.922583+00:00"
+}

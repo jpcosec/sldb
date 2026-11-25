@@ -1,0 +1,9 @@
+{
+  "key": "task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "cee75c8f12ae402328bf4262dba1327d4b5f53330ad98aeb527924e5b425861e",
+  "output_sha256": "9a41d0925d4403aeddc2d67a0232cac943c79b2d32324fe3f52f99bece19fbd3",
+  "start": "2026-11-16T06:34:47.258172+00:00",
+  "end": "2026-11-16T06:34:56.653317+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "5b77e15765d0a76d4cf5e0e7878fb0835024dd61c055742b614fde1280182715",
+  "output_sha256": "df4cac0a88b5647403dbb495df74ff4cf2ede19693be3483c61d31cfa1fea542",
+  "start": "2026-11-25T03:10:41.515975+00:00",
+  "end": "2026-11-25T03:10:52.504776+00:00"
+}

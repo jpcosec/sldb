@@ -1,0 +1,9 @@
+{
+  "key": "task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "9dc6a00a0adb2d0a38d538972d13c2b00882935561b1dea3905f3b9d6bcb58ac",
+  "output_sha256": "56e2efab9fc2ba98f247310a2e94621a0511f6edf4f84aee78c5ea32a5d1754e",
+  "start": "2026-11-16T06:38:49.790452+00:00",
+  "end": "2026-11-16T06:39:09.019136+00:00"
+}

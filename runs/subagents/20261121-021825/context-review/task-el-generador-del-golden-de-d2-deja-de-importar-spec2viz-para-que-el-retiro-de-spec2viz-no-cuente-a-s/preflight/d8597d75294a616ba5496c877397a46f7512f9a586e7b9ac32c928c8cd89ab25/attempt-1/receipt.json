@@ -1,0 +1,9 @@
+{
+  "key": "task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "d8597d75294a616ba5496c877397a46f7512f9a586e7b9ac32c928c8cd89ab25",
+  "output_sha256": "c6b9850fdee89bb3b980c1fa471e5e754e34cd2164eb7f05f27d991f24422b88",
+  "start": "2026-11-21T02:18:26.708579+00:00",
+  "end": "2026-11-21T02:18:34.628087+00:00"
+}

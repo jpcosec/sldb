@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "6d27d4717e573bd62caf9fec830ae6317973bc81fea41333b13b33ec6e8debca",
+  "output_sha256": "497712c4f5f8a742805290f75b1c43122e726b25ac82804c4fa1e4fd567c1aa4",
+  "start": "2026-11-16T07:58:27.566540+00:00",
+  "end": "2026-11-16T07:58:42.287900+00:00"
+}

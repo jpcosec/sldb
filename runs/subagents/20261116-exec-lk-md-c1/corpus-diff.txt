@@ -1,0 +1,39 @@
+LOST code CHANGELOG.md [predicado:: [[...]]] 1
+LOST code CHANGELOG.md [[...]] 2
+LOST code CHANGELOG.md ![[...]] 1
+LOST code CHANGELOG.md [[x]] 2
+LOST code CHANGELOG.md [[a\_b]] 1
+LOST code CHANGELOG.md ![[x]] 1
+LOST code docs/architecture/current-system-overview.md [[...]] 1
+LOST code docs/architecture/current-system-overview.md ![[...]] 1
+LOST code docs/architecture/graph-backend.md [[x]] 1
+LOST code docs/architecture/graph-backend.md ![[x]] 1
+LOST code docs/atoms/compose-vs-recover.atom.md [[links]] 1
+LOST code docs/atoms/compose-vs-recover.atom.md ![[transclusions]] 1
+LOST code docs/atoms/predicate-links.atom.md [predicate:: [[target]]] 1
+LOST code docs/atoms/predicate-links.atom.md [implements:: [[spec-001]]] 1
+LOST code docs/atoms/predicate-links.atom.md [grounded_by:: [[research-paper]]] 1
+LOST code docs/atoms/predicate-links.atom.md [depends_on:: [[service-api]]] 1
+LOST code docs/composition_modes.md [[links]] 1
+LOST code docs/composition_modes.md ![[child.md]] 1
+LOST code docs/documentation-review.md ![[...]] 1
+LOST code docs/documentation-review.md [[links]] 1
+LOST code docs/faq.md [predicate:: [[links]]] 1
+LOST code docs/faq.md [[links]] 1
+LOST code docs/faq.md ![[transclusions]] 1
+LOST code docs/user-manual.md ![[transclusión]] 1
+LOST code docs/user-manual.md [[link]] 1
+LOST code docs/user-manual.md [[nodo, compartidos]] 1
+LOST code knowledge/commands/cmd-sldb-docs-compose.md [[x]] 1
+LOST code knowledge/commands/cmd-sldb-predicates-add.md [name:: [[target]]] 1
+LOST code propuesta/06-NIVELES-NO-SON-UNIDADES.md [[unit]] 1
+LOST code propuesta/09-DUDAS-CERRADAS.md [['composicion', 'contrato', 'render', 'representacion', 'superficie']] 1
+LOST code runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go10-retiro-de-where-parse-y-fieldcondition/bundle/2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200/attempt-1/input.md ![[transclusión]] 1
+LOST code runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go10-retiro-de-where-parse-y-fieldcondition/bundle/2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200/attempt-1/input.md [[link]] 1
+LOST code runs/subagents/20261116-test-b2sql-c1/result-summary.md [[package]] 1
+LOST code runs/subagents/secrest2-worker-report.md [[task-repro-dos]] 1
+LOST code runs/subagents/secrest2-worker-report.md ![[x]] 1
+LOST code runs/subagents/sldb-ci-worker-report.md [[axis]] 1
+LOST code runs/subagents/sldb-ci-worker-report.md [[unit]] 1
+LOST code runs/subagents/sldb-ci-worker-report.md [[non_unit]] 1
+files changed 17 files gaining 0 lost-real 0
