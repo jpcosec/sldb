@@ -1,69 +1,34 @@
+Task: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
+Title: surface/dev/astryx-probe muestra un nodo de React Flow y un editor CodeMirror como componentes de un paquete de integración de Astryx, en la plantilla ide sobre React 19
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:26:09Z'
+  at: '2026-11-25T18:01:29Z'
   authority: generated
   via: save_document_payload
 id: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
-status: ready_for_testing
+status: active
 summary: ''
 tags: []
-current_node: ritual-closeout
+current_node: ritual-testing
 history:
 - task_activates
-- task_hands_to_closeout
-references:
-- surface/dev/astryx-probe/RESULTADO.md
-- surface/dev/astryx-probe/astryx.integration.mjs
-- surface/dev/astryx-probe/components/SldbGraphCanvas.css
-- surface/dev/astryx-probe/components/SldbGraphCanvas.doc.mjs
-- surface/dev/astryx-probe/components/SldbGraphCanvas.tsx
-- surface/dev/astryx-probe/components/SldbTextEditor.doc.mjs
-- surface/dev/astryx-probe/components/SldbTextEditor.tsx
-- surface/dev/astryx-probe/evidence/dark.png
-- surface/dev/astryx-probe/evidence/light.png
-- surface/dev/astryx-probe/evidence/probe.json
-- surface/dev/astryx-probe/index.html
-- surface/dev/astryx-probe/lib/saveFlow.ts
-- surface/dev/astryx-probe/package-lock.json
-- surface/dev/astryx-probe/package.json
-- surface/dev/astryx-probe/src/App.tsx
-- surface/dev/astryx-probe/src/astryx-themes.js
-- surface/dev/astryx-probe/src/globals.css
-- surface/dev/astryx-probe/src/main.tsx
-- surface/dev/astryx-probe/tests/saveFlow.test.ts
-- surface/dev/astryx-probe/tsconfig.json
-- surface/dev/astryx-probe/vite.config.ts
-- 323f764790352f0f9465d39d279abc8c06edb1c9
+references: []
 depends_on: []
 pills: []
-files:
-- surface/dev/astryx-probe/RESULTADO.md
-- surface/dev/astryx-probe/astryx.integration.mjs
-- surface/dev/astryx-probe/components/SldbGraphCanvas.css
-- surface/dev/astryx-probe/components/SldbGraphCanvas.doc.mjs
-- surface/dev/astryx-probe/components/SldbGraphCanvas.tsx
-- surface/dev/astryx-probe/components/SldbTextEditor.doc.mjs
-- surface/dev/astryx-probe/components/SldbTextEditor.tsx
-- surface/dev/astryx-probe/evidence/dark.png
-- surface/dev/astryx-probe/evidence/light.png
-- surface/dev/astryx-probe/evidence/probe.json
-- surface/dev/astryx-probe/index.html
-- surface/dev/astryx-probe/lib/saveFlow.ts
-- surface/dev/astryx-probe/package-lock.json
-- surface/dev/astryx-probe/package.json
-- surface/dev/astryx-probe/src/App.tsx
-- surface/dev/astryx-probe/src/astryx-themes.js
-- surface/dev/astryx-probe/src/globals.css
-- surface/dev/astryx-probe/src/main.tsx
-- surface/dev/astryx-probe/tests/saveFlow.test.ts
-- surface/dev/astryx-probe/tsconfig.json
-- surface/dev/astryx-probe/vite.config.ts
+files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr
+atoms: []
 ---
 
 # surface/dev/astryx-probe muestra un nodo de React Flow y un editor CodeMirror como componentes de un paquete de integración de Astryx, en la plantilla ide sobre React 19
@@ -105,3 +70,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 npx @astryxdesign/cli integration check pasa en el paquete. La página construida muestra los dos componentes y cambia entre un tema claro y uno oscuro de Astryx sin que el lienzo ni el editor queden con colores propios. La prueba de la máquina corre sin navegador. surface/dev/astryx-probe/RESULTADO.md responde, con lo observado, las cuatro preguntas del objetivo y dice qué habría que cambiar en el ADR.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-2f0c2d5efde8"
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

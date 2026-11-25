@@ -1,0 +1,36 @@
+name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-materialization-1
+path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/evidence-materialization-1.md
+source_hash: 56696f9f27b7d40f17ca4328052556fb50dcf4364aac43fa887ff36011f4f018
+content_hash: 3fe791c28434515ec4ad127742114e481b0e7908ff6f6ceaf46abc20cb8f6d7a
+field_hashes:
+  id: 8d410adbe9658c07e310ea76b1023c183eb1aa6a69aed68aebb9f7f5903caafd
+  title: ae8fa253f51360268c4b532eeea757dbf4149c55e93575fef891e156f5453c53
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 2b4f8aebe8dd84265b13ea85f45429b0d04ae4f7465a52661572dea38ec4f9e8
+  subject: 9cea385970df0fa050fd25de4b697fc5037fc32db6f850a2b63abdc247086d10
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 3337f251d45bdd6c4bf81f31e3c5f005fa8fff86f9a12753b528f3fe47b11e84
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 660dfdbd805c0faf567bbb0b07f2ac241cd5c51b2957e587885b95d4ac0d7111
+  created_at: cfac7b48c9cddf2232b48030fa23f5118332d0fc5b1763c1e7efd22ae98b46e2
+  disposed_at: cfac7b48c9cddf2232b48030fa23f5118332d0fc5b1763c1e7efd22ae98b46e2
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: fa6a0031b6917ddc3f4ba96822f88917c40ca33096480f95bf9445ad457cac15
+  disposition: d4f3a206af0b52526cf67f9c4c96fd8c9f5be4e96dcfc3f35fa499387320cc8d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T18:49:05Z'
+  authority: generated
+  via: create_document

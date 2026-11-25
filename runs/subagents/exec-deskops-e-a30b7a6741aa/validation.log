@@ -1,0 +1,43 @@
+$ cd surface/dev/astryx-probe && npm test
+> vitest run
+ RUN  v5.1.2 /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-a30b7a6741aa/surface/dev/astryx-probe
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  18:09:15
+   Duration  225ms (transform 50%, import 27%, tests 16%, worker 6%)
+rc=0
+$ cd surface/dev/astryx-probe && npx @astryxdesign/cli integration check
+warnings: 0
+check:    docs
+failed:   false
+errors:   0
+warnings: 0
+2 findings above (the notes) will fail --strict from the next minor release. Fix them ahead: npx astryx integration check --strict --next
+rc=0
+$ cd surface/dev/astryx-probe && npx @astryxdesign/cli integration check --strict
+warnings: 0
+check:    docs
+failed:   false
+errors:   0
+warnings: 0
+2 findings above (the notes) will fail --strict from the next minor release. Fix them ahead: npx astryx integration check --strict --next
+rc=0
+$ cd surface/dev/astryx-probe && npm run build
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+ 14 │ "use no memo";
+✓ built in 1.31s
+rc=0
+
+$ bash tools/check.sh --fast  (en el worktree, con /tmp/ws-venv)
+PASS: núcleo aislado — 83 módulos cargados
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+PASS: ejes — 32 declarados, 1001 archivos mapeados, 0 violaciones
+PASS: superficie — omitida por falta de consumidores
+rc=0
+
+$ npx astryx integration verify
+rc=0 (8 packed files; 5/5 required files present)

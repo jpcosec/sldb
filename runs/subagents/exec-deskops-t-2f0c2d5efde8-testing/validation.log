@@ -1,0 +1,79 @@
+# Validacion — task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
+
+Fecha: 2026-11-25 (UTC)
+Commit del ejecutor: 29607a02cd1cee1ff415962e0a896515205659d2
+  "feat: surface/dev/astryx-probe prueba nodo React Flow y editor CodeMirror como paquete de integracion Astryx"
+  Task-Id: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
+Rama/worktree: deskops/deskops-e-a30b7a6741aa en .worktrees/deskops-e-a30b7a6741aa
+21 archivos nuevos, todos bajo surface/dev/astryx-probe/. No hay archivos .py ni tests/*.py en el commit,
+asi que no aplica pytest: la validacion de la tarea es la del paquete npm.
+
+## Entorno
+
+El node por defecto del contenedor de test es v20.20.2. Astryx 0.7.17 declara engines.node >=22.13.0
+y `npx @astryxdesign/cli ...` aborta con:
+  "astryx requires Node.js >=22.13.0 (you have v20.20.2). Please upgrade Node and try again."
+Para validar el paquete se descargo Node v24.22.3 (la version que registra el RESULTADO del ejecutor)
+en /tmp/node-v24.22.3-linux-x64 y se puso en PATH. npm 11.19.1.
+El venv /tmp/ws-venv no existe en este contenedor; para check.sh se uso /dev/shm/tester-venv/bin/python
+(Python 3.12.16, el mismo recurso que usaron testers anteriores).
+
+$ export PATH=/tmp/node-v24.22.3-linux-x64/bin:$PATH
+$ node -v   -> v24.22.3
+$ npm -v    -> 11.19.1
+
+## Validacion del paquete (en surface/dev/astryx-probe del worktree)
+
+$ npm test
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+rc=0
+La prueba corre con `// @vitest-environment node` y afirma `window === undefined`; no usa jsdom.
+
+$ npx @astryxdesign/cli integration check
+check validate/components/templates/docs: failed false, 0 errors, 0 warnings
+[ok] 0 errors, 0 warnings, 0 skipped. Every check passed.
+rc=0
+
+$ npx @astryxdesign/cli integration check --strict
+[ok] 0 errors, 0 warnings, 0 skipped. Every check passed.
+rc=0
+(El CLI avisa que `--strict --next` exigira en la proxima minor un showcase por componente y un logo;
+no son fallos hoy y el RESULTADO ya los anota.)
+
+$ npm run build
+✓ built in 3.64s
+rc=0
+Avisos no fatales: chunk > 500 kB y 98 MODULE_LEVEL_DIRECTIVE ("use client") de dependencias.
+Salida en dist/ (JS ~1.19 MB / 387 kB gzip, CSS ~385 kB), coherente con lo medido en RESULTADO.md.
+
+## Puertas rapidas del desk (checkout principal)
+
+$ export PATH=/dev/shm/tester-venv/bin:$PATH
+$ export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-2f0c2d5efde8"
+$ bash tools/check.sh --fast
+PASS nucleo aislado, capas, identidad, ejes, superficie
+TODAS LAS PUERTAS PASAN
+rc=0
+
+## Comprobaciones del Done When
+
+- integration check pasa (rc=0, tambien --strict).
+- Pagina construida: evidence/light.png y evidence/dark.png muestran el nodo "Class: Document" de React Flow
+  y el editor CodeMirror con el rango "Este rango esta anclado." resaltado. probe.json registra valores
+  calculados claro -> oscuro: nodo rgb(255,255,255) -> rgb(27,27,27); CodeMirror rgb(255,255,255) ->
+  rgb(38,38,38); marca rgb(250,225,158) -> rgb(69,58,28); botones del lienzo rgb(254,254,254) -> rgb(43,43,43).
+- Sin colores propios: grep de #hex/rgb()/hsl() en components/, lib/ y src/*.tsx|ts|css no devuelve
+  literales de color; SldbGraphCanvas.css y el theme de CodeMirror solo usan var(--color-*).
+- La maquina XState (lib/saveFlow.ts) se prueba sin navegador (vitest node, 6 pruebas).
+- RESULTADO.md responde las cuatro preguntas del Goal (paquete de integracion, convivencia de estilos,
+  costo del build, XState sin navegador) y cierra con "Que habria que cambiar en el ADR", punto por punto.
+
+## Observaciones
+
+- Desviacion declarada por el ejecutor: la plantilla `ide` no se scaffoldeo con el CLI; se leyo su fuente y
+  se reuso su estructura (Layout/Theme/Stack) con los dos componentes. Esta en RESULTADO.md y en su
+  result-summary; el Done When pide "la pagina construida", que existe y se valido.
+- El ADR deja Lexical sin verificar; el RESULTADO lo dice explicitamente (no se probo aqui).
+- Con Node 20 por defecto el CLI de Astryx no corre; el paquete no declara engines.node propio.
+  No impide la validacion con el runtime que el propio paquete requiere (Node >=22.13).
