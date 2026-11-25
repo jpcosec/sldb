@@ -1,0 +1,36 @@
+name: review-task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e-evidence-materialization-1
+path: desk/reviews/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e/evidence-materialization-1.md
+source_hash: f22ec2e2864813e3765c97840a794073595d5e8fe6064df98088cd549a6ad686
+content_hash: d9dd55cc27f8fcd29f5ff862597150e5d9234b3cdd62805fceeb570b6a62af9a
+field_hashes:
+  id: 353f7fa3e75b5ef8d6e212fa7a22f3059a542126e17dcea5dd510924c8d6d3d5
+  title: 349c3a6162dd08f6af3933d274fade04dab86f24996e2b7b8459d861d3c19593
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: ff7bb640e83aa0c6273de5acf050708e60377b95dec91e01f0b6dc92e2c5845e
+  subject: 79c71443c9addb492075917abf2555d39b0f4cde4fdca09b410cb59c8234a00d
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 8be7365823f2cfb79181590226668583dfd3190c6632905e18765fe6561b5908
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 3e1ab627c366a498aaa2c734cd7bc6dfefb8513e237a3a3546ebfa00a0ce3ffe
+  created_at: e2812c9178edd58a1fd6aa7de6b354b25a94a6b9a189c4dc2e36e2535eb8dc06
+  disposed_at: e2812c9178edd58a1fd6aa7de6b354b25a94a6b9a189c4dc2e36e2535eb8dc06
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: d19c200820281efc88169fd559c84f3fedc26d9540399a1474764ccee8651750
+  disposition: 1843ad96e59ddc41a2d0c7f86b4dda2d74a950b30bf2e8939a42d569f33bdd87
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T05:15:29Z'
+  authority: generated
+  via: create_document
