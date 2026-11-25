@@ -1,0 +1,25 @@
+name: materialization-propose-changes-valida-src-sldb-api-documents-batch-report-py
+path: desk/materializations/materialization-propose-changes-valida-src-sldb-api-documents-batch-report-py.md
+source_hash: eedc3ef264cf69a694c58b36840f82b7dfd68645411357d017599da30cbc06b9
+content_hash: d302e36a12102f1f68cb6ae24a90f09e0b9bd34ceb803f36f031ffa4d11be31a
+field_hashes:
+  id: 608a25d4edcb99df98305874acb0bacb658b1889c0287edb6159b16b509adfb5
+  title: b01fcbde51ea1787351faa7dd9bf819870ba941089964920138e75d81d2f938f
+  source_atoms: 36a75538282acc012a2ae1f3417c14fe702991f28557c65697cb09bbda415b62
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 4d166342dd1a32512d8c0d38f502b2b01ce5ca03a37b2094958ffff4d3434810
+  intent: b36f955d4a70e4a37969507af7473b7700b8f596255e94552d94b7e0e8af1038
+  validation: f7de05f63012bbe9e2b5b1021f64cff26eb97a12b76e90284438e7c873ea8433
+  tags: cd5d3f486b8dcd057137ab1c7ba3de3882882d67952baef566072e177107bc3a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:propose-changes-valida
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T23:46:52Z'
+  authority: generated
+  via: create_document

@@ -1,15 +1,15 @@
 name: task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest
 path: desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
-source_hash: 048f41f9425689cf20aa5378131f8db827e04a34380016f5e040e4709ff49dbf
-content_hash: b7b80fe55f51960774762b798d9af4d7405f20820949c2b5bb6956c539756b5d
+source_hash: a2f7c09a2f0d103c52037af8202cfd151485aa0f668298a26a2698858ed0b56a
+content_hash: c6c790c88bbc0779bd8f9025895d962f6303368ed00df1386d76dcd76cd99111
 field_hashes:
   title: 2626487f79ebb839feb43bced66cdb58488988c4f79beabebfd20e7bcfabf0ba
   id: 3881d0c6cbcf183b24a1858a63bc5adeab4f585f0dbfeeff9276c2b8d5e21ad3
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 7a6e10c1971581b42b4611fa7698cfa6a63a23935c064335e4bcf41d2069afd7
   goal: 57e11c7380120a279220ebd459105d33e45f3a6289459b0cff33009c02c44a64
   scope: ba10d4f8bc742cf9315b4a4fbec002a6f62dee8ef7a40fe472a83e91a97584a3
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 8124c0340afd7d53cdb301609de8d729119d548ef3cf2722f7fd55e60854bcda
   validation: d79cf8f80a3f72a530746d12db3dee9081b0db133cce21552e7fab3bc2afbadd
   done_when: 3a1d3b0d7a9fc175929a0b6ae5c3738ea7bb7716367706ce01619fe9ce3505da
@@ -32,6 +33,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T18:24:20Z'
+  at: '2026-11-25T23:18:32Z'
   authority: generated
   via: save_document_payload

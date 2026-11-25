@@ -1741,6 +1741,18 @@ include:
   - desk/materializations/materialization-layout-partition-lanes-src-sldb-notations-notation-constants-py.md
   - desk/materializations/materialization-layout-partition-lanes-src-sldb-notations-notation-spec-py.md
   - desk/materializations/materialization-layout-partition-lanes-tests-notations-test-layout-partition-lanes-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-api-documents-apply-batch-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-api-documents-batch-edges-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-api-documents-batch-report-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-mcp-write-apply-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-mcp-write-findings-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-mcp-write-pending-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-mcp-write-pendings-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-mcp-write-tools-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-store-edge-index-doc-kinds-py.md
+  - desk/materializations/materialization-propose-changes-valida-src-sldb-store-edge-index-resolve-py.md
+  - desk/materializations/materialization-propose-changes-valida-tests-mcp-test-write-tools-py.md
+  - desk/materializations/materialization-propose-changes-valida-tests-test-mcp-propose-rejects-invalid-edges-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3497,6 +3509,14 @@ include:
     name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-preflight-2
   - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/bundle-2.md
     name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-bundle-2
+  - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/evidence-tests-1.md
+    name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-evidence-tests-1
+  - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/evidence-commit-1.md
+    name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-evidence-commit-1
+  - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/evidence-atom-1.md
+    name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-evidence-atom-1
+  - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/evidence-materialization-1.md
+    name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

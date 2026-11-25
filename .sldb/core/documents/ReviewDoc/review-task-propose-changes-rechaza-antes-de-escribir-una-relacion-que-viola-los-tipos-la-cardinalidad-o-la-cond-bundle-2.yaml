@@ -1,0 +1,36 @@
+name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-bundle-2
+path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/bundle-2.md
+source_hash: 88f6d04a54f0bd7980e9df71489aa17b93a8441a9636af61041faf398629c2cb
+content_hash: cfa18d7f98998cd65589113d56053808839ab5fef6fd9c104fc0913ec8fa6157
+field_hashes:
+  id: 41a14c721147db5e9e2737beddd976dc58a7f0d06e3dc848d1244a9237e67bcd
+  title: 3ab23642c104abe761dc558145873d833ed3104a87274791d630b32c86128858
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: d3fda68defed8637df417403c9ab798a606b39acd44e5e2421f610ea44e78af0
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 25cc5acf512bf64bbebb494461e64de71b0408a7fc051e3e95ac683eb3d61186
+  input_sha256: b6eea19ba2abfd51e51f04c3cf2fcf4251e8f17f0514918a069bf5ffab95d9c0
+  contract_sha256: 61737b1250b6b6684a9188373cf0bb40f190ced694f6b3d3d34032170c70833f
+  output_sha256: 91918eb33dda31e0bbe04450203c2e7467c2be818290798b9a826605662cff90
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: abaaaebba44c7910c3a96aa4e0442d0aab504a27769a58091cdf37de031eacce
+  created_at: 1fd1ca77fd65cd5dc3e802bf7975a5069709b00f57afd503c9d59f00daf6bbdf
+  disposed_at: 43f99d9392ee1fbf5577b94c56ab5b3cdf9a17b7d7726c995171a88e287c9e17
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0e6557712329027f718d73bc22cddf283e9e7603531aef892555b8a955b0f5ac
+  disposition: 77e44e7b00302335cb0729683929219e105dc3d72c06abcc1e6d99a170b27371
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T23:10:22Z'
+  authority: generated
+  via: save_document_payload

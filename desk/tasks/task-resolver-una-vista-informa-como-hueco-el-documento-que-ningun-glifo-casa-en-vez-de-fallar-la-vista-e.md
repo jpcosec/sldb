@@ -1,19 +1,21 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:17:11Z'
+  at: '2026-11-25T23:14:52Z'
   authority: generated
   via: save_document_payload
 id: task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []
 files: []
+pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false

@@ -1,23 +1,51 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:10:45Z'
+  at: '2026-11-25T23:45:02Z'
   authority: generated
   via: save_document_payload
 id: task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/apply_batch.py
+- src/sldb/api/documents/batch_edges.py
+- src/sldb/api/documents/batch_report.py
+- src/sldb/mcp/write/apply.py
+- src/sldb/mcp/write/findings.py
+- src/sldb/mcp/write/pending.py
+- src/sldb/mcp/write/pendings.py
+- src/sldb/mcp/write/tools.py
+- src/sldb/store/edge_index/doc_kinds.py
+- src/sldb/store/edge_index/resolve.py
+- tests/mcp/test_write_tools.py
+- tests/test_mcp_propose_rejects_invalid_edges.py
+- 560e5a1e02fdcadda82224428df3826405bc1045
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/documents/apply_batch.py
+- src/sldb/api/documents/batch_edges.py
+- src/sldb/api/documents/batch_report.py
+- src/sldb/mcp/write/apply.py
+- src/sldb/mcp/write/findings.py
+- src/sldb/mcp/write/pending.py
+- src/sldb/mcp/write/pendings.py
+- src/sldb/mcp/write/tools.py
+- src/sldb/store/edge_index/doc_kinds.py
+- src/sldb/store/edge_index/resolve.py
+- tests/mcp/test_write_tools.py
+- tests/test_mcp_propose_rejects_invalid_edges.py
+pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-propose-changes-rechaza-antes-de-escribir-una-relacion-invalida
 ---
 
 # propose_changes rechaza antes de escribir una relación que viola los tipos, la cardinalidad o la condición de su tipo de relación

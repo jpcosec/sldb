@@ -1,0 +1,23 @@
+name: atom-propose-changes-rechaza-antes-de-escribir-una-relacion-invalida
+path: desk/atoms/atom-propose-changes-rechaza-antes-de-escribir-una-relacion-invalida.md
+source_hash: a74301d0c339bf4c5d4434d804241384c232035738babef23840b91ee304265e
+content_hash: 3619b4ec2067ed189291056c4163b9fc2bcdab316d40889aa6490005e85dff4b
+field_hashes:
+  id: 233b127962c17eb2d79f138f42a354564d8ec8e020c90c44ceabf61529158bcb
+  title: 430b57022f59bea851f2650f36dd60b4e7da7076443e03c76749888cff4df3ee
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 0b05e9b741c2f1d8332676acbde6bc953f3595cbbf30ce300e6160365fad2912
+  tags: cd5d3f486b8dcd057137ab1c7ba3de3882882d67952baef566072e177107bc3a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:propose-changes-valida
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T23:43:22Z'
+  authority: generated
+  via: create_document

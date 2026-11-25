@@ -1,19 +1,21 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:24:20Z'
+  at: '2026-11-25T23:18:32Z'
   authority: generated
   via: save_document_payload
 id: task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []
 files: []
+pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
