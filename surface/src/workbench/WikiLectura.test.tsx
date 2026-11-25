@@ -1,5 +1,5 @@
 /**
- * La lente Lectura como wiki de un negocio: índice de páginas por tipo, agregar y quitar páginas
+ * La lente Lectura como wiki de un documento: índice de páginas por tipo, agregar y quitar páginas
  * por `POST /save`, títulos legibles y el rechazo de SLDB, en español, junto al campo que falló.
  * Las formas (templates, semánticas, rutas, mensajes de error) son las del store de la peluquería.
  */
@@ -109,7 +109,7 @@ pages["ProfesionalDoc/corte"] = {
 };
 
 const documents: GraphDocument[] = [
-  { id: "negocio", model_name: "NegocioDoc", path: "negocio.md", payload: { nombre: "Peluquería Rayén" } },
+  { id: "documento", model_name: "DocumentoDoc", path: "documento.md", payload: { nombre: "Peluquería Rayén" } },
   { id: "horario", model_name: "HorarioDoc", path: "horario.md", payload: pages.horario!.payload },
   { id: "balayage", model_name: "ServicioDoc", path: "servicios/balayage.md", payload: { nombre: "Balayage" } },
   { id: "corte-de-pelo-hombre", model_name: "ServicioDoc", path: "servicios/corte-de-pelo-hombre.md", payload: servicioPayload },
@@ -118,7 +118,7 @@ const documents: GraphDocument[] = [
 
 const catalog = (name: string, type: string): ModelCatalogEntry => ({
   name,
-  model_ref: `minegocio.paginas:${name}`,
+  model_ref: `sldb.paginas:${name}`,
   path: "paginas.py",
   version: 1,
   canonical: false,
@@ -128,15 +128,15 @@ const catalog = (name: string, type: string): ModelCatalogEntry => ({
 });
 
 const models = [
-  catalog("HorarioDoc", "negocio.horario"),
-  catalog("NegocioDoc", "negocio.informacion-general"),
+  catalog("HorarioDoc", "documento.horario"),
+  catalog("DocumentoDoc", "documento.informacion-general"),
   catalog("ProfesionalDoc", "paquete.personal.profesional"),
   catalog("ServicioDoc", "paquete.catalogo.servicio"),
 ];
 
 const schema: SchemaResponse = {
   models: [
-    { id: "NegocioDoc", model_ref: "p:NegocioDoc", template: "# ⸢render•nombre⸥", fields: [{ name: "nombre", kind: "string", required: true }] },
+    { id: "DocumentoDoc", model_ref: "p:DocumentoDoc", template: "# ⸢render•nombre⸥", fields: [{ name: "nombre", kind: "string", required: true }] },
     {
       id: "HorarioDoc",
       model_ref: "p:HorarioDoc",
@@ -173,7 +173,7 @@ function mount(over: { docId?: string; lens?: WorkbenchLens; docs?: GraphDocumen
       if (!page) throw new Error(`sin segmentos: ${id}`);
       return page;
     }),
-    describeModel: vi.fn(async (name: string) => ({ name, model_ref: `minegocio.paginas:${name}`, authority: "authored" }) as unknown as ModelDescription),
+    describeModel: vi.fn(async (name: string) => ({ name, model_ref: `sldb.paginas:${name}`, authority: "authored" }) as unknown as ModelDescription),
     getEdges: vi.fn(async () => []),
     document: vi.fn(),
     save: vi.fn(async (_changes: unknown[]) => {
@@ -214,9 +214,9 @@ describe("Wiki · índice del panel izquierdo", () => {
     mount();
     await ready("Corte de pelo hombre");
     expect(screen.queryByTestId("topology-mindmap")).toBeNull();
-    expect(index().getAllByRole("heading", { level: 2 }).map((h) => h.textContent)).toEqual(["Negocio", "Servicios", "Equipo"]);
-    const negocio = within(screen.getByTestId("wiki-group-negocio"));
-    expect(negocio.getAllByRole("button").map((b) => b.textContent)).toEqual(["Negocio", "Horario"]);
+    expect(index().getAllByRole("heading", { level: 2 }).map((h) => h.textContent)).toEqual(["Documento", "Servicios", "Equipo"]);
+    const documento = within(screen.getByTestId("wiki-group-documento"));
+    expect(documento.getAllByRole("button").map((b) => b.textContent)).toEqual(["Documento", "Horario"]);
     const activa = index().getByRole("button", { current: "page" });
     expect(activa.textContent).toBe("Corte de pelo hombre");
   });
@@ -239,7 +239,7 @@ describe("Wiki · índice del panel izquierdo", () => {
     await ready("Corte de pelo hombre");
     expect(index().getByRole("button", { name: "+ Agregar servicio" })).toBeTruthy();
     expect(index().getByRole("button", { name: "+ Agregar profesional" })).toBeTruthy();
-    expect(within(screen.getByTestId("wiki-group-negocio")).queryByRole("button", { name: /Agregar/ })).toBeNull();
+    expect(within(screen.getByTestId("wiki-group-documento")).queryByRole("button", { name: /Agregar/ })).toBeNull();
   });
 });
 
@@ -302,7 +302,7 @@ describe("Wiki · agregar una página", () => {
     const { fake, props } = mount({ docId: "", docs: [] });
     expect(screen.getByTestId("prosa-sin-paginas").textContent).toMatch(/todavía no tiene páginas/);
     fireEvent.click(await index().findByRole("button", { name: "+ Agregar horario" }));
-    expect(index().getByRole("button", { name: "+ Agregar negocio" })).toBeTruthy();
+    expect(index().getByRole("button", { name: "+ Agregar documento" })).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Crear página" }));
     await waitFor(() => expect(props.onSelectDoc).toHaveBeenCalledWith("horario"));
     expect(fake.save).toHaveBeenCalledWith([{ id: "horario", action: "create", model: "HorarioDoc", payload: { atencion: {} } }]);

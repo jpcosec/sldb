@@ -80,14 +80,14 @@
     "status": 422,
     "body": {
       "ok": false,
-      "error": "negocio: 1 validation error for NegocioDoc\ntelefono\n  String should match pattern '^(\\+\\d{8,15})?$' [type=string_pattern_mismatch, input_value='22 333', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
+      "error": "documento: 1 validation error for DocumentoDoc\ntelefono\n  String should match pattern '^(\\+\\d{8,15})?$' [type=string_pattern_mismatch, input_value='22 333', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
     }
   },
   "patron_moneda": {
     "status": 422,
     "body": {
       "ok": false,
-      "error": "negocio: 1 validation error for NegocioDoc\nmoneda\n  String should match pattern '^[A-Z]{3}$' [type=string_pattern_mismatch, input_value='pesos', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
+      "error": "documento: 1 validation error for DocumentoDoc\nmoneda\n  String should match pattern '^[A-Z]{3}$' [type=string_pattern_mismatch, input_value='pesos', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
     }
   },
   "dos_errores": {

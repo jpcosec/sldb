@@ -696,7 +696,7 @@
 .wb-ficha__sino { display: inline-flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
 .wb-ficha__sino input { width: 16px; height: 16px; accent-color: var(--wb-ink); }
 
-/* ---------- Wiki del negocio (lente Lectura): índice, página nueva, avisos ---------- */
+/* ---------- Wiki del store (lente Lectura): índice, página nueva, avisos ---------- */
 
 .wb-pane-left-38--indice {
   width: 280px;
@@ -828,7 +828,7 @@
 .wb-quitar { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--wb-hairline); font-size: 13.5px; }
 .wb-quitar__confirmar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: var(--wb-ink); }
 
-/* Barra superior de la wiki: el nombre del negocio y la página abierta, sin maquinaria */
+/* Barra superior de la wiki: el título del store y la página abierta, sin maquinaria */
 .wb-topbar--wiki { font-family: var(--wb-font-sans); }
 .wb-wiki-nombre { font-family: var(--wb-font-sans); font-size: 14px; font-weight: 600; color: var(--wb-ink); white-space: nowrap; }
 .wb-wiki-pagina { font-family: var(--wb-font-sans); font-size: 13px; color: var(--wb-ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

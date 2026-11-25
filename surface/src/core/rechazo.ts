@@ -54,10 +54,10 @@ const SI_NO = new Set(["bool_parsing", "bool_type"]);
 const OPCION = new Set(["literal_error", "enum"]);
 const FECHA = /^(date|datetime|time)_(parsing|type|from_date_parsing)$/;
 
-/** Los mensajes que ya llegan en español claro (los escribe minegocio delante de SLDB). */
+/** Los mensajes que ya llegan en español claro (los escribe sldb delante de SLDB). */
 const YA_CLAROS = [
   /^Ya hay una página llamada /,
-  /^Este negocio ya tiene su página /,
+  /^Este documento ya tiene su página /,
   /^Falta la clave del equipo/,
   /^No se pudo llegar al servidor de la wiki/,
 ];

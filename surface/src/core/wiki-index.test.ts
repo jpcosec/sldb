@@ -3,7 +3,7 @@ import type { GraphDocument, ModelCatalogEntry, SchemaModel } from "./contract";
 import {
   allowsMany,
   buildWikiIndex,
-  businessName,
+  storeTitle,
   humanize,
   newPageId,
   newPagePayload,
@@ -36,8 +36,8 @@ const model = (name: string, type: string): ModelCatalogEntry => ({
 // Los templates y semánticas son los que entrega el store de la peluquería (`GET /schema`, `GET /models`).
 const schema: SchemaModel[] = [
   {
-    id: "NegocioDoc",
-    model_ref: "p:NegocioDoc",
+    id: "DocumentoDoc",
+    model_ref: "p:DocumentoDoc",
     template: "---\nnombre: ⸢rev•nombre⸥\n---\n\n# ⸢render•nombre⸥\n\n⸢rev,markdown•descripcion⸥",
     fields: [
       { name: "nombre", kind: "string", required: true },
@@ -73,14 +73,14 @@ const schema: SchemaModel[] = [
 
 const models = [
   model("AsistenteDoc", "paquete.asistente"),
-  model("HorarioDoc", "negocio.horario"),
-  model("NegocioDoc", "negocio.informacion-general"),
+  model("HorarioDoc", "documento.horario"),
+  model("DocumentoDoc", "documento.informacion-general"),
   model("ProfesionalDoc", "paquete.personal.profesional"),
   model("ServicioDoc", "paquete.catalogo.servicio"),
 ];
 
 const documents = [
-  doc("negocio", "NegocioDoc", "negocio.md", { nombre: "Peluquería Rayén" }),
+  doc("documento", "DocumentoDoc", "documento.md", { nombre: "Peluquería Rayén" }),
   doc("horario", "HorarioDoc", "horario.md", {}),
   doc("balayage", "ServicioDoc", "servicios/balayage.md", { nombre: "Balayage" }),
   doc("corte-de-pelo-hombre", "ServicioDoc", "servicios/corte-de-pelo-hombre.md", { nombre: "Corte de pelo hombre" }),
@@ -106,7 +106,7 @@ describe("wiki-index · rótulos", () => {
 
   it("una página única se llama como su template o su tipo; una de varias, por su nombre", () => {
     expect(pageLabel(documents[1]!, false, schema[1])).toBe("Horario");
-    expect(pageLabel(documents[0]!, false, schema[0])).toBe("Negocio");
+    expect(pageLabel(documents[0]!, false, schema[0])).toBe("Documento");
     expect(pageLabel(documents[5]!, false, schema[4])).toBe("Asistente");
     expect(pageLabel(documents[2]!, true, schema[2])).toBe("Balayage");
     expect(pageLabel(doc("sin-nombre", "ServicioDoc", "servicios/sin-nombre.md"), true, schema[2])).toBe("Sin nombre");
@@ -114,17 +114,19 @@ describe("wiki-index · rótulos", () => {
     expect(pageLabel(doc("informe-1", "InformeDoc", "informe-1.md", { title: "Informe renal" }), false)).toBe("Informe renal");
   });
 
-  it("el nombre del negocio sale de su página NegocioDoc", () => {
-    expect(businessName(documents)).toBe("Peluquería Rayén");
-    expect(businessName(documents.slice(1))).toBeNull();
+  it("el título del índice sale del último segmento de la ruta del store", () => {
+    expect(storeTitle("/srv/stores/peluqueria")).toBe("peluqueria");
+    expect(storeTitle("C:\\datos\\clinica\\")).toBe("clinica");
+    expect(storeTitle(null)).toBe("Documentos");
+    expect(storeTitle("")).toBe("Documentos");
   });
 });
 
 describe("wiki-index · grupos", () => {
   it("agrupa por carpeta o por semántica, en el orden del schema, sin nada escrito a mano", () => {
     const groups = buildWikiIndex(documents, models, schema);
-    expect(groups.map((g) => g.label)).toEqual(["Negocio", "Servicios", "Equipo", "Asistente"]);
-    expect(groups[0]!.pages.map((p) => p.label)).toEqual(["Negocio", "Horario"]);
+    expect(groups.map((g) => g.label)).toEqual(["Documento", "Servicios", "Equipo", "Asistente"]);
+    expect(groups[0]!.pages.map((p) => p.label)).toEqual(["Documento", "Horario"]);
     expect(groups[1]!.pages.map((p) => p.label)).toEqual(["Balayage", "Corte de pelo hombre"]);
   });
 
@@ -142,14 +144,14 @@ describe("wiki-index · grupos", () => {
     const groups = buildWikiIndex([], models, schema);
     expect(groups.every((g) => g.pages.length === 0)).toBe(true);
     expect(groups.flatMap((g) => g.creatable.map((c) => c.model))).toEqual([
-      "NegocioDoc",
+      "DocumentoDoc",
       "HorarioDoc",
       "ServicioDoc",
       "ProfesionalDoc",
       "AsistenteDoc",
     ]);
-    expect(groups[0]!.label).toBe("Negocio");
-    expect(groups[0]!.creatable.map((c) => c.label)).toEqual(["negocio", "horario"]);
+    expect(groups[0]!.label).toBe("Documento");
+    expect(groups[0]!.creatable.map((c) => c.label)).toEqual(["documento", "horario"]);
   });
 
   it("sin schema ni catálogo no falla: agrupa por el tipo del documento", () => {

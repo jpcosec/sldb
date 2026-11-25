@@ -1,12 +1,12 @@
 /**
  * El índice de la wiki: las páginas del store agrupadas por tipo, con nombres para personas.
  *
- * Nada se escribe a mano por negocio. Los grupos y rótulos salen de lo que el store ya entrega:
+ * Nada se escribe a mano por store. Los grupos y rótulos salen de lo que el store ya entrega:
  * la carpeta donde viven las páginas de un tipo (`servicios/…`), su semántica
- * (`type.negocio.horario`), el título literal de su template (`# Horario`) y el nombre del modelo.
+ * (`type.paquete.horario`), el título literal de su template (`# Horario`) y el nombre del modelo.
  *
- * SLDB no expone hoy cuántas páginas admite un tipo ni dónde declara que van (en minegocio,
- * `__pagina__`). Aquí solo se lee la evidencia del store: un tipo con varias páginas, o con sus
+ * SLDB no expone hoy cuántas páginas admite un tipo ni dónde declara que van (`__pagina__`,
+ * por ejemplo). Aquí solo se lee la evidencia del store: un tipo con varias páginas, o con sus
  * páginas en una carpeta, admite varias; un tipo con una sola página en la raíz es de página única.
  */
 import type { GraphDocument, ModelCatalogEntry, Payload, SchemaField, SchemaModel } from "./contract";
@@ -80,7 +80,7 @@ export function templateTraits(template: string | undefined): Map<string, string
   return traits;
 }
 
-/** El paquete de una semántica `type.paquete.catalogo.servicio` → `catalogo`; `type.negocio.horario` → `negocio`. */
+/** El paquete de una semántica `type.paquete.catalogo.servicio` → `catalogo`; `type.paquete.horario` → `paquete`. */
 function semanticPackage(tags: string[] | undefined): string | null {
   const tag = tags?.find((t) => t.startsWith("type."));
   if (!tag) return null;
@@ -119,9 +119,10 @@ export function pageLabel(doc: GraphDocument, many: boolean, schema?: SchemaMode
   return title?.literal || textOf(doc.payload, "title") || typeLabel(doc.model_name);
 }
 
-/** El nombre del negocio: el campo `nombre` de su página `NegocioDoc`, si existe. */
-export function businessName(documents: GraphDocument[]): string | null {
-  return textOf(documents.find((d) => d.model_name === "NegocioDoc")?.payload, "nombre");
+/** El título del índice: el último segmento de la ruta del store, o «Documentos» si no hay. */
+export function storeTitle(storePath?: string | null): string {
+  const last = (storePath ?? "").split(/[\\/]/).filter(Boolean).pop();
+  return last?.trim() || "Documentos";
 }
 
 export function buildWikiIndex(

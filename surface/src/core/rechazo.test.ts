@@ -103,7 +103,7 @@ describe("leerRechazo · cuerpos reales de sldb serve", () => {
 });
 
 describe("leerRechazo · otras formas", () => {
-  it("los mensajes que minegocio ya escribe en español pasan sin tocar", () => {
+  it("los mensajes que sldb ya escribe en español pasan sin tocar", () => {
     const propio = "Ya hay una página llamada «ana» en la wiki. Usa otro nombre.";
     expect(leerRechazo(propio, { status: 409 })).toEqual({ lineas: [{ texto: propio, campo: null }], reconocido: true, original: propio });
   });

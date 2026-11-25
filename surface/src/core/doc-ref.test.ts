@@ -7,7 +7,7 @@ import { createHttpClient } from "./client";
 import { canonicalRef, docRef, findDocument, parseRef, qualifiedRef, refFor } from "./doc-ref";
 
 const docs = [
-  { id: "negocio", model_name: "NegocioDoc", path: "negocio.md" },
+  { id: "documento", model_name: "DocumentoDoc", path: "documento.md" },
   { id: "color", model_name: "ServicioDoc", path: "servicios/color.md" },
   { id: "corte", model_name: "ServicioDoc", path: "servicios/corte.md" },
   { id: "ana", model_name: "ProfesionalDoc", path: "equipo/ana.md" },
@@ -16,7 +16,7 @@ const docs = [
 
 describe("doc-ref", () => {
   it("un nombre único viaja solo; uno repetido, con su tipo delante", () => {
-    expect(docs.map((d) => docRef(d, docs))).toEqual(["negocio", "color", "ServicioDoc/corte", "ana", "ProfesionalDoc/corte"]);
+    expect(docs.map((d) => docRef(d, docs))).toEqual(["documento", "color", "ServicioDoc/corte", "ana", "ProfesionalDoc/corte"]);
     expect(refFor(docs, "color", "ServicioDoc")).toBe("color");
     expect(refFor(docs, "corte", "ProfesionalDoc")).toBe("ProfesionalDoc/corte");
     expect(refFor(docs, "corte")).toBe("corte"); // sin tipo no hay cómo calificar

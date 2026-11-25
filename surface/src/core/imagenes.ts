@@ -1,5 +1,5 @@
 /**
- * Subir una imagen del negocio para mostrarla dentro de un texto.
+ * Subir una imagen del documento para mostrarla dentro de un texto.
  *
  * La superficie no guarda archivos: se los entrega a quien la sirve (`POST <url>?nombre=…`, el archivo en el cuerpo)
  * y recibe la ruta con que el texto la nombra (`imagenes/el-salon-1a2b3c4d.jpg`). Qué imagen se acepta lo decide ese

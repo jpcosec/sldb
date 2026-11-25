@@ -3,7 +3,7 @@ import { createHttpClient, type SldbClient } from "../core/client";
 import type { GraphDocument, ModelCatalogEntry } from "../core/contract";
 import type { AssistantClient } from "../core/assistant";
 import { canonicalRef, docRef, findDocument, parseRef } from "../core/doc-ref";
-import { businessName } from "../core/wiki-index";
+import { storeTitle } from "../core/wiki-index";
 import { WorkbenchAssist } from "./WorkbenchAssist";
 import { SldbProvider } from "../react/context";
 import type { SubirImagen } from "../core/imagenes";
@@ -25,6 +25,8 @@ export interface WorkbenchShellProps {
   assistantClient?: AssistantClient;
   /** Cómo se sube una imagen para un texto; ausente si quien sirve la superficie no guarda imágenes. */
   subirImagen?: SubirImagen;
+  /** Ruta del store que se sirve; su último segmento titula la lectura. Sin ella, «Documentos». */
+  storePath?: string;
 }
 
 /** Vista a la que lleva una lente de prosa: conserva diagram/source; desde studio vuelve al workbench. */
@@ -42,6 +44,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
   client: injectedClient,
   assistantClient,
   subirImagen,
+  storePath,
 }) => {
   const client = useMemo(
     () => injectedClient ?? createHttpClient(baseUrl),
@@ -105,8 +108,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
       .then((items: GraphDocument[]) => {
         setDocuments(items ?? []);
         setStoreStatus({ kind: "synced" });
-        const preferred =
-          items?.find((d: GraphDocument) => d.model_name.toLowerCase().includes("informe")) ?? items?.[0];
+        const preferred = items?.[0];
         if (preferred) {
           setRoute((prev) => (prev.doc ? prev : { ...prev, doc: docRef(preferred, items) }));
         }
@@ -165,21 +167,18 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
       if (found) return found;
     }
     return (
-      documents.find((d) => d.model_name.toLowerCase().includes("informe")) ??
-      documents[0] ??
-      null
+      documents[0] ?? null
     );
   }, [documents, route.doc]);
 
-  // La wiki de un negocio (un store con su página `NegocioDoc`) se lee en Lectura sin maquinaria:
-  // la barra muestra el nombre del negocio; breadcrumb de SLDB, contrato, sync y ⌘K quedan en Fierros.
-  const negocio = useMemo(() => businessName(documents), [documents]);
-  const esWiki = negocio !== null || models.some((m) => m.name === "NegocioDoc");
-  const wikiLectura = esWiki && route.view === "workbench" && route.lens === "lectura";
+  // La lectura sin maquinaria es genérica: cualquier store en Lectura muestra el título del store;
+  // breadcrumb de SLDB, contrato, sync y ⌘K quedan en Fierros.
+  const titulo = storeTitle(storePath);
+  const wikiLectura = route.view === "workbench" && route.lens === "lectura";
 
   useEffect(() => {
-    if (typeof document !== "undefined" && negocio) document.title = negocio;
-  }, [negocio]);
+    if (typeof document !== "undefined" && wikiLectura) document.title = titulo;
+  }, [wikiLectura, titulo]);
 
   // Una dirección con tipo (`Tipo/nombre`) se resuelve contra los documentos del store: hasta que
   // lleguen no se pide la página, para no pedirla con una forma que no es la suya.
@@ -345,8 +344,8 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
         <header className={`wb-topbar ${wikiLectura ? "wb-topbar--wiki" : ""}`} data-testid="wb-topbar">
           {wikiLectura ? (
             <div className="wb-topbar-left">
-              <span className="wb-wiki-nombre" data-testid="wiki-business-name">
-                {negocio ?? "La wiki de tu negocio"}
+              <span className="wb-wiki-nombre" data-testid="wiki-titulo">
+                {titulo}
               </span>
             </div>
           ) : (
