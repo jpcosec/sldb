@@ -1,62 +1,78 @@
 id: pedidos-de-specir-y-graph-ui
-status: proposed
+status: accepted
 as_of: '2026-11-25'
-source: README.md de esta carpeta. Las tareas con `task` existen en desk/tasks del checkout de robocop2.
-decisions:
-  que-se-hace-con-pron: {state: decided, by: JP, 'on': '2026-11-25', decided: 'pron se archiva; legos se migrará a Kimun cuando se retome'}
-  que-pasa-a-sldb-de-lo-que-solo-tiene-pron: {state: decided, by: JP, 'on': '2026-11-25', decided: 'rechazar una relación inválida antes de escribirla, prevalidar un movimiento entero, registro persistente y deshacer entre sesiones'}
-  tomar-g-sldb-pron-mcp: {state: decided, by: JP, 'on': '2026-11-25', decided: 'reemplazado por esas tres capacidades dentro de la taxonomía de comandos'}
-  contenido-de-notaciones: {state: decided, by: JP, 'on': '2026-11-25', decided: 'el contenido va a specIR; sldb conserva el mecanismo'}
-  api-sobre-fastmcp: {state: decided, by: JP, 'on': '2026-11-25', decided: 'la API pasa a fastmcp con una taxonomía de comandos primero; queda en drawer, sin partir'}
+source: README.md de esta carpeta. Las decisiones están en docs/architecture/ (cuatro ADR del 2026-11-25).
+adrs:
+- docs/architecture/mechanism-in-sldb-content-in-specir.md
+- docs/architecture/pron-is-archived.md
+- docs/architecture/one-command-taxonomy-served-by-fastmcp.md
+- docs/architecture/surface-is-an-editor-contract.md
 requests:
-  serve-extension:
-    title: sldb serve acepta --extension MODULE:FUNCTION
-    task: task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e
-    asked_by: IR
   cobertura-de-atomos:
-    title: Cobertura de átomos en el listado de specs y vistas de sldb serve
+    title: Cobertura de átomos en el listado de specs y vistas
     task: task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una
-    asked_by: IR
+    state: task
   fragmento-y-estado-de-ancla:
-    title: Líneas del fragmento y estado de un CodeAnchorDoc por sldb serve
+    title: Líneas del fragmento y estado de un CodeAnchorDoc
     task: task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost
-    asked_by: IR
+    state: task
   atributos-del-handler:
     title: Atributos estáticos del elemento en los facts de handler JSX
     task: task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name
-    asked_by: IR
+    state: task
   llamadas-por-handler:
     title: Cada handler en línea nombra las llamadas que son suyas
     task: task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas
-    asked_by: IR
+    state: task
   method-del-segundo-argumento:
     title: Los facts de llamada traen el method del segundo argumento
     task: task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal
-    asked_by: IR
-  facts-de-htm:
-    title: Facts de component y handlers en plantillas htm
-    asked: false
-    asked_by: IR
-    why: 'Sobre frontends/mindmap de graph_ui salen 0 componentes; el render principal es graph_ui'
-  notacion-bpmn:
-    title: Notación BPMN (carriles, eventos, compuertas)
-    asked: false
-    asked_by: graph_ui
-    decided_by: 'JP 2026-11-25: BPMN va como notación en el render principal'
+    state: task
   estandar-de-una-notacion:
     title: Una notación declara qué estándar implementa
-    asked: false
-    asked_by: IR
+    state: no-task
   documento-sin-glifo-como-hueco:
-    title: Un documento sin glifo se informa como hueco, no hace fallar la vista
-    asked: false
-    asked_by: IR
+    title: Un documento sin glifo se informa como hueco
+    state: no-task
   predicado-de-tags-semanticos:
     title: Predicado de reglas sobre los tags semánticos del modelo y sus ancestros
-    asked: false
-    asked_by: IR
+    state: no-task
+  serve-extension:
+    title: sldb serve acepta --extension
+    task: task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e
+    state: void
+    why: una extensión pasa a ser un servidor montado
+  notacion-bpmn:
+    title: Notación BPMN en sldb
+    state: void
+    why: el contenido de las notaciones es de specIR
   exportar-specs-y-notacion-en-la-api:
-    title: sldb.api exporta las clases de spec y los helpers de notación
-    asked: true
-    state: 'pedido el 2026-11-15 en dos notas, cerradas; el __init__ sigue sin exportarlas'
-    asked_by: IR
+    title: sldb.api exporta las clases de spec
+    state: void
+    why: las clases se mudan a specIR
+  facts-de-htm:
+    title: Facts en plantillas htm
+    state: void
+    why: graph_ui deja htm
+work:
+  taxonomia-de-comandos:
+    title: Tabla de operaciones que junta sldb.api, CLI, serve y mcp
+    depends_on: []
+  servidor-fastmcp:
+    title: Servidor fastmcp que declara cada operación una vez
+    depends_on:
+    - taxonomia-de-comandos
+  retirar-serve:
+    title: Retirar sldb serve
+    depends_on:
+    - servidor-fastmcp
+  rechazo-antes-de-escribir:
+    title: Rechazar una relación inválida antes de escribirla y prevalidar un movimiento entero
+    depends_on: []
+  deshacer-entre-sesiones:
+    title: Registro persistente de movimientos y deshacer entre sesiones
+    depends_on: []
+  sacar-notaciones-builtin:
+    title: Sacar notaciones builtin y clases de spec; notación mínima para pruebas
+    depends_on:
+    - 'IR: recibir notaciones'
