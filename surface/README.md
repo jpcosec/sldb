@@ -1,5 +1,11 @@
 # @sldb/surface
 
+> **Estado (2026-11-25).** Decidido por JP, sin ejecutar: surface deja de ser una aplicación y pasa a ser el
+> contrato de cómo se crea un editor; el editor de texto de sldb y graph_ui (editor de grafo) son sus dos casos, y
+> los dibujos de grafo propios de este paquete (`NotationSvgCanvas.tsx`, la pestaña «Grafo» de la maqueta) se
+> reemplazan por el de graph_ui. Lo que sigue describe el código de hoy. Plan:
+> `desk/drawer/plans/superficie-como-contrato-de-editores/`.
+
 Superficie genérica sobre SLDB: renderiza cualquier documento, deja editar solo lo que el
 template marca como field y escribe siempre por payload (`/save` con `expected`); SLDB
 re-renderiza el Markdown y verifica el round-trip. Nunca escribe Markdown.

@@ -210,6 +210,10 @@ Use `-` as an output path to write to stdout when a command supports it.
 
 ## Serving and surfaces
 
+> **Decided 2026-11-25, not executed:** this HTTP server is to be replaced by one fastmcp server declared from a
+> single command taxonomy (MCP, HTTP, CLI and code mode from the same declaration). Until then `sldb serve` and
+> `sldb mcp` are what exists. Plan: `desk/drawer/plans/pedidos-de-specir-y-graph-ui/`.
+
 `sldb serve` exposes the store over HTTP so that UIs never touch Markdown directly: they read
 documents, fields, segments and edges, and write by payload (`/save` with `expected`, `POST /docs`
 to create). SLDB re-renders the Markdown and verifies the round-trip.
@@ -234,9 +238,10 @@ The surfaces in this repo live in `surface/` (`@sldb/surface`): a generic docume
 Composición, Extracción, Salud, Bandeja, Lector, Destilación) and `maqueta.html`, the atoms UI
 (Extracción · Grafo · Compositor · Respuesta) built on `AtomDoc`, `RelationDoc`, `GrupoDoc` and
 report models. Design and status: `docs/surface/PROPUESTA-SUPERFICIE.md`,
-`docs/surface/OPERACIONALIZACION-VISTAS.md`, tasks in `docs/surface/tasks/`. Sibling UIs
-(the `graph_ui` and `sldb-ui` repos, launched together by the `kbsurfaces` repo) are views over the
-same server.
+`docs/surface/OPERACIONALIZACION-VISTAS.md`, tasks in `docs/surface/tasks/`. The `graph_ui` repo is the
+graph editor over the same server; `sldb-ui` is archived (2026-11-21). Decided 2026-11-25, not executed:
+`surface/` becomes the contract every editor follows, with sldb's text editor and `graph_ui` as its two
+cases (`desk/drawer/plans/superficie-como-contrato-de-editores/`).
 
 ## Tracking This Repo's Docs
 

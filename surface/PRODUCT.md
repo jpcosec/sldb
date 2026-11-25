@@ -31,6 +31,12 @@ La interfaz general de SLDB, autónoma primero (confirmado por el dueño, 2026-1
 contra cualquier store. No es una pantalla de deskops ni es específica de deskops; abrirla desde
 la UI de deskops es un caso de uso más.
 
+Decidido por el dueño el 2026-11-25, sin ejecutar: esta superficie pasa de aplicación a contrato de
+cómo se crea un editor, con el editor de texto de SLDB y graph_ui (editor de grafo) como sus dos
+casos; el inspector de diagramas pasa a ser el editor de graph_ui montado aquí. Este documento
+describe el producto anterior a esa decisión y hay que rehacerlo
+(`desk/drawer/plans/superficie-como-contrato-de-editores/`).
+
 Lo que una UI vecina no puede copiar: el documento que se lee es el mismo objeto tipado del
 store. Cada campo, transclusión y diagrama en pantalla tiene dirección, modelo y hash, y esos
 "fierros" se pueden encender o apagar sin cambiar de vista.
