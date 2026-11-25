@@ -1,0 +1,54 @@
+# Tester deskops-t-be7ff39547f1 — validation log
+# cwd: /workspace/sldb
+# env: TMPDIR=/tmp; PYTEST_ADDOPTS=--basetemp=/tmp/pytest-deskops-t-be7ff39547f1...
+# python (API/tests): /workspace/sldb/.venv/bin/python (3.13.18)
+# python (mcp test): /workspace/IR/.venv/bin/python (3.13.18, anyio+mcp)
+
+$ git show --name-only --format='' f68074750
+contracts/layers.toml
+src/sldb/api/__init__.py
+src/sldb/api/anchors/__init__.py
+src/sldb/api/anchors/resolve_pointers.py
+src/sldb/api/anchors/tag_reach.py
+src/sldb/mcp/read/tools.py
+src/sldb/mcp/registry.py
+src/sldb/models/code_anchor_doc.py
+tests/mcp/test_read_tools.py
+tests/test_where_pointers_resolve.py
+
+$ python -m pytest -q tests/test_where_pointers_resolve.py
+.....                                                                    [100%]
+5 passed, 1 warning in 11.69s
+rc=0
+
+$ python -m pytest -q tests/mcp/test_read_tools.py
+..............                                                           [100%]
+14 passed, 1 warning in 37.96s
+rc=0
+
+$ python -m pytest -q tests/api/test_anchors.py
+22 passed, 1 skipped
+rc=0
+
+$ python -m pytest -q tests/api/test_api_semantic.py
+8 passed
+rc=0
+
+$ python -m pytest -q tests/api/test_doc_anchors.py
+24 passed
+rc=0
+
+$ PATH=/workspace/sldb/.venv/bin:$PATH bash tools/check.sh --fast
+PASS: núcleo aislado — 83 módulos cargados
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+PASS: ejes — 32 declarados, 1003 archivos mapeados, 0 violaciones
+PASS: superficie — 129 símbolos pedidos, 598 declarados, 0 violaciones
+omitidas (--fast): afirmaciones pruebas selfdoc
+TODAS LAS PUERTAS PASAN
+rc=0
+
+# Ad-hoc probes (not committed), /tmp/probe_anchors_resolve.py:
+# - document tagged with a grandchild tag is returned when resolving the parent tag
+# - local -> global equivalence is inside the reach of the local tag
+2 passed

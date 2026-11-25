@@ -1,0 +1,27 @@
+## main...origin/main [ahead 70]
+ M .sldb/core/documents/BoardDoc/Board.yaml
+ M .sldb/core/documents/RunDoc/run-deskops-e-ac95040e0234.yaml
+ M .sldb/core/documents/TaskCodeDoc/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq.yaml
+ M .sldb/core/models/BoardDoc.yaml
+ M .sldb/core/models/ReviewDoc.yaml
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M desk/tasks/Board.md
+ M desk/tasks/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq.md
+ M runs/subagents/exec-deskops-e-ac95040e0234/run.md
+?? .herdr-coordination.md
+?? .sldb/core/documents/ReviewDoc/review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-bundle-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-preflight-1.yaml
+?? .sldb/core/documents/TaskCodeDoc/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale.yaml
+?? desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/
+?? desk/tasks/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale.md
+?? runs/subagents/20261125-191709/
+?? runs/subagents/20261125-191806/
+?? runs/subagents/exec-deskops-e-ac95040e0234/board.txt
+?? runs/subagents/exec-deskops-e-ac95040e0234/git-status.txt
+?? runs/subagents/exec-deskops-e-ac95040e0234/graph.txt
+?? runs/subagents/exec-deskops-e-ac95040e0234/next.txt
+?? runs/subagents/exec-deskops-e-ac95040e0234/prompt.md
+?? runs/subagents/exec-deskops-e-ac95040e0234/task.txt

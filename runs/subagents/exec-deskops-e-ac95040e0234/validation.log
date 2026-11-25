@@ -1,0 +1,4 @@
+python -m pytest -q tests/test_where_pointers_resolve.py -> rc 0 (5 passed)
+bash tools/check.sh --fast -> rc 0
+pytest tests/api tests/selfdoc tests/test_clean_code_rules.py (-n 4): 3 failures before the split; clean_code (mine, 85>80 lines) fixed; remaining 2 are environment (cli.md cwd path; ts grammar), unrelated.
+tests/mcp: cannot run here (ImportError: cannot import name 'Client' from 'mcp' in this venv); ReadTools.anchors_resolve is covered in my test directly.

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T21:30:23Z'
+  at: '2026-11-25T21:49:10Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -92,7 +92,6 @@ tasks:
 - desk/tasks/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e.md
 - desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
 - desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
-- desk/tasks/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq.md
 - desk/tasks/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale.md
 # List of pill-xxx paths
 pills:
@@ -219,5 +218,4 @@ _Generated from the task references above._
 - resolver una vista informa como hueco el documento que ningún glifo casa, en vez de fallar la vista entera [draft] - Que la vista se resuelva con los documentos que sí casan y que el resultado liste aparte los que no, con su id y su modelo.
 - una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [draft] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.
 - una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [draft] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
-- sldb responde qué documentos aplican a un archivo o a un símbolo, sea porque lo anclan directo o porque apuntan a una categoría que lo cubre [active] - Dos operaciones de lectura: dado un puntero, qué documentos y qué código cubre; y dado un archivo o un símbolo, qué documentos apuntan a él, directo o a través de una categoría.
 - los hechos de llamada de Python traen los argumentos literales, y de inner.add_parser("nodes", help="...") sale el nombre del comando y su ayuda [draft] - Que una llamada de Python lleve sus argumentos cuando son literales: los posicionales en orden y los nombrados por su nombre.
