@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:43:19Z'
+  at: '2026-11-25T18:17:11Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ Dentro: sldb.api.notations (resolve_view, evaluate_projection_view y ViewError) 
 _Outline the expected implementation route or affected surface._
 
 Leer docs/architecture/notations-and-views.md. Los huecos van en un campo propio del resultado; un llamador que quiera el comportamiento estricto lo pide de forma explícita.
+
+Aclaraciones de la revisión: Campo gaps en el resultado: lista de {id, model}, donde model es el nombre del modelo del documento (p. ej. TaskCodeDoc). Parámetro strict: bool = False en resolve_view y evaluate_projection_view; con strict=True se conserva exactamente el ViewError de hoy (mismo tipo y mensaje); ViewError no cambia. La ruta de evaluación de vistas de sldb serve (la que llama a evaluate_projection_view, ver src/sldb/cli/serve) devuelve gaps y acepta strict como query param. Sin huecos, gaps es []. No poner Task-Id en el commit de código.
 
 ## Validation
 

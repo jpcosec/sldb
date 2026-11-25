@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:13:13Z'
+  at: '2026-11-25T18:26:09Z'
   authority: generated
   via: save_document_payload
 id: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
@@ -12,14 +12,58 @@ current_node: ritual-closeout
 history:
 - task_activates
 - task_hands_to_closeout
-references: []
+references:
+- surface/dev/astryx-probe/RESULTADO.md
+- surface/dev/astryx-probe/astryx.integration.mjs
+- surface/dev/astryx-probe/components/SldbGraphCanvas.css
+- surface/dev/astryx-probe/components/SldbGraphCanvas.doc.mjs
+- surface/dev/astryx-probe/components/SldbGraphCanvas.tsx
+- surface/dev/astryx-probe/components/SldbTextEditor.doc.mjs
+- surface/dev/astryx-probe/components/SldbTextEditor.tsx
+- surface/dev/astryx-probe/evidence/dark.png
+- surface/dev/astryx-probe/evidence/light.png
+- surface/dev/astryx-probe/evidence/probe.json
+- surface/dev/astryx-probe/index.html
+- surface/dev/astryx-probe/lib/saveFlow.ts
+- surface/dev/astryx-probe/package-lock.json
+- surface/dev/astryx-probe/package.json
+- surface/dev/astryx-probe/src/App.tsx
+- surface/dev/astryx-probe/src/astryx-themes.js
+- surface/dev/astryx-probe/src/globals.css
+- surface/dev/astryx-probe/src/main.tsx
+- surface/dev/astryx-probe/tests/saveFlow.test.ts
+- surface/dev/astryx-probe/tsconfig.json
+- surface/dev/astryx-probe/vite.config.ts
+- 323f764790352f0f9465d39d279abc8c06edb1c9
 depends_on: []
 pills: []
-files: []
+files:
+- surface/dev/astryx-probe/RESULTADO.md
+- surface/dev/astryx-probe/astryx.integration.mjs
+- surface/dev/astryx-probe/components/SldbGraphCanvas.css
+- surface/dev/astryx-probe/components/SldbGraphCanvas.doc.mjs
+- surface/dev/astryx-probe/components/SldbGraphCanvas.tsx
+- surface/dev/astryx-probe/components/SldbTextEditor.doc.mjs
+- surface/dev/astryx-probe/components/SldbTextEditor.tsx
+- surface/dev/astryx-probe/evidence/dark.png
+- surface/dev/astryx-probe/evidence/light.png
+- surface/dev/astryx-probe/evidence/probe.json
+- surface/dev/astryx-probe/index.html
+- surface/dev/astryx-probe/lib/saveFlow.ts
+- surface/dev/astryx-probe/package-lock.json
+- surface/dev/astryx-probe/package.json
+- surface/dev/astryx-probe/src/App.tsx
+- surface/dev/astryx-probe/src/astryx-themes.js
+- surface/dev/astryx-probe/src/globals.css
+- surface/dev/astryx-probe/src/main.tsx
+- surface/dev/astryx-probe/tests/saveFlow.test.ts
+- surface/dev/astryx-probe/tsconfig.json
+- surface/dev/astryx-probe/vite.config.ts
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr
 ---
 
 # surface/dev/astryx-probe muestra un nodo de React Flow y un editor CodeMirror como componentes de un paquete de integración de Astryx, en la plantilla ide sobre React 19

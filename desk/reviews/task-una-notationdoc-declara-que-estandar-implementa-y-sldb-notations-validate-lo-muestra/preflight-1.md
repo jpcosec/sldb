@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:06:45Z'
+  at: '2026-11-25T18:21:39Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-preflight-1
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -26,13 +26,13 @@ input_sha256: c14b078c571ed0d29224158644520917c89daef7c4082f1fafed73f78c575f82
 contract_sha256: 213d382369686d44af4c5d3875b2e0cbb5a8204cef18522dd3e945bc5eae16da
 output_sha256: 0638abff636a3ffaa0884e6809115e918481dc620b3ae67f82b595f2163e6a57
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: ''
+verdict: accepted
+reason: Ambigüedades resueltas en implementation_path
 # ISO 8601 timestamp
 created_at: '2026-11-25T18:06:19.260081+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-25T18:21:05.189321+00:00'
+disposed_by: sldb
 # e.g. system:deskops
 tags: []
 ---
@@ -48,3 +48,5 @@ preflight review; engine runtime-pi-deepseek-flash; evidence under runs/subagent
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: Ambigüedades resueltas en implementation_path

@@ -1,0 +1,22 @@
+name: atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr
+path: desk/atoms/atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr.md
+source_hash: 674881bc14d44d63b85b56e8db0694e156549477438250bd3bb1eba878dce6ef
+content_hash: 548e4633d07de7c337c1a81b4670c975ae065e9ad22eb208818183cb77068b45
+field_hashes:
+  id: aab655abd3f605c04eb172ed3490cdc81f7365f8bfcf3073c45cf8df730dd587
+  title: 4335f2b15d490356db47276fdd45af9f92854171594884afe28b1ad88a490ba8
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 90b2c57ab2144b0a88cf5e2c4f670455e279445caa457ba55be1b7b05faeb0c2
+  tags: aa8ea9adccaa844edda8d84f2331193bab61c50d9cac4b1c0ff1b25b35c21b91
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:astryx-probe
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T18:22:42Z'
+  authority: generated
+  via: create_document

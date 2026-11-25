@@ -1,7 +1,7 @@
 name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-bundle-1
 path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/bundle-1.md
-source_hash: 4da8a13f7c170c7c08f122506b6f179fef1095077aae868e662f7da42c11f3cd
-content_hash: 3770bd672fd1c9cf0e6b7af9daab9731868441fc90c536df03d6879496d12c0b
+source_hash: 49f82deb15716c764117b27ecd57dade0473d0e4e658f80dbee571b95bd8b97c
+content_hash: 7ce4404fdcea01093345cdff7e3803c7f73227e8be663f6d63ef5fce7a90ffc0
 field_hashes:
   id: 4d5dd2d09dd276ce8d1476c70f3ab88ab38c791d0579c3615f588181f57bd04d
   title: 619e6d15dc73d55bb45254ea4ade1fec17a4bb523b58aa72fdf796969ba5ac81
@@ -16,13 +16,13 @@ field_hashes:
   input_sha256: dc8bca10a36f48a6ff4abb2857e9135941c5f3142038c7563a9f248ff06c6435
   contract_sha256: c15e2441d88e7690a8fe6d428a255cedc48c15fad37996b51ca1ee6643fbe8fe
   output_sha256: 4ef5d738cae3f9499c9edc98a054e2d24ec4ab77d7f45372659ed1d65f4e4b0c
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 174f3380e4f131f4a41d66b3e365f557d1db14a5204cd37e063e1c2bd3dd886f
   created_at: 0188d6333cec7ff5ab142f263af0b23e7f75f7176612933cc6772952e9ba22a9
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: b3ae7f1acf366d4c92ed81bcaa6d759fdad37be8724d820ecd24e5c71e8a0a7b
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: ad451b555294676bf312dc3386f8693eb263404ce145da316b8f1987254ee9ef
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 6b755c3afc25a4eaa49c567549265de855769b08c5b16a177f79472b477977a7
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
@@ -31,6 +31,6 @@ semantic_tags:
 - workspace.desk.runs
 provenance:
   by: agent
-  at: '2026-11-25T18:09:00Z'
+  at: '2026-11-25T18:26:56Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

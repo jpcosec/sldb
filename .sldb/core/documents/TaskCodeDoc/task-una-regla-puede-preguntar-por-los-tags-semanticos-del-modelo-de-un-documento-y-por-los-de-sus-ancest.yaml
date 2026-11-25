@@ -1,7 +1,7 @@
 name: task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest
 path: desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
-source_hash: 0d530262d1f5009e46f22d06dc995c24d6fb2635236004a4697c57ea84a44574
-content_hash: aefe0469362f42da103032e849608f1e7bdc1b4cc4760d169934771a36b09ade
+source_hash: 048f41f9425689cf20aa5378131f8db827e04a34380016f5e040e4709ff49dbf
+content_hash: b7b80fe55f51960774762b798d9af4d7405f20820949c2b5bb6956c539756b5d
 field_hashes:
   title: 2626487f79ebb839feb43bced66cdb58488988c4f79beabebfd20e7bcfabf0ba
   id: 3881d0c6cbcf183b24a1858a63bc5adeab4f585f0dbfeeff9276c2b8d5e21ad3
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 1b2cdedb05bbc6415e298c3fd16c22aefe3bdad6408d92d45629d787b14bda06
+  implementation_path: 8124c0340afd7d53cdb301609de8d729119d548ef3cf2722f7fd55e60854bcda
   validation: d79cf8f80a3f72a530746d12db3dee9081b0db133cce21552e7fab3bc2afbadd
   done_when: 3a1d3b0d7a9fc175929a0b6ae5c3738ea7bb7716367706ce01619fe9ce3505da
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T17:44:33Z'
+  at: '2026-11-25T18:24:20Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

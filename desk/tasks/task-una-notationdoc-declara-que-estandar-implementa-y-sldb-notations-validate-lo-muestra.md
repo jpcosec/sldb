@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:43:56Z'
+  at: '2026-11-25T18:20:53Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ Dentro: el modelo NotationDoc, su carga desde YAML (src/sldb/notations/notation_
 _Outline the expected implementation route or affected surface._
 
 Leer docs/architecture/notations-and-views.md y tags.md: antes de agregar un campo, comprobar si los tags semánticos de la notación ya pueden llevar el estándar, y elegir el campo solo si no.
+
+Aclaraciones de la revisión: Primero mirar si los tags semánticos pueden llevar nombre y versión con validación; si no (lo esperable), campo opcional standard: {name: str, version: str | None} en NotationDoc. name obligatorio y no vacío si standard está; version opcional; version sin name o name vacío/solo espacios se rechaza con mensaje que nombra la notación. sldb notations list y validate muestran 'standard: <name> <version>' (y en json el objeto) cuando existe; sin campo, nada. Documentación: docs/architecture/notations-and-views.md. tests/test_notation_declares_standard.py se crea. Va después de la tarea de huecos del resolver (mismas notaciones): parte de main actual. No poner Task-Id en el commit de código.
 
 ## Validation
 

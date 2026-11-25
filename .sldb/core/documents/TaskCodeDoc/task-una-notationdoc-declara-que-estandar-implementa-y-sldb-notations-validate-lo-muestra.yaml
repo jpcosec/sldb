@@ -1,7 +1,7 @@
 name: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
 path: desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
-source_hash: b7676ae42995c9fc446e9eff07238ec49b91b89fb7ce7fd2eb657d7b4fb0ef43
-content_hash: 243279b196a276f81c38006b294d2517f6c9d7db9cd5dc51a924a2b9db9d2ad2
+source_hash: 2c0f761db99f0212dfedd23669b782f01a0acfb887b835c009c9212ba7c1c7af
+content_hash: bb7907b383a9d6c0b21ceb5e63050ce1021b1d38834c3fc4276ab420fe25a06e
 field_hashes:
   title: 46a5147b3e3a9f980b3ad5ce51bd80a0f2b385d5899e22ed8a9afc4d0c397dd1
   id: 4389ae3b071a58d45e085b63ae60d523d91eedd88b9e8eb3008ccbbb162758fa
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: bb3f2e8de2a182cd03c4db232e1027d514f4be297afa4553312103c4ba24510a
+  implementation_path: 04fc366e32911ece28b60b3b337cced2ab3515aa83984fafd2c0ed0589c0eac4
   validation: ec2f07ad3b300521f866f18b18c1b341fe8ef73332a7ac451d822f960128c23f
   done_when: 6027fa9b7d8837600a8e059bd49b484b532c5d366d760c456349b0a4ad511d07
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T17:43:56Z'
+  at: '2026-11-25T18:20:53Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

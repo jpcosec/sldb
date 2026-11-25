@@ -1678,6 +1678,25 @@ include:
   - desk/materializations/materialization-surface-lectura-surface-src-core-client-ts.md
   - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-resultado-md.md
   - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-astryx-integration-mjs.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbgraphcanvas-css.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbgraphcanvas-doc-mjs.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbgraphcanvas-tsx.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbtexteditor-doc-mjs.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbtexteditor-tsx.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-evidence-dark-png.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-evidence-light-png.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-evidence-probe-json.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-index-html.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-lib-saveflow-ts.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-package-lock-json.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-package-json.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-src-app-tsx.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-src-astryx-themes-js.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-src-globals-css.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-src-main-tsx.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-tests-saveflow-test-ts.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-tsconfig-json.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-vite-config-ts.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3334,6 +3353,14 @@ include:
     name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-atom-1
   - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-materialization-1.md
     name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-materialization-1
+  - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/evidence-tests-1.md
+    name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-tests-1
+  - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/evidence-commit-1.md
+    name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-commit-1
+  - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/evidence-atom-1.md
+    name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-atom-1
+  - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/evidence-materialization-1.md
+    name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,0 +1,25 @@
+name: materialization-astryx-probe-surface-dev-astryx-probe-tests-saveflow-test-ts
+path: desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-tests-saveflow-test-ts.md
+source_hash: 9040bfc8c2002ea81637f06467fee76b7c29fa020dfb34a6fb3408fdb264883f
+content_hash: a4893fd2b01cb28b8537e2a2a43560ba1b56380b7e181d08e824f1ece41410cf
+field_hashes:
+  id: 1f757125f3bdc9f2f68c296b9345a78d2cd1b0fb6b65919294763787c39362d5
+  title: 7440312ec5412f6cc97b764135af60bac0b945f0a20de09369ae5878bfad4ae9
+  source_atoms: 69407b93212c1e1092bb8c24bfebc6000255862a1e7fe10279a6082221a2e357
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 3884201bccf9ae5222ce1cdbd540d125c20bc3ae94600f0e3ff5f8008dadc7e2
+  intent: aa8b6907c0034c8755738467dc8ab072ea39360bff0b9311c20210ea44bcb3d9
+  validation: c559fe62a501e59c5b776d1fd547b1e50c502d5de186352a21afcecb7614a18c
+  tags: aa8ea9adccaa844edda8d84f2331193bab61c50d9cac4b1c0ff1b25b35c21b91
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:astryx-probe
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T18:45:38Z'
+  authority: generated
+  via: create_document

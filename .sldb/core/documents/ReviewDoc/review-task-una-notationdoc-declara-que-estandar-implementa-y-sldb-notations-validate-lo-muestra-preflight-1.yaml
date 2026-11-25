@@ -1,7 +1,7 @@
 name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-preflight-1
 path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/preflight-1.md
-source_hash: 78a47d9b95e09d7c60f41661bcab2cecf14382c26cd012a44d170aea01deb85a
-content_hash: 81efda8957c729c4c2fc34a33e8207833ad1bd8d460c12ebec509d5775aa7cee
+source_hash: 8d9273eadfe91612570e4616491f3ce023c77524d13826a0c4ae9888288b70b2
+content_hash: 46e565a316f9a91dd1d7c3b9e6ed6ab33809e92e7110059e8cdac74f926e3357
 field_hashes:
   id: 1ec6d86afb7585eee03b29bf7cc8f074d2aa71db34d6202cd35556e2516ef3f1
   title: 23ea7612940fd8105a7f13a353f1f2e986d8511d3506d71ebee8be87e8495fad
@@ -16,13 +16,13 @@ field_hashes:
   input_sha256: 0a0dcc1010c4121b76dded2ea9d4dac6ec17cb1a0e19700f5d58cc362c7bccef
   contract_sha256: d4e28bb31239e2673b149bc3346845c9a8fe88e554dc768dd9a0e69856f3910b
   output_sha256: 59a2aa1889a20ce3fdeede41a170dada9cb91a7f4055dd43a9be86a6c5d592f3
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 174f3380e4f131f4a41d66b3e365f557d1db14a5204cd37e063e1c2bd3dd886f
   created_at: 333d1616e0aa5d3b441c083e5fbee5dd2b057349f49192d7795e00cc1fc5711b
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: dfdfd29011a3e50e74df7fae54b2c0bb886c5da82a23459d3e059c16643e49aa
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: de055949a0e09208638525bc093a1a7cec4abfbc5fc004e26b68386f2ab6950b
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 6b755c3afc25a4eaa49c567549265de855769b08c5b16a177f79472b477977a7
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
@@ -31,6 +31,6 @@ semantic_tags:
 - workspace.desk.runs
 provenance:
   by: agent
-  at: '2026-11-25T18:06:45Z'
+  at: '2026-11-25T18:21:39Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:44:33Z'
+  at: '2026-11-25T18:24:20Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ Dentro: el lenguaje de reglas y su evaluador. Fuera: reglas concretas de specIR,
 _Outline the expected implementation route or affected surface._
 
 Leer docs/architecture/rules-language.md, rules.md y tags.md, y sldb semantic --help. El predicado usa la relación de padre y equivalencia que el DAG ya resuelve; no se calcula otra.
+
+Aclaraciones de la revisión: Dirección: el predicado casa un documento cuyo modelo declara el tag Q o un tag que desciende de Q (Q es ancestro); es decir, pedir el tag padre casa modelos con tags hijos, no al revés. Equivalencia = las equivalencias de tags que ya resuelve el DAG (sldb semantic, docs/architecture/tags.md); un tag equivalente a Q cuenta como Q. Un tag que no existe en el DAG es un error al validar la regla, con el nombre del tag. Docs en sldb/docs/architecture/ (rules-language.md, rules.md, tags.md). Nombre y sintaxis del predicado siguiendo los predicados existentes del lenguaje de reglas, documentado en rules-language.md. Alcance: predicado, validación y tests; ninguna RuleDoc real. No poner Task-Id en el commit de código.
 
 ## Validation
 
