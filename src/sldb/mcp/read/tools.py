@@ -61,6 +61,10 @@ class ReadTools:
         """Resolve a view to JSON: a composed ViewDoc by name, or a ViewDoc/SpecDoc by export id."""
         return views.resolve_view(self.store_path, view, params)
 
+    def anchors_resolve(self, target: str | None = None, document: str | None = None, tag: str | None = None) -> dict[str, Any]:
+        """Which documents cover a file or symbol (`target`: `path` or `path::Symbol`), which code a document (`Model:id`) or a tag covers; via `direct` or `tag:<tag>`. Give exactly one."""
+        return api.anchors_resolve(self.store_path, target, document, tag)
+
     def check_integrity(self, offset: int = 0, limit: int = DEFAULT_LIMIT) -> dict[str, Any]:
         """Check the store's integrity and its edge index; findings come as one page."""
         return integrity.check_integrity(self.store_path, self.project_root, offset, limit)

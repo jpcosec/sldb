@@ -13,7 +13,7 @@ READ_ONLY = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempot
 PROPOSES = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=False, open_world_hint=False)
 WRITES = ToolAnnotations(read_only_hint=False, destructive_hint=True, idempotent_hint=False, open_world_hint=False)
 
-READ_TOOLS = ("list_models", "describe_model", "list_relation_types", "describe_relation_type", "read_document", "select_documents", "neighbors", "neighborhood", "list_views", "resolve_view", "check_integrity")
+READ_TOOLS = ("list_models", "describe_model", "list_relation_types", "describe_relation_type", "read_document", "select_documents", "neighbors", "neighborhood", "list_views", "resolve_view", "anchors_resolve", "check_integrity")
 
 
 def register_read(server: SignalServer, tools: ReadTools, signals: SignalTools) -> None:

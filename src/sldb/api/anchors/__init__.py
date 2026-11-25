@@ -11,5 +11,6 @@ from sldb.api.anchors.anchor_docs import write_anchor
 from sldb.api.anchors.check_anchors import check_anchors
 from sldb.api.anchors.check_doc_anchors import check_doc_anchors
 from sldb.api.anchors.record_anchor import record_anchor
+from sldb.api.anchors.resolve_pointers import anchors_resolve
 
-__all__ = ["check_anchors", "check_doc_anchors", "record_anchor", "write_anchor"]
+__all__ = ["anchors_resolve", "check_anchors", "check_doc_anchors", "record_anchor", "write_anchor"]

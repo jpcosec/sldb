@@ -10,6 +10,7 @@ CLI command does (`open_store`), returns a pydantic model instead of printing, a
 from __future__ import annotations
 
 from sldb.api.anchors.check_doc_anchors import check_doc_anchors
+from sldb.api.anchors.resolve_pointers import anchors_resolve
 from sldb.api.documents.apply_batch import apply_batch, apply_batches
 from sldb.api.documents.batch_report import BatchReport
 from sldb.api.documents.create_document import create_document
@@ -162,7 +163,7 @@ __all__ = [
     "ModelDocumentSummary", "ModelDraft", "ModelFieldSummary", "ModelRegistration",
     "ModelSource", "RegisteredModel", "RelationsInitReport", "StoreFingerprint",
     "StoreLocation", "StoreUpdateReport", "add_model", "add_model_field",
-    "create_model", "anchor_node_id", "bare", "check_doc_anchors", "check_edges", "check_store",
+    "create_model", "anchor_node_id", "bare", "anchors_resolve", "check_doc_anchors", "check_edges", "check_store",
     "store_fingerprint", "create_document", "deep_delete", "deep_get", "deep_set",
     "delete_document", "describe_field", "describe_model", "describe_model_fields",
     "doc_node_id", "document_ast", "edge_node", "edge_nodes_of_type", "edges_from",

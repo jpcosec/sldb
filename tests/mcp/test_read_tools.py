@@ -16,7 +16,7 @@ from mcp_world import ITEM_COUNT, front_matter
 TOOLS = {
     "list_models", "describe_model", "list_relation_types", "describe_relation_type",
     "read_document", "select_documents", "neighbors", "neighborhood",
-    "list_views", "resolve_view", "check_integrity", "list_signals",
+    "list_views", "resolve_view", "anchors_resolve", "check_integrity", "list_signals",
 }
 
 

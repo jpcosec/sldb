@@ -28,6 +28,7 @@ seen: ⸢rev,dict•seen⸥
 normalization: ⸢rev•normalization⸥
 recorded_with: ⸢rev•recorded_with⸥
 history: ⸢optrev,list•history⸥
+tags: ⸢optrev,list•tags⸥
 ---
 
 # ⸢render•ref⸥
@@ -43,4 +44,5 @@ history: ⸢optrev,list•history⸥
     normalization: int = Field(description="Version of the fingerprint rules the anchor was recorded under (code-anchoring.md §3).")
     recorded_with: str = Field(description="The scanner and grammar that produced `seen`, e.g. `treesitter-symbols/1 (tree-sitter-python 0.25)`.")
     history: list[dict[str, Any]] = Field(default_factory=list, description="What happened to the reference, never erased: `{event: reconnected, from, to, at}`, `{event: recorded, at}`.")
+    tags: list[str] = Field(default_factory=list, description="Categories (semantic tags) the anchored code belongs to; a document pointing at one of them, or a tag above it, covers this code (`anchors_resolve`).")
     claim: str = Field(description="What is being said because of this symbol: the statement the anchor grounds.")
