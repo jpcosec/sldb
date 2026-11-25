@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T22:47:24Z'
+  at: '2026-11-25T22:53:01Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -92,7 +92,6 @@ tasks:
 - desk/tasks/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e.md
 - desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
 - desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
-- desk/tasks/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -220,4 +219,3 @@ _Generated from the task references above._
 - resolver una vista informa como hueco el documento que ningún glifo casa, en vez de fallar la vista entera [draft] - Que la vista se resuelva con los documentos que sí casan y que el resultado liste aparte los que no, con su id y su modelo.
 - una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [draft] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.
 - una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [draft] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
-- El layout de una NotationDoc acepta partition-lanes con by y la vista resuelta lo pasa tal cual [active] - Una NotationDoc puede declarar layout {kind: partition-lanes, by: <nombre de campo>} y sldb la valida y la entrega igual en la vista resuelta.

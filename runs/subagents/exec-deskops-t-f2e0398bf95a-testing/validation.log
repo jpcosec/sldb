@@ -1,0 +1,42 @@
+Commit revisado: 80e7fb7ae856542b26e4e4dc807e3d33ce4eecc8
+Fecha: 2026-11-25T22:14:03Z
+
+===== TMPDIR=/tmp python -m pytest -q tests/notations/test_layout_partition_lanes.py =====
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 2.15s
+
+===== TMPDIR=/tmp python -m pytest -q tests/notations/test_notation_models_and_builtins.py =====
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 1 warning in 0.64s
+
+===== TMPDIR=/tmp python -m pytest -q tests/notations/test_notations_validate_cli.py =====
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+11 passed, 1 warning in 7.21s
+
+===== TMPDIR=/tmp python -m pytest -q tests/notations/test_notation_view_and_routes.py =====
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+9 passed, 1 warning in 18.32s
+
+===== TMPDIR=/tmp python -m pytest -q tests/notations/test_ported_from_spec2viz_catalog_resolved_views.py =====
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 4.04s
+
+===== bash tools/check.sh --fast =====
+  nota   1 de 3 consumidores presentes: deskops
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  39 símbolos pedidos sin puerta que los declare
+PASS: superficie — 129 símbolos pedidos, 598 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m

@@ -1,0 +1,36 @@
+name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-commit-2
+path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/evidence-commit-2.md
+source_hash: 22c269f566eaedd5e03db736fa79c363d23a12059b741c2f51a4c95f0fcf2183
+content_hash: 00c2a80383c9777ec959f99ebc3301260389012e607bf21c21e26329099170d1
+field_hashes:
+  id: 5d89c41090d4299da28ebcfee631a47f0abafa11793c69ed6244a6b7ad1bcdfe
+  title: 1b4170cfd512ad757bf91f44c3d30e94c6db21a8dba80549fc2e75653fa32b63
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: af781b69932c0feb00a024cc8677111a84148a40444a22aff23b9e930f339533
+  subject: d83b3818e4a8d336b61a8ba0285c4c85edf6bacf906bc1bac52aff7f28928168
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 337a613f89ec944b66aa233dcda9dd79ccf1049e037671f936136914f46ae129
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4e9ce52ff22869eacb3665ae9dea35ca246673b1ee055b12c7ea5e00daa144fc
+  created_at: 3a9649cc76829d95493973ee237e181694e304568085950a1d04268ff7c40e00
+  disposed_at: 3a9649cc76829d95493973ee237e181694e304568085950a1d04268ff7c40e00
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: bbe432221fb57b88bcfde4cfff88f2f2d1c41b542c969963ffb25ff50e1a8d18
+  disposition: 8b4f31eafde141c514bb445346b85a7e38a90d9f4e92b54be2843bd7ae5f2e88
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T22:50:28Z'
+  authority: generated
+  via: create_document

@@ -1,33 +1,33 @@
+Task: task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual
+Title: El layout de una NotationDoc acepta partition-lanes con by y la vista resuelta lo pasa tal cual
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-25T22:49:27Z'
+  at: '2026-11-25T21:54:41Z'
   authority: generated
   via: save_document_payload
 id: task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual
-status: active
+status: draft
 summary: ''
 tags: []
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/notations/notation_constants.py
-- src/sldb/notations/notation_spec.py
-- tests/notations/test_layout_partition_lanes.py
-- 80e7fb7ae856542b26e4e4dc807e3d33ce4eecc8
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
-files:
-- src/sldb/notations/notation_constants.py
-- src/sldb/notations/notation_spec.py
-- tests/notations/test_layout_partition_lanes.py
-pointers: []
+files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by
+atoms: []
 ---
 
 # El layout de una NotationDoc acepta partition-lanes con by y la vista resuelta lo pasa tal cual
@@ -67,3 +67,34 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 sldb notations validate acepta una NotationDoc con layout {kind: partition-lanes, by: lane} y la vista resuelta de una spec con esa notación trae layout.kind == 'partition-lanes' y layout.by == 'lane'; los tests nuevos de tests/notations/ pasan.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-e-3df853d7b92e"
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
+
+## Tu worktree
+
+Tu codigo vive en un worktree propio, en la rama `deskops/deskops-e-3df853d7b92e`:
+
+    /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-3df853d7b92e
+
+Haz `cd` ahi: edita, corre los tests y commitea ahi (git add / git commit), no en el checkout principal /mnt/ssd/proyectos/SLDB_1/sldb. Las operaciones de desk (`deskops ... --root /mnt/ssd/proyectos/SLDB_1/sldb`, evidencia en runs/subagents/..., `deskops advance task`) siguen usando el checkout principal. Al terminar, reap trae tus commits a la rama principal y borra el worktree.
