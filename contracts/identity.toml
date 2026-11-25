@@ -387,3 +387,9 @@ en deskops), `project_root`, `store_exists`, `track_document`, `parse_data_value
 `render_model_markdown`, entre otros.
 """
 repair = "declararlos en la puerta de su unidad"
+
+[[foreign]]
+path = "workbench_demo"
+files = 213
+what = "store de demo del workbench de surface (asistente y tour, 562847e2)"
+verdict = "datos de demo de surface, no producto ni autoaplicación; lo usa el tour del workbench"
