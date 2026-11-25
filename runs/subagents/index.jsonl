@@ -155,3 +155,4 @@
 {"task_id": "task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p", "run_id": "run-deskops-e-f58e82999753", "run_dir": "runs/subagents/exec-deskops-e-f58e82999753", "session_sha256": null, "commit": null}
 {"task_id": "task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas", "run_id": "run-deskops-e-b841e5a166bf", "run_dir": "runs/subagents/exec-deskops-e-b841e5a166bf", "session_sha256": null, "commit": null}
 {"task_id": "task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "superseded", "commit": null}
+{"task_id": "task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "superseded", "commit": null}

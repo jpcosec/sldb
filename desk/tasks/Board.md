@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:44:44Z'
+  at: '2026-11-25T17:56:40Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -85,7 +85,6 @@ tasks:
 - desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
 - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
 - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
-- desk/tasks/task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e.md
 - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
 - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
 - desk/tasks/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
@@ -214,7 +213,6 @@ _Generated from the task references above._
 - Los facts de handler JSX traen los atributos estaticos del elemento: data-testid, aria-label, role, name y type [draft] - Que cada handler JSX de code_facts lleve los atributos literales de su elemento, para derivar un localizador.
 - En un componente con varios handlers en linea, cada handler JSX nombra las llamadas que son suyas [draft] - Que code_facts diga que llamadas pertenecen a cada handler en linea, no solo la primera.
 - Los facts de llamada TS traen el method del segundo argumento cuando es un objeto literal [draft] - Que una llamada request(path, {method: 'POST'}) o fetch(path, {method: 'POST'}) exponga method en su fact.
-- sldb serve acepta --extension MODULE:FUNCTION y la extension registra rutas GET de solo lectura bajo /ext/<nombre>/ [draft] - Que sldb serve cargue extensiones por nombre y les deje registrar rutas GET bajo un prefijo propio, con acceso al store servido.
 - El listado de specs y vistas de sldb serve trae la cobertura de atomos de cada una [draft] - Que cada entrada de /notations (specs) y /views traiga covered y total de atomos, calculados por sldb.
 - sldb serve devuelve de un CodeAnchorDoc las lineas de su fragmento y su estado intact, changed o lost [draft] - Una ruta GET de solo lectura que, dado un anchor, devuelva ruta, rango, lineas del fragmento con contexto y su estado.
 - surface borra el alias muerto businessName y el shell muestra el nombre real del store en Lectura [ready_for_testing] - Que surface/src no nombre businessName ni negocio y que la barra de Lectura muestre el nombre del store servido.
