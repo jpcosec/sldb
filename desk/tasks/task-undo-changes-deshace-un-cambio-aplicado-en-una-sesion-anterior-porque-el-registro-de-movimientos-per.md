@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:42:06Z'
+  at: '2026-11-25T18:13:53Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ Dentro: src/sldb/mcp/write/ (apply, undo) y el registro de escrituras del store.
 _Outline the expected implementation route or affected surface._
 
 Leer primero docs/architecture/sldb-absorbs-kgdb.md, sección "The write journal belongs to the substrate", y journal-authority.md y transactions.md: el registro de escrituras ya es del sustrato. El deshacer se apoya en él; si le falta algo para revertir un lote, se agrega ahí y no en un registro paralelo.
+
+Aclaraciones de la revisión: Es el mismo artefacto: se extiende el write journal del sustrato (docs/architecture/journal-authority.md y transactions.md de sldb); no se crea un registro paralelo. Cada lote aplicado guarda id de lote, orden, y por documento su before-image y el hash posterior. Conflicto: si el hash actual del documento difiere del hash posterior guardado, se rechaza con motivo. undo_changes sin argumento revierte el último lote no revertido; con id solo si es el último no revertido (si no, rechazo con motivo). Hash del store = hash de los documentos (store_index), sin contar el journal. Un segundo proceso abre el mismo store y deshace (sirve un subprocess en el test). tests/test_mcp_undo_across_sessions.py se crea. Va después de propose-changes (mismo mcp/write): parte de main actual. No poner Task-Id en el commit de código.
 
 ## Validation
 

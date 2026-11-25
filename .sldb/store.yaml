@@ -3386,7 +3386,6 @@ include:
   - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
   - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
   - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
-  - desk/tasks/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
   - desk/tasks/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond.md
   - desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md
   - desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
