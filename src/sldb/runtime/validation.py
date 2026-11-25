@@ -1,7 +1,7 @@
 from __future__ import annotations
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, cast, Literal
+from typing import get_args, Any, cast, Literal
 from sldb.core.ast import AST_Handler
 from sldb.core.data_extractor import DataExtractor
 from sldb.core.renderer import SLDBRenderer
@@ -24,7 +24,13 @@ class Validator:
         it a default, drop it so the default applies (a field added later does not invalidate the
         documents written before it)."""
         fields = self.model_type.model_fields
+        values = {k: (None if self._is_null_literal(v, fields.get(k)) else v) for k, v in values.items()}
         return {k: v for k, v in values.items() if not (v is None and k in fields and not fields[k].is_required())}
+
+    @staticmethod
+    def _is_null_literal(value: Any, field: Any) -> bool:
+        """The `null` a None `rev` renders as, read back as None when the field accepts None."""
+        return isinstance(value, str) and value.strip() == "null" and field is not None and type(None) in get_args(field.annotation)
 
     def render(self, data: dict[str, Any], ref_root: Path | None = None) -> str:
         return self.renderer.render(self.model_type(**data), ref_root)

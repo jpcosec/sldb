@@ -85,7 +85,7 @@ class BaseRenderer:
         """
         if m.kind == "py": return self.py_renderer.render(m.name, data, match.group(0))
         val = data.get(m.name)
-        if val is None: return "" if m.is_optional or m.kind == "render" else match.group(0)
+        if val is None: return "" if m.is_optional or m.kind == "render" else "null" if m.kind == "rev" and m.name in data else match.group(0)
         if is_table_marker(m): return render_markdown_table(val, table_columns(m, val))
         return self._format_value(val, m)
 
