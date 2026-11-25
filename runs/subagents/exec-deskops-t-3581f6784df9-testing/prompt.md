@@ -1,7 +1,17 @@
+Task: task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond
+Title: propose_changes rechaza antes de escribir una relación que viola los tipos, la cardinalidad o la condición de su tipo de relación
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-25T23:45:02Z'
+  at: '2026-11-25T23:11:10Z'
   authority: generated
   via: save_document_payload
 id: task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond
@@ -11,41 +21,15 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- src/sldb/api/documents/apply_batch.py
-- src/sldb/api/documents/batch_edges.py
-- src/sldb/api/documents/batch_report.py
-- src/sldb/mcp/write/apply.py
-- src/sldb/mcp/write/findings.py
-- src/sldb/mcp/write/pending.py
-- src/sldb/mcp/write/pendings.py
-- src/sldb/mcp/write/tools.py
-- src/sldb/store/edge_index/doc_kinds.py
-- src/sldb/store/edge_index/resolve.py
-- tests/mcp/test_write_tools.py
-- tests/test_mcp_propose_rejects_invalid_edges.py
-- 560e5a1e02fdcadda82224428df3826405bc1045
+references: []
 depends_on: []
 pills: []
-files:
-- src/sldb/api/documents/apply_batch.py
-- src/sldb/api/documents/batch_edges.py
-- src/sldb/api/documents/batch_report.py
-- src/sldb/mcp/write/apply.py
-- src/sldb/mcp/write/findings.py
-- src/sldb/mcp/write/pending.py
-- src/sldb/mcp/write/pendings.py
-- src/sldb/mcp/write/tools.py
-- src/sldb/store/edge_index/doc_kinds.py
-- src/sldb/store/edge_index/resolve.py
-- tests/mcp/test_write_tools.py
-- tests/test_mcp_propose_rejects_invalid_edges.py
+files: []
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-propose-changes-rechaza-antes-de-escribir-una-relacion-invalida
+atoms: []
 ---
 
 # propose_changes rechaza antes de escribir una relación que viola los tipos, la cardinalidad o la condición de su tipo de relación
@@ -88,3 +72,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Un lote con una relación entre modelos que su RelationTypeDoc no admite, otro que excede la cardinalidad y otro que incumple la condición devuelven cada uno un rechazo que nombra la relación y la violación, y el hash del store no cambia. Un lote válido se comporta igual que antes. Un lote con una relación válida y otra inválida se rechaza entero. pendings deja de informar la validación de relaciones como faltante. apply_batch con dry_run informa lo mismo.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-3581f6784df9"
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

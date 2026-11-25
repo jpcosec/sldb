@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T22:53:01Z'
+  at: '2026-11-25T23:59:52Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -86,7 +86,6 @@ tasks:
 - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
 - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
 - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
-- desk/tasks/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond.md
 - desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md
 - desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
 - desk/tasks/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e.md
@@ -213,9 +212,8 @@ _Generated from the task references above._
 - Los facts de llamada TS traen el method del segundo argumento cuando es un objeto literal [draft] - Que una llamada request(path, {method: 'POST'}) o fetch(path, {method: 'POST'}) exponga method en su fact.
 - El listado de specs y vistas de sldb serve trae la cobertura de atomos de cada una [draft] - Que cada entrada de /notations (specs) y /views traiga covered y total de atomos, calculados por sldb.
 - sldb serve devuelve de un CodeAnchorDoc las lineas de su fragmento y su estado intact, changed o lost [draft] - Una ruta GET de solo lectura que, dado un anchor, devuelva ruta, rango, lineas del fragmento con contexto y su estado.
-- propose_changes rechaza antes de escribir una relación que viola los tipos, la cardinalidad o la condición de su tipo de relación [draft] - Que proponer un lote que crea o cambia una relación devuelva el rechazo, con un motivo por cada violación, antes de tocar el store; y que el mismo lote completo se prevalide como unidad.
 - docs/architecture/command-taxonomy.md lista cada operación de sldb una sola vez, con las cuatro caras que la exponen hoy [draft] - Una tabla de operaciones que JP pueda aprobar: cada operación con sustantivo, verbo, si lee o escribe, nivel de permiso, y el nombre con que aparece hoy en sldb.api, en la CLI, en sldb serve y en sldb mcp; con duplicados, huecos y renombres marcados y un nombre canónico propuesto.
 - undo_changes deshace un cambio aplicado en una sesión anterior porque el registro de movimientos persiste en el store [draft] - Que cada lote aplicado quede registrado en el store con lo necesario para revertirlo, y que undo_changes funcione desde un proceso distinto del que lo aplicó.
-- resolver una vista informa como hueco el documento que ningún glifo casa, en vez de fallar la vista entera [draft] - Que la vista se resuelva con los documentos que sí casan y que el resultado liste aparte los que no, con su id y su modelo.
+- resolver una vista informa como hueco el documento que ningún glifo casa, en vez de fallar la vista entera [active] - Que la vista se resuelva con los documentos que sí casan y que el resultado liste aparte los que no, con su id y su modelo.
 - una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [draft] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.
-- una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [draft] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
+- una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [active] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
