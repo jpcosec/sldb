@@ -124,6 +124,8 @@ export function storeTitle(storePath?: string | null): string {
   const last = (storePath ?? "").split(/[\\/]/).filter(Boolean).pop();
   return last?.trim() || "Documentos";
 }
+// alias para WorkbenchShell.tsx (trabajo local de JP); se borra cuando el shell migre a storeTitle
+export const businessName = (_documents: GraphDocument[]): string | null => null;
 
 export function buildWikiIndex(
   documents: GraphDocument[],
