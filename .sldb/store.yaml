@@ -3254,6 +3254,8 @@ include:
     name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-preflight-4
   - path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/bundle-4.md
     name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-bundle-4
+  - path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/goldens-1.md
+    name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-goldens-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
