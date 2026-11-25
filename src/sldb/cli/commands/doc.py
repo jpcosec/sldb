@@ -43,7 +43,7 @@ class DocCLI:
         except yaml.YAMLError as e: raise SLDBASTError(f"Parse error: {e}")
 
     def add(self, args: Any) -> int:
-        created = create_document(args.store, args.model, args.output, self._parse_payload(args.payload), args.name, args.pythonpath)
+        created = create_document(args.store, args.model, str(Path(args.output).resolve()), self._parse_payload(args.payload), args.name, args.pythonpath)
         print(f"Created and tracked '{created.name}'")
         return 0
 
