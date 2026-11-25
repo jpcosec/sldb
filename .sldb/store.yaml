@@ -397,6 +397,7 @@ include:
   - desk/inbox/20261125-024344-unclear-queue-20261125t054159z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/inbox/20261125-024934-unclear-queue-20261125t054504z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/inbox/20261125-025528-unclear-queue-20261125t055007z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
+  - desk/inbox/20261125-030337-suggestion-sldb-serve-acepta-extension-module-function-como-sldb-mcp-para-que-specir-registre-rutas-http-de-solo-lectura.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -975,6 +976,8 @@ include:
     name: run-deskops-t-3de04c0e2731
   - path: runs/subagents/exec-deskops-t-1a73125cf1c4-testing/run.md
     name: run-deskops-t-1a73125cf1c4
+  - path: runs/subagents/exec-deskops-t-79041272f6a9-testing/run.md
+    name: run-deskops-t-79041272f6a9
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1620,6 +1623,7 @@ include:
   - desk/materializations/materialization-identity-gate-contracts-identity-toml.md
   - desk/materializations/materialization-serve-422-src-sldb-cli-serve-save-routes-py.md
   - desk/materializations/materialization-serve-422-tests-test-serve-save-422-py.md
+  - desk/materializations/materialization-campo-default-src-sldb-runtime-validation-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3270,6 +3274,7 @@ include:
   - desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
   - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
   - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
+  - desk/tasks/task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
