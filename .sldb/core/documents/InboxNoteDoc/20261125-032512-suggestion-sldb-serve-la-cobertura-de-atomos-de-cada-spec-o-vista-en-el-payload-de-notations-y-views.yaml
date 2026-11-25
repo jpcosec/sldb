@@ -1,0 +1,25 @@
+name: 20261125-032512-suggestion-sldb-serve-la-cobertura-de-atomos-de-cada-spec-o-vista-en-el-payload-de-notations-y-views
+path: desk/inbox/20261125-032512-suggestion-sldb-serve-la-cobertura-de-atomos-de-cada-spec-o-vista-en-el-payload-de-notations-y-views.md
+source_hash: 2b3b45a5b28c9ebc582e5214eacbb418c813b695568d4ba71c9f8dfd9e1c059c
+content_hash: aa9d6d1cb221f235e1e4981307c691bd54521b25aae4b101f4dd71f68e7094c0
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 15bb016ba000337d3510f3efe03e1425db6d432cb7fc5628d467913e4112d581
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 1e75549bbad2654225cdf15a07d125565d9e9c421071b51964a2f0d0d1dd87f9
+  ack_reason: d22728a69053658249efbfa485203bcb9dbdda6b00b4e79b8cc5dfc392e1dcbd
+  title: 6a1925d0e0ae06e014b6ecce43e815833fa9792e5a170f73c913ddd745cff710
+  body: 11149fef6d821b160743720c4f5e2e8a0fbd6c8e2ec1b35e3abbdf1902b8834e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-25T06:29:02Z'
+  authority: generated
+  via: save_document_payload

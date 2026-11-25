@@ -1,0 +1,25 @@
+name: materialization-rev-none-tests-test-rev-optrev-none-py
+path: desk/materializations/materialization-rev-none-tests-test-rev-optrev-none-py.md
+source_hash: 1fb0cb9c86b77cca54ffbb0b470c557fd1d4a5582a5f49f1f32f4a2fa530b499
+content_hash: d8549b3e33dd07bdfbef4e09c243a79849c5d1d7b70f4a107c9e33706e93dd19
+field_hashes:
+  id: 28ad7770019cf60f41feb7a07945011ddaef8867249077d919292092d764ca8f
+  title: e68deffc2cd07fa2df10084c4dbd0c8bcd39d642d225b81a071a9f0d95a02d02
+  source_atoms: f01c42216fb64f4f36d41992d3e62d142100fc711ffb2473fb090025f2c4c290
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 20609cae2d6743a66e1e659ac29feaacb143bb2f76872264a3e484cd40b490de
+  intent: 2d37110e91001a7365f8095a8589e4073e3882ef58b5db7d8afc63585a28fae3
+  validation: 23e45920d1fd9b260d66905dc0e7be5dfb626fed0f80f1db1e3f8f8840c50d36
+  tags: 7fa39b95c7b4cf76fb98114577c286ec32b31dc7366db4b08120003013a83788
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rev-none
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T12:36:47Z'
+  authority: generated
+  via: create_document

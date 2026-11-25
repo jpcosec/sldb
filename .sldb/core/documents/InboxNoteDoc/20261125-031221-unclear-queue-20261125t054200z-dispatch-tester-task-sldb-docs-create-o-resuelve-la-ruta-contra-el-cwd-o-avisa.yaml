@@ -1,14 +1,16 @@
 name: 20261125-031221-unclear-queue-20261125t054200z-dispatch-tester-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa
 path: desk/inbox/20261125-031221-unclear-queue-20261125t054200z-dispatch-tester-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
-source_hash: b68c2b6157e7f99b18ee58c39f1eb552b9bb0bee4f528359cae2c91ae4a33e1a
-content_hash: e4c8e5f4065c66d9851a916f5fa0ea67da374628938cbf5f541ebd0136bce291
+source_hash: 7bc2e93790867273b53b51eba7c2dccb00fcea49fa14cc15d1f63ad299059dcb
+content_hash: 445e626f11d34f98d47fcddd2c735bb0edc00972c51f1ca8ef83e696224f260d
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 683b0e1c5c0e88c8b98c3fad8e5e48fdf177323be2e7a1b99bae5852a3d58519
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: a5b19c1a3c4cb8791a872167be9ed36689d17a9b404d99f35011282deb13e095
+  ack_reason: 8d9e96d4b4205e82eb6b53f44bb6c0134b6529a79ee1eb1afc83691d2faee6e9
   title: 704001798dd3c07e4e761ca6cca50b7eb169c0b8f216beabd0aa3d1d07865340
   body: abe92d07245d9fddc522b3ac1e2171819019ff72f7744232c218871b3b8d69e8
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-25T06:31:40Z'
+  authority: generated
+  via: save_document_payload

@@ -1,24 +1,34 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T03:48:54Z'
+  at: '2026-11-25T12:34:42Z'
   authority: generated
   via: save_document_payload
 id: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
-- desk/inbox/20261121-125747-unclear-fricciones-al-tipar-una-wiki-de-negocio-webprojects-agenda-wiki-paginas.md
+- src/sldb/cli/commands/fields_mutate.py
+- src/sldb/core/renderer_engine/base.py
+- src/sldb/runtime/validation.py
+- tests/test_rev_optrev_none.py
+- b3dd710632c1ecdb09ce3bd5086093ff175c0d00
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/cli/commands/fields_mutate.py
+- src/sldb/core/renderer_engine/base.py
+- src/sldb/runtime/validation.py
+- tests/test_rev_optrev_none.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-rev-y-optrev-con-none-renderizan-null-y-se-pueden-reescribir
 ---
 
 # Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create

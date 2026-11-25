@@ -1,0 +1,37 @@
+name: task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una
+path: desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
+source_hash: 19d72ec835eea7539f2b02599a8f0ed16162017f938df06f82af2fa9e134967d
+content_hash: 1fcba11691d7d3204c03c45fab4481945ade5699835727eeec1fdcac53b7f129
+field_hashes:
+  title: d39955f51666efdba57e873656e90e1119abede9117d48c261eacd2c4ee90461
+  id: 554bf11eed9e68d096513798ced8f34f47cd2c84972e2b94df33ae7474f3ab15
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 129b9ec14a7f4893814325617bee5404e9f059fab87cefa65013504de613c144
+  goal: bd07121e5a88ddff08ea9f8e3cbe80835b154da991aa9cabd9f6baae5e6ddbc2
+  scope: a4d7b0b7714511692d05b06ff5949725f923e119545bb57bfd0505b0b6a900c1
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 8f98ae22b5b610a9e0af16108bda13f068c1607214ed1d8ec1cfbe0504c71f34
+  validation: 6604be81410d419a9a374701e31ec60150cd58caeb8cc6b973b63e450e94dcbc
+  done_when: 71b5ae0c9d74ffe6f79731e2a515734926785f71aefe46a35c51a43735baefc7
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- board.tareas
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-25T06:27:30Z'
+  authority: generated
+  via: create_document

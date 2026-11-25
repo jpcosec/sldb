@@ -1,7 +1,7 @@
 name: task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa
 path: desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
-source_hash: ef6b319ba1a7ec65e0bbeb9560b9cf98bd5e16a8d81bb13ca536858417d068a8
-content_hash: 08fcc899b7f01db67664102ae86b37fce0e66175ed66a6293b84397fc188b233
+source_hash: fd901060d80fdf523ff1e129644a5223a1d0ce74806e77cdce0fa257507cb355
+content_hash: 8e2a7989a8a3253e930af2f91304cf01feb4a5d5ca94ec23165d8702379a806c
 field_hashes:
   title: 98bf77b3242afe3eee07a56cc3e947ac0b4c1f13da773fd09b85992eec2681d2
   id: 63bf43626283be1dd80b7c02b66430cb7bf1cb371eb82b42657459386cfbea3c
@@ -12,14 +12,14 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: ac74bacf1cf896c1c5ab8b969d5b07cd1f847bb48ee8ed1200b1d9373c65eff5
   goal: 6e3e5449199e95445b70700b7072ae544c42b419f08163d56305c302eb249002
-  scope: e528d76350531d76067bcdb14fe2dbe063846608a62c510a28437c09e11bab40
+  scope: c9e134a245fc9e41462055109e2192f1490176e5c7755ce3e7bc6a815b8cbca9
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 8cb2af9d8bee82f5040c6edb6b12580e5f8cd096eccad3788f8503ecfaab453b
-  validation: 12c684e2392fe724d49f4cd7eb9870c9ba81576da0d790bfc288e4f6b936e249
-  done_when: 07d0469545f9649935519d1fea5b3606a0f037ed0090a2d8d774323e69c48f2e
+  implementation_path: 0ee28103812e87e1febdd7f63ab40ed0f08310522edc327b4cd2c82d297fe7a0
+  validation: a02aa07023b4bad1df603b0be15ffba8f0168ceb86fc3da25f3bf1f4e1d83736
+  done_when: c824be6d324ea6a6fcd6e3933bed26c5e21191076b28b5f0d8138c27ad4c566d
   task_type: d0b4cbfeadc448bca1492079dfd36948fd84b4ae366c521b0e71add2bea3fa86
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T03:46:51Z'
+  at: '2026-11-25T06:23:09Z'
   authority: generated
   via: save_document_payload

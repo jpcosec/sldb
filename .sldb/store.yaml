@@ -1634,6 +1634,10 @@ include:
   - desk/materializations/materialization-serve-422-tests-test-serve-save-422-py.md
   - desk/materializations/materialization-campo-default-src-sldb-runtime-validation-py.md
   - desk/materializations/materialization-campo-default-tests-test-campo-con-default-py.md
+  - desk/materializations/materialization-rev-none-src-sldb-cli-commands-fields-mutate-py.md
+  - desk/materializations/materialization-rev-none-src-sldb-core-renderer-engine-base-py.md
+  - desk/materializations/materialization-rev-none-src-sldb-runtime-validation-py.md
+  - desk/materializations/materialization-rev-none-tests-test-rev-optrev-none-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3236,6 +3240,14 @@ include:
     name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-preflight-3
   - path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/bundle-3.md
     name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-bundle-3
+  - path: desk/reviews/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas/evidence-tests-1.md
+    name: review-task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas-evidence-tests-1
+  - path: desk/reviews/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas/evidence-commit-1.md
+    name: review-task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas-evidence-commit-1
+  - path: desk/reviews/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas/evidence-atom-1.md
+    name: review-task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas-evidence-atom-1
+  - path: desk/reviews/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas/evidence-materialization-1.md
+    name: review-task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

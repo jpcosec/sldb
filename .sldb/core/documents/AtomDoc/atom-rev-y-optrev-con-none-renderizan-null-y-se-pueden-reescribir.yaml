@@ -1,0 +1,22 @@
+name: atom-rev-y-optrev-con-none-renderizan-null-y-se-pueden-reescribir
+path: desk/atoms/atom-rev-y-optrev-con-none-renderizan-null-y-se-pueden-reescribir.md
+source_hash: d475bf6320c4427bc1fae85aa1a9e76916b2d9a4566dc8584c8b5ed4a260b130
+content_hash: 9c0e9d7e0e42e3233285a6288ef3651a11e5a11f872c65cac6b10e969db0d89d
+field_hashes:
+  id: c3111ae1e4c3c827989c884c9d9b8ac93cfd6cecb335260cb4405970dc85cdd6
+  title: de467d0041b782dd504b0ec17f981f5049a89858c93dbf6ebd7b3cd8ffa8ec10
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 8677e28c6b8530806d29a31d8361e3dd42744c1bc16270e963722ccc43a87de8
+  tags: 7fa39b95c7b4cf76fb98114577c286ec32b31dc7366db4b08120003013a83788
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rev-none
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T12:33:12Z'
+  authority: generated
+  via: create_document
