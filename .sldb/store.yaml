@@ -1022,6 +1022,8 @@ include:
     name: run-deskops-e-05461eadbe5b
   - path: runs/subagents/exec-deskops-e-5c9941921c07/run.md
     name: run-deskops-e-5c9941921c07
+  - path: runs/subagents/exec-deskops-e-ac95040e0234/run.md
+    name: run-deskops-e-ac95040e0234
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -3361,6 +3363,10 @@ include:
     name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-atom-1
   - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/evidence-materialization-1.md
     name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-evidence-materialization-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/preflight-1.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-preflight-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/bundle-1.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
