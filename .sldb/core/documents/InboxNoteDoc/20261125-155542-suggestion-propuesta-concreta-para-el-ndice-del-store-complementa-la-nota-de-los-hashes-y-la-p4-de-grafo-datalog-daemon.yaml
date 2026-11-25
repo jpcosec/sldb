@@ -1,0 +1,19 @@
+name: 20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon
+path: desk/inbox/20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon.md
+source_hash: 256d12f84aa83adc73cccf7b0ac2437da1d9e45cb1eef8c09c2b6cf9b960cd9e
+content_hash: 1b74c0335c7b2c1d675ffb45ab2e1a3b843544d341879329f643bb09d7cacdc9
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: cdc9d11f28d7fc0b622bd376f512d304cfb7e8287ecb06d00534742eac314ead
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 152c8a0bbef222572748bc73e56144ff90c2a1f7b5323106aca1a0ffa9ba1bf5
+  body: 3f9dd5c0000eb72b0780da377bee444d68bb5dd509aea0bc96961a1c4b6b69df
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

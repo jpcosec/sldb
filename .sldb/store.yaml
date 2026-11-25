@@ -404,6 +404,7 @@ include:
   - desk/inbox/20261125-143840-suggestion-c9-creaci-n-de-documentos-dirigida-por-el-esquema-del-modelo.md
   - desk/inbox/20261125-152845-unclear-el-prop-sito-de-cada-hash-del-store-no-est-en-un-solo-lugar-y-hay-docs-que-lo-contradicen.md
   - desk/inbox/20261125-155202-unclear-correcci-n-de-los-pedidos-c1-c9-de-deskops-del-25-11-c7-y-c8-ya-existen.md
+  - desk/inbox/20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
