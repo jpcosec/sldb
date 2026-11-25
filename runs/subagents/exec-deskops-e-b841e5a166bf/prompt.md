@@ -1,34 +1,34 @@
+Task: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
+Title: Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-25T12:34:42Z'
+  at: '2026-11-25T03:48:54Z'
   authority: generated
   via: save_document_payload
 id: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
-status: active
+status: draft
 summary: ''
 tags: []
-current_node: ritual-testing
-history:
-- task_activates
+current_node: ritual-execution
+history: []
 references:
-- src/sldb/cli/commands/fields_mutate.py
-- src/sldb/core/renderer_engine/base.py
-- src/sldb/runtime/validation.py
-- tests/test_rev_optrev_none.py
-- b3dd710632c1ecdb09ce3bd5086093ff175c0d00
+- desk/inbox/20261121-125747-unclear-fricciones-al-tipar-una-wiki-de-negocio-webprojects-agenda-wiki-paginas.md
 depends_on: []
 pills: []
-files:
-- src/sldb/cli/commands/fields_mutate.py
-- src/sldb/core/renderer_engine/base.py
-- src/sldb/runtime/validation.py
-- tests/test_rev_optrev_none.py
+files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-rev-y-optrev-con-none-renderizan-null-y-se-pueden-reescribir
+atoms: []
 ---
 
 # Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create
@@ -68,3 +68,34 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los dos tests de None pasan.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-e-b841e5a166bf"
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
+
+## Tu worktree
+
+Tu codigo vive en un worktree propio, en la rama `deskops/deskops-e-b841e5a166bf`:
+
+    /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-b841e5a166bf
+
+Haz `cd` ahi: edita, corre los tests y commitea ahi (git add / git commit), no en el checkout principal /mnt/ssd/proyectos/SLDB_1/sldb. Las operaciones de desk (`deskops ... --root /mnt/ssd/proyectos/SLDB_1/sldb`, evidencia en runs/subagents/..., `deskops advance task`) siguen usando el checkout principal. Al terminar, reap trae tus commits a la rama principal y borra el worktree.

@@ -3296,7 +3296,6 @@ include:
   - desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
   - desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
   - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
-  - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
   - desk/tasks/task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma.md
   - desk/tasks/task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en.md
   - desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md

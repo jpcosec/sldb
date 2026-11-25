@@ -1,0 +1,3 @@
+pytest tests/test_rev_optrev_none.py: 2 passed (rc 0)
+bash tools/check.sh --fast: rc 0
+full suite (serial): 11 failed/46 errors; tests/mcp* = missing anyio (env), test_models_io = /.sldb_cache permission (env), test_cli_docs_create_names_the_document = docs create -o cwd (item 5, out of scope); clean_code base.py fixed afterwards (passes)
