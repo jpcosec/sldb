@@ -11,6 +11,11 @@ from sldb.cli.serve.params import query_params
 from sldb.cli.serve.responses import read_json_body
 
 
+def _strict(value: object) -> bool:
+    """Whether a `strict` query parameter or body field asks for the strict behavior."""
+    return str(value).strip().lower() in ("1", "true", "yes")
+
+
 def list_views_payload(handler: BaseHTTPRequestHandler, store_path: Path, pythonpath: str) -> tuple[JsonDict, int]:
     """The projection views in the store."""
     return {"ok": True, "views": list_projection_views(store_path, pythonpath)}, 200
@@ -22,7 +27,7 @@ def evaluate_view_get_payload(handler: BaseHTTPRequestHandler, store_path: Path,
     view_ref = params.get("view") or params.get("ref") or params.get("name")
     if not view_ref:
         return {"ok": False, "error": "Missing parameter: view (or ref)"}, 400
-    return attempt(lambda: evaluate_projection_view(store_path, view_ref, pythonpath=pythonpath))
+    return attempt(lambda: evaluate_projection_view(store_path, view_ref, pythonpath=pythonpath, strict=_strict(params.get("strict"))))
 
 
 def evaluate_view_post_payload(handler: BaseHTTPRequestHandler, store_path: Path, pythonpath: str) -> tuple[JsonDict, int]:
@@ -31,7 +36,7 @@ def evaluate_view_post_payload(handler: BaseHTTPRequestHandler, store_path: Path
     view_or_ref = body.get("view") or body.get("ref") or body
     if not view_or_ref:
         return {"ok": False, "error": "Body must contain view definition or reference"}, 400
-    return attempt(lambda: evaluate_projection_view(store_path, view_or_ref, pythonpath=pythonpath))
+    return attempt(lambda: evaluate_projection_view(store_path, view_or_ref, pythonpath=pythonpath, strict=_strict(query_params(handler).get("strict"))))
 
 
 def save_view_payload(handler: BaseHTTPRequestHandler, store_path: Path, pythonpath: str) -> tuple[JsonDict, int]:

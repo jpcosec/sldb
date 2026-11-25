@@ -29,10 +29,12 @@ def list_notations_payload(handler: BaseHTTPRequestHandler, store_path: Path, py
 
 def view_spec_payload(handler: BaseHTTPRequestHandler, store_path: Path, pythonpath: str) -> tuple[JsonDict, int]:
     """The resolved view of the `spec` query parameter."""
-    spec, error = require_param(query_params(handler), "spec")
+    params = query_params(handler)
+    spec, error = require_param(params, "spec")
     if error is not None:
         return error, 400
-    return attempt(lambda: resolve_view(store_path, spec, pythonpath=pythonpath))
+    strict = str(params.get("strict", "")).strip().lower() in ("1", "true", "yes")
+    return attempt(lambda: resolve_view(store_path, spec, pythonpath=pythonpath, strict=strict))
 
 
 def _resolve(store_path: Path, notation: str, doc_refs: list, body: JsonDict, pythonpath: str) -> tuple[JsonDict, int]:

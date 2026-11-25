@@ -38,12 +38,25 @@ def _result(view: dict[str, Any], selected: dict[str, Any], seen: set, documents
     }
 
 
+def _with_notation(store: Path, view: dict[str, Any], result: dict[str, Any], documents: list[Any], options: tuple) -> dict[str, Any]:
+    """The result with the view's notation applied and its `gaps` (empty without notation)."""
+    result["gaps"] = []
+    if view.get("notation"):
+        result["notation"] = style_with_notation(store, view, result, documents, *options)
+        result["gaps"] = list(result["notation"].get("gaps") or [])
+    return result
+
+
 def evaluate_projection_view(
     store: Path | str,
     view_or_ref: dict[str, Any] | str,
     pythonpath: str | None = None,
+    strict: bool = False,
 ) -> dict[str, Any]:
-    """Evaluates a view (dict or ViewDoc ref) over `store`: `{view, nodes, edges, layout, [notation]}`."""
+    """Evaluates a view (dict or ViewDoc ref) over `store`: `{view, nodes, edges, layout, gaps, [notation]}`.
+
+    `gaps` lists `{id, model}` of the documents no glyph of the notation matches; with `strict` such a
+    document makes the notation block an `{error}` as before."""
     store_path = Path(store)
     import sldb.api as api
     documents = api.load_runtime_documents(store_path, pythonpath, include_linked=False)
@@ -51,9 +64,7 @@ def evaluate_projection_view(
     entries, relations, direction = plan(view)
     selected = {node_id(d.model_name, d.name): d for d in documents if is_selected(d, entries)}
     result = _result(view, selected, collect_edges(store_path, selected, relations, direction), documents)
-    if view.get("notation"):
-        result["notation"] = style_with_notation(store_path, view, result, documents, pythonpath)
-    return result
+    return _with_notation(store_path, view, result, documents, (pythonpath, strict))
 
 
 def list_projection_views(

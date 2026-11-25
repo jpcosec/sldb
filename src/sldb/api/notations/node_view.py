@@ -9,11 +9,19 @@ from sldb.api.notations.view_error import ViewError
 from sldb.notations.styling import resolve_style
 
 
-def _pick_glyph(ref: str, payload: dict[str, Any], glyphs: list[dict], model: str) -> dict:
-    """The first glyph of `model` whose `where` matches, or ViewError."""
+def pick_glyph(payload: dict[str, Any], glyphs: list[dict], model: str) -> dict | None:
+    """The first glyph of `model` whose `where` matches, or None."""
     for glyph in glyphs:
         if glyph["payload"]["model"] == model and matches(glyph["payload"].get("where", ""), payload):
             return glyph
+    return None
+
+
+def _pick_glyph(ref: str, payload: dict[str, Any], glyphs: list[dict], model: str) -> dict:
+    """The first glyph of `model` whose `where` matches, or ViewError."""
+    glyph = pick_glyph(payload, glyphs, model)
+    if glyph is not None:
+        return glyph
     raise ViewError(f"no glyph of the notation matches {ref} (the last glyph of a model must have no `where`)")
 
 

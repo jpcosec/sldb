@@ -29,8 +29,10 @@ def _notation_ref(docs: dict, sp: dict, spec_ref: str) -> str:
     return notation_ref
 
 
-def resolve_view(store: Path | str, spec_ref: str, pythonpath: str | None = None) -> dict[str, Any]:
-    """The view of a spec according to its notation, ready to draw; ViewError if spec or notation is unusable."""
+def resolve_view(store: Path | str, spec_ref: str, pythonpath: str | None = None, strict: bool = False) -> dict[str, Any]:
+    """The view of a spec according to its notation, ready to draw; ViewError if spec or notation is unusable.
+
+    Documents no glyph matches are listed in `gaps`; with `strict` they raise ViewError."""
     store_path = Path(store)
     if not spec_ref.startswith("SpecDoc:"):
         spec_ref = f"SpecDoc:{spec_ref}"
@@ -39,5 +41,5 @@ def resolve_view(store: Path | str, spec_ref: str, pythonpath: str | None = None
         raise ViewError(f"{spec_ref} is not in the store")
     sp = docs[spec_ref]["payload"]
     notation_ref = _notation_ref(docs, sp, spec_ref)
-    view = resolve_documents(store_path, notation_ref, list(sp.get("nodes") or []), spec_style=sp.get("style"), docs=docs)
+    view = resolve_documents(store_path, notation_ref, list(sp.get("nodes") or []), spec_style=sp.get("style"), docs=docs, strict=strict)
     return {"spec": spec_ref, "title": sp.get("title", ""), "diagram_type": sp.get("diagram_type", ""), **view}

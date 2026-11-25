@@ -61,14 +61,15 @@ def _applied(resolved: dict[str, Any], result: dict[str, Any], documents: list[A
         "edges": _edge_styles(result["edges"], resolved),
         "legend": resolved["legend"],
         "skipped": resolved.get("skipped") or [],
+        "gaps": resolved.get("gaps") or [],
     }
 
 
-def style_with_notation(store: Path, view: dict[str, Any], result: dict[str, Any], documents: list[Any], pythonpath: str | None) -> dict[str, Any]:
+def style_with_notation(store: Path, view: dict[str, Any], result: dict[str, Any], documents: list[Any], pythonpath: str | None, strict: bool = False) -> dict[str, Any]:
     """Applies the view's notation over its nodes and edges."""
     doc_refs = [f"{n['model']}:{n['name']}" for n in result["nodes"]]
     try:
-        resolved = resolve_documents(store, str(view["notation"]), doc_refs, pythonpath=pythonpath)
+        resolved = resolve_documents(store, str(view["notation"]), doc_refs, pythonpath=pythonpath, strict=strict)
     except Exception as exc:
         return {"error": str(exc)}
     return _applied(resolved, result, documents)
