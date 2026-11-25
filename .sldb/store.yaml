@@ -415,6 +415,7 @@ include:
   - desk/inbox/20261125-194644-unclear-code-facts-argumentos-de-las-llamadas-dentro-del-cuerpo-de-una-funci-n.md
   - desk/inbox/20261125-213030-suggestion-layout-kinds-aceptar-partition-lanes-con-by.md
   - desk/inbox/20261125-213716-suggestion-facts-de-import-sin-l-nea-y-reglas-on-check-sobre-aristas-sin-atributos.md
+  - desk/inbox/20261125-215901-suggestion-correcci-n-specir-no-lee-el-archivo-para-la-l-nea-del-import.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1029,6 +1030,8 @@ include:
     name: run-deskops-e-ac95040e0234
   - path: runs/subagents/exec-deskops-t-be7ff39547f1-testing/run.md
     name: run-deskops-t-be7ff39547f1
+  - path: runs/subagents/exec-deskops-e-3df853d7b92e/run.md
+    name: run-deskops-e-3df853d7b92e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -3413,6 +3416,20 @@ include:
     name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-evidence-atom-1
   - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/evidence-materialization-1.md
     name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-evidence-materialization-1
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/preflight-1.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-preflight-1
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/bundle-1.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-bundle-1
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/preflight-2.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-preflight-2
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/bundle-2.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-bundle-2
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/preflight-1.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-preflight-1
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/bundle-1.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-bundle-1
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/preflight-2.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-preflight-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -3482,6 +3499,7 @@ include:
   - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
   - desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
   - desk/tasks/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale.md
+  - desk/tasks/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
