@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-24T18:04:35Z'
+  at: '2026-11-26T03:16:17Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -80,6 +80,7 @@ tasks:
 - desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
 - desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
 - desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
+- desk/tasks/task-plan-del-refactor-del-repo-por-anillos-y-ejes-a-que-anillo-va-cada-modulo-y-que-imports-lo-impiden.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -98,11 +99,10 @@ rituals:
 - desk/rituals/testing.md
 - desk/rituals/closeout.md
 - desk/rituals/phase.md
-# e.g., system:sldb, workspace:desk
+# e.g., system:sldb
 tags:
 - system:sldb
 - system:deskops
-- workspace:desk
 - topic:routing
 ---
 
@@ -194,3 +194,4 @@ _Generated from the task references above._
 - Decision para JP P3: forma del daemon de sldb y que pasa sin el [draft] - Elegir la forma. Opciones: A) un daemon por proyecto en socket Unix bajo .sldb_cache, opcional; sin daemon (contenedores de ejecutor, tests) el cliente abre la base persistida en proceso y, si no existe, compone como hoy; B) sin daemon: solo base persistida abierta en proceso en cada invocacion (7 ms, sin proceso residente que gestionar); C) un daemon unico por usuario con varios proyectos (comparte memoria; mas riesgo con el tope de 8 GB libres de robocop2: 0,4 a 0,6 GB por indice federado de sldb). Recomendacion: A; B ya cubre la carga en frio si JP prefiere no gestionar procesos.
 - Decision para JP P4: como se invalida el indice del daemon con git y con las escrituras [draft] - Elegir el mecanismo. Opciones: A) dirty set avisado por las escrituras de sldb mas deteccion externa por HEAD y estado del arbol de git y stat de los archivos rastreados, sin reescanear todo por peticion; B) vigilante de archivos (inotify) en el daemon: reaccion inmediata, pero no cubre bien checkouts masivos ni sistemas de archivos de contenedores; C) revalidar por peticion con el escaneo actual (~1 s): simple y seguro, sin ganancia en stale. Recomendacion: A.
 - La puerta identidad de tools/check.sh clasifica workbench_demo (store demo del workbench de surface) en contracts/identity.toml [draft] - contracts/identity.toml clasifica workbench_demo/ con la categoria que corresponda a un store de demo de la superficie (o la que el contrato prevea para fixtures o demos versionadas), con una nota de por que existe; bash tools/check.sh --fast sale con rc 0 en main.
+- Plan del refactor del repo por anillos y ejes: a qué anillo va cada módulo y qué imports lo impiden [draft] - Un plan en desk/drawer/plans/ con su dag.yaml que diga a qué anillo (0 grafo, 1 mantener correcto, 2 store entero, 3 compuesto, caras) pertenece cada módulo de src/sldb, cuántos imports van hoy de un anillo hacia uno más externo, cuáles hay que cortar y en qué orden, y qué movimientos de carpetas quedan después. Solo planifica: no mueve ni edita código.
