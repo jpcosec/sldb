@@ -424,6 +424,10 @@ include:
   - desk/inbox/20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon.md
   - desk/inbox/20261125-172648-suggestion-que-una-m-quina-de-estados-se-haga-respetar-el-campo-de-estado-solo-cambia-tomando-una-arista.md
   - desk/inbox/20261126-005627-unclear-deskops-add-task-tarda-cerca-de-90-segundos-cuando-otra-sesi-n-usa-el-mismo-store.md
+  - desk/inbox/20261126-010102-suggestion-sldb-fields-remove-exige-un-argumento-value-y-no-lo-usa.md
+  - desk/inbox/20261126-010201-unclear-los-padres-y-equivalencias-de-tags-declarados-a-mano-se-guardan-solo-en-sldb-cache-que-git-ignora.md
+  - desk/inbox/20261126-010300-unclear-hay-tres-vocabularios-para-el-tipo-de-un-enlace-predicates-del-store-relationtypedoc-y-los-atributos-del-modelo.md
+  - desk/inbox/20261126-010403-unclear-los-enlaces-del-texto-destino-no-entran-al-ndice-de-aristas.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1813,6 +1817,7 @@ include:
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
+  - desk/tasks/task-plan-del-refactor-del-repo-por-anillos-y-ejes-a-que-anillo-va-cada-modulo-y-que-imports-lo-impiden.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md

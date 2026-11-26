@@ -1,0 +1,19 @@
+name: 20261126-010300-unclear-hay-tres-vocabularios-para-el-tipo-de-un-enlace-predicates-del-store-relationtypedoc-y-los-atributos-del-modelo
+path: desk/inbox/20261126-010300-unclear-hay-tres-vocabularios-para-el-tipo-de-un-enlace-predicates-del-store-relationtypedoc-y-los-atributos-del-modelo.md
+source_hash: ab942574c4ec496bbe7cb654501758f8c3ed90b255ace5a38519f7614991ca01
+content_hash: 2db7aa9e9364235a455eecf65098bf84e15440d365e378df9fc0f63df2776c4e
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: f121cbc5848548f4c1203bac9c54bd22706ccf4b5577abf1ef1ed7d58211eeb6
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: d672bdc5b4709dac1f2c004b168ba1927a52b658ad2942529b8eae4f08896f05
+  body: b077a147f5c88fb412c618723d0cc5b5c571795c9790d5baa0c3c391c8a6ef16
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
