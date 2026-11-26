@@ -472,4 +472,4 @@ predicates:
   axis: WHERE
   description: 'The store links that store under an alias (`stores add`): it reads
     its documents and inherits its models.'
-store_hash: 2ea201bca5f8b96d69c3a9f46ae543e6cb555f1ed908ef8f5dff404ca5533376
+store_hash: 69d12d35a03af8202296a60ff0658033da0aee01cf25f09c44efced7aedb8db3

@@ -3610,6 +3610,10 @@ include:
     name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-atom-1
   - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/evidence-materialization-1.md
     name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-materialization-1
+  - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/preflight-1.md
+    name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-preflight-1
+  - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/bundle-1.md
+    name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -3674,6 +3678,7 @@ include:
   - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
   - desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
   - desk/tasks/task-el-rechazo-de-aristas-invalidas-vive-en-apply-batch-real-bajo-el-mismo-lock-con-las-violaciones-como.md
+  - desk/tasks/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md

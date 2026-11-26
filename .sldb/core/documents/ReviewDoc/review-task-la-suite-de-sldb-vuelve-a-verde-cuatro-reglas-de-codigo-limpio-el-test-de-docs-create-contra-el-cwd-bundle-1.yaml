@@ -1,0 +1,36 @@
+name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-bundle-1
+path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/bundle-1.md
+source_hash: 1c95b7fb1f71e7658e1a57f8bf9cba3e23b056ae522702b9ccc9c17dd8a0ca5b
+content_hash: ca4c3a9355be6b1e12277f957316172aa2f2feab28ef86af9c626baf37400d63
+field_hashes:
+  id: 31e1bdc06b63a5243fdf8f76d3f953b85b13a470aba4e1b711d32ab2c9d7e819
+  title: d75b7ca656760d7f53c287abcc7e782687235e85390944af379ce5b88157ad88
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 638b44bb34ea452dfcb2861444bf752801c484eb3964938e2b5e5f35e4d2448a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 0ac003790deda573b12af55f6b8ac85b961e230659d4a1f8d834240be09e1476
+  input_sha256: b7ae332d245ea78ba9f8af0dae09784a0df8e3a8179a17d30b05fb75e729df64
+  contract_sha256: 6ce047b164072db984a23f835c563e5d6407debc62617c7debe6a93c1c58d98e
+  output_sha256: bb439daa2fa1957503da81c6729f066a52715343ed734a2dd3a2d791583bd0dc
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 96ae856e7e571db057e5c542204f0e18e1981108e6584fef5ab0fcb9f23218fd
+  created_at: dbd171a7d173e95f198c543ec7a98967e58cf5928ce43c7ac167d3326f9fcf38
+  disposed_at: a76f26255f58b56b517d6e3c37e444c1428b955ee5e6e04ca85bc6783cae7d06
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 2956ca4d7aac4c7a47f9b8e727936ac92ef69eff2aae1abbccd77822d353c650
+  disposition: c7db949b7934c5d13790576ddb1c1f5a573651e0025c55968f8eed9605307d7f
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-26T04:59:54Z'
+  authority: generated
+  via: save_document_payload
