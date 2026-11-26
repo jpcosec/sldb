@@ -30,13 +30,13 @@ requests:
     state: task
   estandar-de-una-notacion:
     title: Una notación declara qué estándar implementa
-    state: no-task
+    state: task
   documento-sin-glifo-como-hueco:
     title: Un documento sin glifo se informa como hueco
-    state: no-task
+    state: task
   predicado-de-tags-semanticos:
     title: Predicado de reglas sobre los tags semánticos del modelo y sus ancestros
-    state: no-task
+    state: task
   serve-extension:
     title: sldb serve acepta --extension
     task: task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e
@@ -54,6 +54,16 @@ requests:
     title: Facts en plantillas htm
     state: void
     why: graph_ui deja htm
+  argumentos-literales-de-llamadas-python:
+    title: Los hechos de llamada de Python traen los argumentos literales
+    state: task
+    asked_by: IR
+    why: reconocer un comando de CLI
+  que-aplica-a-un-archivo:
+    title: Qué documentos aplican a un archivo o símbolo, directo o por categoría
+    state: task
+    asked_by: deskops, IR
+    why: resolver el dónde
 work:
   taxonomia-de-comandos:
     title: Tabla de operaciones que junta sldb.api, CLI, serve y mcp

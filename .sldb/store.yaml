@@ -419,6 +419,10 @@ include:
   - desk/inbox/20261125-194300-unclear-c-mo-instala-un-plugin-sus-modelos-y-semillas-en-un-store.md
   - desk/inbox/20261125-194328-unclear-surface-un-plugin-declara-como-dato-la-composici-n-de-una-pantalla.md
   - desk/inbox/20261125-214331-unclear-queue-20261126t004225z-dispatch-reap-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
+  - desk/inbox/20261125-152845-unclear-el-prop-sito-de-cada-hash-del-store-no-est-en-un-solo-lugar-y-hay-docs-que-lo-contradicen.md
+  - desk/inbox/20261125-155202-unclear-correcci-n-de-los-pedidos-c1-c9-de-deskops-del-25-11-c7-y-c8-ya-existen.md
+  - desk/inbox/20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon.md
+  - desk/inbox/20261125-172648-suggestion-que-una-m-quina-de-estados-se-haga-respetar-el-campo-de-estado-solo-cambia-tomando-una-arista.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

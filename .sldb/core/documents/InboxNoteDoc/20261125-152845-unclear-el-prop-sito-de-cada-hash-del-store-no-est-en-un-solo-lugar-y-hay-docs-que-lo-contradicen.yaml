@@ -1,0 +1,19 @@
+name: 20261125-152845-unclear-el-prop-sito-de-cada-hash-del-store-no-est-en-un-solo-lugar-y-hay-docs-que-lo-contradicen
+path: desk/inbox/20261125-152845-unclear-el-prop-sito-de-cada-hash-del-store-no-est-en-un-solo-lugar-y-hay-docs-que-lo-contradicen.md
+source_hash: 9a7603099e7e1875259455eeb838c81301ef4c6fae32e5e04fba52be73357d8c
+content_hash: a4847145212404934ed9de62a74195196243fac784418f32a2df832d9bd6dee5
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8a1456018fc95a74feb0525c71afca0c7a5a36ff03a6dd8e2599c85d02a7542d
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: d96b1352da5e7a753195b33897f1f498dc7af68a9ff05fd3d11c98a6893f8f6f
+  body: 35f752c8209531b96fc07f85830e5052609cc8da25c77ef75489eb6a0a8f7ff0
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

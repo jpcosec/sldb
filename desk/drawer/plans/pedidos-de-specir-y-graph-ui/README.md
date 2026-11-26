@@ -20,9 +20,16 @@ Aquí va solo el trabajo de sldb que sale de eso. Estados y dependencias en `dag
 | Facts de handler JSX con los atributos estáticos del elemento | El localizador de un control | tarea creada |
 | Llamadas propias de cada handler en línea | Seguir un handler hasta su operación de API | tarea creada |
 | `method` del segundo argumento de una llamada | Resolver envoltorios como `request('/x', {method:'POST'})` | tarea creada |
-| Una notación declara qué estándar implementa | Revisar UML, IFML y ORCA como estándares | sin tarea |
-| Un documento sin glifo se informa como hueco | Medir la cobertura de una notación; hoy falla todo el `resolve_view` (`node_view.py:17`) | sin tarea |
-| Predicado de reglas sobre los tags semánticos del modelo y sus ancestros | Reglas por concepto, no por nombre de modelo | sin tarea |
+| Una notación declara qué estándar implementa | Revisar UML, IFML y ORCA como estándares | tarea creada |
+| Un documento sin glifo se informa como hueco | Medir la cobertura de una notación; hoy falla todo el `resolve_view` (`node_view.py:17`) | tarea creada |
+| Predicado de reglas sobre los tags semánticos del modelo y sus ancestros | Reglas por concepto, no por nombre de modelo | tarea creada |
+| Los hechos de llamada de Python traen los argumentos literales | Reconocer un comando de CLI: hoy `inner.add_parser("nodes", help=...)` sale solo como `calls: inner.add_parser`, sin el nombre del comando ni su ayuda | tarea creada |
+| Qué documentos aplican a un archivo o símbolo, directo por ancla o a través de una categoría | Resolver el dónde de una decisión, una pill o una tarea, en los dos sentidos | tarea creada |
+
+Sobre los hechos de Python: sldb ya lee Python con tree-sitter y entrega módulos, clases, funciones,
+métodos y asignaciones, con sus llamadas como relaciones. Comprobado el 2026-11-25 sobre
+`src/sldb/cli/parsers/graph_project.py`. Lo que falta es solo el contenido de los argumentos, que es
+lo mismo que ya se pidió para las llamadas de TypeScript.
 
 ## Pedidos que quedaron sin efecto
 
