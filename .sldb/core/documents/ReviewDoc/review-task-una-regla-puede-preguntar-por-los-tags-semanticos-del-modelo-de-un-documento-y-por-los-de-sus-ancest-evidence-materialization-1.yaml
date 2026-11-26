@@ -1,0 +1,36 @@
+name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-materialization-1
+path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-materialization-1.md
+source_hash: b5613bcec529dbb1d6241fb609241784c7e085467ea84c462ccad9c02a599566
+content_hash: 1905c6ace6ab6a30a2984a8aa9bbcd7369cafc21d7f4bee7b6c9c72e023ecaf7
+field_hashes:
+  id: 55a431c32083c3517c0ca5f17a4d3851c15c5cce3549521bae8fa9a9c40cad2b
+  title: 6630b48c8307af2938598e14afb8e628a7ea16420cd5063bfaaf0206990b6104
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 870f518fbbe01065b2542350d525bf74fe5021c23f70d11b57de18a5630b93d4
+  subject: d202aa3139a9aed5e3a5f32d12dfefbbed5f9780311d2220802a7e002e6da959
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: cc54a41065d09ed68e3a1d410ea9406dfc48e6055f7ebaff4682abaef68eb8ae
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: e564217312065e4143697f7f5fd20dc5162776eed5b437ae0491962ac08871a4
+  created_at: e295d53d5386ff504914632bc9376cf7bcfcb3d76775c297999c2beb211fea13
+  disposed_at: e295d53d5386ff504914632bc9376cf7bcfcb3d76775c297999c2beb211fea13
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 25894bf427847eadedfca0fd700b1c968cdf1846bd02977f5872cd26d9c33c37
+  disposition: 4beac84ecf80a116bf2856b1c29f1a7aad4ad3242c44bb6ae712f9239414e5fd
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-26T00:31:50Z'
+  authority: generated
+  via: create_document

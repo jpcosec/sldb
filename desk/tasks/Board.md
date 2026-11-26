@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T00:13:56Z'
+  at: '2026-11-26T00:38:18Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -89,7 +89,6 @@ tasks:
 - desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md
 - desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
 - desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
-- desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -213,5 +212,4 @@ _Generated from the task references above._
 - sldb serve devuelve de un CodeAnchorDoc las lineas de su fragmento y su estado intact, changed o lost [draft] - Una ruta GET de solo lectura que, dado un anchor, devuelva ruta, rango, lineas del fragmento con contexto y su estado.
 - docs/architecture/command-taxonomy.md lista cada operación de sldb una sola vez, con las cuatro caras que la exponen hoy [draft] - Una tabla de operaciones que JP pueda aprobar: cada operación con sustantivo, verbo, si lee o escribe, nivel de permiso, y el nombre con que aparece hoy en sldb.api, en la CLI, en sldb serve y en sldb mcp; con duplicados, huecos y renombres marcados y un nombre canónico propuesto.
 - undo_changes deshace un cambio aplicado en una sesión anterior porque el registro de movimientos persiste en el store [draft] - Que cada lote aplicado quede registrado en el store con lo necesario para revertirlo, y que undo_changes funcione desde un proceso distinto del que lo aplicó.
-- una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [draft] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.
-- una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [active] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
+- una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [active] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.

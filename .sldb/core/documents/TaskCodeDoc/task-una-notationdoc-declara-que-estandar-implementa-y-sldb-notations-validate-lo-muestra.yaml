@@ -1,15 +1,15 @@
 name: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
 path: desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
-source_hash: 2c0f761db99f0212dfedd23669b782f01a0acfb887b835c009c9212ba7c1c7af
-content_hash: bb7907b383a9d6c0b21ceb5e63050ce1021b1d38834c3fc4276ab420fe25a06e
+source_hash: 321f67b355ecd4e88982616f388de4ad5b6f23fa14e2440a3ff092cee2ecb4af
+content_hash: cfb5a21d6983b9ec400f83e4256113dd5ebe97f9a72d0cebcae4b346191a4ac5
 field_hashes:
   title: 46a5147b3e3a9f980b3ad5ce51bd80a0f2b385d5899e22ed8a9afc4d0c397dd1
   id: 4389ae3b071a58d45e085b63ae60d523d91eedd88b9e8eb3008ccbbb162758fa
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: f507188b128bd659e91dd01e20889ea5591d1bb2a1cf94242f8c16ae056012a8
   goal: d180af8222207f23be897e7efd1f096892040f2049553919f840aaa02fb72570
   scope: 45fb134cce409b3a477ef9dd084c3a6b5e791e1b9ef43f41b193a10dcc7947f2
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 04fc366e32911ece28b60b3b337cced2ab3515aa83984fafd2c0ed0589c0eac4
   validation: ec2f07ad3b300521f866f18b18c1b341fe8ef73332a7ac451d822f960128c23f
   done_when: 6027fa9b7d8837600a8e059bd49b484b532c5d366d760c456349b0a4ad511d07
@@ -32,6 +33,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T18:20:53Z'
+  at: '2026-11-26T00:33:43Z'
   authority: generated
   via: save_document_payload

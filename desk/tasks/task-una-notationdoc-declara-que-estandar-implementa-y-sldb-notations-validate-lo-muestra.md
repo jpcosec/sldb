@@ -1,19 +1,21 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:20:53Z'
+  at: '2026-11-26T00:33:43Z'
   authority: generated
   via: save_document_payload
 id: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []
 files: []
+pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
