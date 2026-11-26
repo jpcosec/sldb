@@ -1,8 +1,10 @@
 # ADR: One Address Grammar, Two Spaces, Under The Store
 
-- Status: Accepted; kept in the drawer, not started
+- Status: Draft. The owner liked the idea of two address spaces under the store (2026-11-25) but
+  has not accepted this decision nor its execution: the review of the model and of the
+  operations is still open, and the grammar may change with it (corrected 2026-11-26)
 - Date: 2026-11-25
-- Decision Maker: the owner
+- Decision Maker: the owner (pending)
 - Related repos: `sldb`, `IR` (specIR), `deskops`, `graph_ui`, `marcado`
 - Plan: `desk/drawer/plans/direccion-unica-estructural-y-semantica/`
 
