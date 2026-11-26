@@ -1,0 +1,19 @@
+name: 20261126-005627-unclear-deskops-add-task-tarda-cerca-de-90-segundos-cuando-otra-sesi-n-usa-el-mismo-store
+path: desk/inbox/20261126-005627-unclear-deskops-add-task-tarda-cerca-de-90-segundos-cuando-otra-sesi-n-usa-el-mismo-store.md
+source_hash: 85694e619b0934c47ad49fbc0bf3f354323f92f26f08afec81d7a153026a9288
+content_hash: 2e95460fbef0d1aea3a6f3dfd0138208489f67caaa6dbee790c66e38f872ef59
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: d1de05dc3e0bae87aba3d968353a710e74acc5c01a3b04419b437d179b2da7b4
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 7df94a4a29474f9ed94cfd02e95775aabdac768bbafb4fa96f2732c2a17fa10e
+  body: f238966781c6aae09d3be01069d81536d4e1e9ba9d2dc321f3bdc3660cd3dec4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

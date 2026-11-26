@@ -423,6 +423,7 @@ include:
   - desk/inbox/20261125-155202-unclear-correcci-n-de-los-pedidos-c1-c9-de-deskops-del-25-11-c7-y-c8-ya-existen.md
   - desk/inbox/20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon.md
   - desk/inbox/20261125-172648-suggestion-que-una-m-quina-de-estados-se-haga-respetar-el-campo-de-estado-solo-cambia-tomando-una-arista.md
+  - desk/inbox/20261126-005627-unclear-deskops-add-task-tarda-cerca-de-90-segundos-cuando-otra-sesi-n-usa-el-mismo-store.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -3667,6 +3668,7 @@ include:
   - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
   - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
   - desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
+  - desk/tasks/task-el-rechazo-de-aristas-invalidas-vive-en-apply-batch-real-bajo-el-mismo-lock-con-las-violaciones-como.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md

@@ -1,0 +1,38 @@
+name: task-el-rechazo-de-aristas-invalidas-vive-en-apply-batch-real-bajo-el-mismo-lock-con-las-violaciones-como
+path: desk/tasks/task-el-rechazo-de-aristas-invalidas-vive-en-apply-batch-real-bajo-el-mismo-lock-con-las-violaciones-como.md
+source_hash: 38378a684660f85200a19d31d7bc455deda10e108381a46daf16f4b8e097cc6f
+content_hash: 0ef150218dcc99712a82f51eb98028469220c8c68f72f1bcd202e1a97629ca67
+field_hashes:
+  title: baafe5b87428610d63b7ed2d26b8d325071645be9dc59e7c5ec7d1aa3ef7ec69
+  id: 9acc16986b8794c13096b1f075b56300e756494e5c972c18bca080c3f3b5b67c
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 49eefdf72bd4f328ec5fbb6e904fe35beb0e0be6e8537ff2462bbe51411ff8d2
+  goal: f5150bc09866b66bc6ab2b64016f0ba84516ef4e27759477369c2eca1c67b824
+  scope: fc53ad42e557f1ab309506172436c844f3ff15d7f8a67b679194035aca2643f6
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: ff9f2a2d026baa1d40c16d359db41f8f2c63dc74a583f859a93b8cc0d7e892ce
+  validation: 2511422643856388bed239d3c63c88a60b1e27dc51ff6e975e3c3653b9657ff7
+  done_when: 89d33c55e02dc1ab45ff81791bc6b1a68dd9792b308584eaf99a654f3394749b
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- board.tareas
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-26T03:56:52Z'
+  authority: generated
+  via: create_document
