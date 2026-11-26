@@ -11,6 +11,34 @@ Qué tiene que decir un spec de producto de sldb y no dice ningún documento de 
 operaciones hay sobre qué objetos. Los `.spec.yaml` del repo describen cómo está construido
 sldb y se ponen al día con este (lectura).
 
+## 0. Forma del spec (JP, 2026-11-26)
+
+El spec no es un solo documento: son muchos documentos chicos en el store, enlazados, y una wiki
+que se genera de ellos. Este archivo queda como portada mientras tanto.
+
+Clases de página con que se parte ("está bien para partir", JP): objeto, operación, mecanismo,
+plugin, decisión y abierto. Los anillos y los ejes no son páginas: son vistas sobre las
+operaciones.
+
+JP pidió mirar specIR para ordenarlo. Leído el 2026-11-26 (`IR` en `53343b8`); specIR ya tiene
+un modelo para describir un sistema de software, con reglas que revisan que las capas calcen:
+
+| Clase del spec | Pieza de specIR que existe | Qué da |
+|---|---|---|
+| Operación | `DomainOperationDoc`: "una capacidad del dominio, independiente de cómo se invoca (UI, CLI, job, agente)" | la operación separada de sus caras |
+| Cara de una operación | `ApiOperationDoc` y `HandlerDoc`, con `handled_by` y `executes`; reglas `api-operation-is-handled` y `handler-executes-a-domain-operation` | "toda cara tiene su operación" ya es una regla escrita |
+| Para quién y cómo se prueba | `CapabilityDoc` con `audience`, `accepted_by` hacia un test; regla `capability-has-an-acceptance-test` | cada página atada a su test |
+| Objeto | `DomainEntityDoc`, con `persisted_in` | la cosa y dónde se guarda |
+| Reglas y estados de lo descrito | `PolicyDoc` con `governed_by`; `StateDoc` con `transitions` | |
+| Orden del repo | `PieceDoc` (un paquete) con `depends_on` | los anillos como regla sobre dependencias |
+| De quién es cada afirmación | `origen` (observado, derivado, inferido, declarado) y `verificacion` en cada nodo y arista | lo que aquí se anota a mano como "JP" o "lectura" |
+| Lo que hay hoy en el código | extractores (`extract/python_cli.py`, `routes.py`, `sql.py`) | poblar "lo observado" desde el código en vez de una tabla a mano |
+
+Lo que specIR no tiene: el anillo de una operación, una clase para mecanismo, las páginas de
+decisión y de abierto, y la proyección a wiki. Sin verificar: que los extractores corran sobre
+sldb. Un cruce a resolver: `StateDoc` y `transitions` de specIR describen los estados de un
+sistema modelado; la máquina de estados genérica del punto 6 es de sldb.
+
 ## 1. Qué es sldb
 
 - Es una base de datos: el store es un grafo de documentos Markdown con modelos, reglas, tags y
