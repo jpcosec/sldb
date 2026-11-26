@@ -1,7 +1,9 @@
 # Dirección única: estructural y semántica, bajo el store
 
-Fecha: 2026-11-25. Repo dueño: sldb. Estado: decisión aceptada por JP, plan en drawer, ninguna
-tarea creada, `execution_authorized: false`.
+Fecha: 2026-11-25. Repo dueño: sldb. Estado: **borrador** (corregido el 2026-11-26). JP aprobó la
+idea de dos espacios de direcciones bajo el store; no aprobó este plan ni su ejecución. La
+revisión del modelo y de las operaciones sigue abierta y la gramática puede cambiar con ella.
+Ninguna tarea creada, `execution_authorized: false`.
 
 La decisión está en `docs/architecture/one-address-grammar-two-spaces.md`. Aquí va el trabajo
 que sale de ella. Estados y dependencias en `dag.yaml`.
@@ -13,7 +15,7 @@ comandos están mal armados, y eso con que no hay una sola forma de nombrar las 
 dirección estructural se escribe de cuatro maneras, ninguna cubre todo, y la semántica quedó
 dentro de `sldb legacy`. Sin una dirección única no se puede escribir la taxonomía de comandos.
 
-## Lo decidido (JP, 2026-11-25)
+## Lo propuesto (D1 es de JP, 2026-11-25; el resto es propuesta sin cerrar)
 
 | Id | Decisión |
 |---|---|
@@ -25,8 +27,7 @@ dentro de `sldb legacy`. Sin una dirección única no se puede escribir la taxon
 | D6 | Las otras escrituras pasan a ser alias de entrada y después se retiran. |
 | D7 | Lo que haya que migrar se migra; la compatibilidad con los ids actuales no limita el diseño. |
 
-D4 y D5 se toman como aceptadas porque JP aprobó la propuesta entera, donde iban como
-decisiones suyas. Si no era así, se corrigen acá antes de promover AD05 y AD06.
+D4 y D5 no están cerradas por JP.
 
 ## Lo que no está decidido
 

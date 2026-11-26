@@ -1,7 +1,7 @@
 id: sldb-direccion-unica-estructural-y-semantica
-revision: 1
-revision_note: 'Rev 1 (2026-11-25): plan inicial tras la decision de JP sobre la direccion unica. Ningun nodo promovido.'
-status: accepted
+revision: 2
+revision_note: 'Rev 2 (2026-11-26): el estado pasa de accepted a draft. JP aprobo la idea de dos espacios de direcciones bajo el store, no este plan ni su ejecucion; la revision del modelo y de las operaciones sigue abierta y la gramatica puede cambiar. Rev 1 (2026-11-25): plan inicial. Ningun nodo promovido.'
+status: draft
 as_of: '2026-11-25'
 source: dag.yaml es canonico; README.md de esta carpeta y docs/architecture/one-address-grammar-two-spaces.md son su contexto
 execution_authorized: false
@@ -17,12 +17,12 @@ gates:
     evidence: 'pendiente; los dos reescriben el almacenamiento del indice de aristas'
   G_D4_D5:
     title: JP confirma modelos calificados por store (D4) y aristas hacia cualquier direccion estructural (D5)
-    state: assumed
+    state: pending
     resolver: JP
-    evidence: 'JP aprobo la propuesta entera el 2026-11-25; D4 y D5 iban en ella como decisiones suyas'
+    evidence: 'pendiente; JP no cerro D4 ni D5'
 external_references:
   adr:
-    status: accepted
+    status: draft
     note: docs/architecture/one-address-grammar-two-spaces.md
   addressability_model:
     status: current
