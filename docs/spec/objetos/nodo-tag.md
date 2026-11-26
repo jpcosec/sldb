@@ -74,11 +74,23 @@ declarados a mano está en `arista-semantic-parent.md`.
   (`src/sldb/api/rules/rule_writes.py:28-38`).
 - No hay hash ni procedencia del tag: es derivado.
 
+## Decidido
+
+JP, 2026-11-26: en esto se copia el comportamiento de kimun. Leído en `~/proyectos/kimun`
+(`370beaff`), `src/kimun/surface/semantic.cljc:2-12` y `src/kimun/cli/commands/semantic.cljc:105`:
+
+- Un tag es un término: existe porque algo lo lleva. No se crea ni se borra aparte. Los verbos
+  crear y borrar de este nodo quedan como exención escrita del eje, no como celda vacía.
+- Un tag desaparece cuando nada lo lleva. Quitarlo de lo que lo lleva es cambiar cada portador
+  (borrar la arista `tagged_as`), no una operación sobre el tag.
+- Los padres que salen de los puntos del nombre se derivan y nunca se guardan.
+- Los padres y equivalencias declarados a mano son aristas guardadas en el store versionado, no
+  en una caché. Eso corrige la pérdida que hoy tiene sldb (ver "Dónde se guarda").
+- kimun tampoco tiene quitar una equivalencia (`parent-add`, `parent-remove`, `equivalent-add`):
+  esa celda sigue faltando en los dos.
+
 ## Abierto
 
-- Si borrar un tag lo quita de todo lo que lo lleva (reescribiendo documentos y modelos), o se
-  rechaza mientras alguien lo lleve.
-- Si crear un tag sin portador es válido, o un tag sin portador se considera huérfano y se poda.
 - Si renombrar un tag deja una equivalencia con el nombre viejo.
 - Si el namespace (`area:`) es parte del nombre del tag o un atributo aparte.
 

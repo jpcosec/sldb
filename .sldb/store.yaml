@@ -3728,6 +3728,7 @@ include:
   - desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
   - desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
   - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
+  - desk/tasks/task-evaluar-llevar-kimun-como-core-de-sldb.md
 - model: RuleDoc
   paths:
   - desk/lifecycle/rule-activation-task-aggregate.md
