@@ -1,0 +1,25 @@
+name: materialization-suite-verde-tests-mcp-test-no-writes-py
+path: desk/materializations/materialization-suite-verde-tests-mcp-test-no-writes-py.md
+source_hash: 8c5fd4119f58681f30c68f3ddddcf27a9835360130fb742581f462b181495adf
+content_hash: cffb932225deb032854caac66cdc6358d2a2be1b2f564d6438b4eed9706956fc
+field_hashes:
+  id: f115ca303a4a0664b3e0c7538b9c49816efc94cdf74c1c09595a3deb9661850c
+  title: 317b80599e9635e87cbdb0c025190e553e62a6abd147e1072272e5a531f0b87f
+  source_atoms: 1fd84f553357dca3b5836842dbaf1265a994d50ad506783746fdfbbd38866e47
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 26932d15f1f39fc84232af184c3658507cf7528be66c66af8038c5dc490c04a5
+  intent: 085c67cb4bb361911b6d1274373951865376058f8dfa6e13bcef2f3f222c2cbc
+  validation: 5195dad72ed86b60c6129ac50d87b27ed316643f6d6bff7753c4a558bf7ed3d7
+  tags: 0ddcb7ae7954d351edeea96bc0e329405b76ad3825360994c8ce3c626f45846e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:suite-verde
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T13:32:22Z'
+  authority: generated
+  via: create_document

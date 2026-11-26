@@ -1817,6 +1817,16 @@ include:
   - desk/materializations/materialization-undo-changes-sesiones-src-sldb-store-write-journal-py.md
   - desk/materializations/materialization-undo-changes-sesiones-tests-mcp-test-write-tools-py.md
   - desk/materializations/materialization-undo-changes-sesiones-tests-test-mcp-undo-across-sessions-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-api-documents-batch-edges-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-api-documents-batch-simulation-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-api-notations-notation-listing-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-cli-commands-notations-validate-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-cli-commands-notations-validate-checks-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-notations-notation-spec-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-notations-notation-spec-checks-py.md
+  - desk/materializations/materialization-suite-verde-src-sldb-notations-standard-spec-py.md
+  - desk/materializations/materialization-suite-verde-tests-api-test-api-creation-py.md
+  - desk/materializations/materialization-suite-verde-tests-mcp-test-no-writes-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3618,6 +3628,14 @@ include:
     name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-preflight-1
   - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/bundle-1.md
     name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-bundle-1
+  - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/evidence-tests-1.md
+    name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-evidence-tests-1
+  - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/evidence-commit-1.md
+    name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-evidence-commit-1
+  - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/evidence-atom-1.md
+    name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-evidence-atom-1
+  - path: desk/reviews/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd/evidence-materialization-1.md
+    name: review-task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

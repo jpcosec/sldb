@@ -1,24 +1,47 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T04:55:58Z'
+  at: '2026-11-26T13:26:20Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/batch_edges.py
+- src/sldb/api/documents/batch_simulation.py
+- src/sldb/api/notations/notation_listing.py
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/cli/commands/notations_validate_checks.py
+- src/sldb/notations/notation_spec.py
+- src/sldb/notations/notation_spec_checks.py
+- src/sldb/notations/standard_spec.py
+- tests/api/test_api_creation.py
+- tests/mcp/test_no_writes.py
+- 781b437c6ead7bced8673b55444d7a438cf0c05f
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/documents/batch_edges.py
+- src/sldb/api/documents/batch_simulation.py
+- src/sldb/api/notations/notation_listing.py
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/cli/commands/notations_validate_checks.py
+- src/sldb/notations/notation_spec.py
+- src/sldb/notations/notation_spec_checks.py
+- src/sldb/notations/standard_spec.py
+- tests/api/test_api_creation.py
+- tests/mcp/test_no_writes.py
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-la-suite-de-sldb-vuelve-a-verde
 ---
 
 # La suite de sldb vuelve a verde: cuatro reglas de código limpio, el test de docs create contra el cwd y anchors_resolve entre las herramientas de lectura de MCP

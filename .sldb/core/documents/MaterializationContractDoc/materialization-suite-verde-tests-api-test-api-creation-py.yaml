@@ -1,0 +1,25 @@
+name: materialization-suite-verde-tests-api-test-api-creation-py
+path: desk/materializations/materialization-suite-verde-tests-api-test-api-creation-py.md
+source_hash: d7e4eab8086bd89f5b5aad0382d0f89cb4a6fcf6ec4773b301e6812c63ddfb81
+content_hash: 958786b8fdb9570aeebecbed03b8734c7a7fa81767f5c41ffe54cd8383242768
+field_hashes:
+  id: b794cd92febaf6c5661e6eb6af077e4a491a29719dc67291f038d35e85cec6c2
+  title: 0aea520fc5929328b9cdf48cb290decf0280f640a2c8645f9ad7a54e83cc8c40
+  source_atoms: 1fd84f553357dca3b5836842dbaf1265a994d50ad506783746fdfbbd38866e47
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: c5985dcc8221b47fd91d827e9598efc83b2c5e11540253b27fe2bfcf3424398f
+  intent: 1fda3184de4bf315ea5554f8d9b11722f2195b8293c17a5f2275d36e340cfae2
+  validation: 5195dad72ed86b60c6129ac50d87b27ed316643f6d6bff7753c4a558bf7ed3d7
+  tags: 0ddcb7ae7954d351edeea96bc0e329405b76ad3825360994c8ce3c626f45846e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:suite-verde
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T13:31:46Z'
+  authority: generated
+  via: create_document

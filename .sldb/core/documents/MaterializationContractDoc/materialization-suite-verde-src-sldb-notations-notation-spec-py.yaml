@@ -1,0 +1,25 @@
+name: materialization-suite-verde-src-sldb-notations-notation-spec-py
+path: desk/materializations/materialization-suite-verde-src-sldb-notations-notation-spec-py.md
+source_hash: 5b1215ba8e87ac802b26704d8897e9a9fc3c03aaeef69f47bab69490673e02bb
+content_hash: f91fdd7c242cb3207e9f45a3c0e3e82802aba1853d7f0b9595226ec0c7f0c1ac
+field_hashes:
+  id: bd8fe8ae59f4c465a0914ee105c7f7f791cebfe57911c6e6baacbd85238531ea
+  title: 259baa9076f172dbfef5f741c4b57a054fc85340e850f3bd158cc2c72c18ef5d
+  source_atoms: 1fd84f553357dca3b5836842dbaf1265a994d50ad506783746fdfbbd38866e47
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: a38fba7ca010040475e370d61c1bc0f1b426081aaef45000c7100723c8ad4ae0
+  intent: 48e284dd2c88f5548887c4db42742f869eb9a996caefe8612eb0e167e53a8e38
+  validation: 5195dad72ed86b60c6129ac50d87b27ed316643f6d6bff7753c4a558bf7ed3d7
+  tags: 0ddcb7ae7954d351edeea96bc0e329405b76ad3825360994c8ce3c626f45846e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:suite-verde
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T13:29:54Z'
+  authority: generated
+  via: create_document

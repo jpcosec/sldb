@@ -1,0 +1,23 @@
+name: atom-la-suite-de-sldb-vuelve-a-verde
+path: desk/atoms/atom-la-suite-de-sldb-vuelve-a-verde.md
+source_hash: 80a966ab5ec405ba1543104996a74198a34548699695917ea5cf27286e06f7f6
+content_hash: 8be122b8348df41b2a3fbc35c7ebce6371dbb5331e61bb5158b8f4d2c089d28f
+field_hashes:
+  id: eadb39bdee141f5c430309a0c39f969a28975075828274557a3567d412acbe59
+  title: 8febbaab95cefc9364df6a7d44404ac9aaa9d12cb67bb098b5c77c3f8081a72d
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 784badcd6c447fd210c92180ad62fc4ed93a772c440838c7aeb2d59f8ecccb73
+  tags: 0ddcb7ae7954d351edeea96bc0e329405b76ad3825360994c8ce3c626f45846e
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:suite-verde
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-26T13:24:33Z'
+  authority: generated
+  via: create_document

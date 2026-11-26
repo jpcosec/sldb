@@ -1,22 +1,22 @@
 name: task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd
 path: desk/tasks/task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd.md
-source_hash: fdcec5b1e7df6387aca2fb7738308b1e3d1ae6e355c73a7e605a11030b2c80af
-content_hash: 72b17a02f04bdd0efb5be38602dbd38589b17a4b526f18e3e27137818c1e1843
+source_hash: efbc803094618b9f6109fefb17ef3a4b9d653e36c110488b761a7312ca778100
+content_hash: d833324bc6ee252770d073af47549cce84947f00461382225c37a7439a1c3098
 field_hashes:
   title: d9df053da33425eaea168c239d3c7f62a1b8303bcde44fc532df1e6962b2e84c
   id: 5dfafde4595dd281f3cd7a1c1abf2b0faac50525723544655c727f14fe235bc6
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 10a60ace7587cc74f08e5e5f723e22b122e1aacea6ca1d93ff1144287e1b34f9
   goal: 9e1e34fa92c1c4c740eb1a6bb484018501fc3cad21a715db58ff8786c770973c
   scope: eb1436a84cf0e5c7d48e2b0c04afb8ec924b3badd94c1d4caae40cc8247137d0
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: 0b82e06d2ae032abd556a8da09c778673046f709904402eb86c2cbf8e6822e9b
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: de73fcb09e59ea17e5efb8ad4b58d453e7b34c2773931e4aa5bd4aa1f3407358
   pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 9cc57177250dd1476734a72037564c5e4eb3ec184b64b71a023e7986711da04a
   validation: 9ac5d446e271da58345608ac472fa4dcf41fadd3584afed973cf6d571ac5ec0b
@@ -24,7 +24,7 @@ field_hashes:
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: 1fd84f553357dca3b5836842dbaf1265a994d50ad506783746fdfbbd38866e47
 semantic_tags:
 - board.tareas
 - representation.markdown
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-26T04:55:58Z'
+  at: '2026-11-26T13:26:20Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

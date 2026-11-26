@@ -1,0 +1,25 @@
+name: materialization-suite-verde-src-sldb-api-documents-batch-edges-py
+path: desk/materializations/materialization-suite-verde-src-sldb-api-documents-batch-edges-py.md
+source_hash: 96c87f6bedf6fb7aac8799b0d7875b2d7879a8d545a90128bc36d2df0a70af37
+content_hash: ac640ed77d7afa90a33e397b40e862a15123103164cf7b65c5a655766dafaee5
+field_hashes:
+  id: 258de1795b4dc247e9d8ba20ed8ff310dee2d335d67057f21ddad54c718eb5cc
+  title: 79f89f65627c94db2d1928695b3e2309edd6048a033f68bf09cdf72c4b13268b
+  source_atoms: 1fd84f553357dca3b5836842dbaf1265a994d50ad506783746fdfbbd38866e47
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 10d42a7db431ff73c6e0d86f8dc21717414375a683368bfc4cef5b363acc8fba
+  intent: 83940971bd985a451f6bfb5e78498002e63e2b681bcb139f98e13c567505e66d
+  validation: 5195dad72ed86b60c6129ac50d87b27ed316643f6d6bff7753c4a558bf7ed3d7
+  tags: 0ddcb7ae7954d351edeea96bc0e329405b76ad3825360994c8ce3c626f45846e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:suite-verde
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T13:26:54Z'
+  authority: generated
+  via: create_document
