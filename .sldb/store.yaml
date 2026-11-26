@@ -1788,6 +1788,22 @@ include:
   - desk/materializations/materialization-notationdoc-estandar-src-sldb-models-notation-notation-doc-py.md
   - desk/materializations/materialization-notationdoc-estandar-src-sldb-notations-notation-spec-py.md
   - desk/materializations/materialization-notationdoc-estandar-tests-test-notation-declares-standard-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-contracts-layers-toml.md
+  - desk/materializations/materialization-undo-changes-sesiones-docs-architecture-journal-authority-md.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-init-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-apply-batch-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-batch-inverse-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-batch-report-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-nothing-to-undo-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-provenance-stamp-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-undo-batches-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-undo-report-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-mcp-server-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-mcp-write-apply-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-mcp-write-undo-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-src-sldb-store-write-journal-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-tests-mcp-test-write-tools-py.md
+  - desk/materializations/materialization-undo-changes-sesiones-tests-test-mcp-undo-across-sessions-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3576,6 +3592,14 @@ include:
     name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-evidence-atom-1
   - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/evidence-materialization-1.md
     name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-evidence-materialization-1
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/evidence-tests-1.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-tests-1
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/evidence-commit-1.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-commit-1
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/evidence-atom-1.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-atom-1
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/evidence-materialization-1.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

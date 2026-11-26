@@ -1,0 +1,25 @@
+name: materialization-undo-changes-sesiones-contracts-layers-toml
+path: desk/materializations/materialization-undo-changes-sesiones-contracts-layers-toml.md
+source_hash: 38dafa86852080f69d7123ac2da034e98b5b2b77297bf69728cfc2795a2cd493
+content_hash: 1cbda537beb8968ed797a36dcb88f4e7436f31acd02110070c7a13f1e38cd238
+field_hashes:
+  id: 5aa005acd79c941ec71dc66495635021f4ac78dddb33731f098d04a27b2f1fd6
+  title: 61ccd4517c65ad1f6ce375e8fa39165b3f2cc49e9f5d9ba680b5f14457d62b31
+  source_atoms: 6c510ce9c6ba9f89f9ed2e1bf5446c671b5d2f907171f49b0f0741c36db63f93
+  target_kind: 48882ab48bfdf3bef2fe65e3304e91ccfd8f74e357c183367ad6fe903fe0e697
+  target_identity: 3d9a7334295fc418060224504e0f99bb2dc73d9c0633a977ed8121a0803ce91e
+  intent: a51c6e7428c3c31ab28f0cdfe927e122a3f66544146d22971450d532130501c2
+  validation: 8e7669a407dfccddabe24318b3a54751177f241f7a23da9ca714b1a84c3921ca
+  tags: 2efe9b4c793ad7a1b26f69c16f7d09580181ff92fa87432d353d27f836070e44
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:undo-changes-sesiones
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T01:06:29Z'
+  authority: generated
+  via: create_document

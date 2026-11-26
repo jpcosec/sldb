@@ -1,0 +1,25 @@
+name: materialization-undo-changes-sesiones-src-sldb-api-documents-undo-batches-py
+path: desk/materializations/materialization-undo-changes-sesiones-src-sldb-api-documents-undo-batches-py.md
+source_hash: fa9275e1bd8ea4b8152e07eac1926a4b3a2b019506447af13621e03bb78264d6
+content_hash: 514efcf8a76503d45a835e10bc37198068782cdc3c27803ea02f80edfe67916d
+field_hashes:
+  id: 5a75917a9fe31a381a341dbe2ac9b3d9039cb4e0ca3f04c8b32e9af640ddf993
+  title: 8269cfd89f15ca87c146a7479f2393e18cce3786566eba7e742a01b34015e0ac
+  source_atoms: 6c510ce9c6ba9f89f9ed2e1bf5446c671b5d2f907171f49b0f0741c36db63f93
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 7c50f8f2a1384de3d304e27adf9421a12fd3fdbbd3adde05b2d15bf9f7132b27
+  intent: 868be5c54e3085e4d3fa0517b7ed2dcdb7d75dfe1baa7e0d46f4ee538179834e
+  validation: 8e7669a407dfccddabe24318b3a54751177f241f7a23da9ca714b1a84c3921ca
+  tags: 2efe9b4c793ad7a1b26f69c16f7d09580181ff92fa87432d353d27f836070e44
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:undo-changes-sesiones
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T01:10:50Z'
+  authority: generated
+  via: create_document

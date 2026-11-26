@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T00:42:11Z'
+  at: '2026-11-26T01:05:58Z'
   authority: generated
   via: save_document_payload
 id: task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per
@@ -11,15 +11,49 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- contracts/layers.toml
+- docs/architecture/journal-authority.md
+- src/sldb/api/__init__.py
+- src/sldb/api/documents/apply_batch.py
+- src/sldb/api/documents/batch_inverse.py
+- src/sldb/api/documents/batch_report.py
+- src/sldb/api/documents/nothing_to_undo.py
+- src/sldb/api/documents/provenance_stamp.py
+- src/sldb/api/documents/undo_batches.py
+- src/sldb/api/documents/undo_report.py
+- src/sldb/mcp/server.py
+- src/sldb/mcp/write/apply.py
+- src/sldb/mcp/write/undo.py
+- src/sldb/store/write_journal.py
+- tests/mcp/test_write_tools.py
+- tests/test_mcp_undo_across_sessions.py
+- e1c234372b8aaa4e48c591aeb3e8c36090d11802
 depends_on: []
 pills: []
-files: []
+files:
+- contracts/layers.toml
+- docs/architecture/journal-authority.md
+- src/sldb/api/__init__.py
+- src/sldb/api/documents/apply_batch.py
+- src/sldb/api/documents/batch_inverse.py
+- src/sldb/api/documents/batch_report.py
+- src/sldb/api/documents/nothing_to_undo.py
+- src/sldb/api/documents/provenance_stamp.py
+- src/sldb/api/documents/undo_batches.py
+- src/sldb/api/documents/undo_report.py
+- src/sldb/mcp/server.py
+- src/sldb/mcp/write/apply.py
+- src/sldb/mcp/write/undo.py
+- src/sldb/store/write_journal.py
+- tests/mcp/test_write_tools.py
+- tests/test_mcp_undo_across_sessions.py
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior
 ---
 
 # undo_changes deshace un cambio aplicado en una sesión anterior porque el registro de movimientos persiste en el store

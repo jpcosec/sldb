@@ -1,0 +1,23 @@
+name: atom-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior
+path: desk/atoms/atom-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior.md
+source_hash: c475fe28593fb9c83550854e9e66bb9504cf07502a42f49e75dc73d712dc7106
+content_hash: 12db2fe592f631d4532bd9a93866e4c941d18951b28f95c9cc8eb7af8d4c750b
+field_hashes:
+  id: 8a985696f088f442d731980bc3cd365a93ecd169d591761101f840b972dc7f6b
+  title: 2f4ac04d6ce963ef577d0a858302b44856a1ae43442f4c2373efed9540f94f9a
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: fa3f31df763b562cf3e812a8e70938df314db660a8343ac27d4aab091ca1bd52
+  tags: 2efe9b4c793ad7a1b26f69c16f7d09580181ff92fa87432d353d27f836070e44
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:undo-changes-sesiones
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-26T01:04:22Z'
+  authority: generated
+  via: create_document

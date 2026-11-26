@@ -1,0 +1,25 @@
+name: materialization-undo-changes-sesiones-tests-mcp-test-write-tools-py
+path: desk/materializations/materialization-undo-changes-sesiones-tests-mcp-test-write-tools-py.md
+source_hash: d1644c09e15f02941795dad787c383af3e6cb701d01d37bd17300fa6a57d26ad
+content_hash: d24384aff111919ecb6609521b54788d98f09a24dab76e9c55aa2b626ee6a967
+field_hashes:
+  id: d60db8ba1c6bd038188b7c0b43ae63e6497eea02015818c32b22642f6d79420b
+  title: 75e626df99cfd19ee14fd51e14ceedb075848c88ab6e574ec4b04fe07d33d87d
+  source_atoms: 6c510ce9c6ba9f89f9ed2e1bf5446c671b5d2f907171f49b0f0741c36db63f93
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 9864a079e39e39558bbf43a6fa660aeb71ffd40e14eb65dcbd6934b5d464cea7
+  intent: c70e7f9c1d28e1627375b12bd5e162e029a8a6f8057948e428cc2588383cae3e
+  validation: 8e7669a407dfccddabe24318b3a54751177f241f7a23da9ca714b1a84c3921ca
+  tags: 2efe9b4c793ad7a1b26f69c16f7d09580181ff92fa87432d353d27f836070e44
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:undo-changes-sesiones
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T01:14:07Z'
+  authority: generated
+  via: create_document
