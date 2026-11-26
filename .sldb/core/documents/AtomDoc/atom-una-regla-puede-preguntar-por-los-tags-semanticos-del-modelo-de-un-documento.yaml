@@ -1,0 +1,23 @@
+name: atom-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento
+path: desk/atoms/atom-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento.md
+source_hash: 79a4b6371046336ab3af92487c2b55708365ea3ff6e4271afa6f508f87761a20
+content_hash: c828de5e2f3292163f33c8ec6a9e93b93d7ac081fd51a4a4daa0b663a2bf5ab9
+field_hashes:
+  id: c05a3322c93b278c44d2a8c68da2c6c04e8fd373e6bf8dc60e14cc7c78e8f157
+  title: 00c5c808ec90106042c1491fc2e37db5018561dec8110c25621732b11be1f42d
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 77eaaa7da66aa6d07d1b23ab5b412eddbaff4a486d9b721f039c9845bf6a6229
+  tags: e11b93de3e8a452ec1af9c3863226d4ab61700d3f3f6439df0da7d304e5f3228
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rule-model-tag
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-26T00:16:32Z'
+  authority: generated
+  via: create_document

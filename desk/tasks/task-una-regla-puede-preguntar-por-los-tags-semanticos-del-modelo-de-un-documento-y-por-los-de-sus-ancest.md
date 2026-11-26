@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T23:18:32Z'
+  at: '2026-11-26T00:19:15Z'
   authority: generated
   via: save_document_payload
 id: task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest
@@ -11,15 +11,39 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- docs/architecture/rules-language.md
+- docs/architecture/rules.md
+- src/sldb/api/rules/rule_writes.py
+- src/sldb/store/graph/backend/index_semantics.py
+- src/sldb/store/graph/backend/index_view.py
+- src/sldb/store/graph/language/predicate_ast.py
+- src/sldb/store/graph/language/predicate_atoms.py
+- src/sldb/store/graph/language/predicate_leaves.py
+- src/sldb/store/graph/language/predicate_view.py
+- src/sldb/store/graph/language/semantic_scope.py
+- tests/test_rules_semantic_tag_predicate.py
+- 66fbb00002272f85d54747672c165646f1e66201
 depends_on: []
 pills: []
-files: []
+files:
+- docs/architecture/rules-language.md
+- docs/architecture/rules.md
+- src/sldb/api/rules/rule_writes.py
+- src/sldb/store/graph/backend/index_semantics.py
+- src/sldb/store/graph/backend/index_view.py
+- src/sldb/store/graph/language/predicate_ast.py
+- src/sldb/store/graph/language/predicate_atoms.py
+- src/sldb/store/graph/language/predicate_leaves.py
+- src/sldb/store/graph/language/predicate_view.py
+- src/sldb/store/graph/language/semantic_scope.py
+- tests/test_rules_semantic_tag_predicate.py
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento
 ---
 
 # una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG

@@ -1,0 +1,25 @@
+name: materialization-rule-model-tag-docs-architecture-rules-md
+path: desk/materializations/materialization-rule-model-tag-docs-architecture-rules-md.md
+source_hash: 24264dc47dc2e2b0bb0c93b013993749bd57b7beac68bd6b676b459c6a38acc8
+content_hash: ffcd8b715edc8ef1eaaeaa4cdb938e7d1c6a811434cc0eb18c6adf4ea1ba7170
+field_hashes:
+  id: 47dc08a5c89d00d44858afd41412c8297ce28f63544f8f6b953ad2c7552fa433
+  title: c48ba2c9892705d8b49e479939025480f435e0c7f5ca2af965628756b67ef2db
+  source_atoms: 32ee47361632bd0dc727fec016356524ce689559a280f4e512134058acc5a4d6
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: a4f4b6d82737b656993db03d26071068b81b46143e0e838c4caa9519a885696e
+  intent: bffa932a9b13144fc0df921dc916ef76f987e62d08ae7692475afe1d7b6474ad
+  validation: 2e04c9b084040ef2e783322f42c7a847eaae2713191521bca4a1a00bb48f4871
+  tags: e11b93de3e8a452ec1af9c3863226d4ab61700d3f3f6439df0da7d304e5f3228
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rule-model-tag
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T00:21:22Z'
+  authority: generated
+  via: create_document

@@ -1765,6 +1765,17 @@ include:
   - desk/materializations/materialization-resolver-hueco-src-sldb-cli-serve-notations-payloads-py.md
   - desk/materializations/materialization-resolver-hueco-src-sldb-cli-serve-views-payloads-py.md
   - desk/materializations/materialization-resolver-hueco-tests-test-view-reports-unmatched-documents-py.md
+  - desk/materializations/materialization-rule-model-tag-docs-architecture-rules-language-md.md
+  - desk/materializations/materialization-rule-model-tag-docs-architecture-rules-md.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-api-rules-rule-writes-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-backend-index-semantics-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-backend-index-view-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-predicate-ast-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-predicate-atoms-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-predicate-leaves-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-predicate-view-py.md
+  - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-semantic-scope-py.md
+  - desk/materializations/materialization-rule-model-tag-tests-test-rules-semantic-tag-predicate-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3537,6 +3548,14 @@ include:
     name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-atom-1
   - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/evidence-materialization-1.md
     name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-materialization-1
+  - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-tests-1.md
+    name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-tests-1
+  - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-commit-1.md
+    name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-commit-1
+  - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-atom-1.md
+    name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-atom-1
+  - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-materialization-1.md
+    name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
