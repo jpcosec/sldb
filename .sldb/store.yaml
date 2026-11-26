@@ -1759,6 +1759,10 @@ include:
   - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-projection-style-py.md
   - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-projection-view-py.md
   - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-resolve-documents-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-resolve-view-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-cli-serve-notations-payloads-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-cli-serve-views-payloads-py.md
+  - desk/materializations/materialization-resolver-hueco-tests-test-view-reports-unmatched-documents-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3523,6 +3527,14 @@ include:
     name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-evidence-atom-1
   - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/evidence-materialization-1.md
     name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-evidence-materialization-1
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/evidence-tests-1.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-tests-1
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/evidence-commit-1.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-commit-1
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/evidence-atom-1.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-atom-1
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/evidence-materialization-1.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

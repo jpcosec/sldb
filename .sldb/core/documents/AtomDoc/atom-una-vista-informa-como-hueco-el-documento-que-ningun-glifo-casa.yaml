@@ -1,0 +1,23 @@
+name: atom-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa
+path: desk/atoms/atom-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa.md
+source_hash: 4212ef15fd145e88b7f3025cebf357f2055bdfdda51602b7377eff1b87cac316
+content_hash: 313b34df1aebe45858a84b8ca0db486e9e6129705e985470f0df6ba1671a0890
+field_hashes:
+  id: d41b4c64033218218ff151622f1b7bc6615e420524db87434c8d787f6e8759c0
+  title: 7b067d6ae3ef41cfcfc1ea6c772cef9ced5d9bcecdf4f0cd887427a76b01b1ec
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 310c4e718f63a22d5c2d7db2a8b5feba92f728e32eb4b5123c69129d71aa6d2d
+  tags: f5c1b0c6da6b631bf2a7ff436a9544382e6c2a85a67a969db61392d14b76994b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:resolver-hueco
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-26T00:01:51Z'
+  authority: generated
+  via: create_document

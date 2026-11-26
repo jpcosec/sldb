@@ -1,0 +1,25 @@
+name: materialization-resolver-hueco-src-sldb-api-notations-resolve-documents-py
+path: desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-resolve-documents-py.md
+source_hash: 0c0d1b2b5ab76a77f5795660e560a63f4449cf9efee2f261135773f0b81bf104
+content_hash: b36d29885f2a8c8b991fc7111cf748d323ce9d139a93f95aca709c1b9290cc31
+field_hashes:
+  id: ca6748574023c5432fa4c927c95d0da1c4e29a6f722810b97c18ec75f19608f7
+  title: 1582b0704df2b30d9e03c96a942dff54694d162bfbd294411cb283f10428c26d
+  source_atoms: f723aca3e10146c34d1f6d328c46f7e2f643edd8988d53d42d7e4ea9987536fa
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 508f6e168ed25ba1866c088b949d4d2c3793920ec2af985d26e9a885cc90352d
+  intent: c9a339367f046c4ee559dfd8e413c0dcf0d8aa6481a55a4b3d962cfdc7df2784
+  validation: 2e04c9b084040ef2e783322f42c7a847eaae2713191521bca4a1a00bb48f4871
+  tags: f5c1b0c6da6b631bf2a7ff436a9544382e6c2a85a67a969db61392d14b76994b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:resolver-hueco
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T00:05:41Z'
+  authority: generated
+  via: create_document

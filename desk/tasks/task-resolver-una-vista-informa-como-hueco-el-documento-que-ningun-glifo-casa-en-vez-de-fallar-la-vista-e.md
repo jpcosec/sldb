@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T23:14:52Z'
+  at: '2026-11-26T00:03:29Z'
   authority: generated
   via: save_document_payload
 id: task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e
@@ -11,15 +11,33 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- src/sldb/api/notations/node_view.py
+- src/sldb/api/notations/projection_style.py
+- src/sldb/api/notations/projection_view.py
+- src/sldb/api/notations/resolve_documents.py
+- src/sldb/api/notations/resolve_view.py
+- src/sldb/cli/serve/notations_payloads.py
+- src/sldb/cli/serve/views_payloads.py
+- tests/test_view_reports_unmatched_documents.py
+- 3407e6647115a74faa0e7b61177544fefca88475
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/notations/node_view.py
+- src/sldb/api/notations/projection_style.py
+- src/sldb/api/notations/projection_view.py
+- src/sldb/api/notations/resolve_documents.py
+- src/sldb/api/notations/resolve_view.py
+- src/sldb/cli/serve/notations_payloads.py
+- src/sldb/cli/serve/views_payloads.py
+- tests/test_view_reports_unmatched_documents.py
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa
 ---
 
 # resolver una vista informa como hueco el documento que ningún glifo casa, en vez de fallar la vista entera
