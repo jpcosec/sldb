@@ -1046,6 +1046,8 @@ include:
     name: run-deskops-t-bc5c42713572
   - path: runs/subagents/exec-deskops-t-3030c5ff20c0-testing/run.md
     name: run-deskops-t-3030c5ff20c0
+  - path: runs/subagents/exec-deskops-e-e53642222cf7/run.md
+    name: run-deskops-e-e53642222cf7
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1753,6 +1755,10 @@ include:
   - desk/materializations/materialization-propose-changes-valida-src-sldb-store-edge-index-resolve-py.md
   - desk/materializations/materialization-propose-changes-valida-tests-mcp-test-write-tools-py.md
   - desk/materializations/materialization-propose-changes-valida-tests-test-mcp-propose-rejects-invalid-edges-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-node-view-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-projection-style-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-projection-view-py.md
+  - desk/materializations/materialization-resolver-hueco-src-sldb-api-notations-resolve-documents-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
