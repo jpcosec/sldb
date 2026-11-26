@@ -26,6 +26,7 @@ markers: ⸢rev•markers⸥
 glyphs: ⸢rev,list•glyphs⸥
 links: ⸢rev,list•links⸥
 palette: ⸢optrev•palette⸥
+standard: ⸢optrev•standard⸥
 ---
 
 # ⸢rev•title⸥
@@ -49,4 +50,5 @@ palette: ⸢optrev•palette⸥
     glyphs: list[str] = Field(default_factory=list, description="Ids `GlyphDoc:<notation>.<glyph>` en orden de prioridad: el primero que casa gana.")
     links: list[str] = Field(default_factory=list, description="Ids `LinkDoc:<notation>.<link>`.")
     palette: str | None = Field(default=None, description="Id `PaletteDoc:<name>` de la paleta que usa; ausente si la notacion no usa estilo.")
+    standard: dict | None = Field(default=None, description="Estandar que implementa: `name` y `version` opcional; ausente si la notacion no declara ninguno.")
     description: str = Field(default="", description="Que dibuja la notacion y sobre que mundo.")

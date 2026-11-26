@@ -14,6 +14,35 @@ from sldb.notations.notation_constants import _NAME, ANY_RELATION, LAYOUT_KINDS
 from sldb.notations.notation_problems import notation_problems
 
 
+class StandardSpec(BaseModel):
+    """El estandar que una notacion implementa: nombre y, si se sabe, version."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str
+    version: str | None = None
+
+    @field_validator("name")
+    @classmethod
+    def _name(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("standard.name must be a non-empty name")
+        return v.strip()
+
+    @field_validator("version")
+    @classmethod
+    def _version(cls, v: str | None) -> str | None:
+        if v is None:
+            return None
+        if not v.strip():
+            raise ValueError("standard.version must be non-empty when present")
+        return v.strip()
+
+    def label(self) -> str:
+        """`<name> <version>`, o solo el nombre sin version."""
+        return f"{self.name} {self.version}" if self.version else self.name
+
+
 class NotationSpec(BaseModel):
     """Una notacion completa, tal como esta en su YAML."""
 
@@ -32,6 +61,24 @@ class NotationSpec(BaseModel):
     # paleta de la notacion (nombre builtin o ruta relativa al YAML); vacia = `default` si algun
     # glifo o link usa estilo, ninguna si no
     palette: str = ""
+    # estandar que implementa (UML, BPMN...): opcional; nombre obligatorio, version opcional
+    standard: StandardSpec | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _standard_shape(cls, data: Any) -> Any:
+        """Un `standard` sin nombre (o sin ser un mapa) se rechaza nombrando la notacion."""
+        if not isinstance(data, dict) or "standard" not in data or data["standard"] is None:
+            return data
+        who = data.get("name", "?")
+        std = data["standard"]
+        if not isinstance(std, dict):
+            raise ValueError(f"notation {who!r}: standard must be a mapping with name and optional version")
+        if not isinstance(std.get("name"), str) or not std["name"].strip():
+            raise ValueError(f"notation {who!r}: standard.name is required and must be non-empty (version alone is not a standard)")
+        if "version" in std and std["version"] is not None and (not isinstance(std["version"], str) or not std["version"].strip()):
+            raise ValueError(f"notation {who!r}: standard.version must be a non-empty string when present")
+        return data
 
     @field_validator("name")
     @classmethod

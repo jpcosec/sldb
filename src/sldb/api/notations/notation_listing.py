@@ -20,10 +20,44 @@ def store_notation_refs(store: Path | str, pythonpath: str | None) -> list[str]:
         return []
 
 
+def _standard_of(raw: Any) -> dict[str, Any] | None:
+    if isinstance(raw, dict) and isinstance(raw.get("name"), str) and raw["name"].strip():
+        return {"name": raw["name"], "version": raw.get("version")}
+    return None
+
+
+def notation_standards(store: Path | str, pythonpath: str | None) -> dict[str, dict[str, Any]]:
+    """`{<notation ref or builtin name>: {name, version}}` for the notations that declare a standard."""
+    from sldb.notations.notation_files import load_notation
+
+    out: dict[str, dict[str, Any]] = {}
+    for name in sorted(builtin_notations()):
+        try:
+            std = load_notation(name).standard
+        except Exception:
+            continue
+        if std:
+            out[name] = std.model_dump()
+    try:
+        import sldb.api as api
+
+        for d in api.load_runtime_documents(Path(store), pythonpath, include_linked=False):
+            std = _standard_of(getattr(d.payload, "get", lambda *_: None)("standard")) if d.model_name == "NotationDoc" else None
+            if std:
+                out[f"NotationDoc:{d.name}"] = std
+    except Exception:
+        pass
+    return out
+
+
 def list_notations(store: Path | str, pythonpath: str | None) -> dict[str, Any]:
-    """`{builtin_notations, builtin_palettes, store_notations}`."""
-    return {
+    """`{builtin_notations, builtin_palettes, store_notations}`, plus `standards` when a notation declares one."""
+    out: dict[str, Any] = {
         "builtin_notations": sorted(builtin_notations()),
         "builtin_palettes": sorted(builtin_palettes()),
         "store_notations": store_notation_refs(store, pythonpath),
     }
+    standards = notation_standards(store, pythonpath)
+    if standards:
+        out["standards"] = standards
+    return out

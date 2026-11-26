@@ -22,6 +22,8 @@ Los 7 modelos son subclases de `StructuredNLDoc` (`sldb.models.structured_nl_doc
 6. **`PaletteDoc`**: Definición de paleta de colores (`backgrounds` e `ink` por tema claro/oscuro), catálogo de iconos y tokens de estilo semánticos por `kind`.
 7. **`ViewDoc`**: Vista de proyección declarativa y portable sobre el grafo del almacén (`nodes`, `relations`, `direction`, `notation`, `layout`).
 
+**Estándar implementado (`standard`).** Una notación puede declarar qué estándar implementa con el campo opcional `standard: {name, version}` (en el YAML y en `NotationDoc`). Los tags semánticos no sirven: son de clase de modelo (`__semantics__`), no de cada documento, y no validan nombre ni versión. `name` es obligatorio y no vacío si `standard` está; `version` es opcional pero, si se da, no vacía. Una versión sin nombre, o un nombre vacío o de solo espacios, se rechaza con un mensaje que nombra la notación. Sin el campo la notación sigue siendo válida. `sldb notations list` agrega la clave `standards` (notación → `{name, version}`) solo si alguna lo declara; `sldb notations validate` imprime `standard: <name> <version>` (con `--json`, un objeto `{findings, standard}` en vez de la lista) solo si la notación válida lo declara. No hay reglas sobre la cobertura del estándar.
+
 ### Convergencia con GD25 en `ViewDoc` (SV-D3)
 `ViewDoc` conserva los campos de proyección de grafo y añade soporte para vistas compuestas mediante dos campos opcionales, tipados por GD25 (`docs/architecture/views.md`):
 - `params: list[ViewParam]` (`sldb.models.notation.view_param`): lista de `{name, required, default}`, referenciados como `{name}` en el `select` de las secciones.

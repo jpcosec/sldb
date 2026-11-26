@@ -51,5 +51,6 @@ def notation_payload(notation: Any, palette: Any) -> dict[str, Any]:
         "glyphs": [glyph_ref(notation.name, g.id) for g in notation.glyphs],
         "links": [link_ref(notation.name, l.id) for l in notation.links],
         "palette": palette_ref(palette.name) if palette is not None else None,
+        "standard": notation.standard.model_dump() if notation.standard else None,
         "description": notation.description,
     }
