@@ -26,28 +26,41 @@ def _standard_of(raw: Any) -> dict[str, Any] | None:
     return None
 
 
-def notation_standards(store: Path | str, pythonpath: str | None) -> dict[str, dict[str, Any]]:
-    """`{<notation ref or builtin name>: {name, version}}` for the notations that declare a standard."""
+def _builtin_standard(name: str) -> dict[str, Any] | None:
     from sldb.notations.notation_files import load_notation
 
-    out: dict[str, dict[str, Any]] = {}
-    for name in sorted(builtin_notations()):
-        try:
-            std = load_notation(name).standard
-        except Exception:
-            continue
-        if std:
-            out[name] = std.model_dump()
+    try:
+        std = load_notation(name).standard
+    except Exception:
+        return None
+    return std.model_dump() if std else None
+
+
+def _builtin_standards() -> dict[str, dict[str, Any]]:
+    found = {name: _builtin_standard(name) for name in sorted(builtin_notations())}
+    return {name: std for name, std in found.items() if std}
+
+
+def _doc_standard(d: Any) -> dict[str, Any] | None:
+    if d.model_name != "NotationDoc":
+        return None
+    return _standard_of(getattr(d.payload, "get", lambda *_: None)("standard"))
+
+
+def _store_standards(store: Path | str, pythonpath: str | None) -> dict[str, dict[str, Any]]:
     try:
         import sldb.api as api
 
-        for d in api.load_runtime_documents(Path(store), pythonpath, include_linked=False):
-            std = _standard_of(getattr(d.payload, "get", lambda *_: None)("standard")) if d.model_name == "NotationDoc" else None
-            if std:
-                out[f"NotationDoc:{d.name}"] = std
+        docs = api.load_runtime_documents(Path(store), pythonpath, include_linked=False)
+        found = {f"NotationDoc:{d.name}": _doc_standard(d) for d in docs}
     except Exception:
-        pass
-    return out
+        return {}
+    return {ref: std for ref, std in found.items() if std}
+
+
+def notation_standards(store: Path | str, pythonpath: str | None) -> dict[str, dict[str, Any]]:
+    """`{<notation ref or builtin name>: {name, version}}` for the notations that declare a standard."""
+    return {**_builtin_standards(), **_store_standards(store, pythonpath)}
 
 
 def list_notations(store: Path | str, pythonpath: str | None) -> dict[str, Any]:

@@ -26,6 +26,7 @@ def test_every_read_tool_leaves_the_store_untouched(mcp, store_copy: Path, copy_
         ("neighborhood", {"node": item, "direction": "both", "depth": 2}),
         ("list_views", {}),
         ("resolve_view", {"view": "board"}),
+        ("anchors_resolve", {"target": str(next(store_copy.rglob("*.md")).relative_to(store_copy))}),
         ("check_integrity", {}),
         ("list_signals", {}),
     ]:

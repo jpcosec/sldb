@@ -5,55 +5,11 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
-from typing import Any, Callable
-
-import yaml
+from typing import Any
 
 from sldb.cli.commands.notations_validate_store import _STORE_MODELS, _check_store_document, _store_has
-from sldb.core.finding import Finding, alert, error
-
-Check = Callable[[str], None]
-
-
-def _check_notation(target: str) -> None:
-    from sldb.notations.notation_files import load_notation
-
-    load_notation(target)
-
-
-def _check_palette(target: str) -> None:
-    from sldb.notations.palette_checks import check_palette
-    from sldb.notations.palette_files import load_palette
-
-    check_palette(load_palette(target))
-
-
-def _check_spec(target: str) -> None:
-    from sldb.api.notations.spec_models import load_spec, validate_spec
-
-    validate_spec(load_spec(target))
-
-
-_CHECKS: dict[str, Check] = {"notation": _check_notation, "palette": _check_palette, "spec": _check_spec}
-
-
-def _root_keys(path: Path) -> set[str]:
-    """Root keys of a YAML/JSON file (JSON is YAML); empty if unreadable or not a mapping."""
-    try:
-        raw = yaml.safe_load(path.read_text(encoding="utf-8"))
-    except (yaml.YAMLError, OSError, UnicodeDecodeError):
-        return set()
-    return set(raw) if isinstance(raw, dict) else set()
-
-
-def _kinds_of_file(path: Path) -> list[str]:
-    keys = _root_keys(path)
-    if keys & {"palette", "colors"}:
-        return ["palette"]
-    if "type" in keys:
-        return ["spec"]
-    return ["notation"]
-
+from sldb.cli.commands.notations_validate_checks import _CHECKS, _ambiguity, _kinds_of_file
+from sldb.core.finding import Finding, error
 
 def _kinds_of_name(name: str, store: str | None) -> list[str]:
     from sldb.notations.notation_files import builtin_notations
@@ -94,12 +50,6 @@ def _file_or_name_kinds(target: str, store: str | None) -> list[str]:
     return _kinds_of_name(target, store)
 
 
-def _ambiguity(target: str, kinds: list[str]) -> list[Finding]:
-    if len(kinds) < 2 or Path(target).is_file():
-        return []
-    return [alert("notations/ambiguous-name", target, f"{target!r} exists as {' and '.join(kinds)}; validating the {kinds[0]}", "pass a path to validate the other one")]
-
-
 def validate_target(target: str, store: str | None = None) -> tuple[list[Finding], bool]:
     """`(findings, known)`; `known` is False when the target is neither a file nor a known name."""
     kinds = _file_or_name_kinds(target, store)
@@ -109,36 +59,48 @@ def validate_target(target: str, store: str | None = None) -> tuple[list[Finding
     return _ambiguity(target, kinds) + ([found] if found else []), True
 
 
+def _declared_standard(target: str, store: str | None) -> dict[str, Any] | None:
+    if _builtin_or_file("notation", target):
+        from sldb.notations.notation_files import load_notation
+
+        std = load_notation(target).standard
+        return std.model_dump() if std else None
+    from sldb.api.notations.notation_listing import notation_standards
+
+    return notation_standards(store or ".", None).get(f"NotationDoc:{target}")
+
+
 def _standard_shown(target: str, store: str | None, findings: list[Finding]) -> dict[str, Any] | None:
     """The `{name, version}` a valid notation declares, else None (no field, not a notation, or invalid)."""
     if any(f.level == "error" for f in findings) or "notation" not in _file_or_name_kinds(target, store):
         return None
     try:
-        if _builtin_or_file("notation", target):
-            from sldb.notations.notation_files import load_notation
-
-            std = load_notation(target).standard
-            return std.model_dump() if std else None
-        from sldb.api.notations.notation_listing import notation_standards
-
-        return notation_standards(store or ".", None).get(f"NotationDoc:{target}")
+        return _declared_standard(target, store)
     except Exception:
         return None
 
 
-def validate(args: Any) -> int:
-    """Print the findings (text, or JSON with --json); exit 0, 1 on errors, 2 on an unknown target."""
+def _print_json(findings: list[Finding], standard: dict[str, Any] | None) -> None:
+    listed = [f.as_dict() for f in findings]
+    print(json.dumps({"findings": listed, "standard": standard} if standard else listed, indent=2, ensure_ascii=False))
+
+
+def _report(args: Any, findings: list[Finding]) -> None:
     from sldb.cli import alert_sink
 
+    standard = _standard_shown(args.target, args.store, findings)
+    if args.json:
+        _print_json(findings, standard)
+    alert_sink.report(findings, text=not args.json)
+    if standard and not args.json:
+        print(f"standard: {standard['name']}" + (f" {standard['version']}" if standard.get("version") else ""))
+
+
+def validate(args: Any) -> int:
+    """Print the findings (text, or JSON with --json); exit 0, 1 on errors, 2 on an unknown target."""
     findings, known = validate_target(args.target, args.store)
     if not known:
         print(f"unknown notation, palette or spec: {args.target}", file=sys.stderr)
         return 2
-    standard = _standard_shown(args.target, args.store, findings)
-    if args.json:
-        listed = [f.as_dict() for f in findings]
-        print(json.dumps({"findings": listed, "standard": standard} if standard else listed, indent=2, ensure_ascii=False))
-    alert_sink.report(findings, text=not args.json)
-    if standard and not args.json:
-        print(f"standard: {standard['name']}" + (f" {standard['version']}" if standard.get("version") else ""))
+    _report(args, findings)
     return 1 if any(f.level == "error" for f in findings) else 0

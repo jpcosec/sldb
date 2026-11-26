@@ -64,7 +64,8 @@ def test_create_document_writes_nothing_for_a_payload_the_model_rejects(api_stor
     assert not out.exists()
 
 
-def test_cli_docs_create_names_the_document(api_store, capsys):
+def test_cli_docs_create_names_the_document(api_store, capsys, monkeypatch):
+    monkeypatch.chdir(api_store.root)
     argv = ["docs", "create", "--model", "TicketDoc", "-o", "cli.md", "--name", "from-cli", json.dumps(PAYLOAD), "--store", str(api_store.store), "--pythonpath", api_store.pythonpath]
     assert cli_main(argv) == 0
     assert "Created and tracked 'from-cli'" in capsys.readouterr().out

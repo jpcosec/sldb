@@ -11,17 +11,15 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from sldb.api.documents.batch_simulation import simulated
 from sldb.api.documents.document_lookup import find_doc
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.stores.store_location import StoreLocation
 from sldb.core.exceptions import SLDBError
 from sldb.store.io import load_store_index
-from sldb.store.edge_index.doc_kinds import relation_edge, relation_type_contribution
 from sldb.store.edge_index.edge_index import EdgeIndex
-from sldb.store.edge_index.node_ids import RELATION_MODEL, RELATION_TYPE_MODEL, doc_node_id, relation_type_node_id
-from sldb.store.edge_index.resolve import resolve_authored
+from sldb.store.edge_index.node_ids import RELATION_MODEL, RELATION_TYPE_MODEL
 from sldb.store.edge_index.validation import validate_edge_index_by_store
-from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 _EDGE = re.compile(r"^edge (?P<source>\S+) -\[(?P<type>.+?)\]-> (?P<target>\S+): (?P<what>.*)$", re.S)
 _RELATION = re.compile(r"^relation '(?P<doc>.*?)': (?P<end>source|target) '(?P<id>.*)' is not a tracked document$", re.S)
@@ -38,7 +36,7 @@ def batch_edge_violations(location: StoreLocation, changes: list[dict[str, Any]]
     if not any(c["model"] in _EDGE_MODELS for c in changes):
         return []  # a plain document's creation cannot violate an edge: the index is not even read
     base = load_edge_index(location.store_path, True)
-    index, authored, problems = _simulated(base, changes)
+    index, authored, problems = simulated(base, changes)
     if index is base:
         return []
     known = set(_errors(base))
@@ -61,49 +59,6 @@ def _errors(index: EdgeIndex) -> list[str]:
     return own + linked
 
 
-def _simulated(base: EdgeIndex, changes: list[dict[str, Any]]) -> tuple[EdgeIndex, dict[str, dict[str, Any]], list[str]]:
-    """The index after the batch, the batch's live relations (doc name -> payload) and the
-    problems composing them found."""
-    nodes, relations, edges, added = dict(base.nodes), {}, list(base.edges), []
-    replaced: set[str] = set()
-    for change in changes:
-        name, model, action = change["id"], change.get("model"), change["action"]
-        if model == RELATION_MODEL and action in ("create", "update", "delete"):
-            replaced.add(name)
-            relations.pop(name, None)
-            if action != "delete" and isinstance(change.get("payload"), dict):
-                relations[name] = change["payload"]
-        elif model == RELATION_TYPE_MODEL:
-            added += _relation_type(nodes, edges, change)
-        elif action == "create" and isinstance(model, str):
-            nodes.setdefault(doc_node_id(f"{model}:{name}"), EdgeNodeRecord(id=doc_node_id(f"{model}:{name}"), node_type=model, semantics={"name": name, "model": model}))
-    if not replaced and not relations and nodes == base.nodes and not added:
-        return base, {}, []
-    edges = [e for e in edges if e.metadata.get("relation_doc") not in replaced or e.metadata.get("origin") != "relation_doc"] + added
-    problems: list[str] = []
-    for name, payload in relations.items():
-        composed, bad = resolve_authored(relation_edge(name, payload), nodes)
-        edges += composed
-        problems += bad
-    return EdgeIndex(nodes=nodes, edges=edges), relations, problems
-
-
-def _relation_type(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord], change: dict[str, Any]) -> list[EdgeRecord]:
-    """A RelationTypeDoc of the batch: its node (and schema edges) replace the document's old
-    ones; `edges` without the old, the new edges returned."""
-    name = change["id"]
-    gone = {k for k, n in nodes.items() if n.node_type == "relation_type" and n.semantics.get("doc") == name}
-    for key in gone:
-        del nodes[key]
-    edges[:] = [e for e in edges if e.source not in gone]
-    payload = change.get("payload")
-    if change["action"] == "delete" or not isinstance(payload, dict) or not payload.get("name"):
-        return []
-    part = relation_type_contribution(name, payload)
-    nodes.update({n.id: n for n in part.nodes})
-    return part.edges
-
-
 def _export(node_id: str) -> str:
     return node_id[len(_DOCUMENT):] if node_id.startswith(_DOCUMENT) else node_id
 
@@ -117,10 +72,14 @@ def _violations(message: str, authored: dict[str, dict[str, Any]]) -> list[dict[
         code = "condition" if m["what"].startswith("condition does not parse") else "types"
         return [_entry(code, message, _doc_of(authored, _export(m["source"]), m["type"], _export(m["target"])), _export(m["source"]), m["type"], _export(m["target"]))]
     if (m := _CARDINALITY.match(message)) is not None:
-        node, side = _export(m["node"]), m["side"]
-        behind = [(n, p) for n, p in authored.items() if p.get("relation_type") == m["type"] and p.get("source_id" if side == "targets" else "target_id") == node]
-        return [_entry("cardinality", message, n, p["source_id"], m["type"], p["target_id"]) for n, p in behind] or [_entry("cardinality", message, None, node if side == "targets" else "", m["type"], "" if side == "targets" else node)]
+        return _cardinality(message, m, authored)
     return [_entry("types", message, None, "", "", "")]
+
+
+def _cardinality(message: str, m: re.Match[str], authored: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    node, side = _export(m["node"]), m["side"]
+    behind = [(n, p) for n, p in authored.items() if p.get("relation_type") == m["type"] and p.get("source_id" if side == "targets" else "target_id") == node]
+    return [_entry("cardinality", message, n, p["source_id"], m["type"], p["target_id"]) for n, p in behind] or [_entry("cardinality", message, None, node if side == "targets" else "", m["type"], "" if side == "targets" else node)]
 
 
 def _doc_of(authored: dict[str, dict[str, Any]], source: str, relation: str, target: str) -> str | None:

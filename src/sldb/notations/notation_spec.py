@@ -10,37 +10,10 @@ from sldb.notations.diagram_type import DiagramType
 from sldb.notations.glyph_spec import GlyphSpec
 from sldb.notations.link_spec import LinkSpec
 from sldb.notations.marker_spec import MarkerSpec
-from sldb.notations.notation_constants import _NAME, ANY_RELATION, LAYOUT_KINDS
+from sldb.notations.notation_constants import _NAME, ANY_RELATION
+from sldb.notations.notation_spec_checks import _check_layout, _check_standard_shape, _layout_by
 from sldb.notations.notation_problems import notation_problems
-
-
-class StandardSpec(BaseModel):
-    """El estandar que una notacion implementa: nombre y, si se sabe, version."""
-
-    model_config = ConfigDict(extra="forbid")
-
-    name: str
-    version: str | None = None
-
-    @field_validator("name")
-    @classmethod
-    def _name(cls, v: str) -> str:
-        if not v.strip():
-            raise ValueError("standard.name must be a non-empty name")
-        return v.strip()
-
-    @field_validator("version")
-    @classmethod
-    def _version(cls, v: str | None) -> str | None:
-        if v is None:
-            return None
-        if not v.strip():
-            raise ValueError("standard.version must be non-empty when present")
-        return v.strip()
-
-    def label(self) -> str:
-        """`<name> <version>`, o solo el nombre sin version."""
-        return f"{self.name} {self.version}" if self.version else self.name
+from sldb.notations.standard_spec import StandardSpec
 
 
 class NotationSpec(BaseModel):
@@ -70,14 +43,7 @@ class NotationSpec(BaseModel):
         """Un `standard` sin nombre (o sin ser un mapa) se rechaza nombrando la notacion."""
         if not isinstance(data, dict) or "standard" not in data or data["standard"] is None:
             return data
-        who = data.get("name", "?")
-        std = data["standard"]
-        if not isinstance(std, dict):
-            raise ValueError(f"notation {who!r}: standard must be a mapping with name and optional version")
-        if not isinstance(std.get("name"), str) or not std["name"].strip():
-            raise ValueError(f"notation {who!r}: standard.name is required and must be non-empty (version alone is not a standard)")
-        if "version" in std and std["version"] is not None and (not isinstance(std["version"], str) or not std["version"].strip()):
-            raise ValueError(f"notation {who!r}: standard.version must be a non-empty string when present")
+        _check_standard_shape(data.get("name", "?"), data["standard"])
         return data
 
     @field_validator("name")
@@ -98,21 +64,10 @@ class NotationSpec(BaseModel):
     @classmethod
     def _layout(cls, v: dict) -> dict:
         kind = v.get("kind", "graph")
-        if kind not in LAYOUT_KINDS:
-            raise ValueError(f"layout.kind {kind!r} is not one of {', '.join(LAYOUT_KINDS)}")
-        if "direction" in v and v["direction"] not in ("TB", "LR", "BT", "RL"):
-            raise ValueError(f"layout.direction {v['direction']!r} must be TB, LR, BT or RL")
-        # parametros reconocidos de kind graph: style layered|rings, ring_field para rings
-        if v.get("style") not in (None, "layered", "rings"):
-            raise ValueError(f"layout.style {v['style']!r} must be layered or rings")
+        _check_layout(kind, v)
         rest = {k: val for k, val in v.items() if k != "kind"}
         if "by" in rest:
-            if kind != "partition-lanes":
-                raise ValueError("layout.by only applies to kind partition-lanes")
-            by = rest["by"]
-            if not isinstance(by, str) or not by.strip():
-                raise ValueError("layout.by must be a non-empty field name")
-            rest["by"] = by.strip()
+            rest["by"] = _layout_by(kind, rest["by"])
         return {"kind": kind, **rest}
 
     @model_validator(mode="after")
