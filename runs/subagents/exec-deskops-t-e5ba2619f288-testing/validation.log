@@ -1,0 +1,72 @@
+# Validación — tester deskops-t-e5ba2619f288
+# Fecha: 2026-11-26
+# Entorno: TMPDIR=/tmp, PYTEST_ADDOPTS=--basetemp=/tmp/pytest-deskops-t-e5ba2619f288
+# /tmp/ws-venv no existe; se usó /workspace/sldb/.venv/bin (Python 3.13.18).
+# El venv no traía el extra mcp (el test nuevo lo salta con importorskip); se instaló mcp>=2.2,<3
+# en el mismo venv antes de correr la validación.
+
+$ python -m pytest -q tests/test_mcp_undo_across_sessions.py
+...                                                                      [100%]
+3 passed, 1 warning in 32.62s
+
+$ python -m pytest -q tests/mcp/test_write_tools.py
+.............                                                            [100%]
+13 passed, 1 warning in 28.75s
+
+$ python -m pytest -q tests/api/test_apply_batch_dry_run.py
+....                                                                     [100%]
+4 passed, 1 warning in 3.81s
+
+$ python -m pytest -q tests/api/test_apply_batch_lock.py
+....                                                                     [100%]
+4 passed, 1 warning in 5.24s
+
+$ python -m pytest -q tests/api/test_journal.py
+....                                                                     [100%]
+4 passed, 1 warning in 0.72s
+
+$ python -m pytest -q tests/api/test_provenance.py
+..........                                                               [100%]
+10 passed, 1 warning in 1.40s
+
+$ python -m pytest -q tests/api/test_transaction.py
+................                                                         [100%]
+16 passed, 1 warning in 2.84s
+
+$ python -m pytest -q tests/api/test_provenance_index.py
+...                                                                      [100%]
+3 passed, 1 warning in 0.64s
+
+$ python -m pytest -q tests/api/test_on_write_entering.py
+........                                                                 [100%]
+8 passed, 1 warning in 8.32s
+
+$ python -m pytest -q tests/api/test_write_paths_validate.py
+.....                                                                    [100%]
+5 passed, 1 warning in 1.34s
+
+$ python -m pytest -q tests -k "mcp and undo"
+...........                                                              [100%]
+11 passed, 3355 deselected, 2 warnings in 75.57s (0:01:15)
+
+$ python -m pytest -q tests/mcp/test_mutability.py
+.......                                                                  [100%]
+7 passed, 1 warning in 11.23s
+
+$ python -m pytest -q tests/mcp/test_no_writes.py
+FAILED tests/mcp/test_no_writes.py::test_every_read_tool_leaves_the_store_untouched
+1 failed, 1 passed, 1 warning in 6.66s
+# Fallo preexistente: TOOLS de test_read_tools.py incluye "anchors_resolve" (commit f68074750)
+# y test_no_writes.py no lo llama; ni el archivo de test ni esa superficie cambian en e1c2343.
+# Verificado en el padre e1c2343^: test_read_tools.py ya incluía anchors_resolve y
+# test_no_writes.py ya carecía de la llamada.
+
+$ bash tools/check.sh --fast
+── núcleo aislado ── PASS: 83 módulos cargados
+── capas ── PASS: 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+── identidad ── PASS: 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+── ejes ── PASS: 32 declarados, 1010 archivos mapeados, 0 violaciones
+── superficie ── PASS: 129 símbolos pedidos, 601 declarados, 0 violaciones
+omitidas (--fast): afirmaciones pruebas selfdoc
+TODAS LAS PUERTAS PASAN
+rc=0

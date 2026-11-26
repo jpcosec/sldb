@@ -1,0 +1,4 @@
+python -m pytest -q tests/test_mcp_undo_across_sessions.py -> 3 passed
+python -m pytest -q tests -k "mcp and undo" -> 11 passed
+bash tools/check.sh --fast -> rc 0
+full suite -n 4 (before final refactor): 5 failed: test_api_creation::cli_docs_create, mcp/test_no_writes, clean_code[batch_edges, notation_spec] (not touched by this task), clean_code[undo_batches] (fixed after)

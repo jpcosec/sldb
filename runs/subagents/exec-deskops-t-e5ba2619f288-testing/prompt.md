@@ -1,7 +1,17 @@
+Task: task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per
+Title: undo_changes deshace un cambio aplicado en una sesión anterior porque el registro de movimientos persiste en el store
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-26T01:05:58Z'
+  at: '2026-11-26T00:42:11Z'
   authority: generated
   via: save_document_payload
 id: task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per
@@ -11,49 +21,15 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- contracts/layers.toml
-- docs/architecture/journal-authority.md
-- src/sldb/api/__init__.py
-- src/sldb/api/documents/apply_batch.py
-- src/sldb/api/documents/batch_inverse.py
-- src/sldb/api/documents/batch_report.py
-- src/sldb/api/documents/nothing_to_undo.py
-- src/sldb/api/documents/provenance_stamp.py
-- src/sldb/api/documents/undo_batches.py
-- src/sldb/api/documents/undo_report.py
-- src/sldb/mcp/server.py
-- src/sldb/mcp/write/apply.py
-- src/sldb/mcp/write/undo.py
-- src/sldb/store/write_journal.py
-- tests/mcp/test_write_tools.py
-- tests/test_mcp_undo_across_sessions.py
-- e1c234372b8aaa4e48c591aeb3e8c36090d11802
+references: []
 depends_on: []
 pills: []
-files:
-- contracts/layers.toml
-- docs/architecture/journal-authority.md
-- src/sldb/api/__init__.py
-- src/sldb/api/documents/apply_batch.py
-- src/sldb/api/documents/batch_inverse.py
-- src/sldb/api/documents/batch_report.py
-- src/sldb/api/documents/nothing_to_undo.py
-- src/sldb/api/documents/provenance_stamp.py
-- src/sldb/api/documents/undo_batches.py
-- src/sldb/api/documents/undo_report.py
-- src/sldb/mcp/server.py
-- src/sldb/mcp/write/apply.py
-- src/sldb/mcp/write/undo.py
-- src/sldb/store/write_journal.py
-- tests/mcp/test_write_tools.py
-- tests/test_mcp_undo_across_sessions.py
+files: []
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior
+atoms: []
 ---
 
 # undo_changes deshace un cambio aplicado en una sesión anterior porque el registro de movimientos persiste en el store
@@ -96,3 +72,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Se aplica un lote con un servidor, se termina ese proceso, se levanta otro sobre el mismo store y undo_changes restaura el contenido de los documentos y el hash del store al valor anterior al lote. Deshacer dos veces revierte dos lotes en orden inverso. Deshacer un lote cuyo documento cambió después se rechaza con motivo y no escribe nada.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-e5ba2619f288"
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

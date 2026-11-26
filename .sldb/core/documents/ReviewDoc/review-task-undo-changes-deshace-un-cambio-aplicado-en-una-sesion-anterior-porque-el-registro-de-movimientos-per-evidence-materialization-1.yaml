@@ -1,0 +1,36 @@
+name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-evidence-materialization-1
+path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/evidence-materialization-1.md
+source_hash: 8875994eb573a27501bc43f965d70f5ed755b0c7f8e1ace789e40a59d59781ad
+content_hash: 5b94e872eaac4a353cf301b5178b5b4424a94a47d009508bca87dd6e2c4731c3
+field_hashes:
+  id: 22869eb424674d6635264e6be79b1a2c5d6dbf8e0eea87891ba1e98f1cb554e9
+  title: c6d91f80c1e191280ca10050839ac13b88b91fc48d94bfa93c08ccb74ec6ec6c
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 908c1a9d7ebc800008143a88bbc6566af71339fa7656b5b2a7981402851f7536
+  subject: d9c9f899603cc1ffa8ab61916d46cc785c0379cf8474ab6974f46ba3f57b8e5a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 550aaad5db479e19b5acef4cc45f75000e8f7e0af5b6ef508bef7322704b61f6
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4e18f90c6f7c33ba3a6585decda499b6292d80a66c45d6644cb7d77719f462a1
+  created_at: a4e5c9eea0dba6f3c665d613fbaf0ec9f8b711ffacdcacb85b956176d8026991
+  disposed_at: a4e5c9eea0dba6f3c665d613fbaf0ec9f8b711ffacdcacb85b956176d8026991
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: aefb3b066e24e1bbed33b8864f7ce04a4ae34a7a1ead423410e6b0cedd40dc90
+  disposition: 21a53203c7ff2a1e63b69cb5dff47417c28df19cae95dbc052053319ec700745
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-26T01:15:52Z'
+  authority: generated
+  via: create_document

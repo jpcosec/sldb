@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T00:56:53Z'
+  at: '2026-11-26T01:18:52Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -87,7 +87,6 @@ tasks:
 - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
 - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
 - desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md
-- desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -210,4 +209,3 @@ _Generated from the task references above._
 - El listado de specs y vistas de sldb serve trae la cobertura de atomos de cada una [draft] - Que cada entrada de /notations (specs) y /views traiga covered y total de atomos, calculados por sldb.
 - sldb serve devuelve de un CodeAnchorDoc las lineas de su fragmento y su estado intact, changed o lost [draft] - Una ruta GET de solo lectura que, dado un anchor, devuelva ruta, rango, lineas del fragmento con contexto y su estado.
 - docs/architecture/command-taxonomy.md lista cada operación de sldb una sola vez, con las cuatro caras que la exponen hoy [draft] - Una tabla de operaciones que JP pueda aprobar: cada operación con sustantivo, verbo, si lee o escribe, nivel de permiso, y el nombre con que aparece hoy en sldb.api, en la CLI, en sldb serve y en sldb mcp; con duplicados, huecos y renombres marcados y un nombre canónico propuesto.
-- undo_changes deshace un cambio aplicado en una sesión anterior porque el registro de movimientos persiste en el store [active] - Que cada lote aplicado quede registrado en el store con lo necesario para revertirlo, y que undo_changes funcione desde un proceso distinto del que lo aplicó.
