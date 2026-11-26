@@ -1,0 +1,25 @@
+name: materialization-notationdoc-estandar-docs-architecture-notations-and-views-md
+path: desk/materializations/materialization-notationdoc-estandar-docs-architecture-notations-and-views-md.md
+source_hash: 62a8b5b70a40428fc20799878721a89038f44c9ab8f2762cce92a9431cf44471
+content_hash: 22ed7670a1715098c508ac7caed0d1053cc061779a4b502335ffc55b8dd85973
+field_hashes:
+  id: 1467b93bca937411e619cf5e2861da8e0b7e320a7da429ecdca93e04f7248caf
+  title: 0c300570a2bf12d15addc0a26245675378018b22d1be30fd1e828fd8b6b86a56
+  source_atoms: bdb02c2b5ba7c844da726583e7e843d447c2e926a760228dbc557e200f613dbc
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: de8cf920ccb8a893df12b00ca132958de08a0ff691b2b248e55cde22be43b12a
+  intent: b821a5c579fbe4cec6f75134e1062b2919faaecb95ae228e6e68895a7284538c
+  validation: 2e04c9b084040ef2e783322f42c7a847eaae2713191521bca4a1a00bb48f4871
+  tags: 95a7f824d6b940ae6c86958f47f7f65eb2b47c49dc6c7c9b60049bef54b8f7d9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notationdoc-estandar
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T00:44:52Z'
+  authority: generated
+  via: create_document

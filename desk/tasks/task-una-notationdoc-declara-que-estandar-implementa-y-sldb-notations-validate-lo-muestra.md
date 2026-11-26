@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T00:33:43Z'
+  at: '2026-11-26T00:44:21Z'
   authority: generated
   via: save_document_payload
 id: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
@@ -11,15 +11,31 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- docs/architecture/notations-and-views.md
+- src/sldb/api/notations/notation_listing.py
+- src/sldb/api/notations/notation_payloads.py
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/models/notation/notation_doc.py
+- src/sldb/notations/notation_spec.py
+- tests/test_notation_declares_standard.py
+- 318a353d9a75f6f47b929e78c1994b679821d64f
 depends_on: []
 pills: []
-files: []
+files:
+- docs/architecture/notations-and-views.md
+- src/sldb/api/notations/notation_listing.py
+- src/sldb/api/notations/notation_payloads.py
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/models/notation/notation_doc.py
+- src/sldb/notations/notation_spec.py
+- tests/test_notation_declares_standard.py
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-una-notationdoc-declara-que-estandar-implementa
 ---
 
 # una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra

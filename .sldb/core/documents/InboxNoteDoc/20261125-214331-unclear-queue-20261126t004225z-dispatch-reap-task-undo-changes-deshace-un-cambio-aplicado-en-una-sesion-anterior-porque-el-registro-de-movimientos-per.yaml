@@ -1,0 +1,19 @@
+name: 20261125-214331-unclear-queue-20261126t004225z-dispatch-reap-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per
+path: desk/inbox/20261125-214331-unclear-queue-20261126t004225z-dispatch-reap-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
+source_hash: b6a16b6bdf1534b3b036293577916a42f59b86e001a5908f1ec59d812f1640bc
+content_hash: 2a09ca183bc2a8f3d373ff40845cae001f95f9ef67d1eb00441936d3d24a4864
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8188cac7158a977357cf65305b9ad88f5171ed3177771ed1357e451c0a53ff4b
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: a5542dff5c4401e2a3c9dd6cd77a4d6c4e8bafb5e6747e52a80e86c96a6e24c0
+  body: 5c5da4d67a98445252cb3ac558efb93e4b807d9c9a59bb8aa78b3b6576ab5dc7
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

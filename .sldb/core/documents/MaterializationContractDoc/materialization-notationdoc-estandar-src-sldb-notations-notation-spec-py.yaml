@@ -1,0 +1,25 @@
+name: materialization-notationdoc-estandar-src-sldb-notations-notation-spec-py
+path: desk/materializations/materialization-notationdoc-estandar-src-sldb-notations-notation-spec-py.md
+source_hash: c538ac8199336cd988463047c63af2d8160c72b3a5743bf544afce870914ed3b
+content_hash: 504033524d031d68ab87d9bd546466da0393552f66bd5c1761933d5090b081d9
+field_hashes:
+  id: 3f0310f5c3479e2a3558e6fc6966b77c6cc29f9841906d1de5046864424b282c
+  title: be059bc2468fb43c094b61994dc236f2ef556518598f3952bb352383eae7ba9a
+  source_atoms: bdb02c2b5ba7c844da726583e7e843d447c2e926a760228dbc557e200f613dbc
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: a38fba7ca010040475e370d61c1bc0f1b426081aaef45000c7100723c8ad4ae0
+  intent: b4cc78f34efdff6265af38ac09dbca74015b1cdd96305dd9f64248f010808274
+  validation: 2e04c9b084040ef2e783322f42c7a847eaae2713191521bca4a1a00bb48f4871
+  tags: 95a7f824d6b940ae6c86958f47f7f65eb2b47c49dc6c7c9b60049bef54b8f7d9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notationdoc-estandar
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-26T00:47:40Z'
+  authority: generated
+  via: create_document

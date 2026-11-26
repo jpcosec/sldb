@@ -1,0 +1,23 @@
+name: atom-una-notationdoc-declara-que-estandar-implementa
+path: desk/atoms/atom-una-notationdoc-declara-que-estandar-implementa.md
+source_hash: cf283ce75cfb118e6aa3f76ba40fc39d0be8abbd95a866b74ceaf63773723705
+content_hash: 5b5bdd0e6eadd4a07fd3aa416dcb3440d2302ebba465ea4bcb21ec06d653a3ce
+field_hashes:
+  id: cdb7ebb130a5894a6f49fcf681c0980d0813a7624e700a49076a9032a2eebcef
+  title: 82a7ce7ceaf386e2a1fdab76bd82e5edbc0604baf13d2de962b17e801fd1c4cb
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 1b2fa4a1740350778226989c36860edf8ace59b9aac87b6915adff3b2a846b4e
+  tags: 95a7f824d6b940ae6c86958f47f7f65eb2b47c49dc6c7c9b60049bef54b8f7d9
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notationdoc-estandar
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-26T00:42:43Z'
+  authority: generated
+  via: create_document

@@ -418,6 +418,7 @@ include:
   - desk/inbox/20261125-215901-suggestion-correcci-n-specir-no-lee-el-archivo-para-la-l-nea-del-import.md
   - desk/inbox/20261125-194300-unclear-c-mo-instala-un-plugin-sus-modelos-y-semillas-en-un-store.md
   - desk/inbox/20261125-194328-unclear-surface-un-plugin-declara-como-dato-la-composici-n-de-una-pantalla.md
+  - desk/inbox/20261125-214331-unclear-queue-20261126t004225z-dispatch-reap-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1778,6 +1779,13 @@ include:
   - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-predicate-view-py.md
   - desk/materializations/materialization-rule-model-tag-src-sldb-store-graph-language-semantic-scope-py.md
   - desk/materializations/materialization-rule-model-tag-tests-test-rules-semantic-tag-predicate-py.md
+  - desk/materializations/materialization-notationdoc-estandar-docs-architecture-notations-and-views-md.md
+  - desk/materializations/materialization-notationdoc-estandar-src-sldb-api-notations-notation-listing-py.md
+  - desk/materializations/materialization-notationdoc-estandar-src-sldb-api-notations-notation-payloads-py.md
+  - desk/materializations/materialization-notationdoc-estandar-src-sldb-cli-commands-notations-validate-py.md
+  - desk/materializations/materialization-notationdoc-estandar-src-sldb-models-notation-notation-doc-py.md
+  - desk/materializations/materialization-notationdoc-estandar-src-sldb-notations-notation-spec-py.md
+  - desk/materializations/materialization-notationdoc-estandar-tests-test-notation-declares-standard-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3558,6 +3566,14 @@ include:
     name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-atom-1
   - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-materialization-1.md
     name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-materialization-1
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/evidence-tests-1.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-evidence-tests-1
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/evidence-commit-1.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-evidence-commit-1
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/evidence-atom-1.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-evidence-atom-1
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/evidence-materialization-1.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

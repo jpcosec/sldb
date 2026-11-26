@@ -1,7 +1,7 @@
 name: run-deskops-e-5c9941921c07
 path: runs/subagents/exec-deskops-e-5c9941921c07/run.md
-source_hash: d4253ca3f711c8df066469afab8ade5a07b3b6ac0d4b50e46dd7f6e7cafd6e9f
-content_hash: 381c7a811a7d4a52d14c9b630dc6d74fb604ef7b6f2074c1e4cf58fdd42fef99
+source_hash: 902f7d7e7195ba8f671037db9e4c9716f7fd9ac9caee897e0c264be01f64a232
+content_hash: 5951a9ec59bbd20b4ea4aab33c13ae0800f464a7c5ec6461230024a9e0bb8bc6
 field_hashes:
   id: 686b03d8d8ea907ca1639b221adf0f86a26d3b04e36da33d96331e14ce04819c
   title: 2696671810a730aa2aea016e0499a56910a4b7b345b67d7f8268e9279f47f645
@@ -17,9 +17,9 @@ field_hashes:
   intent_at: d7216cc1525728ac1f43250b34e49dc42ed2ab13147e6d5ced59f762e32e7e12
   dispatch_confirmed_at: 323ae6b2b26f3b9be6b859b1a6ded26aba64ea04585897dbe4a8f97505aedf11
   external_ref: fba42a814cf362c5d30969ca6ac920ef7f2094076a7a89f2646eb1c490528a1a
-  ended_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  outcome: de2bc7968076346e1ae2e62d3fd6385361b3855025678cd2732d9132eb9965cb
-  commit_sha: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  ended_at: 37e5ec480bf1e35c17c6b5be426b87d10569ec0d1886aa453522f9b924b50169
+  outcome: 68e7a69974a641064a6a5ae8b1a00997939a325ec585a49e9fe82b386a21726a
+  commit_sha: 120b258507b01ff2af7359546d01a8529ca046c5eec36e29beff4045662304c5
   tags: 82b76cc5dace91279820eb1061e36da0b31e379da526bb858ab6e54f6cff9ca8
 semantic_tags:
 - representation.markdown
@@ -30,6 +30,6 @@ semantic_tags:
 - workspace.desk.runs
 provenance:
   by: agent
-  at: '2026-11-25T18:31:25Z'
+  at: '2026-11-26T00:38:35Z'
   authority: generated
   via: save_document_payload
