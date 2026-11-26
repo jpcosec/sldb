@@ -1,0 +1,36 @@
+name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-evidence-materialization-1
+path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/evidence-materialization-1.md
+source_hash: a4e222a4d01bbf04e87e0a8a28d48c2d6a286d5f64f05ad198004a1f2fe63f24
+content_hash: 129582dd7b4e1f7b860ed7d744e2fa58cae8c5d8f8ca95a7d02ab9c0f40602b0
+field_hashes:
+  id: c75ceb895b98c40bd64dd8143411038a9cd26c40c5b47b352a40148208924158
+  title: f7239206626e882ba77470f1fb1d8c7cad18d8a22aae322ab1916d9da75dca26
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: bb7ee099f4b3de6d4d1a711e0b03d727960fa1a24e65214d89a720e2fce22228
+  subject: a2ed9209cb4cc8a6ebae34707d714fd7c1048d95d72be586a73187b0e2ce9f67
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: f52abcc27cabdc06f8e4e0de2650c6721efb88bb05caf787f70279679d1e51ba
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: dcb15c17324d40683ef5005705e160515b77d9b8daa2ae791d1477adbbc71fe1
+  created_at: 4ec7969f19e727ad020e3b48d5e15ea35893f168208a5d8683a1270423ebe94e
+  disposed_at: 4ec7969f19e727ad020e3b48d5e15ea35893f168208a5d8683a1270423ebe94e
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 7c4a4c64c8966711dcd050843862a89095d49f4cc06ef559dd6096137956e84d
+  disposition: 009b23b09989510b44a846b3d80123f045121a9646b0ff3144cae429fa3b37e4
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-26T00:09:18Z'
+  authority: generated
+  via: create_document
