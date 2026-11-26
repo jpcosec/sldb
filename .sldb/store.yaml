@@ -406,11 +406,6 @@ include:
   - desk/inbox/20261125-155202-unclear-correcci-n-de-los-pedidos-c1-c9-de-deskops-del-25-11-c7-y-c8-ya-existen.md
   - desk/inbox/20261125-155542-suggestion-propuesta-concreta-para-el-ndice-del-store-complementa-la-nota-de-los-hashes-y-la-p4-de-grafo-datalog-daemon.md
   - desk/inbox/20261125-172648-suggestion-que-una-m-quina-de-estados-se-haga-respetar-el-campo-de-estado-solo-cambia-tomando-una-arista.md
-  - desk/inbox/20261125-204711-suggestion-sldb-notations-validate-acept-sin-avisar-un-yaml-con-una-clave-mapeada.md
-  - desk/inbox/20261126-001633-suggestion-sldb-fields-remove-exige-un-argumento-value-y-no-lo-usa.md
-  - desk/inbox/20261126-001649-unclear-los-padres-y-equivalencias-de-tags-declarados-a-mano-se-guardan-solo-en-sldb-cache-que-git-ignora.md
-  - desk/inbox/20261126-001705-unclear-hay-tres-vocabularios-para-el-tipo-de-un-enlace-predicates-del-store-relationtypedoc-y-los-atributos-del-modelo.md
-  - desk/inbox/20261126-001721-unclear-los-enlaces-del-texto-destino-no-entran-al-ndice-de-aristas.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1619,7 +1614,6 @@ include:
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
-  - desk/tasks/task-plan-del-refactor-del-repo-por-anillos-y-ejes-a-que-anillo-va-cada-modulo-y-que-imports-lo-impiden.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md
