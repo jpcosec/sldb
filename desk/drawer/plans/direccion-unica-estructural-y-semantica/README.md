@@ -15,7 +15,7 @@ comandos están mal armados, y eso con que no hay una sola forma de nombrar las 
 dirección estructural se escribe de cuatro maneras, ninguna cubre todo, y la semántica quedó
 dentro de `sldb legacy`. Sin una dirección única no se puede escribir la taxonomía de comandos.
 
-## Lo propuesto (D1 es de JP, 2026-11-25; el resto es propuesta sin cerrar)
+## Lo propuesto (D1, D4 y D5 son de JP; el resto es propuesta sin cerrar)
 
 | Id | Decisión |
 |---|---|
@@ -27,7 +27,7 @@ dentro de `sldb legacy`. Sin una dirección única no se puede escribir la taxon
 | D6 | Las otras escrituras pasan a ser alias de entrada y después se retiran. |
 | D7 | Lo que haya que migrar se migra; la compatibilidad con los ids actuales no limita el diseño. |
 
-D4 y D5 no están cerradas por JP.
+D4 y D5 las confirmó JP el 2026-11-26 ("esto lo definimos ayer, sí"). El plan sigue en borrador.
 
 ## Lo que no está decidido
 
