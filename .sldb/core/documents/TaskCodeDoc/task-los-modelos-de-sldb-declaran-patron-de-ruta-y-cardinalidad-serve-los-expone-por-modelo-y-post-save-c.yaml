@@ -1,7 +1,7 @@
 name: task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c
 path: desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md
 source_hash: d94e6e9fb3523acb554b7ef5abe06efe1bf736d5a43bee2963f110ea53543baa
-content_hash: b367b961dbc558093db32740cbd24324c5b2b6277a89355d6b852b2e99bf4f8a
+content_hash: 918a71eb0a2cddb3ec1e845158b32376a2b620846438a5ae9ba3dd8ba3ec1cfc
 field_hashes:
   title: d262f0846449667284133133dd6a8640a1662607a510c2bb64bfe8b6a573c2fc
   id: 8da4590ce9bffeb7a3b5541099e688f47e5c40826b9917013c8b947e8eac9100
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 539b4d938394a1e54deab4520cf2cad2a5b4a822cb3e2e9b3a06738342db8a27
   validation: 561bd58d80ec8fbfc8ce77936d7c14907b23e92e50ae58c44332b470bb76e0b6
   done_when: 5de06bd77e99e4b6b441a39965c98bc72084c0487e5fb9bd21f0ebbf04971887

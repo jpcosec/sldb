@@ -1,7 +1,7 @@
 name: task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida
 path: desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 source_hash: 8db58b84fdb1d65ff3b787edf483355dc81725b899cdf72623b97f7a0134c928
-content_hash: 8eb755ab2f986d28ae880089c0c81cc159d3d533f97c7d439bf031868509669e
+content_hash: 2c646e5d8e967c931d90cb3c0698b2db4697d396b6ba2e8ee14916c2ed82b3e2
 field_hashes:
   title: d4011e74b903303eaa308ea5932c24ea6037f61ea044b086d064416d93f8cbe6
   id: 1c5ac9fdc75125478648c197504e37cbf87b98765678a25a3966b746065ead66
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: c9dc0769e54204af2c7e32dea237459709076991dc674da022094daf24a86e0c
   validation: 39156ee3f52a884fe1026681ce0f9b626de15f11664b23a0005154a0a04cef49
   done_when: 4b6ac31c742590c09700e160a698747623c6471e25b3f21b3655026b184962e3

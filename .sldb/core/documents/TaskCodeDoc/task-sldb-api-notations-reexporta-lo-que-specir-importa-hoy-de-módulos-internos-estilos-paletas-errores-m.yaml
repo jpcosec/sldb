@@ -1,7 +1,7 @@
 name: task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m
 path: desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
 source_hash: f6b061e25b792061de3aa5ac18904fe0ada8a6196a51f0af83b9aa2390f379c0
-content_hash: fde49be1929b7b284e7beb6a37caff536c58cfcd578df70dc1f8b4ebd0783836
+content_hash: 17d1972de9f3ee1ccd805d86e164e7fc1bb0bc5d1e03b9e7b51fa9d55591afc7
 field_hashes:
   title: 4c196b3df8b137b46d5e2e2c9b6470a68d5bc959589a00889c14950682bdea72
   id: ff2eb61d015737a947d6b4c153db7b551d9630755abdc0083d2cca263c321172
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 02c7781ec37a49a0caaa4a450e907b495be002ee3bf092a6399150418f588214
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 329e9cd4bfa31bd014d5e859a8d3a8a3b8dc0f72ea789b07eb1b9bf782008ae8
   validation: 1763dd3638af8c762137e543b97616943f2d4ec8893ba81bac1d3cecf4d30b31
   done_when: 8857738c768d9925920ad27fb3773de78aecf22b09ba88be4456084052fcb219

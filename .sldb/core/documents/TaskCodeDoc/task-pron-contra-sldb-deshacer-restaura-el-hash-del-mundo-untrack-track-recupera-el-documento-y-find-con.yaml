@@ -1,7 +1,7 @@
 name: task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con
 path: desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
 source_hash: 0efad6235432490cbde6d8e90403b73abe6e111bd02edbf829e70d005a9ca5ea
-content_hash: 5f77289eb5c53b2ea535dadc92dda81c8e0c91916c052400e6de1aef38e6f582
+content_hash: 63e997c09a9607f281439faedddf82df6a8b499d0d6689b752a0d2a42f11bb33
 field_hashes:
   title: 5f5846047121b09f1848e1a24727ef7116187e0baabfdaf673ba1f304fe8b949
   id: 3f8cd46ad09713a086a8ccbf84c80a8f8ae2ba0a63c93a33d81cffdbb8df98db
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 69b39681684106cc2ffef478e4da265ca64a9564ebf31977ae8c74ea23a607b1
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: b71e0f08a64d1a9de4856d13e6300b1da1960f9485a3736628e76b57cb747bfe
   validation: 76f352c87f58231eba4351acdbcfc60e37b6244c1e5f1670e21be3b9716be3be
   done_when: c4d2a72232def7e9c43bdd7285277ea5ac866314431b5648abed5852ff09e580

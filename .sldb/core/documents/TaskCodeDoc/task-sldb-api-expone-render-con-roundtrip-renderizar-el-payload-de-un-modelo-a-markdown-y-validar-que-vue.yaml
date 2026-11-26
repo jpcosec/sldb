@@ -1,7 +1,7 @@
 name: task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue
 path: desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
 source_hash: 936b88afa36da014b5f45cd811dff75931e99f971a9225e90c13c0c3f39f6264
-content_hash: 0f6696c6d7dcc1e699cbeb4246904f69a5ff855a65ee19c84c0db785e89aa358
+content_hash: c873fe50df8c55c25fac2499096e5f9626c0943b73581eae1a17c5b7de243002
 field_hashes:
   title: d5a8d0efe7e01f0f123e971e6175d51b4e0df6d53bbacd4660111075676452ae
   id: 28f47cb35d9b4860ed85b2c3696307c4de56003211740a36f5ae6fa70c90861b
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: c53e57f8c535ec8d7b4e435637007e42771be112fc5bd3e1c40cd1487751f28d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 2effa7f500650b3244cf66db8f19c9b3c1dc1b6e1f1bae542aea933804d64595
   validation: 2530d34f6c93beb91a93608e598e98b69b59b03ea99429a4b9c851c8c22f1bbd
   done_when: 85cecb61f01e74375b58892018ba9de512c8c882fe43093578d063b184d6bff9

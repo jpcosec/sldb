@@ -1,7 +1,7 @@
 name: task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado
 path: desk/tasks/task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado.md
 source_hash: 3a5dc314f1163eba10678664d3d2a0c145c5060269c7189e230430a030ccc10a
-content_hash: 06023e7d1c3e963e9ade0bbfbfdef26bca497bd84d07000f3ef5d1268c9155f0
+content_hash: 1a5248f8e1cb91ea032b8119eb44536a72f3ca005f1107488dc81dc8d33dbc53
 field_hashes:
   title: c38f3ef4205fb1916234123b2ed3a2b04264d28f89e24d208fa8a8b4b7604027
   id: e660fed3537f3b423e84c1a743c8182bfb9c1171bda2aa62626c9d90346a4d86
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 8bc6ebf865e5f53cf971a40094b9e51e5a6581f8bebeb0ef0d622b3bc302f6a1
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 838262da18d5adba20701aca7a7c8fa4ed9694ae5b279c492ebbf1fec4fe37df
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: cff40cc0a1c7cf87d3d52840f1fd4169aff0ff9fcc811f3601bb4ed16cdc7667
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: e9dc1d3ed615a4c0b7508d35545b46a9be73e2fb997e48d18b9e2135202a2a19

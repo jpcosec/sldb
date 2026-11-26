@@ -1,7 +1,7 @@
 name: task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update
 path: desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
 source_hash: f6e1e4b19f9107814f45a2a38699bee9eecb8328b7d8e14e8df8dfdcee3cb48b
-content_hash: 5c1383aa7da95054aa66559cd912701084ecb468373003e566b070634c9ffe6c
+content_hash: 8fc66e2455d585a91d1a82790397c54f761bc5cca1670445d6a4d02e6b99c1ee
 field_hashes:
   title: bb88579ece63067425dffeb759e5d6228064b00969046c9828283e83f6bd7e0d
   id: a9212aac5464f9305466640dae7327f35f7db2ea4e9dabf7b33040680a1aabe2
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 58a25de25473df338f824d8b2019ec32878f36d9fec4c346be7eedf751926c51
   files: 9925eee4b4434785a3587c419e9547e1c281a2b4ecaa8b44aaa3883b53c62487
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: b645f8c89161f3ace81e497f3c1e5dc42f29c9aae744fb3709c548e8d33488c8
   validation: e9ecb2780cac8e81fea01859b293428459c58d5781ff5cd73958a146a54a9711
   done_when: 52d68dedff000fa2cd25ac9f52434a5fe09cca7ef87cec13e8b55a06f398ac28

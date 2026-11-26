@@ -1,7 +1,7 @@
 name: task-sw4a-sldb-serve-expone-escribir-un-anclaje-y-leer-su-estado-y-la-cobertura-por-fuente-sobre-la-api-p
 path: desk/tasks/task-sw4a-sldb-serve-expone-escribir-un-anclaje-y-leer-su-estado-y-la-cobertura-por-fuente-sobre-la-api-p.md
 source_hash: 3d0d0800f619e93603c60afef453865857f05773dc70937a29f6559d8edbae1f
-content_hash: 92aed26c2c491eb6c0a28268582a98b2d755339213b57437d7c5ba3cc39777fc
+content_hash: c1ead92346d1fad77d85bfb4e6694f78b03f6373c82805dfd813abf15b1b327a
 field_hashes:
   title: c3526eb86c1538686be9b7196e07ed16d9323fc2ddd8e6e66deca0818755f2ee
   id: 5e120e8194b1b4c1878bd585456c6e0e8e4328ee724456917da32a9fb83a5901
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 0cecf89077f64c550b57593748380a3a06c1e4405ec136c1aac98dc84db25c2c
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: e36ed3e88772df8ce725aa9f9501544e858350489c113fd62918176b11412237
   validation: c54b9323b1bd3c7feb809dc4ae6e17fbc80fc3766238aebaff59e1132a5d454f
   done_when: 0a4029f47c94cffd4c8cdac3ab3c311e647cba247864db1e81fa74168c35cb7e

@@ -1,7 +1,7 @@
 name: task-surface-deja-de-tratar-todo-field-como-bloque-usa-composition-de-segments-y-la-ruta-y-cardinalidad-d
 path: desk/tasks/task-surface-deja-de-tratar-todo-field-como-bloque-usa-composition-de-segments-y-la-ruta-y-cardinalidad-d.md
 source_hash: 839b02794c6ea02c6c0e5ad9a02b22d1f33945e488814ef1b7b242b941d0d0af
-content_hash: 8f11388ea1de8c371af8cb38737f1b4960b53ef834f9aa783698870665f898df
+content_hash: 1f4ec4a940f9b0cb295275e94faefb6f3d1a5b5ae9421ab85cf0ccea6452ef03
 field_hashes:
   title: 50f1230666925c0faba93c1f2b596b708e2cec749049c3e043bef6ca5736e25e
   id: ad414d7c0cef0fc85ac076660ec1d52b4f243e648790f9c85bbdc259a5fcd27e
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 87ffb8fa25d768dfa6f1c72d99f0d92b7c29fb2bfdae675dc4b797496b5e1ca9
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 169bcb2ca4e88cf7e8703e8237fc4760024759d7c1cc1acea04eb53e51ea9869
   validation: 1dea8b40ded4a49ca6ff3159bb7c15b3faa28fd3789455881e2abbf288983a6f
   done_when: 3c340229e3c778b126382c7f77a49e2d2af488ed79c3644594d20990d1351c37

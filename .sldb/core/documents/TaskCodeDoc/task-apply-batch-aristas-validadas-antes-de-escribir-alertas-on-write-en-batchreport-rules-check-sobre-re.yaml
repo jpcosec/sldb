@@ -1,7 +1,7 @@
 name: task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re
 path: desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
 source_hash: 0317714e199657499d0ef9ef043a76f00a885f3a4bd2ff23daee53655576c7ff
-content_hash: 6283f823aa62db4b2df5387956b0a6fbb1d36a085ee81feda3f528418e50a6d3
+content_hash: 87512686cfd45f90961643a423c8ba8177f2a2021fe480aa0dfd96ce8adfa50e
 field_hashes:
   title: e62b4e564cea1e31607da129886f669cab11920a00aa7ca65436ea3e85636b1b
   id: 505b11a4582bce0336674fa4f5a7eda214f26a4093e7c40aa0adea69d6abdf35
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 5e2449f2732ec67b99f4f7f7653ae28afd1dac8a0b7aa10f904001a09818e232
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
   done_when: 292e1e5e41d023eb6f34ee15b8079078d2d1aa7c7c9c1647ac6dadbe058f93de

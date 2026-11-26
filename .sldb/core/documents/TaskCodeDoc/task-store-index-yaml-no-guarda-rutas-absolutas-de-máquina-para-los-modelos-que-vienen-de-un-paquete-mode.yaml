@@ -1,7 +1,7 @@
 name: task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode
 path: desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
 source_hash: c446ac53cbe05feaed2b267a3f033d07a8efd09d6180ae7209cccbfceb8c0bee
-content_hash: 874d1b5ac65d59e9fc46b8bbcd8a55d9487e8f3caa68af6fa9656084a65c313a
+content_hash: 7ac02b0cd9bf5292716d7ef02c5cc8910cac28abe5fdd9cc43af46f5b3e61ed8
 field_hashes:
   title: 393deb7dcb1277a0fb10ea0bd6e794ff80c1d8268df7cab6f6f5da033846ca34
   id: 995f709da8a49abdeb779b18cbbaed9f03c2e1b655e80e603153515e988bc603
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: c0ff53cbf873cbb146597ad9bae6e53564af680cdeb8bfeb7d6da96b4e91e4c8
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: a98f7f01493ee21e8a150f4fdd6d12c1e016c6555b4d6bad5aedc0baa103e9f6
   validation: a3361b3c5f8bd552e5f2cb0621509f3abddbf07d494208bffdeba203b7749c4f
   done_when: 85bf85777777a02f23b0510435bc0d60e672f7eaad58506fc99559aed894bfa6

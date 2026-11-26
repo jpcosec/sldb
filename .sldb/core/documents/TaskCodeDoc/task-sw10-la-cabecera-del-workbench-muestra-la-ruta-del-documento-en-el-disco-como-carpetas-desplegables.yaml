@@ -1,7 +1,7 @@
 name: task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables
 path: desk/tasks/task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables.md
 source_hash: eb3591a8fdced2467d411e55394ab0fb6b17dca0fa682cb0580c149ca5281ccf
-content_hash: d2457e9c4a72c411f8b7d8468f183577f7d3498488bdc38a25c52d610b99f5c0
+content_hash: 2e3b54c1d524c9871149f97fee29b5faf7d3d12bef8694ed4ad6730f8a9c199b
 field_hashes:
   title: 551f7c59bf3831e0f694349aa67ec5d996f19ce0d08727a1db897eb529315f89
   id: f7ee59a7a135953e5ccedb16274c94d331986ded82854f09e72c6f7118e766a1
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 12ae7aeaa1f1fbe69d6b175ddae64bf0583151d071490efb8ca1e8682117a59e
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: ac2111156aa1b077b56201b22561eeb392ec5c4ec889ed20be2bd30af1d20d31
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: 3cacb7f4035e174ccbf64ac85a8d6e99c45417cbf9dd8985898fd140911fc8cf

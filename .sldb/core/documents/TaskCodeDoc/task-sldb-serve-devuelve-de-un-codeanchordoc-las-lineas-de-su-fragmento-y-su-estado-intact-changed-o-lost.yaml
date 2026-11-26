@@ -1,7 +1,7 @@
 name: task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost
 path: desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
 source_hash: 6998ebdeb0e9d0d4835f050b9ff0a10d50c5094c17b2bcfd377f4c8167b59452
-content_hash: c331a15b10c0188e5df5dd2457b732dfc9c6b981096692e320e9bb0e8c82defc
+content_hash: 0b4dc8569492116c1a0ee247c77301c7364691ec69223214fe7262e127494f94
 field_hashes:
   title: 6a7dbac1a936910e93d187e9a75cf3e8ecdf1a330e755488eb8091f1626a8dff
   id: d3639323814ae1c194459e22382229ca4758d61d0719498dac985523c2c25cfe
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 4b93823f21c51ea2f68191ec86c785d258fe8f460c94c4cf571f584ff2a5a017
   validation: 475e400b5cf81c6f2f6f4e1b31c4453abf3b33e0e51905850156b9f7e1cdca51
   done_when: e4b4530b90e675056d25417383b71acfbdaa6a5b57f5d55a94878bdfec41adac

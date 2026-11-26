@@ -1,7 +1,7 @@
 name: task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando
 path: desk/tasks/task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando.md
 source_hash: f67dcad7c745baf8fed94abe80f206ff4de430f6c3c13b92f7ca7d7caa6d0fc1
-content_hash: 8bc54a85dbeddfa10473a6430e9dfdd427f81361478aee999d0edf8778f925f4
+content_hash: 68a830bbb2d7c32a0e834cfc8dbb8d4e1a8548c4bd1fa6bb704b477cea77533b
 field_hashes:
   title: f7989f7a7f5dfd3060768e919f5f946f1a045e45f8ce6e4c67b52d40ee4d6b43
   id: ce7c1856abd4a9c854cdd46592511d171a10698101a9c72cf17db6b9a5ad1677
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 2644808e62a933a178616ec1cb595b415262ba31a6bc9e1135bd0700f03fb44d
   validation: e0f5c6a93df267be3beacc506c1d7c09d94c04cf6220b9cc8a630039d83df3a1
   done_when: 3f81f134bd4792c11a3b2be56de35a0a2093de1c5958352335406466d7fb5483

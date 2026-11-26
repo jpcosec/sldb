@@ -1,7 +1,7 @@
 name: task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en
 path: desk/tasks/task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en.md
 source_hash: 3822ad6cb6bcaa06879a259b6802b71115a8f7afc3c65f02cb03f0fc831c6c7b
-content_hash: 04212c2a96dd8ea8d537fdd498d775d0bc7400f44cb1ac04dd8ee467caaa03e0
+content_hash: 28bb09824c2901c5f076cc9f0d340bebb66c60df5356acc216926c24f314ecb1
 field_hashes:
   title: 7f80548e5628ced19c8016afd3ba12ecee53e644fa7e5f6bdcec84eb69f5457d
   id: 8ba7e175e087fa4a934f073dc1fb4a405745047a4121dc4a092d0091d041ffa2
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: c0dd2489806826cf99613c26fcab447b5db73191f154f7833249bc517177f507
   validation: f486ed9fcdf88be38ae1a4dfa225a04f500b25efe551ac7170ebe85854cd97d4
   done_when: 52f1837ee9fc51a7b9f2ce41a9041081d2cd26dba031cb4fab23c1397ae1982b

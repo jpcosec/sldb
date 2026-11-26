@@ -1,7 +1,7 @@
 name: task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr
 path: desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
 source_hash: 1f641a605277f983aad1e9125d2c7639d62e57ebbc876b6dc0a0b408970d2570
-content_hash: 046094d5fedefbcb85e34598d3c7c22910333bc9e786c61f97862c2677fce7c3
+content_hash: 7c9b4c6d3468f3c5a102eafe680a1651811eca0b9f9caa2afdc1d4f516aea46d
 field_hashes:
   title: 233d92173f4475138bec36771c2536c432b3722955b5941055f881e0940a16e2
   id: b1c595ff543163c7186522146d33e7c56c4ccfec62a1b8f656b361960fc0a00a
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 9e60baace988e16be8ce9fb2e7a6d16a438c2eceab04b20f150506b1b0c769b1
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: bae9849cf0ff149a9d260d4469d893b0ed8bc86818fa441fcf31f3dc47d3019e
   validation: e8bcc1a08f44617c3ca80b7074e7c6027408e8e962d15a654112bb8294f655fb
   done_when: 3539778ae340a5352fd89d4efd5fda424dca376e2a4788466d69e981e9df3339

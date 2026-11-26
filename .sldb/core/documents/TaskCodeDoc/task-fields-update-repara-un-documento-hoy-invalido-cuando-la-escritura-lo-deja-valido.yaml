@@ -1,7 +1,7 @@
 name: task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido
 path: desk/tasks/task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.md
 source_hash: 222aef1b9fa85d73615003d0f8090b3aaeaf531250a267126a763ea27a690695
-content_hash: 62a6d60b5dc078a029b9ae8ecc94a290157c8c02ca48fdf1247ad3ed47a874c2
+content_hash: 1085606818bc5688bbbeb9133caf8ccd1186070404ea34b059d9eeef3a262726
 field_hashes:
   title: a0717ba6bbbf84e6aefe04df8e64c4a38ab40f3c031786aa15c0d0cdc12067f7
   id: 72492dfe98021b9807b1e0ffd2e391891642a98dbb09f549443ce3d1f016d9d5
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 2f67d826e248f08c337112037c03e8077850e9972b9f78d343c149c28f1660eb
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 562db6f2a0bb79971d91b866ab6abf192ee89bf5d498ef68cb39d1ad6cc5d76f
   validation: b1adf50b6b45e8bab1d728e873317a53f0ae6dd3bf9c47f04c65e2d6491f626f
   done_when: e52b4a9455e5413348955610c791f80910f177a089aa1f244978a6df1b8e4b62

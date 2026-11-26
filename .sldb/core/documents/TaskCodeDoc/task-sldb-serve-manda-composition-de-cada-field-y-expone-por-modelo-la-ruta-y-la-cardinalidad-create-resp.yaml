@@ -1,7 +1,7 @@
 name: task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp
 path: desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
 source_hash: 96d6e4f6100fbbad884a2155a616fd259926d6eb5667c901183fb2fe436d89a3
-content_hash: fd6260c08a8240483f3d07acbca996785acea80f895cf02cd0896ae6aba3f3d3
+content_hash: 4ace7852075f826d477baefcafed9dd2d54411d75e6ad3538f70d9e9076da141
 field_hashes:
   title: 028ebd8e26c3cfc5cce644f2c6188a540ca1383b463aba21db7614010b761ffc
   id: 4ce097b67b62a904452f7fcd515ab241bc21b59ebff0b8560efed3e78af376d5
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: a419892ae17a4be6ae7bbf350cac16ecefd291c1ce304f15e77eb98572afb133
   validation: e0ffcf5502d35f4d6422dcc2b90d9f9c8b76e18d446cad88c264a25eb0d800b4
   done_when: dbc599684ad3929306503885196b8dfa076840633a391fd52be373dcf48c4a5a

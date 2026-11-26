@@ -1,7 +1,7 @@
 name: task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la
 path: desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
 source_hash: 087360d33bf76c6cdd0ac05152433e99bd5fe674de95eadae9151a1a3a517f6b
-content_hash: 9e4c0d0bbc9053ac213d6a9f45ae26adae37f9f749ff60beec14384faa39386e
+content_hash: b0c3dfd147981f2372f52a102febf960eb82aafdb1b4bb2a6ce57f8df23a2fbc
 field_hashes:
   title: 9f5149785200340e313ce76a257bd0ae9a5ffc5a83aeff5be546f868dce83527
   id: ba26020600153c0f4ecb8fcf7ac8e862ac70b1815f38c68659a8a3d1ebfed9b2
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: b300289e89838154ad9236de080b9c4e199980eb9cad2c23aef11e9d7220ce6a
   files: 4f5ca4008725741777daf0486238ea1c1c5753a9d7a892007af77656b3bb3385
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 4170136907c3cd9a7afb543c08f6bffe0ca561f4cda4991cc66613a9895c61ef
   validation: e22ad020293716b9f693f9e5eeded9abf4fdb00807854f4a1df128fb510a5985
   done_when: ef464b5d1fabb549200a7d85f1ae7904ac6553108e985f3656b79f02dc7a25b2

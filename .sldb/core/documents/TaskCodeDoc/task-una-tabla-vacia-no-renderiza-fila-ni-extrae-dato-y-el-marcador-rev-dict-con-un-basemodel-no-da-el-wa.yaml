@@ -1,7 +1,7 @@
 name: task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa
 path: desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md
 source_hash: 44dd059fb2627a4d20aee0e9555ef042ebfc1171433c7a1edc68c7104fa9bf32
-content_hash: 0aa6de69067667484215ff5358188ba6e3b7b0cc9ffca81e4c30e202b978c495
+content_hash: a60ab8a14b4d2e3281cd172aed98aa483862b138ca8517e7537cc0874dbced65
 field_hashes:
   title: 6eee82cc7d332060e8e652426780fa28c2322eb0adaebaa4a857e24101930327
   id: 1c4da96e9d547c02bb20905f9ee047274c57db6ae548e9801e28e061f6a8f4a1
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 538e4709eb5e9ce2fbf8e8269e3a0a0910c478b64de511face75fc19ccd2b88e
   validation: de2fee6d67146804e6014ca009107d44157ef76aa5e152d76ff1257c9cdb0809
   done_when: d0b247ce476ee780620500553969a6e27f3f0d5fc1115d819c6c0092fc8a95de

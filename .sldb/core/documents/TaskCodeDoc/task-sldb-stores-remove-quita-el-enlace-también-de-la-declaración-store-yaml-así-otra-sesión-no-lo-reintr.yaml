@@ -1,7 +1,7 @@
 name: task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr
 path: desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
 source_hash: 912be95ae32acce9a0f50656f05eaec81ee9827444e7de79404573e99f5e8d61
-content_hash: 39a100f47f7b28ed6cecb7eee301fcb52190d293b9a2f434ec2d1b904380d6b6
+content_hash: 0160cbda9b30ddcbb61fa393c7ca5b1cee1e0108b48c9317a967c67b033c739d
 field_hashes:
   title: 5a3306a2302721210460eef67fd10c2427cd5a63b979d7554fe138aa03b0c9d7
   id: 2a8c40448d516db9d466316c3483aed11b0048bc762930ad195f231c251d3836
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 907939a995db34a73673baf084876b046be35e9370a8189b645caa7849a41d7b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 86917a247d85b0dda6293dafc388ca45044e8d4b78b868261fe3b5b44ef42a6b
   validation: f2516bce8ab1d71f84a305d2c2d7f3f68168353ee0197e2204137fcf5d64e223
   done_when: 9bed3444d0da73ea1797f81da6530f4e610de1353ca4fcfd5f362466f4547437

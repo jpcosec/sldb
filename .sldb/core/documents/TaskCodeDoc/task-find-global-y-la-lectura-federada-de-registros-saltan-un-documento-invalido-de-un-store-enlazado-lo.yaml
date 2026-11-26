@@ -1,7 +1,7 @@
 name: task-find-global-y-la-lectura-federada-de-registros-saltan-un-documento-invalido-de-un-store-enlazado-lo
 path: desk/tasks/task-find-global-y-la-lectura-federada-de-registros-saltan-un-documento-invalido-de-un-store-enlazado-lo.md
 source_hash: efd9b5b2c24fab68990ce88a08be30de97884ca205ebe772b89f2d852f236909
-content_hash: c0a1809cc15d29581e234b6779a2e373dfe2fe119c6748d1945abeffadace8af
+content_hash: fca4749371115d5d8da3eace618c5d910a3044a5d1751c9256d27817b48942e8
 field_hashes:
   title: 0edeed00dea262f41b7eb3dd2f8001217ae11ac05703671c4027cf1e4f0cc1da
   id: 94848de472c2af932188aa62bbedd1307f7254582dcff4ca363cb8b43128f238
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: c9ea7287c14d3accf3b6f5a4e8b5faa05b94fefc144f558349f5719addb79cf0
   validation: e0f5c6a93df267be3beacc506c1d7c09d94c04cf6220b9cc8a630039d83df3a1
   done_when: 67c83e02d892af2c699d6d0e1ebdfe3fc728cb7e910bca3d2533a6e78db8e737

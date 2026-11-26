@@ -1,7 +1,7 @@
 name: task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp
 path: desk/tasks/task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp.md
 source_hash: 247d42ce2183d70717e626b9735c1a8931341a57f909610e4cfb83b60f46e9bc
-content_hash: 86b004a22689e11df26f2aec7f3742fc8595b1b414b6a3da27fb9a08a5436f8c
+content_hash: e01aaeea0fa8ab9fe5a364c6f33262608280b43f4c9334f43cc50d556c533162
 field_hashes:
   title: ca1ef8ff777221d0b1ee365362329942d35b2d8f88d0ef4f663f30ef8182f1f4
   id: 49771e3e709d2b4f313f43c8752f9aee5dec5461fd2729b5a782a50536270178
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 601f2f135aa09036006c22a2ce279586cc8a9a7559e217607c05da655916d8da
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: bdc73bff37e80855f1f7158adc19d94fba8a81317cd1cf484b5ce0a68549d911
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: 01efb73a0cdf617f0b11a092bd8446eb2f9ecf247774e7fc9c6f809b1970d1e1

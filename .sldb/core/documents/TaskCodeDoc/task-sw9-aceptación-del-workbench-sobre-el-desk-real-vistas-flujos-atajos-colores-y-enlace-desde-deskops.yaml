@@ -1,7 +1,7 @@
 name: task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops
 path: desk/tasks/task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops.md
 source_hash: 49d43f78895f0d1e129a0f2083705772f45f2847816732ab14af6e13c2906cff
-content_hash: 8e272eda3ec851f33465cfabad43fbc3b372905b52532bbba023330a8aece8e4
+content_hash: d9a35f4d0986f42d88a6c2e07ad1cb82a21ad1975607b87268fa76560aae510c
 field_hashes:
   title: 0a0bd2f75f5af1192a4985f6a6001b974165165dab0d56d3dedb8dc007997e2a
   id: 22b2c55bb6c6d2a476bb2b03d74d4ae3e1be1f14ae0d64125f1a080ade7d773d
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 07d8bafc513d6d71b076a9921052cc3a4c1be994ed8e7e5c5660760fea1d907f
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 601f2f135aa09036006c22a2ce279586cc8a9a7559e217607c05da655916d8da
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 7478c57e978f82131d1735ff6e5cfe1b28225e406b4516e2398599c00c211c1b
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: 95334eb42aacaa0c94c224e0a88333aa2b5c1b38f585cfabf84de62214f16e12

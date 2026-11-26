@@ -1,7 +1,7 @@
 name: task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l
 path: desk/tasks/task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l.md
 source_hash: 055a7e55d2d28ab5de1aa080b16216f51ffc62a21668ca3030ee391f74f8a025
-content_hash: fd8a79283b06e0f2e06494ef97ba900f84fe2dfe7b0617879a3f74fa81104a26
+content_hash: fc8272407ec44d861760184375165193fffe44aa780879093b8dd174c6475d59
 field_hashes:
   title: ff3a21992074f6fb0adb896fb5090a0725d1850f0f9558258fb504d55b97f37d
   id: c6131ed97cbd12a4d94d68ede121a9f9dd52c3769a16b3ea0d0b2b42c3501862
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 8d96cd9ba9e1b3694f51cbde6ddbd884d231649965cc5cd7e4c56865f147edfe
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 65b9ca6cae661e7e2fec117f04bc4a521137a471b6cc8ab33d7d54bab1f043c5
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: ed4d54dc7edfb8a6f4bcbef11b31427595065bcc33ae7fb6bece9c9c3450e326
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: 6fef4d441762545ba9830baafdeb594a2bc29bb50775d342545d8121291bd6b8

@@ -1,7 +1,7 @@
 name: task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document
 path: desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
 source_hash: 02428afd921778eef831e5b7abab27b53fb1e87c98c723dcc2160ee445c4c3da
-content_hash: 6f60f0ed29648a275aad80d3a0111059896a0b36aa28ea4153f69b9b8dd5d969
+content_hash: 73d39501e3b1bafb6ab7dd71da99c1b4481192ac840a608e1cc8bf566ed4ae3a
 field_hashes:
   title: cd9a3ae3687ed97df879af86a40bb29b7f6a4ccd9edd174e44ed32d791705bc6
   id: 6dfc17c2a8ff8c6d5fd95d57f4a54546855972bb78fa87fcc3025e23ce02d023
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 0ddf580df022994bcec904f1fb53848e8aafefc92b90fcce219f39b1be478ba1
   validation: 1ad59bffa6f72f2f6a3851d2cc438e0ed5036e2c3343782cffe2ad28fea8bc33
   done_when: 00c108b7734f790035b6b6d39c558df8af35c1d12209f00b251064a00e33405e

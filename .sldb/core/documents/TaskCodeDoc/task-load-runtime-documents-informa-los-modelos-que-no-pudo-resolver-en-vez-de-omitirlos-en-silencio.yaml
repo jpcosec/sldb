@@ -1,7 +1,7 @@
 name: task-load-runtime-documents-informa-los-modelos-que-no-pudo-resolver-en-vez-de-omitirlos-en-silencio
 path: desk/tasks/task-load-runtime-documents-informa-los-modelos-que-no-pudo-resolver-en-vez-de-omitirlos-en-silencio.md
 source_hash: 829c090599ff5435fd83e3797dff585f908d3ccaa73486a141fd97fb94755d86
-content_hash: 5a68f676f757455923076cc28999ff47c34b75e807b9b22d662131c9e5ea4697
+content_hash: 287ee50bd4bc1790c5e80c98e712364105d94c784f49682b65a2dae2a8c2eef9
 field_hashes:
   title: 9bace07f2b41bb2c9fb4ef1a3da8cd19e73d564a007946071c6ab3e5e4f13f55
   id: 513bd34e3bd3e1a0834001b04c0ba818cc94753137170a3ad5f7c4e7882ea243
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 171adb1da16d2505fb5f0f1239558a1895b1cded55f35be810a85de00182ee11
   validation: f8850aeca45b2d49f2ae2e5ae917f22aaca4d9c91e3d8941a2cc52b48a38b60f
   done_when: 314cc89f17fa111fea3d64229014fd5fb5d579f043269521b7c6ad2fc89e3307

@@ -1,7 +1,7 @@
 name: task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op
 path: desk/tasks/task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op.md
 source_hash: 1bbfa6d67ff616956949961ece758cdc5889459ae1bbdc8b332b005ea467d618
-content_hash: 71ebb7ced5eb111bd0877250e8a3b067a0fcfd56e072f13d935266a743885eb2
+content_hash: c541a50be6eb0b6e3ce4426b884c82b2772e2751beadd6b88006d43384797a44
 field_hashes:
   title: cbacb473315394e12efc494a86c8bec94043fe0ef8807b0c204336d72bbecaff
   id: 4b3595a4d6b3b16df6fc64a07468ca0f9ad980fd1a1edb12d8030e35e7e41b92
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: ff4f43a2c421fadeec82a1747b09712ae69652a0ed9df7301f6d74200fb5b156
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: f54d06fffb01dfe60ea8bc4a89d85221921c42d9192c82644d2c63c0f48bbd99
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: ae6ecc59a77b22f448125786e4eb0e685385b4465bde70ec30250ab3fc20d430

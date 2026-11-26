@@ -1,7 +1,7 @@
 name: task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr
 path: desk/tasks/task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr.md
 source_hash: 421096c6b18fbcf3660742098b201d4127fa0ccea9ba41f1f8758e05332c6672
-content_hash: d729e9109a587a7476d43c35723ca9ce4f07c534c636b430ca9dd97cfcae4241
+content_hash: 75117a8b62b19f5d9a6e1dd4ee9be329cb1ef17311815b5308b1ceffbf263439
 field_hashes:
   title: 502f1d8c9cd82b312917e26a56f6e91eb3620f63c7b174fcb413046c643ac268
   id: c56c96426e9b47c23095dd3eb10495ea88ed4d4b5b5cdc1ae52d0151cd274293
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4089408d7aa4e20d0f3f2fd06b2de8a3128835973ba99ac0bbfa2008e29774c0
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: aa35ca5c1e506dc3cadc6c5b1e71f5ba7434fbf59b99d1c511c908755b983dec
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 50dce6476217b73a527591ed56b45dcdd0b6e9b01504a58a3837008ebf9f38dc
   validation: 2969803fcaf9791dde4e5975ce127c2165cb5d60cd291a7396956c938220cd9d
   done_when: 0378539ce39be3142ce7d5f35a363b160c8bdc0162609dcc849c6a0277dcc6e5

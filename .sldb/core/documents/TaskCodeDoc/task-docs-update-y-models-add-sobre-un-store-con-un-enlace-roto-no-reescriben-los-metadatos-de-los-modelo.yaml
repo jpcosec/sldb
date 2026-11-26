@@ -1,7 +1,7 @@
 name: task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo
 path: desk/tasks/task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo.md
 source_hash: a07821bbd6aae72359567b4be7b974d5edd02fbd3b36d5ac36033c298709ff04
-content_hash: 309c684a8ed3fc3a7995d4520fb2121cfd119e017313924626646e64af71b03d
+content_hash: c882fe8ca51c8c46063393a0010317b3c58926642b020aa23dbcc99bc0a5a40a
 field_hashes:
   title: 73a213e959091d3b376280f27adafd6fbbf4375eb0787f7d6826b6fe0aaa2747
   id: 6558f2629c4fb913aee7c61c5b05b4fd73ef68bc2937f46ed85d35cf25371cd1
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 7e47551ff6de1eba5e467a5872e8509ba91528582ac7f42267bf49413c286cec
   validation: e0f5c6a93df267be3beacc506c1d7c09d94c04cf6220b9cc8a630039d83df3a1
   done_when: d3226c251a5bb3f265bad29055bb3d50218e54920f9d5741b9e21ae3d59fb701

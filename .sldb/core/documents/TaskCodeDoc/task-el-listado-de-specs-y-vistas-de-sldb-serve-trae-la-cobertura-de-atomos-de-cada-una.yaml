@@ -1,7 +1,7 @@
 name: task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una
 path: desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
 source_hash: 19d72ec835eea7539f2b02599a8f0ed16162017f938df06f82af2fa9e134967d
-content_hash: 1fcba11691d7d3204c03c45fab4481945ade5699835727eeec1fdcac53b7f129
+content_hash: 0bd1de32c1d4652b1b8ce2820069ac00a6094defa342f4f74c681e3b26ee4fa7
 field_hashes:
   title: d39955f51666efdba57e873656e90e1119abede9117d48c261eacd2c4ee90461
   id: 554bf11eed9e68d096513798ced8f34f47cd2c84972e2b94df33ae7474f3ab15
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 8f98ae22b5b610a9e0af16108bda13f068c1607214ed1d8ec1cfbe0504c71f34
   validation: 6604be81410d419a9a374701e31ec60150cd58caeb8cc6b973b63e450e94dcbc
   done_when: 71b5ae0c9d74ffe6f79731e2a515734926785f71aefe46a35c51a43735baefc7

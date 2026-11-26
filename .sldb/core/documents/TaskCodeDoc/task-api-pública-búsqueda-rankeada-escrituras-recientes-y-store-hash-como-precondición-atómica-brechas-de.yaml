@@ -1,7 +1,7 @@
 name: task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de
 path: desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
 source_hash: 24056df68ef8dad1a3c2b8378f8f514082fc2a28ae087d88d06ad7d5c285b719
-content_hash: 037b5e569783028544ff21342433c3ed58e7b8ff984b892897cf699b6a39b1ff
+content_hash: 18286e41e1d1757dfc3024faa9054f810a01702b04121ddcdb8679d2d3d44cbe
 field_hashes:
   title: 4daca56ba115ca2e572f59c5ce5da55bddc0aaf58c5b2fb02baad5977f65e302
   id: 8c5ddb722809413e087938772727c05f8c2710768547d31ad288b2bd8a57396a
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
   done_when: 08abf512ccb2a839e8d8e629302e3f7d78a5de98667946b439bb761569c27c35

@@ -1,7 +1,7 @@
 name: task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t
 path: desk/tasks/task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t.md
 source_hash: cdbdb38ea1cdf75fe78544af252a272f7008d6074b8eff8e0029c45fad12f4c7
-content_hash: 19216a47fdebae93324ad1581f603c835f7989cd51a2d09e5000797b99107be9
+content_hash: 8b2d264058fe73cba28d191b00c291f0fdb5de8545e0803aaa5b0b2c07ae137e
 field_hashes:
   title: cbdadd4d24418bcf079f08e7a29d060c817b3006a9838aea1b7f23dcbda676a8
   id: 0bc7ad05fa9740fc17ff0289eeb209fcc9ea31115197abb94852a9c1aea3fde7
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 72097569d68e52d01f077dfb8004d8b5b70b6ae6906b743c37e087fb2170d2cb
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 99f2ba2143bb417fb522ab2344702d1197574f8f01c21e814dafcd8823571dc0
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: c09313d580e67e77e2b34e6e1138da6f2914729f17de742c989610216f0bb343

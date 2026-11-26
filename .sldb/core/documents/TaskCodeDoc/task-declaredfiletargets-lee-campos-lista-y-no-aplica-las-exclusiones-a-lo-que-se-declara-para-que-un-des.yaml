@@ -1,7 +1,7 @@
 name: task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des
 path: desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 source_hash: 348964f7e513a7a9db5fa18b119c7af5bcf2420791a568e5be3808a712e6f313
-content_hash: cfc72ddf88289ed03ec2ea9ad270b8f06388f2915555523cd98d044cfb5ed4eb
+content_hash: ac6557f95c35859d94ed4f0f10f1d25daf7ce99b02fa35cea85035e49141feca
 field_hashes:
   title: ae0618b86b106a09cf20400bb34940a66dea1a7ae5c8d8a3cf8ea0905d09ec11
   id: 4027ca130c8bb291367d201baff1315c27431e8bc15efe2ab6fc6c0bbe979e05
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 7d0ccd7e5d25ef7ae52a02c510fb77c0fa7dda3306dafc35496c6c91e046d411
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 3a1d83e00661f4e4a00b55f92f5504ca4a7ebf774a5e6915732e63a3dc22787d
   validation: 0ecabb1899e087bd710a3c4c4a464e06cceb318c1286ae874ba263a89ecc44e3
   done_when: 7aa5c42b7670f4981897cecffaffa26bdb332e6f9336cf795197a8ebf5e3acfc

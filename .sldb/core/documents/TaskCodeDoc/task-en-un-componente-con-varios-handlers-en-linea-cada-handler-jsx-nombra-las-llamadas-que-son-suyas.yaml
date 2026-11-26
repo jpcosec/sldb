@@ -1,7 +1,7 @@
 name: task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas
 path: desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
 source_hash: 26a4e43ce9fb64ff8f59c7db3e84b863400785582eeb9808ade891ff67d6f3c5
-content_hash: ccf4793234c842b523862c8561d78f3663aa75ecb44b3e1bc4e69d9a0d0721d0
+content_hash: 67c175ebbcf1a84a76e59e032cc99d308b1a47b5aadd15a5e5370e4f12c29043
 field_hashes:
   title: ef5dbeea673558dffcb49ad62b18e6232693c311293bd324fad4f451f627d5a1
   id: 751b7cdcee4845961b18c5eba1a2bb90c97dd2257dd792cc037fb52545d5629d
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 603f1e8ffc64b62fa035aa0ff175bc5c1b3f5abfc6948db8fbe03e9003d2ae94
   validation: 40c7669ec81e874fc86ab5277da1b71ed81b51a7a097b3554432c82b6520fc78
   done_when: 43e864e36c083f5320c00c9373117d43a8595e6fd565f7f784c91da849fee1df

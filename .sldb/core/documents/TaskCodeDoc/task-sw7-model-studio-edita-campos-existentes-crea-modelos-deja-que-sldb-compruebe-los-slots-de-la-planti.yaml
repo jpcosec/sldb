@@ -1,7 +1,7 @@
 name: task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti
 path: desk/tasks/task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti.md
 source_hash: 915672353b96f8fc1ef2de22b2bc0b71d184afc554d02ad10b2833ce46967165
-content_hash: 2046c622caafa9b14c37b05a934ada872dd2e99d01d0bf01c64f29fea9c911f9
+content_hash: 3020fee6508fbe38f4631e88c56009fb29150ab1938f84398ae8db5e482b9f7f
 field_hashes:
   title: e4af5afe0f0cffaf20921eeb6c495bffbc7d862243d28413b0f5a18364f00785
   id: ecaee70aea4afa0a58faf89731f2414dce7044f10d79cdb87e377dca2a879841
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 3f84f1a79efeeff8a4dfe25a0f8c9f90bdf971f8da1bd1dd12fb4503c02bc592
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 5d9eab3337731a88f7ae15dd57a76f36e4220a9372e9a371c5959d8e05e33658
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: 7f7850bd94cd2b4e539f947a8b0554d954af183fd7203c76ece846e8342e232d

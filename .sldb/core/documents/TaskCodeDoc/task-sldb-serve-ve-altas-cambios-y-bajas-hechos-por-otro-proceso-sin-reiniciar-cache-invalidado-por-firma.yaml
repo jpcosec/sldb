@@ -1,7 +1,7 @@
 name: task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma
 path: desk/tasks/task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma.md
 source_hash: dbd965a729d3acb0345cd9c9d77c02c68052ef046a128080f27bf5af85a3e2c1
-content_hash: 3e4645f43e76ba9e9605fa4a5143d56ba2516a149fb5a32b4491834d3b58b174
+content_hash: 2eb3f4e1d9a3a77e6079c4ce4836d85bcb29b2bd41b0848c8e01234a501ce8c7
 field_hashes:
   title: 9eceea0d48a4edca3c2abd184f97526ee23ceda99f4905d09d98e9ea801b9f5a
   id: 5d99d6626cca0f131a5dd16d49005728eb7636744f26a69b2a1619dcd4da2e91
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: d47785c85e5139c886c309d8daceb5a7238ba194e2187f50b6f959882484d516
   validation: 54a2bbaddd90bf9cf287c63f197af6155d227a542ea8b252639e2bf3454c8335
   done_when: 1d24c8c9b615825f0b51616c1cb437516044656cf27b8ac3d106bc9a5ccdd545

@@ -1,7 +1,7 @@
 name: task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o
 path: desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 source_hash: f885a08461822bc31c80434a6c6ab11889736f353505687340ffe58fa5daa52b
-content_hash: d27b4ebcb9abb0d181c5a3b6a69a46e41f442941e1cf3c802a8beb059afc0ab4
+content_hash: abe993ad2a9d3433baeb595316dfb29c19f1e349071276d69d0608e22cde7bc1
 field_hashes:
   title: d18ec1cd931640d16dafefed37ca41b652785bcb1af3f63290a372a8c40f1a16
   id: cf05a78b7b3432eb9bd61c97bb4c870b0f324a465682c98f43a6f91e0cfc80c2
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 2dcb7505377c9abf8d5a93ed668fabba384d0e9cf55e35200830dd2f573f4416
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 4bd197dc6d59025a819e66448a8f68380edad36cda1160baefeec2735c6b593c
   validation: f036eaf25ad87e4794a8631417a5edc09798bebdab107d9bfceb8f52291388fd
   done_when: 53a5b1e96ae9fba073d413d45299da6c9d8eb0bbed65c67e5e6f42a180992321

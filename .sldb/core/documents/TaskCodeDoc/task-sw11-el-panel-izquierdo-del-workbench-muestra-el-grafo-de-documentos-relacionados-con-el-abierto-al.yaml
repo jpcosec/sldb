@@ -1,7 +1,7 @@
 name: task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al
 path: desk/tasks/task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al.md
 source_hash: 5bba5e11dacab4bfca0c845a3ae52360143fe2d788febdc1f9ecaf4adcd8d0fe
-content_hash: 6955ed1b2ea8a4ff0afbb33714cb5ad1ff36ea6340c814e56cb423ec3bf48c6e
+content_hash: bc2053341032d58fca67629bfc76c993bfee9cf009221164544914960b9c342d
 field_hashes:
   title: e4f40b5eddabadfb12340da30cddb6b1ffdda5d8bdd53dececf8b4133a1fa7d7
   id: ab46d392eb98b5da12b460d4dd20bf25f8f02509ff3f7e7dff54536160f833d7
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: c4459c8ce5d4522886db16c81ac2868f043ea7a814571741d2d2a41419e17a29
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: e8c2390c8f0ab72ad73538f3d6eeb2215126f178e31c9db3c62e1149a7e61eb4
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: 1e1fe5d670219d36799df9a7da2ffa7f94f6645a04b9ce96585ba8af5895c324

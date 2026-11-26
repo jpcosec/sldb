@@ -1,7 +1,7 @@
 name: task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la
 path: desk/tasks/task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la.md
 source_hash: 89aaff82208ea080fa5989ffa0aa10a0389ba29e6edef1b12420381229a69b4b
-content_hash: ec39c061239c275b935ab8561bff4b5270cc5f0e91f509e0590c0713ad1b2b50
+content_hash: 447ec92a7fe6f2d7a66151b4d55ed1012a914e4d4325b176c362892a251d89f7
 field_hashes:
   title: c35a485410d552c3b86a77317df6cb2587e7fc63d243f4b522e68afead637398
   id: 9b69bb5d21f3e0e86643c61e6b3c2fe5c5cada087dcee12c39f1729814fb16f5
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 9b4ce4cc0b03497f9f8849112427d3396a0e3ec40e407ee78708ee83b53415a1
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 9cce69fd63f9e875047aa750ad6980976a42d6d32412af08bea6e58824fe44b4
   validation: d14ba94b564f729760c69ab3ebce28611c9ddc7227d4cb76f0ec0fd4f4889aea
   done_when: 913f3114f3d4e5044ff31d56c6c1dba8d2f1432c6ac336ac3518c0193e84e8ef

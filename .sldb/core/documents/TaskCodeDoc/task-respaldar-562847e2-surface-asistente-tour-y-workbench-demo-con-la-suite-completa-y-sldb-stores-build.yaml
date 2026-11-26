@@ -1,7 +1,7 @@
 name: task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build
 path: desk/tasks/task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build.md
 source_hash: 24d003ee49b49310b6c395eecc9fe95f5fb23135435ab1b1d58f55269920e8e6
-content_hash: 6f281ac3bed55dd95717bac419cb1dc14e505aa1159ec12c621e5f8896f0c56a
+content_hash: 416cf25037d5059a443481c5b51a76369b4ce161b65d27562cfa68af8a1d2abb
 field_hashes:
   title: 41f87b7aa0d43a648704bc72657594a63ec05c439b3adf736f605c55d1fecbe7
   id: 421c70934dcc4878de1864a6e90100a8f6341a15bddc0643f1f76107467cbfe6
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 9bad1cc10282430730015ac80be24e8cc27b300630301b487d14491c8475defa
   validation: e8433bad6c60984271028e949bcb77ed83ba859bc9c92188e3ead6cb48b66d9c
   done_when: f182ef84d05885eb586631354199d89b1a79c8de9a68ed72563229210dbd57ea

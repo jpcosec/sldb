@@ -1,7 +1,7 @@
 name: task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name
 path: desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
 source_hash: 82f4391dd624145fae2577e25c5720f84204eddd9235c770dcc53f45f1e68e14
-content_hash: 3c454e46098a5c067fefcc69fb7a67b300b00081366849de9712bd321ee653c6
+content_hash: e42149a39a69fdd6174dfda89f2cbd0a1f032d8ccf19fb314efc088efd0d1c72
 field_hashes:
   title: 4e8a02c6aec4d90abcf53b6e6d053bbef3d9af2eb3566e15f016fcf1e66638d3
   id: 4d2345bc791f5187ef967a033f0cef6899c1b6c2c74e7bddcdf2ae4d7d230dfd
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 2da58057dcb39ba78e1c5cd714bdd62a75fdbf45443de89ccf0a361e585f0dc1
   validation: a41755d68d1be4607f5d6b3baad87b84e318475ce1e06e3c511ba14bdc6d595c
   done_when: c9b16b39ab138ba7e45c7f541ae27efd30d8673440110582cad6e36f5e3a6b47

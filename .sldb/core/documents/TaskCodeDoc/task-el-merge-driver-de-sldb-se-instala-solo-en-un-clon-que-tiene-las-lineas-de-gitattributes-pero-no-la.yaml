@@ -1,7 +1,7 @@
 name: task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la
 path: desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la.md
 source_hash: 6b7a4e6b19518a9c7deaedfb907ec07456487caa16805c4bb7017a13e2bf2c82
-content_hash: 5c8e18ffc5880315e5fc1c5b35a6f66d2f3bdc146a4e171d8782ac0d9e36329c
+content_hash: 4c16b573b1c21744640034f854a696c801ddd856fa7f9e2fba1e3858485c17ac
 field_hashes:
   title: 245b32c7b1790aade63da1dd31f54a1493c0beaa8a608c8e9c366067e14d87b1
   id: d1dcd302313958551c0935e01f87976ac2dc159862825fb9ebd78f2691cfe24b
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: d00e89639b1be8d3db161c4b8e65af22ec86ef2ec5a63b092bcf0ec4f1fa6209
   validation: 7806ee681e61579b5173db687539fc318b07cb241afde2648b86dbe5b9624cbd
   done_when: c93d000fc18010c5cbad3037eec5dc897c1f63d7dd80428c820a861fe46ab114

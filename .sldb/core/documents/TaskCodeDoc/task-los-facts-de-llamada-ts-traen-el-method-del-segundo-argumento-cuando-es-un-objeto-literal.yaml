@@ -1,7 +1,7 @@
 name: task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal
 path: desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
 source_hash: 5929998e36ae720fcedc92768e462f8814b9d272968e23cdde0fc71799249f38
-content_hash: f3b2c0ade06a510664eca54b8b0b62bad9211d34f742d649913a3c082de1af71
+content_hash: 241348aeb8a78be32566b58b959cdb09214e5d7f9b50a5d82d88f5e1beb0a818
 field_hashes:
   title: 9f2d874243dee53244e16024c1c1b51b8f435b3cbf31abe164cc5e7d038f0a0c
   id: f53388c4dba240349d89d842024cdde7bdb2ca3bb62c75f139c76da6627bdcf1
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 5605402a1c051975c6e9263a1ed41cc0a04649ce558acd89143812c1a5e7a81f
   validation: 6b46be11b89f27f5b979653c0efe3a77feee07b2ba9d41fa75b861b3dbd269f2
   done_when: 9d9a2b66c6ed6eb4046cc7b5b5eb0213c38006aca9a7e848b1e3418e0bd21da2

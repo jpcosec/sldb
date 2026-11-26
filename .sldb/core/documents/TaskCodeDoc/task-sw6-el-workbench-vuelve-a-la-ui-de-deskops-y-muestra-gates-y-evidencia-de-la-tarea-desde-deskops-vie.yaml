@@ -1,7 +1,7 @@
 name: task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie
 path: desk/tasks/task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie.md
 source_hash: e28c09cc17e75ea132159ef25828a4fb92bf47701f3efb5f173025b5a793e737
-content_hash: dca4e7a9c67ac4f9597ade0d652610359060fab0a1080a4db3e6d6a5f7f5adf9
+content_hash: 82124f5d06e1acfcab8c1e965c09f3757a1230930d82635e579b32795d674b51
 field_hashes:
   title: 9d06266de00c4c9b239df474192e35aae5366062933a3138d98fb864951f5600
   id: 06be12cd30a148c56aed0f7a2459c731f0797d1634faf2bdba7d59d43cb9d0a2
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 2b5439c2080492b527085c3ede8662231ed8b778596dab2022516fc618d20edd
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 86f276f8d8750d41ecef58974966be3f3b27dc38cf9400437f5888897a802e8b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 8902a6d050cdf378ad95f3df9c7b70413480b18bcb7a40d2b198cd713a48586e
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
   done_when: c4453fc76dcb3c60a9fa0b01c4dd9f52642b63caa03c94acb7ba5342f56ac478
