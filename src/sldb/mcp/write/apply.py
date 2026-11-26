@@ -62,13 +62,12 @@ def edge_rejection(store_path: Path, proposal: Proposal) -> dict[str, Any] | Non
 
 
 def run_batch(store_path: Path, proposal: Proposal, undo: UndoStack) -> dict[str, Any]:
-    """`apply_batch` on the proposal, answered as applied, stale or refused; an applied batch's
-    inverse goes onto the session's undo stack."""
+    """`apply_batch` on the proposal, answered as applied, stale or refused; an applied
+    batch is recorded by `apply_batch` in the store's write journal, which `undo_changes` reads."""
     try:
         report = api.apply_batch(store_path, [c.batch_form() for c in proposal.changes])
     except api.ConflictError as error:
         return rejected("stale", f"the store changed after the proposal was made: {error} Read it again and propose anew.", document=error.ref)
     except Exception as error:
         return refusal(error)
-    undo.push(report.inverse)
     return applied(store_path, proposal, report)

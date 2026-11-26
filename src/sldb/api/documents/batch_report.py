@@ -15,3 +15,5 @@ class BatchReport(BaseModel):
     applied: bool = Field(default=True, description="False for a `dry_run`: the batch passed prevalidation and nothing was written (`saved` and `inverse` are empty).")
     rejections: list[dict[str, Any]] = Field(default_factory=list, description="Only for a `dry_run`: one entry per edge violation the batch would introduce (`code` types, cardinality, condition or endpoint; `relation` {source, type, target}; `relation_doc`; `message`), found on the index as it would be after the batch. A real apply does not check them: `dry_run` first.")
     planned: list[str] = Field(default_factory=list, description="Only for a `dry_run`: the change ids in the order a real apply would write them.")
+    documents: list[dict[str, Any]] = Field(default_factory=list, description="Per document the batch touched: id, action, `before` (model, path, payload it replaced; null when it created it) and `after_hash` (the content hash it left; null when it removed it). What the write journal keeps to revert the batch.")
+    batch_id: str | None = Field(default=None, description="The id the write journal gave this batch (None for a dry run).")

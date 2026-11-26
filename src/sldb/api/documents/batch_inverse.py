@@ -14,6 +14,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from sldb.models.provenance_block import read_block
+
 from sldb.api.documents.content_hash import document_content_hash
 from sldb.api.documents.batch_guards import current_payload
 from sldb.api.documents.document_lookup import find_doc
@@ -36,6 +38,18 @@ def inverse(location: StoreLocation, prior: list[dict[str, Any]]) -> list[dict[s
     return [_undo(location, noted) for noted in reversed(prior)]
 
 
+def documents(prior: list[dict[str, Any]], undo: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """The journal's per-document record: the before-image and the content hash the batch left."""
+    left = {u["id"]: u.get("expected_content_hash") for u in undo}
+    return [{"id": n["id"], "action": n["action"], "before": _before_image(n), "after_hash": left.get(n["id"])} for n in prior]
+
+
+def _before_image(noted: dict[str, Any]) -> dict[str, Any] | None:
+    if "model" not in noted:
+        return None  # the batch created it
+    return {key: noted[key] for key in ("model", "path", "payload", "provenance") if key in noted}
+
+
 def _prior(location: StoreLocation, change: dict[str, Any], pythonpath: str | None) -> dict[str, Any]:
     found = _tracked(location, change["id"])
     if found is None:
@@ -44,6 +58,7 @@ def _prior(location: StoreLocation, change: dict[str, Any], pythonpath: str | No
     noted = {"model": m_entry.name, "path": doc.path}
     if change["action"] in ("update", "delete"):
         noted["payload"] = current_payload(location, m_entry.name, doc.name, pythonpath)
+        noted["provenance"] = read_block((location.project_root / doc.path).read_text(encoding="utf-8"))
     return noted
 
 

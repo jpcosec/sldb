@@ -7,11 +7,14 @@ from pathlib import Path
 from typing import Any, Callable
 
 from sldb.api.documents.batch_edges import batch_edge_violations
-from sldb.api.documents.batch_inverse import before, inverse
+from sldb.api.documents.batch_inverse import before, documents, inverse
 from sldb.api.documents.batch_prevalidate import prevalidate_changes
 from sldb.api.documents.batch_report import BatchReport
+from sldb.api.documents.provenance_stamp import pinned_provenance
 from sldb.api.documents.transaction import Transaction, transaction
 from sldb.api.stores.open_store import open_store
+from sldb.api.actor import current_actor
+from sldb.store import write_journal
 from sldb.store.io import store_lock
 
 _ORDER = {"create": 0, "track": 0, "update": 1, "move": 2, "untrack": 3, "delete": 3}
@@ -66,7 +69,8 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
             plan = _plan(location, changes, pythonpath)
             return BatchReport(saved=[], applied=False, planned=[c["id"] for c in plan], rejections=batch_edge_violations(location, plan))
         with transaction(location.store_path, pythonpath) as tx:
-            return _run(location, tx, changes, pythonpath)
+            report = _run(location, tx, changes, pythonpath)
+        return _journaled(location, report)
 
 
 def apply_batches(store: str | Path | None, batches: list[list[dict[str, Any]]], pythonpath: str | None = None) -> list[BatchReport]:
@@ -77,20 +81,29 @@ def apply_batches(store: str | Path | None, batches: list[list[dict[str, Any]]],
     location = open_store(store)
     with store_lock(location.store_path, wait=True):
         with transaction(location.store_path, pythonpath) as tx:
-            return [_run(location, tx, changes, pythonpath) for changes in batches]
+            reports = [_run(location, tx, changes, pythonpath) for changes in batches]
+        return [_journaled(location, report) for report in reports]
 
 
-def _run(location: Any, tx: Transaction, changes: list[dict[str, Any]], pythonpath: str | None) -> BatchReport:
+def _journaled(location: Any, report: BatchReport) -> BatchReport:
+    """Record the applied batch in the store's write journal (under the lock, after the commit)."""
+    entry = write_journal.record(location.store_path, current_actor(), report.documents, report.inverse)
+    return report.model_copy(update={"batch_id": entry["batch_id"]})
+
+
+def _run(location: Any, tx: Transaction, changes: list[dict[str, Any]], pythonpath: str | None, pins: dict[str, dict[str, Any]] | None = None) -> BatchReport:
     plan = _plan(location, changes, pythonpath)
     prior = before(location, plan, pythonpath)  # what each change replaces, read under the lock
-    saved = [_applied(tx, change) for change in plan]
-    return BatchReport(saved=saved, inverse=inverse(location, prior))
+    saved = [_applied(tx, change, (pins or {}).get(change["id"])) for change in plan]
+    undo = inverse(location, prior)
+    return BatchReport(saved=saved, inverse=undo, documents=documents(prior, undo))
 
 
 def _plan(location: Any, changes: list[dict[str, Any]], pythonpath: str | None) -> list[dict[str, Any]]:
     return sorted(prevalidate_changes(location, changes, pythonpath), key=lambda change: _ORDER[change["action"]])
 
 
-def _applied(tx: Transaction, change: dict[str, Any]) -> str:
-    _APPLY[change["action"]](tx, change)
+def _applied(tx: Transaction, change: dict[str, Any], pin: dict[str, Any] | None = None) -> str:
+    with pinned_provenance(pin):
+        _APPLY[change["action"]](tx, change)
     return change["id"]

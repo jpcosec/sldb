@@ -8,8 +8,11 @@ authority a document declared survives a save; a document without one takes its 
 
 from __future__ import annotations
 
+from contextlib import contextmanager
+from contextvars import ContextVar
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Iterator
 
 from sldb.api.actor import current_actor
 from sldb.models.provenance import Provenance
@@ -17,8 +20,24 @@ from sldb.models.provenance_block import attach_block, read_block, strip_block
 from sldb.store.source_guard import read_source_bytes
 
 
+_PINNED: ContextVar[dict[str, Any] | None] = ContextVar("pinned_provenance", default=None)
+
+
+@contextmanager
+def pinned_provenance(block: dict[str, Any] | None) -> Iterator[None]:
+    """Write the documents of this block with exactly `block` as their provenance (an undo putting
+    back the one a document had, so the store hash comes back too); None pins nothing."""
+    token = _PINNED.set(block)
+    try:
+        yield
+    finally:
+        _PINNED.reset(token)
+
+
 def stamped(text: str, model_type: type, via: str, actor: str | None = None, previous: str | None = None) -> str:
     """`text` with its provenance block: the previous one when nothing else changed, else a fresh one."""
+    if _PINNED.get() is not None:
+        return attach_block(text, Provenance.from_block(_PINNED.get()).as_block())  # in the writer's key order
     before = Provenance.from_block(read_block(previous)) if previous is not None else None
     if previous is not None and strip_block(text) == strip_block(previous):
         return attach_block(text, before.as_block()) if before.declared else text

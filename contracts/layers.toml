@@ -315,9 +315,9 @@ invisible desde las dependencias del proyecto — su diseño consiste en no tene
 
 [[axis]]
 id = "bitacora"
-paths = ["store/journal", "api/journal.py"]
+paths = ["store/journal", "store/write_journal.py", "api/journal.py"]
 external = []
-does = "una entrada encadenada por hash por cada escritura, con verificación de la cadena"
+does = "el registro de lotes aplicados (before-image y hash posterior por documento) con que se deshace entre procesos; la cadena por hash retirada"
 identity = false
 
 [[axis]]

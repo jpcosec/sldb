@@ -31,8 +31,8 @@ INSTRUCTIONS = (
 WRITE_INSTRUCTIONS = (
     " Writing is two steps: propose_changes (typed changes; writes nothing and answers what "
     "would be written) and apply_changes (the proposal exactly as returned; applied whole or "
-    "not at all, or rejected with its cause). undo_changes undoes the last batches this session "
-    "applied, guarded: a document someone else wrote since refuses it."
+    "not at all, or rejected with its cause). undo_changes undoes the last batches the store's write journal holds "
+    "(even from an earlier session), guarded: a document someone else wrote since refuses it."
 )
 
 

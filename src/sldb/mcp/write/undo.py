@@ -1,4 +1,6 @@
-"""`undo_changes`: the session's stack of inverse batches, applied back with `sldb.api.apply_batch`."""
+"""`undo_changes`: the last batches of the store's write journal, reverted with `sldb.api.undo_batches`.
+The journal is in the store (docs/architecture/journal-authority.md), so any server process on the
+same store can undo what another applied; there is no redo."""
 
 from __future__ import annotations
 
@@ -12,43 +14,36 @@ from sldb.mcp.write.pending import PENDING
 
 
 class UndoStack:
-    """The inverse batch (`BatchReport.inverse`) of every proposal `apply_changes` applied in this
-    session, newest last. One per server session, in memory: it is not persisted and there is no redo."""
+    """The undo of one server over the store's write journal (nothing is kept in memory)."""
 
     def __init__(self, store_path: Path, level: int) -> None:
         self.store_path, self.level = store_path, level
-        self.batches: list[list[dict[str, Any]]] = []
 
-    def push(self, inverse: list[dict[str, Any]]) -> None:
-        """Keep the inverse of a batch just applied."""
-        self.batches.append(list(inverse))
-
-    def undo_changes(self, steps: int = 1) -> dict[str, Any]:
-        """Undo the last `steps` proposals apply_changes applied in this session, newest first. The
-        contract is 'same content, provenance aside': undoing is a new write, so it re-stamps
-        `sldb.at`, `sldb.via` and what derives from them. Each inverse is guarded by the content the
-        batch left (the document without its provenance block), so a document someone changed and
-        put back to that content is not stale. The `steps` inverses are applied as one chain, under
-        one lock and in one transaction, each checked against the state the previous one leaves:
-        whole or nothing. If any is refused (`stale`), nothing is written (`written: False`) and the
-        stack stays as it was."""
+    def undo_changes(self, steps: int = 1, batch_id: str | None = None) -> dict[str, Any]:
+        """Undo the last `steps` not-yet-reverted batches of the store, newest first (by default the
+        last one), whoever applied them and in whatever session. With `batch_id`, only if it is the
+        last not-reverted batch; otherwise it is refused with the reason. The contract is 'same
+        content, provenance aside': undoing is a new write, so it re-stamps `sldb.at`, `sldb.via`.
+        A document that changed after its batch (its content hash differs from the one the batch
+        left) refuses the undo as `stale`. The `steps` inverses are applied as one chain, in one
+        transaction: whole or nothing (`written: False` when refused)."""
         require(self.level, CONTENT, "undo_changes")
-        if steps < 1 or steps > len(self.batches):
-            return rejected("nothing_to_undo", f"asked to undo {steps} batch(es); this session has {len(self.batches)} applied batch(es) left to undo (the stack is per session and in memory)", undone=0, remaining=len(self.batches))
-        chain = list(reversed(self.batches[-steps:]))
-        reports = self._apply_chain(chain)
-        if isinstance(reports, dict):
-            return reports
-        del self.batches[-steps:]
-        undone = [{"applied": True, "saved": list(report.saved), "changes": changes} for report, changes in zip(reports, chain)]
-        return {"applied": True, "undone": len(undone), "batches": undone, "remaining": len(self.batches), "pending": [PENDING["guards_in_transaction"]]}
-
-    def _apply_chain(self, chain: list[list[dict[str, Any]]]) -> list[Any] | dict[str, Any]:
-        """The chain through `api.apply_batches` (one transaction, whole or nothing), or the refusal
-        when it fails: nothing written and the stack untouched."""
         try:
-            return api.apply_batches(self.store_path, chain)
+            report = api.undo_batches(self.store_path, steps=steps, batch_id=batch_id)
+        except api.NothingToUndo as error:
+            return rejected("nothing_to_undo", f"{error} (the write journal is the store's, not the session's)", undone=0, remaining=error.remaining)
         except api.ConflictError as error:
-            return rejected("stale", f"the store changed after that batch was applied: {error} Nothing was written; the stack is untouched.", document=error.ref, undone=0, remaining=len(self.batches))
+            return rejected("stale", f"the store changed after that batch was applied: {error} Nothing was written.", document=error.ref, undone=0, remaining=self._remaining())
         except Exception as error:
-            return {**refusal(error), "undone": 0, "remaining": len(self.batches)}
+            return {**refusal(error), "undone": 0, "remaining": self._remaining()}
+        return self._answer(report)
+
+    @staticmethod
+    def _answer(report: api.UndoReport) -> dict[str, Any]:
+        undone = [{"batch_id": b, "applied": True, "saved": saved, "changes": changes} for b, saved, changes in zip(report.undone, report.saved, report.changes)]
+        return {"applied": True, "undone": len(undone), "batches": undone, "remaining": report.remaining, "pending": [PENDING["guards_in_transaction"]]}
+
+    def _remaining(self) -> int:
+        from sldb.store import write_journal
+
+        return len(write_journal.unreverted(self.store_path))

@@ -55,3 +55,20 @@ contenido; el shard versionado, el de los hashes.
 
 Nada de esto cubre escrituras sin commit: el store refleja el estado actual del árbol y git su
 historia; entre commits, `sldb stores check` dice qué se movió contra lo indexado.
+
+## 4. El registro de lotes aplicados (2026-11-26)
+
+El journal de escrituras sueltas sigue retirado. Lo que vuelve, extendiendo el mismo sustrato y no
+como registro paralelo, es el **registro de lotes** de `apply_batch`/`apply_batches`
+(`sldb.store.write_journal`, un archivo JSON por lote en `.sldb/core/write_journal/`): id de lote,
+orden, actor y hora, y por documento su *before-image* (modelo, ruta, payload y bloque de
+procedencia; nulo si el lote lo creó) y el hash de contenido que el lote dejó (`after_hash`; nulo
+si lo borró), más el lote inverso. No cuenta en el hash del store (`store_index` hashea solo
+documentos).
+
+`sldb.api.undo_batches(store, steps=1, batch_id=None)` revierte los últimos lotes no revertidos,
+del más nuevo al más viejo, en una transacción: si el hash actual de un documento difiere del que
+el lote dejó, `ConflictError` y no escribe nada; `batch_id` solo se acepta si es el último no
+revertido. Deshacer restaura también la procedencia previa, así que el hash del store vuelve al
+valor anterior. El deshacer no es un lote del registro: marca el lote como revertido. Lo usa
+`undo_changes` del MCP, desde cualquier proceso sobre el mismo store.
