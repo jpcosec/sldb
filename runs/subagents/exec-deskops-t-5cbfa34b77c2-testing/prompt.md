@@ -1,7 +1,17 @@
+Task: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
+Title: una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-26T00:44:21Z'
+  at: '2026-11-26T00:33:43Z'
   authority: generated
   via: save_document_payload
 id: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra
@@ -11,31 +21,15 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- docs/architecture/notations-and-views.md
-- src/sldb/api/notations/notation_listing.py
-- src/sldb/api/notations/notation_payloads.py
-- src/sldb/cli/commands/notations_validate.py
-- src/sldb/models/notation/notation_doc.py
-- src/sldb/notations/notation_spec.py
-- tests/test_notation_declares_standard.py
-- 318a353d9a75f6f47b929e78c1994b679821d64f
+references: []
 depends_on: []
 pills: []
-files:
-- docs/architecture/notations-and-views.md
-- src/sldb/api/notations/notation_listing.py
-- src/sldb/api/notations/notation_payloads.py
-- src/sldb/cli/commands/notations_validate.py
-- src/sldb/models/notation/notation_doc.py
-- src/sldb/notations/notation_spec.py
-- tests/test_notation_declares_standard.py
+files: []
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-una-notationdoc-declara-que-estandar-implementa
+atoms: []
 ---
 
 # una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra
@@ -77,3 +71,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Una notación con el estándar declarado se valida y lo muestra; una sin él sigue siendo válida. Un nombre vacío o una versión sin nombre se rechaza con un mensaje que nombra el campo. La documentación de notaciones describe el campo.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-5cbfa34b77c2"
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

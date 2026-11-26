@@ -1,0 +1,63 @@
+## main...origin/main [ahead 105, behind 6]
+ M .deskops.log
+ M .gitignore
+ M .sldb/core/documents/TaskCodeDoc/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+ M desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
+ M runs/subagents/exec-deskops-e-05461eadbe5b/run.md
+ M runs/subagents/exec-deskops-e-2757adcb50b7/run.md
+ M runs/subagents/exec-deskops-e-3df853d7b92e/run.md
+ M runs/subagents/exec-deskops-e-ac95040e0234/run.md
+ M runs/subagents/exec-deskops-e-c005784dc665/run.md
+ M runs/subagents/exec-deskops-e-cded805c4439/run.md
+ M runs/subagents/exec-deskops-e-d61c09333b23/run.md
+ M runs/subagents/exec-deskops-e-e53642222cf7/run.md
+ M runs/subagents/exec-deskops-t-3030c5ff20c0-testing/run.md
+?? .herdr-coordination.md
+?? .sldb/core/documents/ReviewDoc/review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-atom-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-commit-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-materialization-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-evidence-tests-1.yaml
+?? desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-atom-1.md
+?? desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-commit-1.md
+?? desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-materialization-1.md
+?? desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/evidence-tests-1.md
+?? runs/subagents/20261125-191709/
+?? runs/subagents/20261125-191806/
+?? runs/subagents/20261125-203830/
+?? runs/subagents/20261125-203933/
+?? runs/subagents/20261125-204908/
+?? runs/subagents/20261125-205047/
+?? runs/subagents/20261125-205149/
+?? runs/subagents/20261125-205310/
+?? runs/subagents/20261125-215138/
+?? runs/subagents/20261125-215230/
+?? runs/subagents/20261125-215445/
+?? runs/subagents/20261125-215530/
+?? runs/subagents/20261125-220014/
+?? runs/subagents/20261125-220058/
+?? runs/subagents/20261125-220249/
+?? runs/subagents/20261125-220336/
+?? runs/subagents/20261125-220508/
+?? runs/subagents/20261125-220551/
+?? runs/subagents/20261125-230730/
+?? runs/subagents/20261125-230819/
+?? runs/subagents/20261125-231118/
+?? runs/subagents/20261125-231201/
+?? runs/subagents/20261125-231500/
+?? runs/subagents/20261125-231545/
+?? runs/subagents/exec-deskops-e-d61c09333b23/board.txt
+?? runs/subagents/exec-deskops-e-d61c09333b23/git-status.txt
+?? runs/subagents/exec-deskops-e-d61c09333b23/graph.txt
+?? runs/subagents/exec-deskops-e-d61c09333b23/next.txt
+?? runs/subagents/exec-deskops-e-d61c09333b23/prompt.md
+?? runs/subagents/exec-deskops-e-d61c09333b23/task.txt
+?? runs/subagents/exec-deskops-e-e53642222cf7/board.txt
+?? runs/subagents/exec-deskops-e-e53642222cf7/git-status.txt
+?? runs/subagents/exec-deskops-e-e53642222cf7/graph.txt
+?? runs/subagents/exec-deskops-e-e53642222cf7/next.txt
+?? runs/subagents/exec-deskops-e-e53642222cf7/prompt.md
+?? runs/subagents/exec-deskops-e-e53642222cf7/task.txt
+?? runs/subagents/exec-deskops-t-3030c5ff20c0-testing/prompt.md
+?? runs/subagents/exec-deskops-t-3030c5ff20c0-testing/result-summary.md
