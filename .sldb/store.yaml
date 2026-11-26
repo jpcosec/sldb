@@ -1832,6 +1832,7 @@ include:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
   - desk/tasks/task-plan-del-refactor-del-repo-por-anillos-y-ejes-a-que-anillo-va-cada-modulo-y-que-imports-lo-impiden.md
+  - desk/tasks/task-tarea-0-del-spec-mapear-a-sldb-la-wiki-del-spec-de-producto-de-sldb.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md

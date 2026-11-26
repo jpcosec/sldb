@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T13:45:29Z'
+  at: '2026-11-26T23:54:27Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -89,6 +89,7 @@ tasks:
 - desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md
 - desk/tasks/task-el-rechazo-de-aristas-invalidas-vive-en-apply-batch-real-bajo-el-mismo-lock-con-las-violaciones-como.md
 - desk/tasks/task-plan-del-refactor-del-repo-por-anillos-y-ejes-a-que-anillo-va-cada-modulo-y-que-imports-lo-impiden.md
+- desk/tasks/task-tarea-0-del-spec-mapear-a-sldb-la-wiki-del-spec-de-producto-de-sldb.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -213,3 +214,4 @@ _Generated from the task references above._
 - docs/architecture/command-taxonomy.md lista cada operación de sldb una sola vez, con las cuatro caras que la exponen hoy [draft] - Una tabla de operaciones que JP pueda aprobar: cada operación con sustantivo, verbo, si lee o escribe, nivel de permiso, y el nombre con que aparece hoy en sldb.api, en la CLI, en sldb serve y en sldb mcp; con duplicados, huecos y renombres marcados y un nombre canónico propuesto.
 - El rechazo de aristas inválidas vive en apply_batch real, bajo el mismo lock, con las violaciones como datos y no como texto [draft] - Una escritura real por sldb.api.apply_batch que viola tipos, cardinalidad o condición de un RelationTypeDoc se rechaza entera antes de escribir, dentro de la misma transacción y lock que la escritura, y cada violación sale como dato estructurado.
 - Plan del refactor del repo por anillos y ejes: a qué anillo va cada módulo y qué imports lo impiden [draft] - Un plan en desk/drawer/plans/ con su dag.yaml que diga a qué anillo (0 grafo, 1 mantener correcto, 2 store entero, 3 compuesto, caras) pertenece cada módulo de src/sldb, cuántos imports van hoy de un anillo hacia uno más externo, cuáles hay que cortar y en qué orden, y qué movimientos de carpetas quedan después. Solo planifica: no mueve ni edita código.
+- Tarea 0 del spec: mapear a SLDB la wiki del spec de producto de sldb [draft] - Cada página de la wiki del spec (objeto, operación, mecanismo, plugin, decisión, abierto) tiene dicho con qué modelo, qué aristas y qué procedencia queda como documento del store de sldb, para que la wiki pase a generarse desde el store.
