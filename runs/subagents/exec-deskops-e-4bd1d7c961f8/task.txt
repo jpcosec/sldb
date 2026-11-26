@@ -1,0 +1,9 @@
+Task: task-la-suite-de-sldb-vuelve-a-verde-cuatro-reglas-de-codigo-limpio-el-test-de-docs-create-contra-el-cwd
+Title: La suite de sldb vuelve a verde: cuatro reglas de código limpio, el test de docs create contra el cwd y anchors_resolve entre las herramientas de lectura de MCP
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

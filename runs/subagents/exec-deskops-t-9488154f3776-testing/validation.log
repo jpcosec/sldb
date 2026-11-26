@@ -1,0 +1,30 @@
+Tester: deskops-t-9488154f3776
+Fecha: 2026-11-26
+Commit ejecutor: 781b437c6ead7bced8673b55444d7a438cf0c05f
+Entorno: /mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python (Python 3.13.18)
+Nota: /tmp/ws-venv no existe en este contenedor; se usa el venv del proyecto.
+
+Variables:
+  export TMPDIR=/tmp
+  export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-9488154f3776"
+
+[1] python -m pytest -q tests/test_clean_code_rules.py tests/api/test_api_creation.py tests/mcp/test_no_writes.py
+    rc=0
+    1256 passed, 2 warnings in 16.66s
+    cli.md en cwd antes: no
+    cli.md en cwd despues: no
+
+[2] python -m pytest -q tests/notations tests/api/test_apply_batch_lock.py tests/api/test_apply_batch_dry_run.py tests/test_runtime_cache.py tests/test_notation_declares_standard.py tests/test_links_batch_cli.py
+    rc=0
+    311 passed, 1 warning in 347.67s (0:05:47)
+
+[3] bash tools/check.sh --fast   (PATH con .venv/bin primero)
+    rc=0
+    PASA: nucleo aislado, capas, identidad, ejes, superficie
+    TODAS LAS PUERTAS PASAN
+
+Busqueda de residuos:
+  find /workspace /mnt/ssd/proyectos/SLDB_1/sldb -maxdepth 2 -name 'cli.md'
+  -> sin resultados
+
+No se corrio la suite completa (la corre el host).
