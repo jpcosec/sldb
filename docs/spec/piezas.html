@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>sldb: piezas del nivel 3 por anillos</title>
+<!-- Generado desde docs/spec/piezas.md. No editar a mano: cambiar piezas.md y regenerar. -->
+<style>
+.viz-root{color-scheme:light;--surface-1:#ffffff;--surface-2:#f6f6f6;--text-primary:#191919;--text-secondary:#666666;--grid:#e3e3e3;--edge:#b9b9b9;--s1:#257de0;--s2:#f47230;--s3:#00b894;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--surface-1);color:var(--text-primary);margin:0;padding:16px 20px}
+@media (prefers-color-scheme: dark){:root:where(:not([data-theme="light"])) .viz-root{color-scheme:dark;--surface-1:#191919;--surface-2:#222222;--text-primary:#efefef;--text-secondary:#9c9c9c;--grid:#333333;--edge:#5a5a5a;--s1:#338ced;--s2:#e76624;--s3:#00a888}}
+:root[data-theme="dark"] .viz-root{color-scheme:dark;--surface-1:#191919;--surface-2:#222222;--text-primary:#efefef;--text-secondary:#9c9c9c;--grid:#333333;--edge:#5a5a5a;--s1:#338ced;--s2:#e76624;--s3:#00a888}
+body{margin:0}
+h1{font-size:18px;margin:0 0 4px}
+p.sub{margin:0 0 12px;color:var(--text-secondary);font-size:13px;max-width:900px}
+.bar{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-bottom:8px;font-size:12px}
+.bar .grp{display:flex;gap:4px;align-items:center}
+.bar .lbl{color:var(--text-secondary);margin-right:2px}
+button.chip{font:inherit;border:1px solid var(--grid);background:var(--surface-1);color:var(--text-primary);border-radius:12px;padding:2px 9px;cursor:pointer}
+button.chip[aria-pressed="true"]{background:var(--text-primary);color:var(--surface-1);border-color:var(--text-primary)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12px;color:var(--text-primary);margin-bottom:6px}
+.legend span.it{display:inline-flex;align-items:center;gap:5px}
+svg{display:block;width:100%;height:auto;max-width:1300px}
+.ring{fill:var(--surface-2);stroke:var(--grid);stroke-width:1}
+.ring.alt{fill:var(--surface-1)}
+.ringlabel{font-size:13px;font-weight:600;fill:var(--text-secondary)}
+.edge{stroke:var(--edge);stroke-width:1;fill:none;opacity:.45}
+.edge.hi{stroke:var(--text-primary);stroke-width:1.6;opacity:.95}
+.node text{font-size:11px;fill:var(--text-primary);text-anchor:middle;pointer-events:none}
+.node path.mark{stroke:var(--surface-1);stroke-width:2}
+.node path.open{fill:none;stroke:var(--text-primary);stroke-width:1.4;stroke-dasharray:3 3}
+.node.dim{opacity:.16}
+.edge.dim{opacity:.06}
+.hit{fill:transparent;cursor:pointer}
+#tip{position:fixed;pointer-events:none;background:var(--surface-1);color:var(--text-primary);border:1px solid var(--grid);border-radius:6px;padding:8px 10px;font-size:12px;max-width:320px;box-shadow:0 2px 10px rgba(0,0,0,.18);display:none}
+#tip b{font-size:13px}
+#tip dl{display:grid;grid-template-columns:auto 1fr;gap:1px 8px;margin:6px 0 0}
+#tip dt{color:var(--text-secondary)}#tip dd{margin:0}
+table{border-collapse:collapse;font-size:12px;margin-top:10px}
+th,td{border-bottom:1px solid var(--grid);padding:3px 8px;text-align:left;vertical-align:top}
+th{color:var(--text-secondary);font-weight:600}
+</style>
+</head>
+<body class="viz-root">
+<h1>sldb: piezas del nivel 3, por anillos</h1>
+<p class="sub">Cada anillo depende solo de los de adentro. Al centro, el anillo 0: árboles a la izquierda (0a) y el grafo a la derecha (0b). Pasa el cursor sobre una pieza para ver qué es y de qué depende. Las líneas son dependencias, lectura del agente. Borrador sin aprobar.</p>
+<div class="legend" id="legend"></div>
+<div class="bar">
+  <div class="grp"><span class="lbl">Principio</span><span id="fp"></span></div>
+  <div class="grp"><span class="lbl">Estado</span><span id="fe"></span></div>
+  <div class="grp"><button class="chip" id="tedges" aria-pressed="true">dependencias</button><button class="chip" id="ttable" aria-pressed="false">ver como tabla</button></div>
+</div>
+<svg id="g" viewBox="-700 -700 1400 1400" role="img" aria-label="Piezas de sldb ordenadas en anillos concéntricos"></svg>
+<div id="tablewrap" hidden></div>
+<div id="tip"></div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script>
+const DATA = {"nodes": [{"id": "Árbol de una fuente", "que": "La forma única en que se representa una fuente leída: partes dentro de partes.", "quien": "núcleo", "clase": "estructura", "anillo": "0a", "sustrato": "todos", "etapa": "anclar", "principio": "2, 3", "estado": "D"}, {"id": "Gramática de texto con forma", "que": "Lee un documento con secciones, campos y listas como árbol.", "quien": "núcleo", "clase": "adaptador", "anillo": "0a", "sustrato": "texto con forma", "etapa": "anclar", "principio": "2", "estado": "D"}, {"id": "Gramática de código", "que": "Lee código como árbol.", "quien": "núcleo", "clase": "adaptador", "anillo": "0a", "sustrato": "código", "etapa": "anclar", "principio": "2", "estado": "D"}, {"id": "Gramática de datos", "que": "Lee un archivo de datos como árbol.", "quien": "núcleo", "clase": "adaptador", "anillo": "0a", "sustrato": "datos", "etapa": "anclar", "principio": "2", "estado": "D"}, {"id": "Gramática de texto libre", "que": "Lee texto sin forma fija: párrafos, frases.", "quien": "núcleo", "clase": "adaptador", "anillo": "0a", "sustrato": "texto libre", "etapa": "anclar", "principio": "2, 5", "estado": "L"}, {"id": "Resultado de una ejecución", "que": "Lo que devuelve algo que se ejecutó, leído como una fuente más.", "quien": "núcleo", "clase": "adaptador", "anillo": "0a", "sustrato": "ejecución", "etapa": "anclar", "principio": "2, 4", "estado": "A"}, {"id": "Leer", "que": "De una fuente a su árbol.", "quien": "núcleo", "clase": "operación", "anillo": "0a", "sustrato": "todos", "etapa": "anclar", "principio": "2", "estado": "D"}, {"id": "Escribir por la misma estructura", "que": "Del árbol a la fuente, tal como estaba.", "quien": "núcleo", "clase": "operación", "anillo": "0a", "sustrato": "todos", "etapa": "proyectar, editar", "principio": "2", "estado": "D"}, {"id": "Dirección de una parte", "que": "Cómo se nombra una parte que nadie marcó: por dónde está.", "quien": "núcleo", "clase": "estructura", "anillo": "0a", "sustrato": "todos", "etapa": "anclar", "principio": "3", "estado": "D"}, {"id": "Huella", "que": "Marca corta de una parte, calculada con una regla de lectura.", "quien": "núcleo", "clase": "operación", "anillo": "0a", "sustrato": "todos", "etapa": "anclar, detectar", "principio": "3, 7", "estado": "D"}, {"id": "Nodo", "que": "Una cosa de la que se sabe algo. Sin clase. Lleva lo que haga falta.", "quien": "núcleo", "clase": "estructura", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "1", "estado": "D"}, {"id": "Relación", "que": "Vínculo con tipo entre dos nodos.", "quien": "núcleo", "clase": "estructura", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "1", "estado": "D"}, {"id": "Hecho", "que": "Lo que se dice de un nodo o una relación: quién, cómo se supo, cuándo, en qué se apoya.", "quien": "núcleo", "clase": "estructura", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "6", "estado": "D"}, {"id": "Identidad", "que": "Lo que hace que un nodo o una relación sea ese y lo siga siendo.", "quien": "núcleo", "clase": "estructura", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "3", "estado": "D"}, {"id": "Store", "que": "El contexto dentro del cual valen los nombres.", "quien": "núcleo", "clase": "estructura", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "1", "estado": "D"}, {"id": "Operaciones del grafo", "que": "Crear, leer, cambiar y declarar retirado, sobre nodos, relaciones y hechos.", "quien": "núcleo", "clase": "operación", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "1, 7", "estado": "L"}, {"id": "Lenguaje de consultas", "que": "Con qué se pregunta y con qué se filtra. Uno solo.", "quien": "núcleo", "clase": "lenguaje", "anillo": "0b", "sustrato": "el grafo", "etapa": "consultar", "principio": "8", "estado": "D"}, {"id": "Condicionales", "que": "Decir \"si pasa esto\".", "quien": "núcleo", "clase": "lenguaje", "anillo": "0b", "sustrato": "el grafo", "etapa": "consultar, actuar", "principio": "4, 8", "estado": "A"}, {"id": "Contrato de persistencia", "que": "Lo que el grafo le pide a quien lo guarde.", "quien": "núcleo", "clase": "estructura", "anillo": "0b", "sustrato": "el grafo", "etapa": "todas", "principio": "3", "estado": "A"}, {"id": "Anclaje", "que": "Un nodo atado a una parte de afuera: dónde está, qué se vio, con qué regla se leyó.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "todos", "etapa": "anclar", "principio": "3", "estado": "D"}, {"id": "Detección", "que": "Lo que un nodo anclado ejecuta para saber si lo de afuera cambió.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "todos", "etapa": "detectar", "principio": "3, 4", "estado": "L"}, {"id": "Propagación", "que": "Bajar un cambio por las relaciones que lo llevan.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "propagar", "principio": "7", "estado": "A"}, {"id": "Certeza", "que": "Decir de un nodo o una zona si está firme, movida o suelta.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "propagar, consultar", "principio": "7, 8", "estado": "L"}, {"id": "Juntar", "que": "Reunir anclajes que dicen lo mismo en un \"las fuentes dicen\".", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "juntar", "principio": "1", "estado": "A"}, {"id": "Sintetizar", "que": "Armar el árbol de conocimiento desde lo que las fuentes dicen.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "sintetizar", "principio": "1, 5", "estado": "A"}, {"id": "Proyección", "que": "Sacar lo de adentro con reglas dichas: qué conserva y cómo se comprueba.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "todos", "etapa": "proyectar", "principio": "2", "estado": "D"}, {"id": "Edición", "que": "Proponer un cambio, comprobarlo, escribirlo sobre la versión vista, mostrar el choque.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "todos", "etapa": "editar", "principio": "2, 7", "estado": "D"}, {"id": "Regla", "que": "Algo que tiene que cumplirse, dicho como nodo, y su comprobación.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "editar, consultar", "principio": "4", "estado": "D"}, {"id": "Hook", "que": "Lo que el sistema hace cuando algo ocurre.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "ejecución", "etapa": "detectar, actuar", "principio": "4", "estado": "A"}, {"id": "Máquina de estados", "que": "Estados y pasos permitidos, dichos como nodos, con hooks y condicionales.", "quien": "base", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "actuar", "principio": "4", "estado": "D"}, {"id": "Retirar y limpiar", "que": "Declarar que algo ya no va; y, aparte, quitar lo que quedó sin apoyo.", "quien": "núcleo", "clase": "mecanismo", "anillo": "1", "sustrato": "el grafo", "etapa": "editar", "principio": "7", "estado": "D"}, {"id": "Motor de base de datos", "que": "Quien guarda el grafo y resuelve las consultas.", "quien": "puerta", "clase": "adaptador", "anillo": "2", "sustrato": "el grafo", "etapa": "todas", "principio": "3", "estado": "L"}, {"id": "git", "que": "La historia de los archivos, y su cambio a nivel de archivo.", "quien": "puerta", "clase": "adaptador", "anillo": "2", "sustrato": "todos", "etapa": "detectar", "principio": "3, 7", "estado": "D"}, {"id": "Rehacer lo calculado", "que": "Borrar y recalcular todo lo que no es declarado ni observado.", "quien": "núcleo", "clase": "operación", "anillo": "2", "sustrato": "el grafo", "etapa": "todas", "principio": "7", "estado": "D"}, {"id": "Varios stores", "que": "Usar nodos de otro store, y decir que dos son el mismo.", "quien": "núcleo", "clase": "mecanismo", "anillo": "2", "sustrato": "el grafo", "etapa": "todas", "principio": "1", "estado": "A"}, {"id": "Declaración de base", "que": "Lo que viene ya declarado con sldb: tipos de relación de uso general, clases comunes.", "quien": "base", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "todas", "principio": "1, 5", "estado": "A"}, {"id": "Clases de nodo", "que": "Nombres para nodos que cumplen un mismo papel.", "quien": "base", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "sintetizar", "principio": "5", "estado": "D"}, {"id": "Modelo", "que": "La forma común de una familia de fuentes; y sus variaciones.", "quien": "base", "clase": "estructura", "anillo": "3", "sustrato": "texto con forma, código, datos", "etapa": "anclar, proyectar", "principio": "5", "estado": "D"}, {"id": "Tipo por lo que es", "que": "Nombres por significado, por papel en el texto o por función.", "quien": "base", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "sintetizar", "principio": "5", "estado": "D"}, {"id": "Eje y cruce", "que": "Una consulta declarada; y la que junta varias.", "quien": "base", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "consultar", "principio": "5, 8", "estado": "D"}, {"id": "Vista", "que": "Una selección declarada para mostrar.", "quien": "base", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "proyectar", "principio": "2", "estado": "L"}, {"id": "Estructuras de documento", "que": "Formas conocidas de textos: reporte, formulario, acta.", "quien": "librería", "clase": "estructura", "anillo": "3", "sustrato": "texto", "etapa": "juntar, sintetizar", "principio": "5", "estado": "D"}, {"id": "Estructuras semánticas", "que": "Formas conocidas de significado: afirmación, requisito, decisión.", "quien": "librería", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "sintetizar", "principio": "5", "estado": "D"}, {"id": "Patrones de código", "que": "Formas conocidas en código: componente, servicio, máquina de estados.", "quien": "librería", "clase": "estructura", "anillo": "3", "sustrato": "código", "etapa": "sintetizar", "principio": "5", "estado": "D"}, {"id": "Librería", "que": "Un paquete de declaraciones para un uso: llevar tareas, describir sistemas.", "quien": "librería", "clase": "estructura", "anillo": "3", "sustrato": "el grafo", "etapa": "todas", "principio": "5", "estado": "D"}, {"id": "Línea de comandos", "que": "Hablarle desde una terminal.", "quien": "puerta", "clase": "adaptador", "anillo": "caras", "sustrato": "no aplica", "etapa": "todas", "principio": "", "estado": "D"}, {"id": "API", "que": "Hablarle desde un programa.", "quien": "puerta", "clase": "adaptador", "anillo": "caras", "sustrato": "no aplica", "etapa": "todas", "principio": "", "estado": "D"}, {"id": "MCP", "que": "Hablarle desde un agente.", "quien": "puerta", "clase": "adaptador", "anillo": "caras", "sustrato": "no aplica", "etapa": "todas", "principio": "", "estado": "D"}, {"id": "REPL", "que": "Hablarle en el mismo lenguaje del grafo, en vivo.", "quien": "puerta", "clase": "adaptador", "anillo": "caras", "sustrato": "no aplica", "etapa": "todas", "principio": "", "estado": "D"}], "links": [{"source": "Gramática de texto con forma", "target": "Árbol de una fuente"}, {"source": "Gramática de código", "target": "Árbol de una fuente"}, {"source": "Gramática de datos", "target": "Árbol de una fuente"}, {"source": "Gramática de texto libre", "target": "Árbol de una fuente"}, {"source": "Resultado de una ejecución", "target": "Árbol de una fuente"}, {"source": "Leer", "target": "Árbol de una fuente"}, {"source": "Escribir por la misma estructura", "target": "Árbol de una fuente"}, {"source": "Dirección de una parte", "target": "Árbol de una fuente"}, {"source": "Huella", "target": "Árbol de una fuente"}, {"source": "Relación", "target": "Nodo"}, {"source": "Hecho", "target": "Nodo"}, {"source": "Hecho", "target": "Relación"}, {"source": "Identidad", "target": "Nodo"}, {"source": "Store", "target": "Nodo"}, {"source": "Operaciones del grafo", "target": "Nodo"}, {"source": "Operaciones del grafo", "target": "Relación"}, {"source": "Operaciones del grafo", "target": "Hecho"}, {"source": "Lenguaje de consultas", "target": "Relación"}, {"source": "Lenguaje de consultas", "target": "Hecho"}, {"source": "Condicionales", "target": "Lenguaje de consultas"}, {"source": "Contrato de persistencia", "target": "Operaciones del grafo"}, {"source": "Anclaje", "target": "Nodo"}, {"source": "Anclaje", "target": "Dirección de una parte"}, {"source": "Anclaje", "target": "Huella"}, {"source": "Anclaje", "target": "Leer"}, {"source": "Detección", "target": "Anclaje"}, {"source": "Detección", "target": "Huella"}, {"source": "Propagación", "target": "Detección"}, {"source": "Propagación", "target": "Relación"}, {"source": "Certeza", "target": "Propagación"}, {"source": "Certeza", "target": "Hecho"}, {"source": "Juntar", "target": "Anclaje"}, {"source": "Juntar", "target": "Relación"}, {"source": "Sintetizar", "target": "Juntar"}, {"source": "Proyección", "target": "Escribir por la misma estructura"}, {"source": "Proyección", "target": "Nodo"}, {"source": "Edición", "target": "Proyección"}, {"source": "Edición", "target": "Regla"}, {"source": "Edición", "target": "Anclaje"}, {"source": "Regla", "target": "Lenguaje de consultas"}, {"source": "Hook", "target": "Detección"}, {"source": "Hook", "target": "Condicionales"}, {"source": "Hook", "target": "Resultado de una ejecución"}, {"source": "Máquina de estados", "target": "Hook"}, {"source": "Máquina de estados", "target": "Condicionales"}, {"source": "Retirar y limpiar", "target": "Hecho"}, {"source": "Retirar y limpiar", "target": "Certeza"}, {"source": "Motor de base de datos", "target": "Contrato de persistencia"}, {"source": "git", "target": "Leer"}, {"source": "Rehacer lo calculado", "target": "Hecho"}, {"source": "Varios stores", "target": "Store"}, {"source": "Declaración de base", "target": "Relación"}, {"source": "Clases de nodo", "target": "Nodo"}, {"source": "Modelo", "target": "Árbol de una fuente"}, {"source": "Modelo", "target": "Proyección"}, {"source": "Tipo por lo que es", "target": "Relación"}, {"source": "Eje y cruce", "target": "Lenguaje de consultas"}, {"source": "Vista", "target": "Eje y cruce"}, {"source": "Vista", "target": "Proyección"}, {"source": "Estructuras de documento", "target": "Modelo"}, {"source": "Estructuras semánticas", "target": "Tipo por lo que es"}, {"source": "Patrones de código", "target": "Modelo"}, {"source": "Patrones de código", "target": "Gramática de código"}, {"source": "Librería", "target": "Declaración de base"}, {"source": "Línea de comandos", "target": "Edición"}, {"source": "API", "target": "Edición"}, {"source": "MCP", "target": "Edición"}, {"source": "REPL", "target": "Lenguaje de consultas"}]};
+const R = {c0:270, r1:[270,385], r2:[385,470], r3:[470,585], rc:[585,670]};
+const quienColor = q => q==='núcleo' ? 'var(--s1)' : q==='puerta' ? 'var(--s3)' : 'var(--s2)';
+const quienName = q => q==='núcleo' ? 'núcleo' : q==='puerta' ? 'puerta' : 'se declara encima (base o librería)';
+const shape = {estructura:d3.symbolCircle, 'operación':d3.symbolSquare, mecanismo:d3.symbolDiamond, lenguaje:d3.symbolTriangle, adaptador:d3.symbolCross};
+const estadoName = {D:'decidido por JP', L:'lectura del agente', A:'abierto'};
+const nodes = DATA.nodes, links = DATA.links, byId = new Map(nodes.map(n=>[n.id,n]));
+
+// posiciones: deterministas, por anillo
+function place(list, radius, a0, a1, stagger=0){
+  const n=list.length;
+  list.forEach((d,i)=>{ const t = n===1 ? (a0+a1)/2 : a0 + (a1-a0)*(i+0.5)/n; const r = radius + (stagger ? (i%2?stagger:-stagger) : 0);
+    d.x = r*Math.cos(t); d.y = r*Math.sin(t); });
+}
+const by = k => nodes.filter(n=>n.anillo===k);
+const PI=Math.PI;
+// 0a: mitad izquierda (ángulos 90°..270°), 0b: mitad derecha (-90°..90°)
+const a = by('0a'), b = by('0b');
+place(a.slice(0,1), 60, PI, PI);              // Árbol de una fuente, cerca del centro
+place(a.slice(1,4), 140, PI*0.66, PI*1.52);
+place(a.slice(4), 215, PI*0.56, PI*1.44);
+place(b.slice(0,1), 60, 0, 0);                // Nodo
+place(b.slice(1,4), 140, -PI*0.52, PI*0.34);
+place(b.slice(4), 215, -PI*0.44, PI*0.44);
+place(by('1'), (R.r1[0]+R.r1[1])/2, -PI/2, PI*1.5, 22);
+place(by('2'), (R.r2[0]+R.r2[1])/2, -PI/2+0.4, PI*1.5+0.4);
+place(by('3'), (R.r3[0]+R.r3[1])/2, -PI/2+0.15, PI*1.5+0.15, 20);
+place(by('caras'), (R.rc[0]+R.rc[1])/2, -PI/2+0.75, PI*1.5+0.75);
+
+const svg = d3.select('#g');
+// anillos, de afuera hacia adentro
+[[R.rc[1],'Caras',false],[R.r3[1],'Anillo 3 · lo que se declara encima',true],[R.r2[1],'Anillo 2 · el store entero',false],[R.r1[1],'Anillo 1 · mantener el grafo al día',true],[R.c0,'',false]]
+ .forEach(([r,label,alt])=>{ svg.append('circle').attr('r',r).attr('class','ring'+(alt?' alt':''));
+   if(label) svg.append('text').attr('class','ringlabel').attr('text-anchor','middle').attr('y',-r+17).text(label); });
+svg.append('line').attr('x1',0).attr('x2',0).attr('y1',-R.c0).attr('y2',R.c0).attr('stroke','var(--grid)');
+svg.append('text').attr('class','ringlabel').attr('text-anchor','end').attr('x',-12).attr('y',-R.c0+20).text('Anillo 0a · árboles');
+svg.append('text').attr('class','ringlabel').attr('text-anchor','start').attr('x',12).attr('y',-R.c0+20).text('Anillo 0b · el grafo');
+
+const edgeSel = svg.append('g').selectAll('path').data(links).join('path').attr('class','edge')
+  .attr('d',l=>{const s=byId.get(l.source),t=byId.get(l.target); const mx=(s.x+t.x)/2*0.86,my=(s.y+t.y)/2*0.86; return `M${s.x},${s.y} Q${mx},${my} ${t.x},${t.y}`;});
+
+function wrap(name){ const w=name.split(' '), out=[]; let cur='';
+  w.forEach(x=>{ if((cur+' '+x).trim().length>15 && cur){out.push(cur);cur=x;} else cur=(cur+' '+x).trim(); }); if(cur) out.push(cur); return out; }
+
+const nodeSel = svg.append('g').selectAll('g').data(nodes).join('g').attr('class','node').attr('transform',d=>`translate(${d.x},${d.y})`);
+nodeSel.filter(d=>d.estado==='A').append('path').attr('class','open').attr('d',d3.symbol(d3.symbolCircle,520)());
+nodeSel.append('path').attr('class','mark').attr('d',d=>d3.symbol(shape[d.clase]||d3.symbolCircle,170)()).attr('fill',d=>quienColor(d.quien));
+nodeSel.append('text').each(function(d){ const t=d3.select(this); wrap(d.id).forEach((ln,i)=>t.append('tspan').attr('x',0).attr('y',22+i*12).text(ln)); });
+nodeSel.append('circle').attr('class','hit').attr('r',24).attr('tabindex',0);
+
+// leyenda
+const lg = d3.select('#legend');
+[['núcleo'],['base'],['puerta']].forEach(([q])=>{ const it=lg.append('span').attr('class','it'); it.append('svg').attr('width',14).attr('height',14).style('width','14px').append('circle').attr('cx',7).attr('cy',7).attr('r',6).attr('fill',quienColor(q)); it.append('span').text(quienName(q)); });
+Object.entries(shape).forEach(([k,sym])=>{ const it=lg.append('span').attr('class','it'); it.append('svg').attr('width',14).attr('height',14).style('width','14px').append('path').attr('transform','translate(7,7)').attr('d',d3.symbol(sym,70)()).attr('fill','var(--text-secondary)'); it.append('span').text(k); });
+{ const it=lg.append('span').attr('class','it'); it.append('svg').attr('width',16).attr('height',16).style('width','16px').append('circle').attr('cx',8).attr('cy',8).attr('r',6.5).attr('fill','none').attr('stroke','var(--text-primary)').attr('stroke-dasharray','3 3'); it.append('span').text('abierto: falta decidir'); }
+
+// tooltip y resaltado
+const tip = d3.select('#tip');
+function show(ev,d){
+  const dep = links.filter(l=>l.source===d.id).map(l=>l.target), usedBy = links.filter(l=>l.target===d.id).map(l=>l.source);
+  tip.style('display','block').html(`<b>${d.id}</b><div>${d.que}</div><dl>
+    <dt>anillo</dt><dd>${d.anillo}</dd><dt>quién la pone</dt><dd>${d.quien}</dd><dt>clase</dt><dd>${d.clase}</dd>
+    <dt>sustrato</dt><dd>${d.sustrato}</dd><dt>etapa</dt><dd>${d.etapa}</dd><dt>principio</dt><dd>${d.principio||'—'}</dd>
+    <dt>estado</dt><dd>${estadoName[d.estado]}</dd><dt>depende de</dt><dd>${dep.join(', ')||'—'}</dd><dt>la usan</dt><dd>${usedBy.join(', ')||'—'}</dd></dl>`);
+  move(ev);
+  const near = new Set([d.id,...dep,...usedBy]);
+  nodeSel.classed('dim',n=>!near.has(n.id)); edgeSel.classed('hi',l=>l.source===d.id||l.target===d.id).classed('dim',l=>!(l.source===d.id||l.target===d.id));
+}
+function move(ev){ const x=(ev.clientX??innerWidth/2)+14, y=(ev.clientY??innerHeight/2)+14; tip.style('left',Math.min(x,innerWidth-340)+'px').style('top',Math.min(y,innerHeight-260)+'px'); }
+function hide(){ tip.style('display','none'); edgeSel.classed('hi',false); applyFilter(); }
+nodeSel.select('.hit').on('mouseenter',show).on('mousemove',move).on('mouseleave',hide).on('focus',show).on('blur',hide);
+
+// filtros
+let fP=null, fE=null;
+function applyFilter(){ const ok=n=>(!fP||(n.principio||'').split(',').map(s=>s.trim()).includes(fP))&&(!fE||n.estado===fE);
+  nodeSel.classed('dim',n=>!ok(n)); edgeSel.classed('dim',l=>!(ok(byId.get(l.source))&&ok(byId.get(l.target)))); }
+function chips(sel,vals,get,set,fmt){ const c=d3.select(sel).selectAll('button').data(vals).join('button').attr('class','chip').attr('aria-pressed','false').text(fmt)
+  .on('click',function(ev,v){ set(get()===v?null:v); c.attr('aria-pressed',x=>String(get()===x)); applyFilter(); }); }
+chips('#fp',['1','2','3','4','5','6','7','8'],()=>fP,v=>fP=v,v=>'P'+v);
+chips('#fe',['D','L','A'],()=>fE,v=>fE=v,v=>estadoName[v]);
+d3.select('#tedges').on('click',function(){ const on=this.getAttribute('aria-pressed')!=='true'; this.setAttribute('aria-pressed',on); edgeSel.style('display',on?null:'none'); });
+
+// tabla
+const tw=d3.select('#tablewrap'); const tb=tw.append('table');
+tb.append('thead').append('tr').selectAll('th').data(['Anillo','Pieza','Qué es','Quién','Clase','Sustrato','Etapa','Principio','Estado','Depende de']).join('th').text(d=>d);
+tb.append('tbody').selectAll('tr').data(nodes).join('tr').selectAll('td').data(d=>[d.anillo,d.id,d.que,d.quien,d.clase,d.sustrato,d.etapa,d.principio,estadoName[d.estado],links.filter(l=>l.source===d.id).map(l=>l.target).join(', ')]).join('td').text(d=>d);
+d3.select('#ttable').on('click',function(){ const on=this.getAttribute('aria-pressed')!=='true'; this.setAttribute('aria-pressed',on); tw.attr('hidden',on?null:true); d3.select('#g').style('display',on?'none':null); });
+</script>
+</body>
+</html>

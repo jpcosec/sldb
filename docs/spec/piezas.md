@@ -4,6 +4,9 @@ Borrador, sin aprobar. Inventario de las piezas del nivel 3, ordenadas por anill
 etiquetadas en ejes. Es el paso previo a declararlas como grafo (método aprobado por JP el
 2026-11-27). No habla del estado actual.
 
+Dibujo: [`piezas.html`](piezas.html), un grafo en d3 con los anillos, las piezas y sus
+dependencias. Se genera desde esta página; no se edita a mano.
+
 ## Anillos
 
 Cada anillo depende solo de los de adentro.
@@ -112,6 +115,80 @@ Además del anillo, cada pieza lleva:
 | API | Hablarle desde un programa. | puerta | adaptador |
 | MCP | Hablarle desde un agente. | puerta | adaptador |
 | REPL | Hablarle en el mismo lenguaje del grafo, en vivo. | puerta | adaptador |
+
+## Dependencias
+
+**Lectura del agente**, para poder dibujar el grafo. "A → B" quiere decir que A depende de B.
+Todas van hacia el mismo anillo o hacia uno más interno.
+
+- Gramática de texto con forma → Árbol de una fuente
+- Gramática de código → Árbol de una fuente
+- Gramática de datos → Árbol de una fuente
+- Gramática de texto libre → Árbol de una fuente
+- Resultado de una ejecución → Árbol de una fuente
+- Leer → Árbol de una fuente
+- Escribir por la misma estructura → Árbol de una fuente
+- Dirección de una parte → Árbol de una fuente
+- Huella → Árbol de una fuente
+- Relación → Nodo
+- Hecho → Nodo
+- Hecho → Relación
+- Identidad → Nodo
+- Store → Nodo
+- Operaciones del grafo → Nodo
+- Operaciones del grafo → Relación
+- Operaciones del grafo → Hecho
+- Lenguaje de consultas → Relación
+- Lenguaje de consultas → Hecho
+- Condicionales → Lenguaje de consultas
+- Contrato de persistencia → Operaciones del grafo
+- Anclaje → Nodo
+- Anclaje → Dirección de una parte
+- Anclaje → Huella
+- Anclaje → Leer
+- Detección → Anclaje
+- Detección → Huella
+- Propagación → Detección
+- Propagación → Relación
+- Certeza → Propagación
+- Certeza → Hecho
+- Juntar → Anclaje
+- Juntar → Relación
+- Sintetizar → Juntar
+- Proyección → Escribir por la misma estructura
+- Proyección → Nodo
+- Edición → Proyección
+- Edición → Regla
+- Edición → Anclaje
+- Regla → Lenguaje de consultas
+- Hook → Detección
+- Hook → Condicionales
+- Hook → Resultado de una ejecución
+- Máquina de estados → Hook
+- Máquina de estados → Condicionales
+- Retirar y limpiar → Hecho
+- Retirar y limpiar → Certeza
+- Motor de base de datos → Contrato de persistencia
+- git → Leer
+- Rehacer lo calculado → Hecho
+- Varios stores → Store
+- Declaración de base → Relación
+- Clases de nodo → Nodo
+- Modelo → Árbol de una fuente
+- Modelo → Proyección
+- Tipo por lo que es → Relación
+- Eje y cruce → Lenguaje de consultas
+- Vista → Eje y cruce
+- Vista → Proyección
+- Estructuras de documento → Modelo
+- Estructuras semánticas → Tipo por lo que es
+- Patrones de código → Modelo
+- Patrones de código → Gramática de código
+- Librería → Declaración de base
+- Línea de comandos → Edición
+- API → Edición
+- MCP → Edición
+- REPL → Lenguaje de consultas
 
 ## Lo que muestra el inventario
 
