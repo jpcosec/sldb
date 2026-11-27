@@ -92,6 +92,23 @@ Lo que verifiqué:
   `src/sldb/api/documents/lossy_overwrite.py:18`).
 - Hash por campo, para saber qué campo se movió en `stores check` (`src/sldb/store/hashing.py:24`).
 
+## Ítems de lista: lo que ya existe (leído el 2026-11-26)
+
+JP: la forma correcta ya está implementada aunque esté mal usada. Lo que hay:
+
+- Un ítem de lista se direcciona por posición (`campo/2`), en lectura y en escritura
+  (`src/sldb/api/documents/payload_path_reading.py:26`, `docs/addressability_model.md:26`). El
+  mismo documento avisa que las posiciones se corren (`addressability_model.md:110`).
+- Un ítem que necesita identidad no es un valor: es un documento, y la lista guarda su nombre.
+  El modelo lo declara con `__containment__`, `__references__` o `__compositions__`
+  (`src/sldb/models/structured_doc.py:12-14`) y el índice saca una arista por ítem, que apunta
+  al documento por su id y no por la posición
+  (`src/sldb/store/edge_index/declared_resolution.py:101`). Ejemplo: las pills de `BoardDoc`.
+
+Lectura del agente: con eso la pregunta 3 de abajo se contesta sin mecanismo nuevo. Lo que
+necesita identidad se modela como documento contenido o referido; la posición queda para leer
+y editar listas de valores simples, y no sirve como extremo durable de una relación.
+
 ## Abierto
 
 1. ¿Qué es crear un valor en un campo que el modelo no declara: error, o declarar el campo?
