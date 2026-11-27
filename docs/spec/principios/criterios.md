@@ -346,8 +346,9 @@ abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
    nodos. Un documento igual a su familia salvo por una parte de más es una variación del modelo
    (JP eligió variación, no campos opcionales). Es error solo si el modelo declara que no se
    admite nada más.
-- A5. **Reconectar un ancla** (toca 6.2 y 6.3). Si la función cambió de nombre y hay un solo
-   candidato, ¿sldb reconecta y avisa, o propone y alguien confirma?
+- A5. **Reconectar un ancla**: cerrado por JP el 2026-11-27. La reconexión es consecuencia de un
+   anclaje nuevo; no es algo que se busque activamente. Reemplaza la reconexión automática con un
+   solo candidato decidida en octubre.
 - A6. **Borrar una relación que sale de la fuente** (toca 5 y 6.1). Por ejemplo, "el documento
    contiene este párrafo". ¿Pedir borrarla se rechaza o se traduce en editar la fuente?
 - A7. **Quién ejecuta** (toca 4.1). Si sldb dispara la ejecución cuyo resultado ancla, o solo ancla
@@ -361,6 +362,7 @@ abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
    posterior. Ver el whitepaper, "Adentro no se borra".
 - A10. **Etapas de un cambio y medida de certeza**: abierto. JP (2026-11-27): hay etapas "y es algo
    que nunca hemos terminado de cerrar en sldb"; se pueden declarar zonas de certeza y tener una
-   medida de certeza y algo como entropía en el árbol. Sin definir.
+   medida de certeza y algo como entropía en el árbol. JP: las dos "dependen", pueden variar; lo
+   importante es definir el mínimo viable. Propuesta en `../mecanismos/cambio-y-certeza.md`.
 - Nota: los criterios 6 y 6.1 de arriba hablan de "sin soporte" como si fuera sí o no. Con A9 y A10
    eso queda corto: un nodo puede sostenerse por otro lado. Hay que reescribirlos.

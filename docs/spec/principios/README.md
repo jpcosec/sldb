@@ -175,7 +175,11 @@ Una semana después alguien cambia la función, con el editor que quiera. sldb n
 y no importa: la próxima vez que se le pregunte, compara la huella que guardó con la función de
 ahora, ve que difieren, y muestra el párrafo como pendiente de revisión. No dice que el párrafo
 esté mal. Quizá solo ordenaron el código y el impuesto sigue incluido. Eso lo decide quien
-revisa; cuando lo confirma, el ancla toma la huella nueva y queda quién lo confirmó.
+revisa; cuando lo confirma, ancla de nuevo, y queda quién lo hizo.
+
+Si a la función le cambiaron el nombre, sldb no sale a buscar cuál es ahora. El ancla queda en
+una zona movida hasta que alguien ancle de nuevo. Reconectar no es algo que el sistema persiga:
+es lo que resulta de un anclaje nuevo.
 
 Si en vez de cambiarla la borran, adentro no se borra nada. Queda declarado que la función ya no
 está, y eso baja hasta el párrafo. Puede que el párrafo quede sin ningún apoyo. Puede también
@@ -276,11 +280,9 @@ apoya lo que otro escribió, sin tener que creerle.
 Hay cosas que este texto usa y no resuelve.
 
 1. **Las etapas de un cambio.** Detectar, declarar el cambio, bajar la consecuencia, revisar,
-   limpiar. Están nombradas pero no cerradas: qué hace cada una, cuál dispara a la siguiente y
-   cuáles esperan a alguien.
-2. **Cómo se mide la certeza.** Que hay zonas más firmes y zonas más movidas está dicho. Falta
-   decir con qué se mide la certeza de una zona y el desorden del grafo.
-3. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
-   reconecta el ancla y avisa, o propone y espera.
-4. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
+   limpiar. Cuántas corren solas y cuáles esperan a alguien puede variar; lo que falta fijar es
+   el mínimo con que esto ya sirve.
+2. **Cómo se mide la certeza.** Que hay zonas más firmes y zonas más movidas está dicho. Con qué
+   se mide también puede variar; falta fijar el mínimo.
+3. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
    decir si sldb corre esa ejecución o solo ancla un resultado producido afuera.
