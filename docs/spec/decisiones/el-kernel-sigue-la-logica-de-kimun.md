@@ -3,6 +3,15 @@
 Clase de página: decisión. Fecha: 2026-11-26. Estado: fijado por JP; las respuestas de la tabla
 dicen de quién es cada una.
 
+## Alcance (JP, 2026-11-26)
+
+Todavía no se está pasando el kernel de kimun a sldb. Lo que se hace ahora es refactorizar sldb,
+que hoy está desordenado. Este spec es el de sldb refactorizado, en su código y sus formatos de
+hoy. La lógica de kimun sirve para decidir cómo se ordena y qué significa cada operación, de modo
+que el kernel de sldb tenga la misma lógica y kimun pueda envolverse después. Lo que en esta
+página habla de Clojure, AST tipado o persistencia describe a kimun; no es trabajo de este
+refactor.
+
 ## Qué fijó JP (2026-11-26)
 
 - Todo lo que viene después va a envolver a kimun. Por eso la lógica de kernel que se escriba en

@@ -67,3 +67,4 @@ enlaces.
 
 - [La lógica del kernel de sldb es la de kimun](decisiones/el-kernel-sigue-la-logica-de-kimun.md):
   fijado por JP el 2026-11-26; lista qué preguntas abiertas de las páginas de objeto contesta.
+  Alcance: este spec es el del refactor de sldb; el paso del kernel a kimun no es parte de él.
