@@ -205,6 +205,7 @@ confined = ["markdown-it-py", "jinja2", "networkx"]
 
 [[axis]]
 id = "superficie"
+ring = "0a"
 paths = ["core/ast", "core/segments", "core/handlers"]
 external = ["markdown-it-py"]
 does = "texto a árbol unificado; la puerta de entrada de cualquier superficie"
@@ -212,6 +213,7 @@ identity = true
 
 [[axis]]
 id = "representacion"
+ring = "0a"
 paths = ["core/ir", "core/contracts", "core/node.py", "core/node_handler.py"]
 external = ["pydantic"]
 does = "MeaningNode y SurfaceNode: significado y superficie como proyecciones ancladas"
@@ -220,6 +222,7 @@ note = "es *la* idea del sistema; sin esto lo que queda es un conversor de forma
 
 [[axis]]
 id = "render"
+ring = "0a"
 paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py"]
 external = ["jinja2"]
 does = "árbol a texto reversible; sin esto la representación es un volcado, no un lugar donde trabajar"
@@ -227,6 +230,7 @@ identity = true
 
 [[axis]]
 id = "contrato"
+ring = "0b"
 paths = ["models"]
 external = ["pydantic"]
 does = "qué es un documento válido"
@@ -234,6 +238,7 @@ identity = true
 
 [[axis]]
 id = "runtime"
+ring = "1"
 paths = ["runtime"]
 external = []
 does = "la configuración que decide qué se permite al renderizar, y la validación que une modelo con texto"
@@ -247,6 +252,7 @@ volverse otra cosa.
 
 [[axis]]
 id = "persistencia"
+ring = "0b"
 paths = ["store/io", "store/models", "store/layout.py"]
 external = []
 does = "guardar, indexar, fragmentar, hashear"
@@ -254,6 +260,7 @@ identity = false
 
 [[axis]]
 id = "consulta"
+ring = "0b"
 paths = ["store/query_engine", "api/search.py", "api/where.py"]
 external = []
 does = "buscar y filtrar por campo"
@@ -261,6 +268,7 @@ identity = false
 
 [[axis]]
 id = "grafo"
+ring = "0b"
 paths = ["store/graph"]
 external = ["networkx"]
 does = "recorrer, ciclos, orden, centralidad, similitud estructural"
@@ -295,6 +303,7 @@ motor sin dependencias y lo vuelve extraíble de verdad.
 
 [[axis]]
 id = "indice_de_aristas"
+ring = "0b"
 paths = ["store/edge_index"]
 external = []
 does = "derivar aristas de documentos; el constructor, no el motor"
@@ -303,6 +312,7 @@ note = "contado junto al grafo en el primer mapa, y es un error: el motor no sab
 
 [[axis]]
 id = "recuperacion"
+ring = "3"
 paths = ["api/matching", "api/corpus"]
 external = []
 does = "similitud aproximada por coseno, con caché de vectores y auditoría del índice"
@@ -315,6 +325,7 @@ invisible desde las dependencias del proyecto — su diseño consiste en no tene
 
 [[axis]]
 id = "bitacora"
+ring = "1"
 paths = ["store/journal", "store/write_journal.py", "api/journal.py"]
 external = []
 does = "el registro de lotes aplicados (before-image y hash posterior por documento) con que se deshace entre procesos; la cadena por hash retirada"
@@ -322,6 +333,7 @@ identity = false
 
 [[axis]]
 id = "adaptadores"
+ring = "3"
 paths = ["selfdoc"]
 external = ["ast", "argparse", "click"]
 does = "derivar documentos de código y de interfaces"
@@ -330,6 +342,7 @@ note = "tres adaptadores derivados frente a una sola superficie autorada"
 
 [[axis]]
 id = "semantica"
+ring = "0b"
 paths = ["store/semantic_parents.py", "store/semantic_dag_sync.py", "store/semantic_doc_contribution.py", "store/semantic_dag_graph.py", "store/semantic.py", "store/semantic_tags.py", "store/semantic_doc_tags.py", "api/semantic"]
 external = ["networkx"]
 does = "jerarquía de tipos como DAG"
@@ -337,6 +350,7 @@ identity = false
 
 [[axis]]
 id = "mcp"
+ring = "faces"
 paths = ["mcp"]
 external = ["mcp"]
 does = "servir un store a un cliente MCP por stdio: lectura, propuesta y aplicación de cambios y registro de señales, sobre sldb.api"
@@ -351,6 +365,7 @@ Migrado del servidor MCP de specIR, que no tenía nada de dominio.
 
 [[axis]]
 id = "enlaces"
+ring = "0b"
 paths = ["links"]
 external = []
 does = "relaciones declaradas entre documentos"
@@ -374,6 +389,7 @@ identity = false
 
 [[axis]]
 id = "op_documentos"
+ring = "0b"
 paths = ["api/documents", "api/actor.py", "api/segments", "store/section_doc_contribution.py", "store/section_paths.py", "store/section_rebuild.py", "store/section_sync.py", "store/documents_dirty.py", "store/documents_dirty_persist.py"]
 external = ["markdown-it-py"]
 note = """
@@ -386,6 +402,7 @@ identity = false
 
 [[axis]]
 id = "op_modelos"
+ring = "0b"
 paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema", "store/model_origin.py", "store/model_import_root.py"]
 external = ["ast"]
 note = """
@@ -400,6 +417,7 @@ identity = false
 
 [[axis]]
 id = "op_almacen"
+ring = "2"
 paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
@@ -407,6 +425,7 @@ identity = false
 
 [[axis]]
 id = "op_aristas"
+ring = "0b"
 paths = ["api/edges", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
 external = []
 does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas de grafo"
@@ -414,6 +433,7 @@ identity = false
 
 [[axis]]
 id = "codigo"
+ring = "0a"
 paths = ["code"]
 external = ["ast", "tree-sitter", "tree-sitter-python"]
 does = "leer código Python como símbolos con tree-sitter, y un fingerprint por nodo de cada definición (portado de kimun)"
@@ -422,6 +442,7 @@ note = "no importa nada de sldb: es la superficie de entrada del código, como `
 
 [[axis]]
 id = "anclaje"
+ring = "1"
 paths = ["api/anchors", "api/code"]
 external = []
 does = "anclar una afirmación a un símbolo de código: grabar lo visto, comprobarlo, reconectar lo que se movió; y exponer los facts de código con su span y source_hash"
@@ -429,6 +450,7 @@ identity = false
 
 [[axis]]
 id = "cache"
+ring = "0b"
 paths = ["store/built_cache.py", "store/disk_caches.py", "store/runtime_cache.py", "store/runtime_cache_disk.py", "store/runtime_cache_signature.py", "store/user_cache.py", "store/derived_rebuild.py"]
 external = []
 does = "memorizar lo derivado y saber cuándo invalidarlo"
@@ -436,6 +458,7 @@ identity = false
 
 [[axis]]
 id = "codec"
+ring = "0b"
 paths = ["store/codec.py", "store/runtime_codec.py", "store/model_contract.py"]
 external = []
 does = "serializar y deserializar el estado del almacén, y leer lo que una clase de modelo declara: las costuras del almacén hacia el resto de sldb"
@@ -443,6 +466,7 @@ identity = false
 
 [[axis]]
 id = "migracion"
+ring = "2"
 paths = ["store/migration.py", "store/migration_hash_names.py", "store/migration_legacy_layout.py", "store/legacy_contract.py"]
 external = []
 does = "leer almacenes escritos por versiones anteriores"
@@ -451,6 +475,7 @@ note = "aquí viven las decisiones que los diagnosticadores encontraron solo en 
 
 [[axis]]
 id = "federacion"
+ring = "2"
 paths = ["store/catalog.py", "store/link_path.py", "store/resolver.py", "store/facade.py", "store/query.py", "store/predicates.py"]
 external = []
 does = "encontrar almacenes, resolver entre varios y ofrecer la fachada de consulta"
@@ -458,6 +483,7 @@ identity = false
 
 [[axis]]
 id = "errores"
+ring = "0a"
 paths = ["core/exceptions", "store/exceptions.py", "core/finding.py", "core/finding_route.py"]
 external = []
 does = "la jerarquía de excepciones del sistema, y el hallazgo (error o alerta) que reporta un comando"
@@ -466,6 +492,7 @@ note = "la capa más baja que todas las demás necesitan nombrar; por eso R2 imp
 
 [[axis]]
 id = "lectura_de_fuentes"
+ring = "0a"
 paths = ["store/source_read.py", "store/source_guard.py"]
 external = []
 does = "decidir si un documento trackeado se puede leer (dentro de la raíz, sin symlinks) y leerlo sin seguir symlinks"
@@ -479,6 +506,7 @@ calcular una huella y decidir si un archivo se puede abrir son dos trabajos, y
 
 [[axis]]
 id = "identidad_y_hash"
+ring = "0b"
 paths = ["store/hashing.py", "store/documents_hash.py"]
 external = []
 does = "calcular y comparar las huellas que detectan deriva"
@@ -543,6 +571,7 @@ superficies derivadas y Markdown es la única autorada por diseño.
 
 [[axis]]
 id = "vocabulario_visual"
+ring = "3"
 paths = ["notations", "models/notation", "models/notation_models.py"]
 external = ["pydantic", "pyyaml"]
 does = "notaciones, glifos, enlaces, paletas y vistas como modelos y catálogos builtin; absorbido de spec2viz (SV01)"
@@ -555,6 +584,7 @@ parser del almacén; sin él no se comprueba, igual que cuando vivía fuera de s
 
 [[axis]]
 id = "vistas"
+ring = "3"
 paths = ["api/notations"]
 external = []
 does = "resolver una notación sobre documentos del almacén y evaluar vistas de proyección; sincronizar notaciones, paletas y specs de diagrama con su catálogo (SV02, D1)"
@@ -562,6 +592,7 @@ identity = false
 
 [[axis]]
 id = "reglas"
+ring = "1"
 paths = ["api/rules", "api/tags"]
 external = []
 does = "evaluar RuleDoc con el lenguaje de predicados en escritura, transición y check, incremental y a punto fijo; los espacios de etiquetas como familia de reglas (GO06, GO08, GD27)"
@@ -575,6 +606,7 @@ del coordinador; alternativas descartadas en runs/subagents/sldb-ci-worker-repor
 
 [[axis]]
 id = "vistas_compuestas"
+ring = "3"
 paths = ["api/views"]
 external = []
 does = "evaluar un ViewDoc con sections sobre un almacén, y el catálogo de vistas (GD25)"

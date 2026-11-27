@@ -48,6 +48,13 @@ gate "identidad" python3 tools/check_identity.py
 # El mapa de capacidades corresponde al código, según la sección [[axis]].
 gate "ejes" python3 tools/check_axes.py
 
+# Un eje solo importa de su anillo o de uno más interno (docs/spec/mecanismos/anillos.md);
+# lo que hoy viola está en contracts/anillos_deuda.toml y solo puede salir de ahí.
+gate "anillos" python3 tools/check_axes.py --rings
+
+# Techo de tamaño de funciones y archivos, con la misma lista de deuda.
+gate "tamaño" python3 tools/check_axes.py --size
+
 # S4 · lo que los consumidores del ecosistema importan está declarado.
 # Se salta sola si los consumidores no están presentes, y lo dice.
 gate "superficie" python3 tools/check_surface.py
