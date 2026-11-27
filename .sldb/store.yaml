@@ -3755,6 +3755,7 @@ include:
   - desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
   - desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
   - desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
+  - desk/tasks/task-refactor-de-sldb-por-anillos-puerta-que-falle-cortar-el-nudo-borrar-y-mover-clean-code.md
 graph_backend: networkx
 policy: {}
 tag_models:

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-26T23:57:30Z'
+  at: '2026-11-27T03:26:12Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -91,6 +91,7 @@ tasks:
 - desk/tasks/task-plan-del-refactor-del-repo-por-anillos-y-ejes-a-que-anillo-va-cada-modulo-y-que-imports-lo-impiden.md
 - desk/tasks/task-tarea-0-del-spec-mapear-a-sldb-la-wiki-del-spec-de-producto-de-sldb.md
 - desk/tasks/task-evaluar-llevar-kimun-como-core-de-sldb.md
+- desk/tasks/task-refactor-de-sldb-por-anillos-puerta-que-falle-cortar-el-nudo-borrar-y-mover-clean-code.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -217,3 +218,4 @@ _Generated from the task references above._
 - Plan del refactor del repo por anillos y ejes: a qué anillo va cada módulo y qué imports lo impiden [draft] - Un plan en desk/drawer/plans/ con su dag.yaml que diga a qué anillo (0 grafo, 1 mantener correcto, 2 store entero, 3 compuesto, caras) pertenece cada módulo de src/sldb, cuántos imports van hoy de un anillo hacia uno más externo, cuáles hay que cortar y en qué orden, y qué movimientos de carpetas quedan después. Solo planifica: no mueve ni edita código.
 - Tarea 0 del spec: mapear a SLDB la wiki del spec de producto de sldb [draft] - Cada página de la wiki del spec (objeto, operación, mecanismo, plugin, decisión, abierto) tiene dicho con qué modelo, qué aristas y qué procedencia queda como documento del store de sldb, para que la wiki pase a generarse desde el store.
 - Evaluar llevar kimun como core de sldb [draft] - JP tiene escrito, punto por punto del spec de sldb, qué resuelve kimun como núcleo, qué contradice y qué queda en Python, con evidencia medida sobre copias, para decidir si kimun pasa a ser el core de sldb.
+- Refactor de sldb por anillos: puerta que falle, cortar el nudo, borrar y mover, clean code [draft] - Que el código de sldb respete el reparto de anillos de docs/spec/mecanismos/anillos.md (confirmado por JP el 2026-11-27): cada anillo importa solo de los de adentro, y una puerta falla si eso se rompe.
