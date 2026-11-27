@@ -1,16 +1,22 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-27T03:26:05Z'
+  at: '2026-11-27T23:12:27Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-refactor-de-sldb-por-anillos-puerta-que-falle-cortar-el-nudo-borrar-y-mover-clean-code
 status: draft
-summary: ''
+summary: 'Integrada en PR #5: etapa 1 (puertas de anillos y de tamaño con deuda que
+  solo baja) y parte de la 2 (cuatro cortes y dos reclasificaciones; nudo de 23 a
+  21 ejes). Las etapas 3 y 4 pasan al nuevo orden del refactor.'
 tags: []
 current_node: ritual-execution
 history: []
-references: []
+references:
+- 19327c7996e385f1727308db491528ae41270007
+- tests/test_check_axes_anillos.py
+- tools/check_axes.py
+- contracts/anillos_deuda.toml
 depends_on: []
 pills: []
 files: []

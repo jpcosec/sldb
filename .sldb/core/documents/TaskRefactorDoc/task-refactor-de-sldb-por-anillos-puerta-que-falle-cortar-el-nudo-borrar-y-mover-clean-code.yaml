@@ -1,19 +1,19 @@
 name: task-refactor-de-sldb-por-anillos-puerta-que-falle-cortar-el-nudo-borrar-y-mover-clean-code
 path: desk/tasks/task-refactor-de-sldb-por-anillos-puerta-que-falle-cortar-el-nudo-borrar-y-mover-clean-code.md
-source_hash: 26c5fa0b28b83d7c6cc21e1ad570d55d8ec2d7e6b53e4e1770758715414c3e30
-content_hash: 8061f87420f68c5fd2e6d565d81187e0fecb885ffe0b0023a13a41071f46a616
+source_hash: 2421ccf604cb2ecc5493a29218b550620e3ccb02f43f513219602ea6a6dd9f03
+content_hash: 249590016c7a75316d8f8fd26490861f950f9f19fc20eccdbdaab0bc08f015ef
 field_hashes:
   title: 2fedf06a908e9047e94beca1a214381d227477141bdf53c743263f4a383c9637
   id: ac16cebc468ee48bfd37e3f5bebc9391767ed04a3060987cac81e75d4c7088ac
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
-  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 0431b9a92b756d6eaf18c1f5de87250f38c1abcbe0eeaefc837367cd35e82d28
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 2fe639165b51649c12979fec3b12e035fd3fa44a0502e308bff627d945ee00e0
   goal: 2731d84641974b08d0eef28787bde566e4eac8d6fa1da8b46b0e963ef52c9cd6
   scope: 39cb2ef6ab2c4557f92bc6f4961ee0223e9e1ce92f9d1b4ee6937c0982d998b8
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: ca0e3399904fddf442d80ef33fdd29977343d0f4841c1841be885eb107fa19f3
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-27T03:26:05Z'
+  at: '2026-11-27T23:12:27Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
