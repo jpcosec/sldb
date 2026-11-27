@@ -1,0 +1,50 @@
+# Qué tendría que conservar sldb
+
+Cambiaría la primera frase antes de fijar el resto. «El precio incluye el impuesto» y «el diseño dice que el precio incluye el impuesto» son dos afirmaciones distintas. Basta leer el párrafo para sostener la segunda. La primera exige averiguar cómo se calcula el precio. Si ambas entran como «hechos», la spec pierde la distinción que hace falta justo cuando cambia el código.
+
+## Qué tomaría de las cuatro fuentes
+
+**Luhmann.** «Una idea por nota» es una pauta demasiado rígida para describir su fichero. Había series de fichas, ramificaciones, direcciones estables y un índice por palabras que daba puntos de entrada. El orden local se construía deliberadamente. Lo que quedaba abierto era por dónde se podría volver a una nota y con qué otras resultaría pertinente leerla. Eso le sirve a sldb para distinguir el lugar de un párrafo en el documento de los caminos por los que una consulta llega a él. Ambos órdenes importan. [Archivo de Luhmann, descripción del fichero](https://niklas-luhmann-archiv.de/nachlass/zettelkasten)
+
+**Wittgenstein.** El *Tractatus* distingue el objeto que puede entrar en un estado de cosas (§2.0121) del nombre que tiene significado en una proposición (§3.3). «Una cosa solo tiene sentido dentro de un hecho» confunde ambos planos. Recuperaría §§2.21–2.225: una figura puede representar una situación posible y ser falsa. Eso permite conservar dos declaraciones incompatibles y preguntar por cada una. En las *Investigaciones*, §43 limita la explicación por el uso a una amplia clase de casos. Los juegos de lenguaje (§23) aportan algo que se pierde al traducir «uso» como «relaciones»: «incluye el impuesto» puede expresar un requisito, una observación o el resultado de una prueba. Cada uso compromete a quien habla de manera distinta. [Tractatus](https://wittgensteinproject.org/w/index.php/Tractatus_Logico-Philosophicus_%28English%29)
+
+**Maturana y Varela.** «Se mantiene a sí misma y tiene un borde» también describiría una máquina que regula su temperatura. En la autopoiesis, la red de procesos produce componentes que vuelven a realizar esa red y constituyen su límite. El acoplamiento estructural implica una historia de interacciones recurrentes. Crear un ancla apenas establece dónde se podrá observar. Tomaría la distinción entre perturbación y consecuencia: la misma edición puede exigir revisar una afirmación y dejar firme otra, según de qué dependa cada una. [Varela, Maturana y Uribe, 1974](https://doi.org/10.1016/0303-2647%2874%2990031-8)
+
+**Zeinalipour y otros.** El resumen habla de recuperación perfecta. En el experimento de entrenamiento se eligen los diez textos mejor puntuados por grafo. Los autores comparan la puntuación con juicios humanos y reconocen que un mismo contenido admite triples distintos. Tomaría ese contraste con una evaluación independiente. Un extractor podría recuperar todas las relaciones esperadas y pasar por alto una frase inventada. Además, el ensayo empieza con triples elegidos de antemano. Extender su resultado a cualquier texto, o prometer con él la recuperación literal de un archivo, excede lo probado. [Artículo completo, §§4–5](https://aclanthology.org/2026.acl-industry.140.pdf)
+
+## Qué queda de los ocho principios
+
+1. **Hechos enlazados. Conservar con otro sustantivo.** Luhmann aporta la dirección estable y el enlace. El *Tractatus* ayuda a distinguir lo afirmado de lo que ocurre. Ninguno obliga a partir cada texto en hechos mínimos. Lo indispensable es poder referirse a una afirmación concreta y seguir sus relaciones aunque se reordene el documento.
+2. **Adentro y afuera. Conservar con un límite de autoridad.** El «afuera no manda» de los fundamentos choca con «manda afuera» del README hasta precisar la pregunta. Para saber qué dice hoy el archivo, hay que observarlo. Para saber qué decisión revisar, hay que seguir sus apoyos. La biología inspira la distinción. Elegir qué fragmentos observar es una decisión de sldb.
+3. **Proyección fiel. Dividir la promesa.** El artículo respalda comprobar qué relaciones expresa una vista. La figura del *Tractatus* admite varias expresiones de una situación y ninguna garantía de invertirlas. Un tablero puede mostrar fielmente el estado de una tarea y omitir su discusión. En cambio, si se promete devolver una sección tal como entró, cuentan también los espacios, los comentarios y el orden. Ambas promesas necesitan pruebas distintas.
+4. **Sentido en contexto. Integrar en el primero.** La distinción entre signo y símbolo (§§3.32–3.326) explica por qué «precio» puede nombrar dos magnitudes. Exigir que la identidad entre ambas quede declarada es una decisión propia. Mantendría esa exigencia al hablar de identidad: una sugerencia de equivalencia necesita respaldo antes de unir las respuestas de dos consultas.
+5. **Tipos por parecido. Conservar la admisión sin esquema.** Las semejanzas de familia (*Investigaciones*, §§65–67) pueden solaparse sin un rasgo común a todos. De allí salen pocas razones para exigir árboles de clases, herencia o composición. Luhmann tampoco impide que alguien proponga un modelo antes de recibir el primer informe. La prueba es si sldb admite un poema sin esquema y conserva sus versos, aun cuando también admita informes con un modelo previo.
+6. **Alguien lo dijo. Conservar la procedencia.** El observador de Maturana inspira la pregunta por quién distingue algo. El artículo ayuda a evaluar resultados. La autoridad para declarar es asunto del proyecto. Para «la prueba pasó» importa qué ejecución produjo el resultado. Para «aceptamos ese resultado» importa quién tomó la decisión. Una persona puede equivocarse y un cálculo puede ser reproducible.
+7. **Poder sostenerlo. Conservar y cambiar de fuente.** Ni la conservación de la organización ni la puntuación de un texto explican cómo opera una justificación alternativa. Tampoco se deduce de ellas una escala de certeza. Basta poder decir qué apoyo cayó y cuál sigue en pie. Retirar una afirmación y recordar que ayer se sostuvo son decisiones compatibles. El plazo de conservación y el mecanismo de limpieza pertenecen a otro nivel.
+8. **Consulta. Conservar la distinción entre ausencia y desconocimiento.** Luhmann explica por qué seguir enlaces puede dar una respuesta inesperada. La proposición 7 del *Tractatus* trata los límites de lo decible. Nada prescribe sobre una búsqueda incompleta. Mostrar el apoyo de la respuesta ya se sigue de 6 y 7. Lo adicional es declarar hasta dónde se miró y permitir preguntar sin que la pregunta altere lo declarado.
+
+## Qué falta y qué caso decide
+
+**Una fuente para la revisión.** Incorporaría a Jon Doyle. Su sistema registra las justificaciones de una conclusión y permite revisar qué se sigue aceptando cuando cambia un supuesto. En el ejemplo del impuesto, el código y una prueba solo cuentan como apoyos alternativos si cada uno basta por sí solo. Si la prueba se ejecutó sobre la versión anterior de esa misma función, sigue respaldando lo que ocurrió ayer. Por sí sola deja abierta la pregunta sobre la versión de hoy. Esa distinción decide qué advertencia verá quien consulta. [Doyle, *A Truth Maintenance System*, 1979](https://www.sciencedirect.com/science/article/pii/0004370279900080)
+
+**Un principio para editar.** Haría fundante que una edición tenga un alcance reconocible y conserve lo ajeno. Si se cambia el impuesto en una sección mientras otra persona corrige el título en el archivo, devolver el documento viejo con el impuesto nuevo pierde una edición válida. Si ambos cambian el mismo importe, hay un desacuerdo que resolver. Esto exige más que detectar cambios o generar texto fiel. El árbol de partes, el método para volver a escribir y la huella de Git pertenecen al nivel técnico. Un hook puede faltar y ambos casos siguen exigiendo la misma respuesta.
+
+## Homoiconicidad
+
+Haría fundante que el proyecto pueda preguntar por las reglas que gobiernan sus afirmaciones, sus cambios y sus vistas. Si ayer una regla aceptaba una prueba y hoy exige dos, «¿por qué se aceptó ayer?» necesita la regla que regía entonces. El README ya compromete a sldb a expresar esas reglas en la misma red. Pondría ese compromiso explícito en la declaración de sistema. Llamarlo «homoiconicidad» exige precisar qué instrucciones tienen una representación que el propio lenguaje puede leer y manipular. Guardar un nodo que apunta a un programa opaco apenas da una referencia. La representación del programa y su ejecución quedan en técnicas.
+
+## Hasta dónde llega la autopoiesis
+
+El límite aparece al preguntar quién lo produce. sldb puede rehacer un índice y registrar su propia spec. Para que eso ocurra, alguien construye el programa, elige qué observar y mantiene las reglas de operación. Rehacer un resultado demuestra que se conservaron sus insumos y un procedimiento. Atribuirle por eso la producción de su propia organización sería abuso. También lo sería deducir de la biología la autoridad del archivo, la obligación de guardar historia o una política de permisos. Esos compromisos necesitan razones del producto.
+
+## Mi lista
+
+1. Cada afirmación conserva una identidad que permite citarla en su contexto y declarar sus relaciones con otras.
+2. Toda observación de un archivo identifica qué parte se observó y cuándo, de modo que un cambio posterior pueda ponerla en revisión.
+3. Cada afirmación permite distinguir su origen y su condición de observación, propuesta, declaración o resultado de un cálculo.
+4. La revisión sigue los apoyos de cada conclusión y permite explicar tanto su estado presente como una aceptación anterior.
+5. Una consulta expone sus apoyos y su alcance, distingue la ausencia comprobada de lo desconocido y respeta lo ya declarado.
+6. Cada vista precisa qué contenido conserva y ofrece una manera de comprobarlo.
+7. Una edición identifica qué se quiere cambiar, conserva lo ajeno y hace visible cualquier cambio incompatible.
+8. El proyecto admite textos antes de asignarles un modelo y distingue su forma del papel que cumplen.
+9. Las reglas con que el proyecto acepta, revisa o muestra una afirmación pueden consultarse junto con aquello que gobiernan.

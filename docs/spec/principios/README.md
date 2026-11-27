@@ -1,7 +1,7 @@
 # sldb
 
 Borrador, sin aprobar. Este texto declara qué es sldb como sistema. Es el segundo de tres
-niveles: antes están los fundamentos (`fundamentos.md`: de dónde viene la idea y los ocho
+niveles: antes están los fundamentos (`fundamentos.md`: de dónde viene la idea y sus
 principios); después, las técnicas, capacidades y estructuras de datos, que son el resto del
 spec. No describe cómo está construido ni en qué estado está.
 
@@ -26,6 +26,9 @@ sldb es un grafo de lo que un proyecto sabe, construido desde sus archivos y con
 Tiene un adentro y un afuera. Adentro hay nodos y relaciones. Afuera están los archivos, que
 siguen siendo archivos comunes. Lo que une las dos cosas son sensores: puntos donde un nodo de
 adentro está atado a una parte de un archivo, y por donde se entera de que esa parte cambió.
+
+El grafo no es la realidad del proyecto ni reemplaza a sus textos. Es otra forma de decir lo
+mismo, con otras reglas, que se deja consultar.
 
 Lo que se hace con sldb se hace adentro: preguntar, relacionar, comprobar, cambiar. Y lo que hay
 adentro se puede volver a sacar, como el mismo archivo del que salió o de otra forma.
@@ -118,6 +121,10 @@ devuelve el documento tal como estaba.
 
 Por ahí se edita. Se cambia el nodo y se proyecta de nuevo a su archivo. Se puede recuperar una
 sección sola, o cambiar una sección sola, sin tocar el resto.
+
+Editar tiene una regla. Sobre lo que se observó manda el archivo; sobre las consecuencias manda
+la red. Un cambio se aplica sobre la versión que se vio. Si mientras tanto alguien tocó otra
+parte del archivo, eso se conserva. Si tocó la misma, hay un choque, y se muestra.
 
 Así que de una misma cosa hay tres aspectos que no se mezclan: dónde estaba afuera, que es su
 anclaje; qué dice, que es su significado; y cómo se la muestra, que es una proyección. Se

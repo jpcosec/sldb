@@ -8,149 +8,153 @@ Borrador, sin aprobar. Este es el primero de tres niveles (JP, 2026-11-27):
    principios.
 3. **Técnicas, capacidades y estructuras de datos**: el resto del spec.
 
-## Las cuatro fuentes
+## Las fuentes
 
-De cada una se dice qué se toma y qué no. Las tres primeras están descritas de memoria, sin
-releer a sus autores. La cuarta se leyó (resumen, introducción y método).
-
-### Zettelkasten
-
-El fichero de notas de Luhmann. Cada nota tiene una sola idea y un identificador propio que no
-depende del tema. Las notas no se ordenan en categorías: se enlazan. El orden no se decide
-antes; aparece con el uso. Y el fichero no se lee de corrido: se le pregunta, y contesta cosas
-que quien lo armó ya no recordaba haber puesto.
-
-- Se toma: unidades chicas con identidad propia; el enlace por sobre la clasificación; el orden
-  como resultado y no como requisito; el fichero como algo que se consulta.
-- No se toma: que sea de una sola persona y escrito a mano. En sldb escriben varios, personas y
-  agentes, y buena parte de las notas se toma de archivos que ya existen.
+De cada una se dice qué se toma. Importa lo que la idea dice, no quién la dijo ni en qué etapa:
+no se discute aquí la historia de cada autor. Están descritas de memoria, salvo el paper.
 
 ### Wittgenstein
 
-Del *Tractatus*: el mundo es la totalidad de los hechos, no de las cosas; una cosa solo tiene
-sentido dentro de un hecho; el signo que se ve no es el símbolo que significa; y de lo que no
-se puede hablar no se habla. De las *Investigaciones*: el significado de una palabra es su uso
-dentro de una práctica; y las cosas que llamamos igual no comparten una esencia, sino parecidos
-de familia que se van cruzando.
+El mundo es la totalidad de los hechos, no de las cosas. Un hecho ya está dentro del espacio
+lógico: no es la cosa de afuera, es lo que se puede decir de ella. Una cosa vale por los hechos
+en que entra, es decir por sus relaciones. El signo es lo que se ve o se oye; el símbolo es lo
+que significa; y el paso de uno a otro no es natural: lo fija un juego con sus reglas. Hay
+muchos juegos, y lo que llamamos igual se parece como se parece una familia. Y para poder dudar
+de algo hay que dejar firme otra cosa.
 
-- Se toma: hechos antes que cosas; el sentido depende del contexto y no del signo; los tipos
-  como parecidos de familia; decir que no se sabe cuando no se sabe.
-- No se toma: ninguna de sus tesis sobre la lógica o sobre los límites del lenguaje como tales.
-  Se usan como criterio de diseño, no como filosofía que sldb tenga que probar.
+- Se toma: hechos y relaciones como lo que hay; signo y símbolo; juegos del lenguaje con sus
+  reglas; parecidos de familia; que la certeza tiene un orden.
+
+### Zettelkasten
+
+El fichero de Luhmann. Notas con dirección estable, enlazadas entre sí, con un registro de
+pocos puntos de entrada. No se lee de corrido: se le pregunta, y contesta cosas que quien lo
+armó ya no recordaba. Importa tanto el lugar de una nota como los caminos por los que se llega
+a ella.
+
+- Se toma: unidades con identidad estable; el enlace por sobre la clasificación; puntos de
+  entrada; el fichero como algo que se consulta.
 
 ### Autopoiesis
 
-De Maturana y Varela. Un sistema vivo es una red que se mantiene a sí misma y tiene un borde.
-Está cerrado en su operación: lo que le pasa adentro lo determina su propia estructura. El
-entorno no le da instrucciones; lo perturba, y el sistema responde según cómo está hecho. La
-relación sostenida entre los dos se llama acoplamiento. Su organización, lo que lo hace ser ese
-sistema, se conserva mientras su estructura cambia. Y: todo lo dicho es dicho por alguien.
+De Maturana y Varela. Un sistema es una red con un borde. Lo que le pasa adentro lo determina
+su propia estructura: el entorno no le da instrucciones, lo perturba, y el sistema se ajusta
+según cómo está hecho. Su organización se conserva mientras su estructura cambia. Y todo lo
+dicho es dicho por alguien.
 
-- Se toma: un adentro con topología propia y un afuera; el afuera perturba y no manda dentro;
-  el acoplamiento por puntos precisos; la identidad como lo que se conserva; que toda
-  afirmación tiene un autor.
-- No se toma, o está por verse: que el sistema se produzca a sí mismo. sldb rehace lo que
-  calcula y se usa sobre sí mismo, pero no fabrica sus propios componentes. Llamarlo
-  autopoiético sería decir de más.
+- Se toma: un adentro con topología propia y un afuera; la perturbación que provoca un ajuste
+  interno; la organización que se conserva; el observador. Y que el sistema actúa sobre sí
+  mismo: sldb se puede usar para observar a sldb y disparar acciones, de modo que una
+  perturbación del entorno termine en un ajuste hecho por el propio sistema.
 
-### Del grafo al texto y de vuelta
+### Una fuente de apoyo: sostener lo que se cree
 
-Zeinalipour y otros, *From Graph to Text and Back: Semantic Fidelity in Automated Industrial
-Knowledge Graphs*, ACL 2026, Industry Track. Un texto generado desde un grafo de conocimiento
-puede inventar u omitir. Su solución: generar el texto, intentar reconstruir el grafo desde ese
-texto, y quedarse solo con los textos desde los que el grafo se recupera. La ida y vuelta es la
-prueba de que el texto dice lo mismo que el grafo, y da una medida que calza con el juicio de
-expertos.
+Doyle y los sistemas que mantienen justificaciones. Cada conclusión guarda en qué se apoya;
+puede tener varios apoyos; cuando uno cae se revisa lo que dependía de él, y solo eso. No es
+una de las fuentes de origen: se agrega porque dice con precisión cómo opera el principio 6.
 
-- Se toma: un texto es una proyección de conocimiento estructurado; una proyección es fiel si
-  desde ella se puede volver; la fidelidad se comprueba y se mide, no se supone; y tiene grados.
-- No se toma: que la proyección la haga un modelo de lenguaje, ni el entrenamiento con datos
-  sintéticos. En sldb una proyección puede ser exacta, cuando se saca por la misma estructura
-  con que entró.
+### Un ejemplo, no una fuente
+
+Zeinalipour y otros, *From Graph to Text and Back*, ACL 2026. Pasan un grafo a texto, intentan
+reconstruir el grafo desde el texto y se quedan con los textos desde los que se recupera. Es un
+caso de la idea de signo y símbolo: como el paso entre texto y grafo no es natural, la única
+forma de saber si un texto dice lo que el grafo dice es volver.
 
 ## Los principios
 
-Salen de cruzar las cuatro fuentes. Cada uno dice de cuáles viene y qué deja afuera.
+**1. El valor sale de las relaciones.**
+Lo que hay son hechos: nodos y relaciones en un grafo de conocimiento. Un nodo no vale por sí
+mismo ni por su nombre; vale por los hechos en que entra. Que dos cosas sean la misma es
+también una relación, que alguien declara.
+Viene de: Wittgenstein (el mundo son hechos, no cosas) y Zettelkasten (el enlace primero).
+Deja afuera: un sistema cuya unidad sea el archivo, y unir cosas porque se llaman igual.
 
-**1. Lo que se sabe son hechos enlazados, no documentos.**
-La unidad es chica, tiene identidad propia y vale por sus relaciones. Un documento es una forma
-de juntar y mostrar hechos, no el lugar donde viven.
-Viene de: Wittgenstein (hechos, no cosas) y Zettelkasten (una idea por nota, el enlace primero).
-Deja afuera: un sistema cuya unidad sea el archivo.
+**2. Entre signo y símbolo no hay un paso natural: lo fijan reglas.**
+El texto, hablado o escrito, es signo. El grafo de conocimiento es símbolo. La correspondencia
+entre los dos es arbitraria: un mismo grafo se dice con muchos textos y un texto admite más de
+un grafo. Lo que los une es un juego con sus reglas. Y el grafo tampoco es "la cosa misma": es
+también una proyección, como el texto, con otro conjunto de reglas. Cada proyección dice con
+qué reglas se hace, y por eso se puede comprobar volviendo.
+Viene de: Wittgenstein (signo y símbolo; juegos del lenguaje).
+Deja afuera: tratar un texto como si fuera el conocimiento, o el grafo como si fuera la
+realidad; y dar por fiel una proyección sin decir sus reglas.
 
-**2. Hay un adentro y un afuera, y el afuera no manda adentro.**
+**3. Hay un adentro y un afuera, y el afuera perturba pero no instruye.**
 Adentro hay una red con topología propia, y solo ella tiene identidad. Afuera están los
 archivos. Se tocan por puntos precisos, las anclas, que son los sensores del sistema. Lo que
-pasa afuera perturba lo de adentro; qué consecuencia tiene lo decide la red, según cómo está
-enlazada.
-Viene de: autopoiesis (cierre, acoplamiento, perturbación).
+pasa afuera perturba; el ajuste lo hace la red, según cómo está enlazada.
+Viene de: autopoiesis.
 Deja afuera: un sistema que es un espejo de los archivos, y uno que exige que todo pase por él.
 
-**3. Un texto es una proyección de lo que se sabe, y es fiel si se puede volver.**
-Lo que está adentro se saca como texto de muchas formas. Ninguna es el conocimiento: son
-vistas de él. Una proyección vale por lo que permite recuperar. La que saca un documento por la
-misma estructura con que entró lo recupera entero.
-Viene de: el paper (ida y vuelta como prueba) y Wittgenstein (la proposición como figura de un
-hecho).
-Deja afuera: tratar un texto generado como fuente, y dar por fiel una proyección sin poder
-volver desde ella.
+**4. El sistema actúa, también sobre sí mismo.**
+No solo siente. Una perturbación puede terminar en una acción, y esa acción puede caer sobre el
+propio sistema: si falta un modelo, se detecta y se corrige; si se mide el desorden, se puede
+ordenar. sldb se puede usar para observar a sldb. Para eso lo que el sistema hace tiene que
+estar dicho en la misma red que lo que sabe: una regla, un modelo o una acción son nodos como
+los demás.
+Viene de: autopoiesis.
+Deja afuera: un sistema que solo avisa, y reglas o acciones que viven fuera de la red.
 
-**4. El sentido está en el uso y en el contexto, no en el signo.**
-Un nodo significa por sus relaciones dentro de su contexto. Dos nombres iguales no son la misma
-cosa. Decir que lo son es un hecho más, que alguien declara.
-Viene de: Wittgenstein (signo y símbolo; significado como uso).
-Deja afuera: unir cosas porque se llaman igual o porque se parecen.
-
-**5. Los tipos son parecidos de familia: salen de lo que entró.**
-No se parte de una lista de tipos. Lo que comparte forma es un modelo; lo que la comparte con
-diferencias es una variación; especializar da herencia, polimorfismo y composición. Hay
-parecidos por la forma y parecidos por lo que algo es, y no coinciden. Hay textos con mucha
-forma y textos con casi ninguna, y no se tratan igual.
-Viene de: Wittgenstein (parecidos de familia) y Zettelkasten (el orden aparece con el uso).
+**5. Los tipos salen de lo que entró.**
+No se parte de una lista de tipos. Lo que comparte estructura es un modelo; lo que la comparte
+con diferencias, una variación; especializar da herencia, polimorfismo y composición. Aparte
+está lo que algo es, por su significado, su papel o su función, donde las cosas se agrupan por
+parecido de familia. Los dos ejes no coinciden. Hay textos con mucha forma y textos con casi
+ninguna, y no se tratan igual.
+Viene de: el principio 1 (el tipo es una relación más) y Wittgenstein (parecidos de familia,
+para el eje del significado).
 Deja afuera: exigir un tipo antes de aceptar algo, y un solo eje de clasificación.
 
 **6. Todo lo dicho es dicho por alguien.**
-Cada hecho tiene autor: una persona, un agente o un cálculo. No pesan igual. Registrar algo no
-lo vuelve cierto, y lo que propone una máquina es una propuesta hasta que alguien lo declara.
-El sistema no dice qué es verdad; dice qué se afirmó, quién, y en qué se apoya.
-Viene de: autopoiesis (el observador) y el paper (no confiar en el que genera: comprobar).
+Cada hecho tiene autor: una persona, un agente o un cálculo. Registrar algo no lo vuelve
+cierto. El sistema no dice qué es verdad; dice qué se afirmó, quién, y en qué se apoya.
+Viene de: autopoiesis (el observador).
 Deja afuera: hechos sin origen, y un sistema que se presenta como juez.
 
 **7. Saber algo es poder sostenerlo.**
 Un hecho vale mientras se mantiene aquello en que se apoya. Cuando un apoyo se mueve, la
-consecuencia baja por las relaciones, y no se lo lleva todo: algo puede sostenerse por otro
-lado. Por eso la certeza tiene grados y zonas. Y por eso adentro no se borra: lo que deja de
-sostenerse queda dicho, no desaparece. Lo que se conserva es la red; lo que cambia es su estado.
-Viene de: autopoiesis (la organización se conserva mientras la estructura cambia) y el paper
-(la fidelidad se mide y tiene grados).
+consecuencia baja por las relaciones y no se lo lleva todo: algo puede sostenerse por otro
+lado. La certeza tiene grados y zonas, y para dudar de una zona hay que dejar firme otra.
+Adentro no se borra: lo que deja de sostenerse queda dicho. Se conserva la red; cambia su
+estado.
+Viene de: autopoiesis (la organización se conserva), Wittgenstein (el orden de la certeza), y
+la fuente de apoyo (justificaciones).
 Deja afuera: lo sabido como vigente o caído, y borrar como forma de corregir.
 
 **8. Se consulta, no se contempla.**
-Nadie ve la red entera. Se le pregunta, y cada respuesta dice qué se sabe, en qué se apoya y
-qué tan firme está. Preguntar no la cambia. Lo que no se sabe se contesta como no sabido.
-Viene de: Zettelkasten (el fichero como interlocutor) y Wittgenstein (de lo que no se puede
-hablar no se habla).
-Deja afuera: respuestas que no muestran su apoyo, y un vacío que puede ser "no hay" o "no miré".
+Nadie ve la red entera. Se le pregunta. Una respuesta dice hasta dónde miró, y distingue "no
+hay" de "no se miró". Preguntar no cambia la red.
+Viene de: Zettelkasten.
+Deja afuera: un vacío que puede querer decir dos cosas.
 
 ## Lo que no está en este nivel
 
-Son necesarios, pero son técnicas o decisiones del sistema, y van en los niveles 2 y 3:
+Van en los niveles 2 y 3:
 
-- **Homoiconicidad**: que las instrucciones sean datos, es decir que una regla, un modelo o un
-  hook sean nodos como cualquier otro.
-- **Edición estructural**: editar el árbol y no el texto.
-- **Realización superficial**: la técnica con que un árbol se vuelve texto.
+- **Editar.** Sobre lo observado manda el archivo; sobre las consecuencias, la red. Una edición
+  se aplica sobre la versión que se vio, conserva lo ajeno y muestra el choque si lo hay. No es
+  fundante (JP, 2026-11-27): lo fundante es la relación entre signo y símbolo; esto es cómo se
+  la respeta al escribir. Va en la declaración de sistema.
+- **Edición estructural, realización superficial y lentes**: las técnicas con que se pasa de
+  árbol a texto y de vuelta, exactas o con pérdida.
 - **git**: la historia de los archivos y las huellas para notar cambios.
-- **Revisión de lo que se sostiene y consulta por reglas**: la forma de calcular los principios
-  7 y 8.
-- **Actuar**: los hooks, lo contrario del sensor. Sin definir.
-- **Mecanismo genérico y plugins**: decisión de producto.
+- **Homoiconicidad**: el nombre técnico de que las instrucciones sean datos. Es lo que hace
+  posible el principio 4.
+- **Hooks**: la forma concreta de actuar. Sin definir.
+- **Consulta por reglas** y **mecanismo genérico y plugins**.
 
-## Dudas del agente
+## Discusión
 
-- Tomé "las cuatro fuentes" como Zettelkasten, Wittgenstein, autopoiesis y el paper. Si la
-  cuarta era otra, los principios 3 y 7 son los que más cambian.
-- El principio 6 lo saqué de la frase de Maturana sobre el observador. Calza con lo que JP
-  decidió sobre quién declara, pero la atribución a esa fuente es mía.
-- Homoiconicidad quedó en técnicas. Si para JP es fundante, se vuelve el noveno principio: lo
-  que el sistema hace está dicho en la misma red que lo que el sistema sabe.
+Las críticas del concilio están en `concilio/`. Lo que JP resolvió sobre ellas el 2026-11-27:
+
+- Son hechos y no "afirmaciones": un hecho, en Wittgenstein, ya está dentro del espacio lógico.
+- El grafo también es una proyección, otro juego del lenguaje.
+- El paper es un ejemplo de una idea, no una fuente.
+- Que Wittgenstein sea "dos filosofías que se contradicen" es una lectura errada, y no importa:
+  importa lo que la idea dice.
+- Actuar es un principio y sale de la autopoiesis.
+- Editar no es fundante.
+
+Quedan sin respuesta dos casos que el concilio planteó y que decide el nivel 2 o 3: si
+reformatear una función pone en duda lo que se apoyaba en ella; y si una prueba que corrió
+sobre la versión anterior de una función cuenta como apoyo independiente de esa función.
