@@ -1,7 +1,7 @@
 name: task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras
 path: desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md
-source_hash: d6d6799e69dba9d08cffa6a983d0a8d7fb06bbe02d04c916c44f2cb150e55e06
-content_hash: 1ba7e5361ff62d661f32bd429e7ea2460ef9743d9c46d7d9663fa507083c84c1
+source_hash: 927abdb05f7dd13e2ec6ab3d617b5f93fac2ba030077c322a04f6fe4bf7bfbb7
+content_hash: 25037ba908651d04f31537230c090217639582de053516742a39f34bc10a6b93
 field_hashes:
   title: 5d1795cc44f0f76e801a0ed86d1d9594b477a9876aa0a9bffcb00feeef97a03b
   id: 1115e402df83caeaa1f4474c501c8903215b9e435941cae5226717c8e07f772a
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: f2a162c7d70ad8a117e88484b97cc495eca1c3a90d1a34d7791cd381ef9c03d0
   goal: a192b01d38ea8c165f16105954dde2f855581526b4e25ae7b5d90c0acaad1992
-  scope: 90ad1e48ee0bb07ea264ff24902b55d606bb3f47e0a25effe40bd3bf5785d6fc
+  scope: cc521e13133aaf497e51c4579d103f0723e89aa0b4f8e0beb9467c7f81be0c13
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T18:02:57Z'
+  at: '2026-11-27T18:00:54Z'
   authority: generated
   via: save_document_payload

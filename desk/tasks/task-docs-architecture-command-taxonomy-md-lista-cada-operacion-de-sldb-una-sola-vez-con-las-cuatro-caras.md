@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T18:02:57Z'
+  at: '2026-11-27T18:00:54Z'
   authority: generated
   via: save_document_payload
 id: task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras
@@ -14,6 +14,7 @@ references: []
 depends_on: []
 pills: []
 files: []
+pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -38,7 +39,7 @@ Una tabla de operaciones que JP pueda aprobar: cada operación con sustantivo, v
 
 _State what is in scope and what is out of scope._
 
-Dentro: el documento docs/architecture/command-taxonomy.md y una prueba que lo mantiene completo. Fuera: renombrar o mover código, el servidor fastmcp, tocar la CLI. Es un inventario; no cambia comportamiento.
+Dentro: el documento docs/architecture/command-taxonomy.md y una prueba que lo mantiene completo. Fuera: renombrar o mover código, el servidor fastmcp, tocar la CLI. Es un inventario; no cambia comportamiento. Criterio de JP (2026-11-27): la tabla ordena, no conserva. Que alguien use un comando no es razón para dejarlo; si otra operación hace lo mismo, se marca para reemplazo y su fila nombra con qué. Una operación sobrevive si es un sustantivo-verbo propio de la taxonomía, no por existir hoy en una cara. La tabla marca además el anillo de cada operación (docs/spec/mecanismos/anillos.md).
 
 ## Implementation Path
 

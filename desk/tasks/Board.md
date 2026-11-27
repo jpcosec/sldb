@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-27T03:26:12Z'
+  at: '2026-11-27T18:01:38Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -92,6 +92,7 @@ tasks:
 - desk/tasks/task-tarea-0-del-spec-mapear-a-sldb-la-wiki-del-spec-de-producto-de-sldb.md
 - desk/tasks/task-evaluar-llevar-kimun-como-core-de-sldb.md
 - desk/tasks/task-refactor-de-sldb-por-anillos-puerta-que-falle-cortar-el-nudo-borrar-y-mover-clean-code.md
+- desk/tasks/task-la-cli-expone-solo-las-operaciones-de-la-taxonomia-se-retiran-los-alias-los-grupos-legacy-y-lo-que-o.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -219,3 +220,4 @@ _Generated from the task references above._
 - Tarea 0 del spec: mapear a SLDB la wiki del spec de producto de sldb [draft] - Cada página de la wiki del spec (objeto, operación, mecanismo, plugin, decisión, abierto) tiene dicho con qué modelo, qué aristas y qué procedencia queda como documento del store de sldb, para que la wiki pase a generarse desde el store.
 - Evaluar llevar kimun como core de sldb [draft] - JP tiene escrito, punto por punto del spec de sldb, qué resuelve kimun como núcleo, qué contradice y qué queda en Python, con evidencia medida sobre copias, para decidir si kimun pasa a ser el core de sldb.
 - Refactor de sldb por anillos: puerta que falle, cortar el nudo, borrar y mover, clean code [draft] - Que el código de sldb respete el reparto de anillos de docs/spec/mecanismos/anillos.md (confirmado por JP el 2026-11-27): cada anillo importa solo de los de adentro, y una puerta falla si eso se rompe.
+- La CLI expone solo las operaciones de la taxonomía: se retiran los alias, los grupos legacy y lo que otra operación ya hace [draft] - Cada comando hoja de la CLI corresponde a una fila de docs/architecture/command-taxonomy.md con su nombre canónico; lo marcado para reemplazo ya no existe y cada consumidor del workspace que lo usaba llama a la operación que lo reemplaza.
