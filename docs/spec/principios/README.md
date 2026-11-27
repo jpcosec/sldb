@@ -284,5 +284,8 @@ Hay cosas que este texto usa y no resuelve.
    el mínimo con que esto ya sirve.
 2. **Cómo se mide la certeza.** Que hay zonas más firmes y zonas más movidas está dicho. Con qué
    se mide también puede variar; falta fijar el mínimo.
-3. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
-   decir si sldb corre esa ejecución o solo ancla un resultado producido afuera.
+3. **Qué es un hook.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"), un
+   estado puede cambiar cuando algo ocurre, un cambio puede disparar una revisión. En los tres
+   casos algo se ejecuta. Falta decir qué es un hook, con qué mecanismos funciona, qué
+   condiciones tiene que pasar antes de correr, y cómo se mete a una persona en el medio sin que
+   usarlo se vuelva una carga. Dónde y cómo corre lo define cada hook.
