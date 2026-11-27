@@ -80,6 +80,13 @@ registran `--actor`: no hay procedencia (`dag_writes.py:23-24`).
   que nadie lleva todavía.
 - Qué hace borrar una arista implícita (hoy se rechaza).
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una relación tipada (herencia) entre nodos de significado.
+
 ## Fuentes
 
 `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`, `docs/architecture/tags.md`,

@@ -84,6 +84,13 @@ Un cambio pendiente vive en el borrador `.py.temp` del modelo
   o se trata como quitar y crear?
 - ¿Renombrar un campo es un verbo propio (conserva los valores) o es quitar y crear?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Un campo es un nodo dentro del AST tipado del modelo: algo metido dentro del nodo del modelo, con sus propias relaciones (tipo, a qué modelos apunta).
+
 ## Fuentes
 
 - `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`, `desk/drawer/plans/spec-de-producto-de-sldb/README.md`

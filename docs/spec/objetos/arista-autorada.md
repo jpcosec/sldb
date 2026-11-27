@@ -95,6 +95,13 @@ análisis del grafo tratan `references` como derivada, no autorada
 - Una transición que se aplica: ¿es un verbo de este objeto (cambiar el sujeto) o pertenece a
   la máquina de estados futura?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una relación tipada entre nodos. Puede salir o llegar a algo metido dentro de un nodo.
+
 ## Fuentes
 
 `src/sldb/models/relation_doc.py`, `relation_type_doc.py`, `transition_attributes.py`,

@@ -86,6 +86,13 @@ consecuencia. Leer actúa sobre la arista.
 - Un nodo sin verbo para su arista (sección, campo): ¿se puede crear una sección que no esté en el
   texto, o la sección siempre es una consecuencia del texto?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Son las propiedades estructurales de los nodos del AST: quién está dentro de quién.
+
 ## Fuentes
 
 `src/sldb/store/edge_index/` (`store_contribution.py`, `model_contribution.py`, `doc_structure.py`,

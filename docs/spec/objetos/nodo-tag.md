@@ -94,6 +94,13 @@ JP, 2026-11-26: en esto se copia el comportamiento de kimun. Leído en `~/proyec
 - Si renombrar un tag deja una equivalencia con el nombre viejo.
 - Si el namespace (`area:`) es parte del nombre del tag o un atributo aparte.
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es un nodo de significado. Llevarlo es una propiedad semántica del nodo que lo lleva.
+
 ## Fuentes
 
 `docs/architecture/tags.md`, `docs/addressability_model.md`,

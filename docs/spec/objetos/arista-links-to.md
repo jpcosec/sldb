@@ -89,6 +89,13 @@ Restricciones que ya existen:
 - Un enlace entre stores, ¿es una arista como las demás o es el único caso que no admite
   atributos propios (condición, tipo)?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una relación tipada entre grafos.
+
 ## Fuentes
 
 `src/sldb/api/stores/link_store.py`, `unlink_store.py`, `store_links.py`, `apply_declaration.py`;

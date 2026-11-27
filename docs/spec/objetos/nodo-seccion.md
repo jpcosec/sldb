@@ -92,6 +92,13 @@ Qué limita crear hoy. Aunque se pudiera escribir un encabezado, el store rechaz
 5. ¿Los tags de una sección son siempre los de su documento, o una sección puede tener los
    suyos?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es un nodo del AST metido dentro del documento. Como cualquier cosa dentro de un nodo, puede tener relaciones propias.
+
 ## Fuentes
 
 `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`,

@@ -100,6 +100,13 @@ Lo que verifiqué y no coincide con el registro de ejes:
 5. ¿Cambiar un documento es siempre reemplazar el payload entero, o también admite un parche
    por campo a este nivel?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Un documento entra siempre como AST, nunca crudo (JP). Es el nodo raíz de ese árbol; lo demás está metido adentro.
+
 ## Fuentes
 
 `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`,

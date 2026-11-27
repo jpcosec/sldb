@@ -25,6 +25,15 @@ dicen de quién es cada una.
 - **De dónde sale un modelo**: una familia de documentos que comparten en su AST las propiedades
   estructurales es un modelo como los de sldb, y ese modelo se puede declarar como un AST tipado.
 
+## Tres correcciones de JP a la lectura del agente (2026-11-26)
+
+- **La implementación de kimun puede no estar haciendo esto.** Donde no lo haga, se corrige más
+  adelante. Este spec describe la lógica, no el estado del código de kimun.
+- **A un nodo se le pueden meter cosas adentro**, y esas cosas también pueden tener relaciones.
+  Eso es lo importante del modelo.
+- **Los objetos y estructuras de datos de sldb no desaparecen: se absorben.** Las páginas de
+  objeto se conservan; cada una dice cómo se expresa ese objeto en nodos, contenido y relaciones.
+
 ## Preguntas abiertas del spec que esta lógica contesta
 
 Leído en `~/proyectos/kimun` (`370beaff`): `docs/v2/00-nucleo.md`, `docs/v2/14-juego-del-lenguaje.md`
@@ -68,8 +77,7 @@ como núcleo de sldb, sin confirmar.
 
 ## Consecuencias para este spec, sin hacer
 
-- Las páginas de objeto están ordenadas con el modelo como principio (store, modelo, campo,
-  documento, sección). Con esta lógica el orden es nodos de anclaje, de significado y de
-  proyección, más tipos de relación, y el modelo se deriva.
+- Cada página de objeto lleva una sección "Cómo se absorbe en la lógica de kimun" (lectura del
+  agente, sin confirmar). Ninguna página se elimina ni se funde con otra.
 - kimun separa el modelo de lectura del de generación y la ida y vuelta idéntica deja de ser
   obligación (14 §18.7, dueño). sldb usa hoy una plantilla para las dos direcciones.

@@ -88,6 +88,13 @@ poder crear uno hay que registrar los modelos `RelationTypeDoc` y `RelationDoc` 
 - Si una arista puede terminar en una sección o un valor, ¿`source_types` y `target_types` se
   expresan por modelo del documento, o hay que poder nombrar secciones y valores?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es el tipo de una relación. En kimun las relaciones se tipan (herencia, transclusión, hook y otras); `RelationTypeDoc` es la forma de sldb de declarar un tipo.
+
 ## Fuentes
 
 - `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`, `desk/drawer/plans/spec-de-producto-de-sldb/README.md`

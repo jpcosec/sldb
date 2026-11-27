@@ -92,6 +92,13 @@ vista, `docs compose` no toca `__compositions__`.
 - Los destinos de `composes` son rutas y los de `contains` ids: ¿se unifican en una dirección?
 - ¿Cuántos hijos permite `contains` por padre cuando el campo es un escalar?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+`contains` es que un nodo tenga cosas adentro; `composes` es la relación tipada de transclusión.
+
 ## Fuentes
 
 `src/sldb/store/edge_index/declared_references.py`, `composition_edges.py`,

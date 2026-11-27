@@ -72,6 +72,13 @@ solo cubre `semantic_parent` y `extends`). No hay hash ni procedencia.
 - Dónde se guarda para que se versione y sobreviva a borrar la caché.
 - Si `stores semantic-map` se unifica con `semantic equivalent add`.
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una relación tipada entre nodos de significado, declarada como curaduría.
+
 ## Fuentes
 
 `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`, `docs/addressability_model.md`,

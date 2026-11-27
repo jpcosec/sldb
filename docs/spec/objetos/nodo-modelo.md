@@ -87,6 +87,13 @@ El MCP no escribe modelos: el servidor no sirve escribir código de modelo (`src
 - Crear un modelo escribe Python: ¿sldb escribe el archivo, o solo registra uno que alguien
   escribió? Hoy el MCP se niega a lo primero.
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Un modelo es un AST tipado: se declara cuando una familia de documentos comparte las propiedades estructurales de su AST (JP). La clase Python de hoy es una de las formas de escribir esa declaración.
+
 ## Fuentes
 
 - `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`, `desk/drawer/plans/spec-de-producto-de-sldb/README.md`

@@ -102,6 +102,13 @@ Lo que verifiqué y no coincide con lo escrito:
 4. ¿`AnchorDoc` (alias sin huella) queda como modelo de sldb, o desaparece junto con `pron`?
 5. ¿Se ancla una sección o un valor? Haría falta una huella por sección y por subcampo.
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una propiedad de un nodo: el anclaje de referencia a su soporte (por ejemplo un blob de git), junto al hash que detecta si cambió.
+
 ## Fuentes
 
 `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`,

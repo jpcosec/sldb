@@ -67,6 +67,13 @@ también la emite (`src/sldb/store/graph/ingest_sldb_nodes.py:29,36,42`).
 - Qué es "cambiar" una arista sin atributos: nada, o mover el extremo.
 - Si la arista de modelo (por `__semantics__`) se puede borrar sin editar código Python.
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una propiedad semántica de un nodo, y una propiedad es una relación.
+
 ## Fuentes
 
 `docs/architecture/tags.md`, `docs/architecture/edges.md`,

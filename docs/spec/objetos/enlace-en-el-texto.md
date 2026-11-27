@@ -99,6 +99,13 @@ JP, 2026-11-26: un enlace del texto es una relación más. Ver
 - Si es arista: ¿el enlace con tipo `[implements:: [[x]]]` es una arista autorada o una
   referencia declarada?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es una relación más (JP), que sale de un nodo del AST del texto.
+
 ## Fuentes
 
 `src/sldb/links/` (`parser.py`, `scan_text.py`, `resolver.py`, `recovery.py`, `audit.py`,

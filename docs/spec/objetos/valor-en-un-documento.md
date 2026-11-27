@@ -103,6 +103,13 @@ Lo que verifiqué:
 4. ¿Cambiar un valor a este nivel debe poder expresarse sin reescribir el documento entero,
    o es siempre una operación del documento?
 
+## Cómo se absorbe en la lógica de kimun
+
+Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
+
+Es un nodo del AST metido dentro del documento o de una sección, con relaciones propias. Deja de ser solo "documento más ruta".
+
 ## Fuentes
 
 `desk/drawer/plans/ejes-y-anillos-de-operaciones/README.md`,
