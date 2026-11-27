@@ -1,7 +1,7 @@
 # Mecanismo: los anillos
 
-Clase de página: mecanismo. Fecha: 2026-11-27. Estado: propuesta del agente sobre los ejes y
-anillos que JP fijó; el reparto eje por eje espera su confirmación.
+Clase de página: mecanismo. Fecha: 2026-11-27. Estado: reparto confirmado por JP el 2026-11-27
+("demosle").
 
 ## Regla
 
@@ -43,5 +43,7 @@ Los nombres de eje son los de `contracts/layers.toml`.
 
 ## Abierto
 
-- Qué motor de grafo, con Postgres como requisito.
+- Qué motor de grafo. JP se inclina por Postgres: para varios proyectos permite Supabase con
+  filtrado por RLS. Sin cerrar.
+- El árbol es el árbol de Merkle de los hashes: la forma barata de detectar mutaciones (JP).
 - El diseño del ancla a un resultado ejecutado.

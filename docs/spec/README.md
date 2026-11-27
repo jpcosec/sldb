@@ -100,4 +100,4 @@ posición que la ignora.
 
 ## Mecanismos
 
-- [Los anillos](mecanismos/anillos.md): reparto de los 32 ejes del repo, propuesta sin confirmar.
+- [Los anillos](mecanismos/anillos.md): reparto de los 32 ejes del repo, confirmado por JP el 2026-11-27.
