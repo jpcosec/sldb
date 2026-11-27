@@ -12,9 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 from sldb.api.stores.open_store import open_store
-from sldb.store.io.shards import load_document_shard
 from sldb.store.journal import JournalEntry, JournalVerifyReport
-from sldb.store.layout import documents_shard_path
 
 RETIRED_NOTICE = "El journal fue retirado el 2026-11-04; el pasado del store se consulta con sldb docs history <doc>."
 
@@ -41,8 +39,3 @@ def verify_journal(store: str | Path | None = None) -> JournalVerifyReport:
     location = open_store(store, mode="readonly")
     return JournalVerifyReport(store=str(location.store_path), entries=0, valid=True)
 
-
-def doc_hashes(store_path: Path, model: str, doc: str) -> tuple[str | None, str | None]:
-    """The tracked document's content and field hashes, or (None, None) if untracked."""
-    entry = load_document_shard(documents_shard_path(store_path, model, doc))
-    return (entry.hash_c, entry.hash_d) if entry else (None, None)

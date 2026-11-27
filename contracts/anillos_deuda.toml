@@ -115,10 +115,6 @@ file = "api/documents/document_render.py"
 module = "runtime.validation"
 
 [[import]]
-file = "api/documents/document_serialization.py"
-module = "api.journal"
-
-[[import]]
 file = "api/documents/extract_payload.py"
 module = "runtime.validation"
 
@@ -377,10 +373,6 @@ module = "api.stores.open_store"
 [[import]]
 file = "api/graph/snapshot.py"
 module = "store.export"
-
-[[import]]
-file = "api/journal.py"
-module = "api.stores.open_store"
 
 [[import]]
 file = "api/model_create/create_model.py"
