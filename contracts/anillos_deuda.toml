@@ -7,20 +7,12 @@ file = "api/anchors/anchor_docs.py"
 module = "api.stores.open_store"
 
 [[import]]
-file = "api/anchors/anchor_docs.py"
-module = "store.query"
-
-[[import]]
 file = "api/anchors/check_doc_anchors.py"
 module = "api.stores.open_store"
 
 [[import]]
 file = "api/anchors/resolve_pointers.py"
 module = "api.stores.open_store"
-
-[[import]]
-file = "api/anchors/resolve_pointers.py"
-module = "store.query"
 
 [[import]]
 file = "api/documents/apply_batch.py"
@@ -37,10 +29,6 @@ module = "api.stores.store_location"
 [[import]]
 file = "api/documents/batch_guards.py"
 module = "api.stores.store_location"
-
-[[import]]
-file = "api/documents/batch_guards.py"
-module = "store.query"
 
 [[import]]
 file = "api/documents/batch_inverse.py"
@@ -105,10 +93,6 @@ module = "api.stores.doc_ref"
 [[import]]
 file = "api/documents/document_payload.py"
 module = "api.stores.store_links"
-
-[[import]]
-file = "api/documents/document_payload.py"
-module = "store.query"
 
 [[import]]
 file = "api/documents/document_render.py"
@@ -201,10 +185,6 @@ module = "runtime.validation"
 [[import]]
 file = "api/documents/rewrite_loss.py"
 module = "runtime.validation"
-
-[[import]]
-file = "api/documents/runtime_documents.py"
-module = "store.query"
 
 [[import]]
 file = "api/documents/select_documents.py"
@@ -519,10 +499,6 @@ file = "api/segments/build_extraction_segments.py"
 module = "runtime.validation"
 
 [[import]]
-file = "api/segments/field_ref_resolver.py"
-module = "store.query"
-
-[[import]]
 file = "api/segments/segment_enrichment.py"
 module = "api.notations"
 
@@ -567,28 +543,12 @@ file = "models/structured_doc.py"
 module = "runtime.validation"
 
 [[import]]
-file = "store/edge_index/federation.py"
-module = "store.query"
-
-[[import]]
 file = "store/model_origin.py"
 module = "store.link_path"
 
 [[import]]
-file = "store/query_engine/document_selection.py"
-module = "store.query"
-
-[[import]]
-file = "store/query_engine/global_semantic.py"
-module = "store.query"
-
-[[import]]
-file = "store/query_engine/semantic_utils.py"
-module = "store.query"
-
-[[import]]
-file = "store/query_engine/store_prefix.py"
-module = "store.query"
+file = "store/query.py"
+module = "store.link_path"
 
 [[import]]
 file = "store/runtime_codec.py"
