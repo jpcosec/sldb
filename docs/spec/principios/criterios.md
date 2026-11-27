@@ -332,9 +332,10 @@ Tienen que poder cambiar sin que cambie nada de este documento.
 Puntos donde los antecedentes dicen cosas distintas y solo el dueño puede cerrar. Mientras estén
 abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
 
-- A1. **Qué hace que una parte siga siendo la misma** (toca 2.2 y 4.2). Si se reordena una lista o
-   se renombra la función, ¿qué permite afirmar que es la misma parte de antes? Se sabe que no es
-   su huella ni su posición.
+- A1. **Qué hace que una parte siga siendo la misma**: cerrado por JP el 2026-11-27. Identidad
+   tienen solo los nodos y arcos de adentro. Una parte sin marcar se nombra por su dirección y no
+   tiene continuidad; lo que persiste es el nodo que la marcó, y lo que se actualiza es su
+   "dónde". Ver el whitepaper, "Adentro y afuera".
 - A2. **Qué se puede hacer con una fuente sin modelo** (toca 3.1). Se puede observar el párrafo
    antes de darle un modelo. Al registrarlo, ¿pertenece igual a alguna clase general, o a
    ninguna?

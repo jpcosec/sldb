@@ -45,7 +45,22 @@ No hace falta seguir un archivo entero. Se elige qué partes importan, y el rest
 archivo sin que sldb tenga nada que decir. Tampoco hace falta que la fuente se adapte: sldb mira,
 no exige.
 
-**Relaciones.** Entre las partes hay relaciones, y cada relación tiene un tipo: esta sección
+**Adentro y afuera.** Los archivos están afuera. Adentro de sldb hay solo nodos y relaciones:
+objetos, vínculos y hechos. Esa es la topología propia del sistema, y solo lo que está en ella
+tiene identidad. Un archivo, o un pedazo de archivo que nadie marcó, no es parte de ella.
+
+Lo que une las dos cosas es un sensor. Cuando alguien marca una parte de una fuente, nace
+adentro un nodo que la sigue: recuerda qué marcó y dónde lo encontró. sldb siente del exterior
+solo lo que tiene sensor. El resto del proyecto está cubierto, archivo por archivo, por el
+control de versiones, y con eso basta.
+
+De ahí sale qué significa "la misma parte". Una parte sin marcar no tiene continuidad ni la
+necesita: se nombra por su dirección, y si se mueve o se reordena, esa dirección nombra lo que
+haya ahora en ese lugar. Lo que persiste es el nodo que la marcó. Si la parte cambia de lugar o
+de nombre, lo que se actualiza es el "dónde" de ese nodo. El exterior puede alterar lo de
+adentro, porque un sensor nota el cambio, pero no pasa a ser parte de adentro.
+
+**Relaciones.** Entre los nodos hay relaciones, y cada relación tiene un tipo: esta sección
 contiene a este párrafo, este párrafo se apoya en esta función, esta tarea responde a esta
 decisión. Algunas salen de la estructura misma, como "contiene". Otras las declara alguien, una
 persona o un agente, y queda escrito quién fue.
@@ -82,8 +97,9 @@ Tiene tres clases de cosas y cada una vale distinto:
 Un proyecto tiene una función que calcula un precio, y un documento de diseño con un párrafo que
 dice: "el precio incluye el impuesto".
 
-Alguien declara que el párrafo se apoya en la función. Esa relación es un ancla: además de unir
-las dos partes, recuerda lo que vio de la función en ese momento.
+Alguien declara que el párrafo se apoya en la función. Con eso nacen adentro dos nodos, uno que
+sigue al párrafo y otro que sigue a la función, y una relación entre ellos. Esa relación es un
+ancla: además de unirlos, recuerda lo que vio de la función en ese momento.
 
 ```mermaid
 ---
@@ -195,25 +211,20 @@ apoya lo que otro escribió, sin tener que creerle.
 
 ## Lo que falta decidir
 
-Hay cosas que este texto usa y no resuelve. La primera es la más seria, porque sin ella lo demás
-no se puede construir.
+Hay cosas que este texto usa y no resuelve.
 
-1. **Qué hace que una parte siga siendo la misma.** Si se reordena una lista, se mueve un
-   archivo o se renombra una función, algo tiene que permitir decir "es la de antes". No puede
-   ser su huella, que cambia al editarla, ni su posición, que cambia al insertar algo. Y no
-   debería exigir escribir nada en el archivo.
-2. **Dónde vive lo declarado.** Una relación o una regla declarada puede ser ella misma un
+1. **Dónde vive lo declarado.** Una relación o una regla declarada puede ser ella misma un
    documento más del proyecto, es decir otra fuente, o vivir solo en el store. Lo primero hace
    que el proyecto tenga archivos que existen por sldb; lo segundo, que dejar sldb pierda algo.
-3. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
+2. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
    dependientes. Pero si ese borrado deja incumplida una regla del proyecto, las dos cosas
    chocan.
-4. **Qué se le garantiza a un archivo al escribir en él.** Si todo lo que no se tocó queda
+3. **Qué se le garantiza a un archivo al escribir en él.** Si todo lo que no se tocó queda
    idéntico.
-5. **Qué compromiso asume un modelo.** Si un documento con modelo trae una sección que el modelo
+4. **Qué compromiso asume un modelo.** Si un documento con modelo trae una sección que el modelo
    no conoce, eso es un error o simplemente una parte que no se sigue. Y si una fuente sin
    modelo pertenece igual a alguna clase general.
-6. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
+5. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
    reconecta el ancla y avisa, o propone y espera.
-7. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
+6. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
    decir si sldb corre esa ejecución o solo ancla un resultado producido afuera.

@@ -91,3 +91,23 @@ como núcleo de sldb, sin confirmar.
   agente, sin confirmar). Ninguna página se elimina ni se funde con otra.
 - kimun separa el modelo de lectura del de generación y la ida y vuelta idéntica deja de ser
   obligación (14 §18.7, dueño). sldb usa hoy una plantilla para las dos direcciones.
+
+## Identidad: decidido por JP el 2026-11-27
+
+La tabla de arriba atribuye al dueño proposiciones del núcleo de kimun que redactaron agentes, y
+da por cerrado "un id propio que nace al marcarlo" con la inferencia del concilio. Eso queda
+reemplazado por lo que JP dijo el 2026-11-27, que confirma su frase en kimun del 2026-11-15
+(dejar de hablar de identidad; dos niveles: hasta el archivo lo cubre git, dentro del archivo
+solo importa lo anclado):
+
+- Identidad es solo de nodos y arcos: objetos, relaciones y hechos. Eso es la topología propia
+  del sistema.
+- Lo que está afuera no es parte de esa topología, aunque el estado del exterior pueda generar
+  alteraciones hacia adentro.
+- Hay un mapeo por archivo gracias a git. Lo que el sistema siente del entorno es solo lo que
+  está sensorizado.
+
+Consecuencia para el borrador de dirección única
+(`docs/architecture/one-address-grammar-two-spaces.md`): su punto 1 dice que la dirección
+estructural "es la identidad" de una cosa. Con esta decisión la dirección nombra lo que hay en
+un lugar; la identidad es del nodo que lo marcó. El borrador no se editó.
