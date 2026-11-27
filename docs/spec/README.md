@@ -4,10 +4,32 @@ Estado: **borrador**. El spec es una wiki: una página por cosa, escrita primero
 Mapear estas páginas al store es la tarea 0 del spec (JP, 2026-11-26). La portada con lo que el
 dueño fijó está en `desk/drawer/plans/spec-de-producto-de-sldb/README.md`.
 
-Clases de página con que se parte: objeto, operación, mecanismo, plugin, decisión y abierto. Por
-ahora solo hay páginas de objeto.
+El spec tiene tres niveles (JP, 2026-11-27):
+
+1. **Fundamentos**: [`principios/fundamentos.md`](principios/fundamentos.md). De dónde viene la
+   idea (Wittgenstein, Zettelkasten, autopoiesis) y los ocho principios. Es lo que, si se quita,
+   sldb deja de ser sldb.
+2. **sldb como declaración de sistema**: [`principios/README.md`](principios/README.md). Qué es
+   el sistema, dicho desde esos principios: adentro, afuera y sensores, entrar y salir,
+   familias, qué pasa cuando el afuera se mueve.
+3. **Técnicas, capacidades y estructuras de datos**: todo lo demás de esta carpeta.
+
+Para revisar una pieza o una página contra los principios:
+[`principios/criterios.md`](principios/criterios.md). Lo conversado que todavía no existe:
+[`principios/futuro.md`](principios/futuro.md).
+
+Clases de página del nivel 3: objeto, operación, mecanismo, plugin, decisión y abierto. Hay
+páginas de objeto, tres de mecanismo o decisión y una de abierto:
+
+- Mecanismos: [anillos](mecanismos/anillos.md), [cambio y certeza](mecanismos/cambio-y-certeza.md)
+  (propuesta de mínimo viable, sin revisar).
+- Decisiones: [el kernel sigue la lógica de kimun](decisiones/el-kernel-sigue-la-logica-de-kimun.md).
+- Abiertos: [qué es un hook](abiertos/hooks.md).
 
 ## Objetos
+
+Las páginas de objeto se escribieron antes de los niveles 1 y 2. Cada una tiene una sección
+"Desde los fundamentos" que dice de qué principio cuelga y qué de la página los contradice.
 
 Cada página dice qué es, cómo se nombra, dónde se guarda, qué hace hoy cada uno de los cuatro
 verbos (con `ruta:línea` del código, leído el 2026-11-26 sobre `adf24cf0b`) y qué significaría.

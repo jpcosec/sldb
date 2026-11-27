@@ -1,5 +1,10 @@
 # Evidencia de los principios
 
+> **Histórico.** Este anexo corresponde a la lista de 27 proposiciones del 2026-11-27 temprano,
+> que ya no existe: los principios vigentes son los ocho de `fundamentos.md` y los criterios de
+> `criterios.md` no usan esta numeración. Se conserva porque registra de qué fichas salió cada
+> afirmación.
+
 Anexo de `criterios.md`. Para cada proposición: de dónde viene y qué fichas la sostienen. Las
 fichas están en `fichas/`; las tres taxonomías del concilio y sus propuestas de whitepaper, en
 `taxonomias/`. Las palabras del dueño se citan por ficha y fecha, no textuales.
