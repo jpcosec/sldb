@@ -1,6 +1,6 @@
 # Evidencia de los principios
 
-Anexo de `README.md`. Para cada proposición: de dónde viene y qué fichas la sostienen. Las
+Anexo de `criterios.md`. Para cada proposición: de dónde viene y qué fichas la sostienen. Las
 fichas están en `fichas/`; las tres taxonomías del concilio y sus propuestas de whitepaper, en
 `taxonomias/`. Las palabras del dueño se citan por ficha y fecha, no textuales.
 
