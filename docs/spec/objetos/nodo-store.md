@@ -88,7 +88,7 @@ store (`src/sldb/cli/commands/store_add.py:12-21`). Ese enlace es una arista `li
 Lectura del agente, sin confirmar, salvo lo marcado (JP). Ver
 `../decisiones/el-kernel-sigue-la-logica-de-kimun.md`.
 
-El store es una clase de grafos (JP). Lo que hoy es `store.yaml` y los índices pasa a ser lo que declara y lo que se deriva de ese grafo. La persistencia no está definida.
+El store no es una clase de grafos en abstracto: al final es todo Clojure (JP). El grafo y lo que lo declara son formas de Clojure, que son dato y código a la vez. Cómo se persiste no está definido.
 
 ## Fuentes
 

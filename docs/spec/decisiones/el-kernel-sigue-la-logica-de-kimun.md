@@ -16,7 +16,8 @@ dicen de quién es cada una.
 ## Qué precisó JP después (2026-11-26)
 
 - **El store es una clase de grafos**, nada más. kimun, por ser Lisp, es homoicónico: lo mismo es
-  dato y es código.
+  dato y es código. Precisado después por JP: no es una clase de grafos en abstracto, "al final
+  es todo clojure nomas".
 - **Falta definir la persistencia.** JP lo nombra como el gran problema abierto.
 - **El modelo no es un objeto del spec.** Un documento nunca entra crudo, siempre como AST. Los
   nodos del AST tienen propiedades, que al final también son relaciones, y a grandes rasgos se
