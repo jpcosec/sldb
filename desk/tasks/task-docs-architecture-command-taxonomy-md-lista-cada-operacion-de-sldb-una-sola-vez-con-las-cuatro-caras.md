@@ -1,16 +1,21 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-27T18:00:54Z'
+  at: '2026-11-27T23:32:03Z'
   authority: generated
   via: save_document_payload
 id: task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras
 status: draft
-summary: ''
+summary: 'Integrada en PR #6: la tabla está en docs/architecture/command-taxonomy.md
+  y tests/test_command_taxonomy.py la mantiene completa. Falta que JP apruebe los
+  nombres y las marcas.'
 tags: []
 current_node: ritual-execution
 history: []
-references: []
+references:
+- 22a9ad8f31ca743a30643eabdc8211d5c127a850
+- tests/test_command_taxonomy.py
+- docs/architecture/command-taxonomy.md
 depends_on: []
 pills: []
 files: []
