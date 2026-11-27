@@ -1,7 +1,9 @@
 # sldb
 
-Borrador, sin aprobar. Este texto explica qué es sldb y por qué es así. No describe cómo está
-construido ni en qué estado está.
+Borrador, sin aprobar. Este texto declara qué es sldb como sistema. Es el segundo de tres
+niveles: antes están los fundamentos (`fundamentos.md`: de dónde viene la idea y los ocho
+principios); después, las técnicas, capacidades y estructuras de datos, que son el resto del
+spec. No describe cómo está construido ni en qué estado está.
 
 ## El problema
 
