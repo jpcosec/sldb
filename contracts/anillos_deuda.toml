@@ -579,10 +579,6 @@ file = "core/renderer_engine/python_expr.py"
 module = "runtime.config"
 
 [[import]]
-file = "models/__init__.py"
-module = "models.notation_models"
-
-[[import]]
 file = "models/structured_doc.py"
 module = "runtime.validation"
 

@@ -620,7 +620,7 @@ Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable del coord
 [[unit]]
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "lectura_de_fuentes", "errores", "codigo"]
-needs = 5  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
+needs = 4  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
 needed_by = 59  # medido 2026-11-17 (scan de enlaces): enlaces pide el analizador de superficie para no leer el código (links/scan_text.py → core/ast); antes 58. medido 2026-11-15 (D4): el emparejamiento de átomos avisa con findings (core/finding.py, api/matching/matching_findings.py); antes 57. medido 2026-11-15 (D1): la sincronizacion de specs suma vistas → contrato (models/relation_doc.py, api/notations/spec_refs.py); antes 56. medido 2026-11-15 (D2): vistas lee código Python por codigo (sldb.code.scan_tree, api/notations/component_spec_python.py) y avisa con errores (core/finding.py); antes 54. medido 2026-11-11 (secrest2): enlaces, adaptadores (selfdoc), op_aristas y op_modelos leen y escriben por la guarda lectura_de_fuentes (store/source_guard.py); antes 50. medido 2026-11-11 (secrest, rebasada sobre H9): las lecturas guardadas de consulta, secciones, semántica y aristas suman aristas hacia lectura_de_fuentes; antes 47. 2026-11-11 (H9): vistas_compuestas lee la ViewDoc enlazada por lectura_de_fuentes (api/views/view_source.py); antes 46. 2026-11-11 (seguridad live_stale): eje nuevo lectura_de_fuentes en nucleo; antes 43. 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
 indivisible = false
 why = """
@@ -715,7 +715,7 @@ why = "solo el eje mcp depende de él; puerto Embedder sin dependencia vectorial
 id = "notacion"
 axes = ["vocabulario_visual", "vistas"]
 needs = 8  # medido 2026-11-15 (D1): la sincronizacion de specs suma vistas → contrato (models/relation_doc.py) y vistas → federacion (store/resolver.py), en api/notations/spec_refs.py; antes 6. medido 2026-11-15 (D2): el spec de componentes desde Python suma vistas → codigo y vistas → errores (api/notations/component_spec_python.py, component_spec_findings.py); antes 4. medido 2026-11-10 (main-de-sldb-en-verde): GD25 suma vocabulario_visual → grafo (models/notation/view_doc_checks.py:61); antes 3
-needed_by = 4  # medido (D4): api/matching/spec_view_elements.py reutiliza las colecciones de elementos de api/notations; antes 3. medido 2026-11-10: GD25 vistas_compuestas → vocabulario_visual; antes 2
+needed_by = 3  # medido (D4): api/matching/spec_view_elements.py reutiliza las colecciones de elementos de api/notations; antes 3. medido 2026-11-10: GD25 vistas_compuestas → vocabulario_visual; antes 2
 indivisible = false
 why = """
 Lo que spec2viz hacía fuera del repositorio, adentro: el vocabulario (capa 0) y
