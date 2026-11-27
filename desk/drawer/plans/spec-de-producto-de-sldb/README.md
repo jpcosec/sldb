@@ -45,9 +45,11 @@ sistema modelado; la máquina de estados genérica del punto 6 es de sldb.
   cualquier cosa con estructura derivable de forma determinista (documentos, código, interfaces
   de programa) como documentos direccionables, consultables, anclados a su origen y reversibles
   a su superficie. El núcleo no distingue Markdown de código.
-- sldb no guarda las fuentes: guarda lo que sigue de ellas (qué marcó, sus hashes, sus anclajes
-  y sus relaciones). Un documento puede seguirse entero, a medias o en un par de campos; por eso
-  compara hashes y no archivos (JP, 2026-11-27).
+- Las fuentes siguen siendo archivos y son la autoridad. sldb sigue las partes que alguien
+  eligió: un documento puede seguirse entero, a medias o en un par de campos (JP, 2026-11-27).
+  Un nodo seguido puede llevar su contenido, además de su hash, sus anclajes y sus relaciones;
+  sin contenido no hay proyección (JP, 2026-11-27). El hash es la forma barata de notar un
+  cambio, no una razón para no tener contenido.
 - Corrección: hasta el 2026-11-27 este punto decía "un grafo de documentos Markdown". Estaba mal
   y varias preguntas mal hechas a JP salieron de ahí.
 - **Lo genérico de una base va en sldb; deskops, specIR y todo lo demás son plugins** (JP,

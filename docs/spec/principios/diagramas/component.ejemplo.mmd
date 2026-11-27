@@ -16,7 +16,7 @@ flowchart TD
     end
     subgraph Store ["Store (lo que sldb registra)"]
         Declarado["Declarado: el ancla «se apoya en». Responde quien la declaró"]
-        Observado["Observado: la huella de la función. Sirve para comparar"]
+        Observado["Observado: el contenido y la huella de la función. Si difiere, manda la fuente"]
         Calculado["Calculado: índices y resultados. Se puede borrar y rehacer"]
     end
     Parrafo -->|"se apoya en"| Funcion

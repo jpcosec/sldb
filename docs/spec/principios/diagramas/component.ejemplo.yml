@@ -38,7 +38,7 @@ data:
       label: "Declarado: el ancla «se apoya en». Responde quien la declaró"
       kind: core
     Observado:
-      label: "Observado: la huella de la función. Sirve para comparar"
+      label: "Observado: el contenido y la huella de la función. Si difiere, manda la fuente"
       kind: core
     Calculado:
       label: "Calculado: índices y resultados. Se puede borrar y rehacer"

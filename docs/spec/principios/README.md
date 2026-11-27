@@ -1,6 +1,6 @@
 # sldb: principios
 
-Estado: **borrador 5, sin aprobar**. Este documento dice qué es sldb y por qué. No dice cómo está
+Estado: **borrador 6, sin aprobar**. Este documento dice qué es sldb y por qué. No dice cómo está
 construido ni dónde vive cada pieza: eso es el resto del spec, y cada página del spec tiene que
 poder colgarse de una proposición de aquí. La evidencia de cada proposición está aparte, en
 `evidencia.md`.
@@ -33,7 +33,8 @@ que poder comprobar en qué se apoya lo que el otro escribió, sin tener que cre
 
 Lo que sldb no es:
 
-- No es la base de datos donde viven los documentos. La realidad está en los archivos.
+- No es la base de datos donde viven los documentos. sldb puede tener el contenido de lo que
+  sigue, pero la realidad está en los archivos.
 - No es una herramienta de Markdown. Markdown es una de las formas en que llega una fuente.
 - No es un conversor de formatos ni un generador de documentación. Puede generar textos a
   partir de lo que sabe, pero eso es una consecuencia, no su función.
@@ -121,7 +122,7 @@ flowchart TD
     end
     subgraph Store ["Store (lo que sldb registra)"]
         Declarado["Declarado: el ancla «se apoya en». Responde quien la declaró"]
-        Observado["Observado: la huella de la función. Sirve para comparar"]
+        Observado["Observado: el contenido y la huella de la función. Si difiere, manda la fuente"]
         Calculado["Calculado: índices y resultados. Se puede borrar y rehacer"]
     end
     Parrafo -->|"se apoya en"| Funcion
@@ -161,18 +162,20 @@ una sola representación.
   lista de hechos sueltos.
 
 **1.2.** Seguir es elegir. Para vigilar el cálculo del impuesto basta elegir esa parte. Lo que no
-se eligió queda en su archivo.
+se eligió queda en su archivo. Lo que sí se eligió puede llevar su contenido dentro.
 
 - Por qué: casi nunca interesa un archivo entero; interesa la función o el párrafo del que algo
-  depende. Y para saber si una parte cambió basta su huella: no hace falta guardar su contenido.
-- Rechaza: que vigilar la función obligue a incorporar o copiar el archivo completo.
-- Hoy: en parte. Se siguen valores y funciones sueltas; un documento seguido se sigue completo.
-- Nota: por defecto sldb no guarda el contenido. Tendrá que poder conservar una fuente entera,
-  parte por parte, cuando alguien lo pida. Eso no contradice esta proposición ni la 5: es una
-  elección de quien sigue, y la copia nunca manda sobre la fuente.
+  depende. Y una parte que se sigue necesita su contenido para poder consultarla y para generar
+  otras expresiones desde ella (3.2).
+- Rechaza: que vigilar la función obligue a incorporar el archivo completo.
+- Hoy: en parte. Se siguen valores y funciones sueltas, con su contenido; un documento seguido
+  se sigue completo.
+- Nota: seguir una fuente entera, parte por parte, también es una elección válida. Tener el
+  contenido no cambia quién manda: si la fuente y lo guardado difieren, manda la fuente (5), y
+  la huella es la forma barata de notar que difieren.
 
 **1.3.** Cuando una fuente admite edición, un cambio pedido sobre una de sus partes se escribe en
-la fuente misma. Para eso sldb vuelve a leer la fuente: no edita una copia.
+la fuente misma. El cambio no está hecho mientras solo exista dentro de sldb.
 
 - Por qué: si un cambio solo se puede hacer por fuera, sldb es un espejo, y quien trabaja termina
   usando dos herramientas que no se conocen.
@@ -291,8 +294,9 @@ prueba que dos partes sean equivalentes y no es su nombre.
 
 El store no es una segunda versión de las fuentes. Tiene tres clases de cosas, y cada una
 responde distinto: lo que alguien **declaró** sobre las fuentes y ninguna fuente dice (responde
-quien lo declaró); lo que sldb **observó** de una parte en un momento, como su huella (sirve
-para comparar); y lo que sldb **calculó** (no responde por nada: se puede rehacer).
+quien lo declaró); lo que sldb **observó** de una parte en un momento, es decir su contenido y
+su huella (sirve para consultar, para generar y para comparar; si difiere de la fuente, manda
+la fuente); y lo que sldb **calculó** (no responde por nada: se puede rehacer).
 
 **5.** Entre una fuente y lo que sldb calculó de ella, manda la fuente. Entre lo que alguien
 declaró y el resumen que sldb hizo de eso, manda lo declarado.

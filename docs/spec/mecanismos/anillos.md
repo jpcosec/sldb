@@ -54,8 +54,9 @@ Los nombres de eje son los de `contracts/layers.toml`.
 - Una fuente puede cambiar sin pasar por sldb. Por eso la lógica es una sola: se ve un cambio y
   el anillo 1 lo revisa. Cuando escribe sldb, la operación es revisar lo propuesto y escribir, y
   vive en el anillo 1.
-- No todo documento se sigue completo. sldb guarda lo que sigue (qué marcó, sus hashes, sus
-  relaciones), no una copia de las fuentes; por eso compara hashes y no archivos enteros.
+- No todo documento se sigue completo. sldb sigue las partes elegidas; un nodo seguido puede
+  llevar su contenido, además de sus hashes y relaciones (corregido el 2026-11-27: antes decía
+  que no se guardaba contenido). El hash es la forma barata de notar un cambio.
 
 ## Persistencia y motor
 
