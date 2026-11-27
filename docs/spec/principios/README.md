@@ -15,6 +15,10 @@ qué decisiones quedaron sin revisar, ni si todas las tareas cumplen lo que el e
 cuando un archivo cambia, nada avisa a los que hablaban de él. El párrafo que describía la
 función sigue ahí, escrito igual, y ya nadie sabe si describe lo que la función hace.
 
+Además no todo lo escrito es igual. Hay documentos que siguen una forma conocida y hay texto
+libre, y lo habitual es tratarlos como si fueran lo mismo: o todo son formularios, o todo es
+prosa.
+
 La salida de siempre es llevar ese conocimiento a una base de datos y trabajar ahí. Funciona un
 tiempo. Después hay dos versiones de cada cosa, la del archivo y la de la base, y cada una dice
 algo distinto. Quien quiere saber la verdad tiene que mirar las dos.
@@ -82,11 +86,6 @@ Entonces hay tres cosas que conviene no mezclar: dónde estaba una parte en su f
 anclaje), qué dice (su significado), y cómo se muestra (una proyección). Las preguntas se hacen
 sobre lo que dice. Los cambios se detectan en donde estaba. Y lo que se muestra se genera.
 
-Un modelo es eso mismo visto desde una familia de documentos. Cuando varios comparten
-estructura, esa estructura se declara una vez, y sirve para las dos cosas: para saber qué partes
-tomar al entrar y para proyectarlos al salir. Por eso un modelo no es requisito para leer una
-fuente: es lo que se obtiene cuando varias se parecen.
-
 **El store.** Lo que sldb registra de un proyecto se llama store. No es una copia del proyecto.
 Tiene tres clases de cosas y cada una vale distinto:
 
@@ -97,6 +96,40 @@ Tiene tres clases de cosas y cada una vale distinto:
   manda la fuente;
 - lo que sldb calculó a partir de lo anterior: índices, respuestas. No vale por sí mismo; se
   puede borrar y rehacer.
+
+## Familias de documentos
+
+Mucho de lo que se escribe en un proyecto tiene una forma más o menos fija: un reporte, un
+formulario, una decisión, una tarea. Y mucho otro no la tiene: es texto libre. Tratar todo por
+igual falla para los dos lados. Si se le exige forma a todo, el texto libre queda afuera. Si no
+se le reconoce forma a nada, se pierde lo que los documentos parecidos tienen en común.
+
+sldb no parte de los tipos. Parte de los documentos y mira qué comparten.
+
+**Por la forma.** Si varios documentos tienen exactamente la misma estructura, hay un modelo en
+común: "esto es un reporte de tal clase". El modelo no se les impone; es el nombre de lo que ya
+comparten. Si otros son iguales salvo por una parte de más, son una variación de ese modelo. Y
+desde ahí aparece todo lo conocido: una variación hereda de su modelo, varios documentos
+distintos se pueden tratar como el mismo en lo que comparten, y un modelo se puede armar
+juntando otros. Herencia, clases, polimorfismo y composición no son algo que sldb agregue: son
+lo que resulta de especializar documentos.
+
+Un documento sin modelo propio no está fuera de esto. Está en la clase más general, que es ser
+un árbol de partes. Lo que no calza con un modelo no se fuerza: se especializa.
+
+**Por lo que es.** La forma no es lo único que los documentos comparten. Una parte puede
+llevar además un tipo por lo que significa, por el papel que cumple en el texto o por para qué
+sirve: esto es un diagnóstico, esto es una conclusión, esto es un requisito. Sobre esos tipos se
+arma otra jerarquía, distinta de la de la forma: un reporte de epicrisis y un reporte de
+rendimiento son los dos reportes, aunque no se parezcan por fuera.
+
+Las dos jerarquías no coinciden, y no tienen por qué. Dos documentos pueden tener la misma forma
+y ser cosas distintas, o ser lo mismo con formas distintas. Por eso sldb las lleva separadas: de
+un lado las relaciones de estructura, del otro las de significado.
+
+Esto es lo que permite tratar distinto lo que es distinto. Donde hay forma estándar se obtiene
+un modelo, y con él se puede comprobar y proyectar. Donde no la hay, quedan los nodos y lo que
+se diga de ellos, y eso también se puede consultar y relacionar.
 
 ## Un ejemplo, de principio a fin
 
@@ -227,10 +260,7 @@ Hay cosas que este texto usa y no resuelve.
 1. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
    dependientes. Pero si ese borrado deja incumplida una regla del proyecto, las dos cosas
    chocan.
-2. **Qué compromiso asume un modelo.** Si un documento con modelo trae una sección que el modelo
-   no conoce, eso es un error o simplemente una parte que no se sigue. Y si una fuente sin
-   modelo pertenece igual a alguna clase general.
-3. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
+2. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
    reconecta el ancla y avisa, o propone y espera.
-4. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
+3. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
    decir si sldb corre esa ejecución o solo ancla un resultado producido afuera.

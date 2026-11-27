@@ -336,14 +336,16 @@ abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
    tienen solo los nodos y arcos de adentro. Una parte sin marcar se nombra por su dirección y no
    tiene continuidad; lo que persiste es el nodo que la marcó, y lo que se actualiza es su
    "dónde". Ver el whitepaper, "Adentro y afuera".
-- A2. **Qué se puede hacer con una fuente sin modelo** (toca 3.1). Se puede observar el párrafo
-   antes de darle un modelo. Al registrarlo, ¿pertenece igual a alguna clase general, o a
-   ninguna?
+- A2. **Fuente sin modelo y clase**: cerrado por JP el 2026-11-27. Un documento sin modelo propio está
+   en la clase más general (un árbol de partes); lo que no calza se especializa. Ver el whitepaper,
+   "Familias de documentos".
 - A3. **Qué queda igual al escribir de vuelta**: cerrado por JP el 2026-11-27. Proyectar por la
    estructura que el documento tenía al entrar lo devuelve tal como estaba. Otras proyecciones no
    prometen eso.
-- A4. **Partes que el modelo no declara** (toca 1.2 y 3.1). Si un documento con modelo trae una
-   sección que el modelo no conoce, ¿es un error o una parte que no se sigue?
+- A4. **Partes que el modelo no declara**: cerrado por JP el 2026-11-27. La parte entra igual, como
+   nodos. Un documento igual a su familia salvo por una parte de más es una variación del modelo
+   (JP eligió variación, no campos opcionales). Es error solo si el modelo declara que no se
+   admite nada más.
 - A5. **Reconectar un ancla** (toca 6.2 y 6.3). Si la función cambió de nombre y hay un solo
    candidato, ¿sldb reconecta y avisa, o propone y alguien confirma?
 - A6. **Borrar una relación que sale de la fuente** (toca 5 y 6.1). Por ejemplo, "el documento
