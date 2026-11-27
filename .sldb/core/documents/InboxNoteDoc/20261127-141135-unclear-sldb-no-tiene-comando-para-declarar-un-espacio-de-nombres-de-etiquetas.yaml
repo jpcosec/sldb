@@ -1,0 +1,19 @@
+name: 20261127-141135-unclear-sldb-no-tiene-comando-para-declarar-un-espacio-de-nombres-de-etiquetas
+path: desk/inbox/20261127-141135-unclear-sldb-no-tiene-comando-para-declarar-un-espacio-de-nombres-de-etiquetas.md
+source_hash: 9fa4f24cdcc63ebccb1fef09b319ea63372bf25eb60b4b5372cb66c2f9244967
+content_hash: e36614885f3163143ee32d78762e0522d08d64994b451312144c17ddaebf8b46
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 1a8400aedea6d0389b5c567547ba6dbf04e18a9939b59310fc7c627aad763c5d
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: fa3439249cd97e30a8d7e5c05784b84039f82eebde63aae5b65caa8c9bceac07
+  body: 861e8e34f30c775179f2572279b4b29c2bd2d68956f37debfb52129e723be8a3
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
