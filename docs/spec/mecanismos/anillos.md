@@ -35,8 +35,9 @@ Los nombres de eje son los de `contracts/layers.toml`.
 
 - El anillo 0b tiene una sola puerta de persistencia y una sola puerta de grafo. Hoy no existen
   como tales.
-- Lo que la persistencia guarda es lo propio de sldb: nodos seguidos, hashes, anclajes y
-  relaciones. Tiene que poder correr sobre Postgres en el corto plazo (JP).
+- Lo que la persistencia guarda primero es lo propio de sldb: nodos seguidos, hashes, anclajes y
+  relaciones. También tiene que poder guardar documentos enteros, por nodos, aunque no es su
+  primera función (JP, 2026-11-27). Tiene que poder correr sobre Postgres en el corto plazo (JP).
 - Para el grafo se adopta un motor externo sin esperar (JP). Cuál: abierto; la propuesta
   anterior (Cozo con sqlite) no consideraba Postgres.
 
