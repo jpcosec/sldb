@@ -10,135 +10,61 @@ código que las ejecuta, tareas que dicen qué falta. Y esos archivos hablan uno
 documento de diseño afirma algo sobre una función, una tarea existe por una decisión, una
 decisión se apoya en un párrafo de otro documento.
 
-Nada de eso se puede usar. No se le puede preguntar al proyecto qué depende de una función, ni
-qué decisiones quedaron sin revisar, ni si todas las tareas cumplen lo que el equipo acordó. Y
-cuando un archivo cambia, nada avisa a los que hablaban de él. El párrafo que describía la
-función sigue ahí, escrito igual, y ya nadie sabe si describe lo que la función hace.
+Ese conocimiento existe, pero no está en ninguna parte donde se lo pueda usar. No se le puede
+preguntar al proyecto qué depende de una función, ni qué decisiones quedaron sin revisar. Y
+cuando un archivo cambia, nada sabe qué otras cosas hablaban de él.
 
 Además no todo lo escrito es igual. Hay documentos que siguen una forma conocida y hay texto
-libre, y lo habitual es tratarlos como si fueran lo mismo: o todo son formularios, o todo es
-prosa.
+libre, y lo habitual es tratarlos como lo mismo: o todo son formularios, o todo es prosa.
 
-La salida de siempre es llevar ese conocimiento a una base de datos y trabajar ahí. Funciona un
-tiempo. Después hay dos versiones de cada cosa, la del archivo y la de la base, y cada una dice
-algo distinto. Quien quiere saber la verdad tiene que mirar las dos.
+## Qué es sldb
 
-## La idea
+sldb es un grafo de lo que un proyecto sabe, construido desde sus archivos y conectado a ellos.
 
-Un archivo con estructura ya es dato.
+Tiene un adentro y un afuera. Adentro hay nodos y relaciones. Afuera están los archivos, que
+siguen siendo archivos comunes. Lo que une las dos cosas son sensores: puntos donde un nodo de
+adentro está atado a una parte de un archivo, y por donde se entera de que esa parte cambió.
 
-Un documento tiene secciones, campos, listas. Un archivo de código tiene funciones y clases. La
-interfaz de un programa tiene comandos y parámetros. Esa estructura se puede leer siempre igual,
-sin interpretar nada. Entonces no hace falta copiar el conocimiento a otro lado para tratarlo
-como dato: basta leerlo donde está.
+Lo que se hace con sldb se hace adentro: preguntar, relacionar, comprobar, cambiar. Y lo que hay
+adentro se puede volver a sacar, como el mismo archivo del que salió o de otra forma.
 
-sldb es eso. Lee la estructura de los archivos de un proyecto y permite trabajar sobre sus
-partes como se trabaja con datos: nombrarlas, relacionarlas, consultarlas, comprobarlas,
-cambiarlas. Los archivos siguen siendo archivos comunes, y siguen siendo la verdad.
+El resto de este texto recorre eso en orden: qué hay adentro, cómo se toca con el afuera, cómo
+entra y sale algo, cómo aparecen los tipos, y qué pasa cuando el afuera se mueve. Se usa un solo
+ejemplo: un proyecto con una función que calcula un precio, y un documento de diseño con un
+párrafo que dice "el precio incluye el impuesto".
 
-Todo lo demás de este texto sale de tomarse en serio esa frase.
+## Adentro
 
-## El modelo
+Adentro hay nodos y relaciones entre nodos, y nada más. Un nodo es una cosa de la que se sabe
+algo: lo que dice un párrafo, lo que hace una función, una tarea, una decisión. Una relación une
+dos nodos y tiene un tipo: este párrafo se apoya en esta función, esta sección contiene a este
+párrafo, esta tarea responde a esta decisión. Sobre nodos y relaciones hay hechos: quién declaró
+esto, cuándo se vio aquello, que tal cosa cambió.
 
-**Fuentes y partes.** Una fuente es un archivo del proyecto. Una parte es una unidad de su
-estructura: una sección, un párrafo, un valor, una función. Para sldb un documento y un archivo
-de código son lo mismo, un árbol de partes. Eso es lo que permite que un párrafo y una función se
-relacionen: son la misma clase de cosa.
+Un nodo puede llevar cosas adentro, y esas cosas también pueden tener relaciones. Lo que el
+párrafo dice está en su nodo.
 
-No hace falta seguir un archivo entero. Se elige qué partes importan, y el resto queda en su
-archivo sin que sldb tenga nada que decir. Tampoco hace falta que la fuente se adapte: sldb mira,
-no exige.
+Todo lo que sldb maneja se expresa así. Una regla del proyecto, un modelo de documento, una vista
+para mostrar algo: son nodos y relaciones, igual que el párrafo. No hay una segunda clase de
+objetos para "la configuración".
 
-**Adentro y afuera.** Los archivos están afuera. Adentro de sldb hay solo nodos y relaciones:
-objetos, vínculos y hechos. Esa es la topología propia del sistema, y solo lo que está en ella
-tiene identidad. Un archivo, o un pedazo de archivo que nadie marcó, no es parte de ella.
+Lo importante de un nodo no es el nodo: son sus relaciones. Y esta red, la de nodos y relaciones,
+es lo único que tiene identidad propia. Un nodo es ese nodo y lo sigue siendo, pase lo que pase
+afuera.
 
-Lo que une las dos cosas es un sensor. Cuando alguien marca una parte de una fuente, nace
-adentro un nodo que la sigue: recuerda qué marcó y dónde lo encontró. sldb siente del exterior
-solo lo que tiene sensor. El resto del proyecto está cubierto, archivo por archivo, por el
-control de versiones, y con eso basta.
+El grafo no se mira entero. Se consulta. Lo que importa es que cada pregunta tenga una respuesta
+clara: qué se sabe, en qué se apoya y qué tan firme está.
 
-De ahí sale qué significa "la misma parte". Una parte sin marcar no tiene continuidad ni la
-necesita: se nombra por su dirección, y si se mueve o se reordena, esa dirección nombra lo que
-haya ahora en ese lugar. Lo que persiste es el nodo que la marcó. Si la parte cambia de lugar o
-de nombre, lo que se actualiza es el "dónde" de ese nodo. El exterior puede alterar lo de
-adentro, porque un sensor nota el cambio, pero no pasa a ser parte de adentro.
+## Afuera, y los sensores
 
-**Relaciones.** Entre los nodos hay relaciones, y cada relación tiene un tipo: esta sección
-contiene a este párrafo, este párrafo se apoya en esta función, esta tarea responde a esta
-decisión. Algunas salen de la estructura misma, como "contiene". Otras las declara alguien, una
-persona o un agente, y queda escrito quién fue.
+Los archivos del proyecto están afuera. No son parte del grafo, y un archivo o un pedazo de
+archivo no tiene identidad para sldb. Afuera las cosas se mueven, se renombran y desaparecen sin
+pedir permiso, y eso es normal.
 
-Con partes y relaciones se arma un grafo, y sldb no tiene nada más que eso. Un modelo, una regla
-o una vista también se expresan como partes y relaciones. Lo importante de una parte no es ella
-misma: son sus relaciones.
-
-**Entrar y volver a salir.** Marcar una parte la hace entrar: lo que dice pasa a ser un nodo
-de adentro. Se puede marcar poco o mucho. Un documento marcado por completo vive adentro, como
-los nodos que se tomaron de él.
-
-Lo que está adentro se puede volver a mostrar de muchas formas, y cada forma es una proyección.
-Una de ellas es especial: proyectar por la misma estructura que el documento tenía al entrar.
-Esa proyección devuelve el documento tal como estaba. Por ahí se recupera una sección, y por
-ahí se la modifica: se cambia el nodo y se proyecta de nuevo a su archivo.
-
-Entonces hay tres cosas que conviene no mezclar: dónde estaba una parte en su fuente (su
-anclaje), qué dice (su significado), y cómo se muestra (una proyección). Las preguntas se hacen
-sobre lo que dice. Los cambios se detectan en donde estaba. Y lo que se muestra se genera.
-
-**El store.** Lo que sldb registra de un proyecto se llama store. No es una copia del proyecto.
-Tiene tres clases de cosas y cada una vale distinto:
-
-- lo que alguien declaró y ningún archivo dice por sí solo: una relación, una regla. Vale lo
-  que vale quien lo declaró;
-- lo que sldb observó de una parte en un momento: su contenido y una huella, que es una marca
-  corta que cambia si lo observado cambia. Vale mientras coincida con la fuente; si difieren,
-  manda la fuente;
-- lo que sldb calculó a partir de lo anterior: índices, respuestas. No vale por sí mismo; se
-  puede borrar y rehacer.
-
-## Familias de documentos
-
-Mucho de lo que se escribe en un proyecto tiene una forma más o menos fija: un reporte, un
-formulario, una decisión, una tarea. Y mucho otro no la tiene: es texto libre. Tratar todo por
-igual falla para los dos lados. Si se le exige forma a todo, el texto libre queda afuera. Si no
-se le reconoce forma a nada, se pierde lo que los documentos parecidos tienen en común.
-
-sldb no parte de los tipos. Parte de los documentos y mira qué comparten.
-
-**Por la forma.** Si varios documentos tienen exactamente la misma estructura, hay un modelo en
-común: "esto es un reporte de tal clase". El modelo no se les impone; es el nombre de lo que ya
-comparten. Si otros son iguales salvo por una parte de más, son una variación de ese modelo. Y
-desde ahí aparece todo lo conocido: una variación hereda de su modelo, varios documentos
-distintos se pueden tratar como el mismo en lo que comparten, y un modelo se puede armar
-juntando otros. Herencia, clases, polimorfismo y composición no son algo que sldb agregue: son
-lo que resulta de especializar documentos.
-
-Un documento sin modelo propio no está fuera de esto. Está en la clase más general, que es ser
-un árbol de partes. Lo que no calza con un modelo no se fuerza: se especializa.
-
-**Por lo que es.** La forma no es lo único que los documentos comparten. Una parte puede
-llevar además un tipo por lo que significa, por el papel que cumple en el texto o por para qué
-sirve: esto es un diagnóstico, esto es una conclusión, esto es un requisito. Sobre esos tipos se
-arma otra jerarquía, distinta de la de la forma: un reporte de epicrisis y un reporte de
-rendimiento son los dos reportes, aunque no se parezcan por fuera.
-
-Las dos jerarquías no coinciden, y no tienen por qué. Dos documentos pueden tener la misma forma
-y ser cosas distintas, o ser lo mismo con formas distintas. Por eso sldb las lleva separadas: de
-un lado las relaciones de estructura, del otro las de significado.
-
-Esto es lo que permite tratar distinto lo que es distinto. Donde hay forma estándar se obtiene
-un modelo, y con él se puede comprobar y proyectar. Donde no la hay, quedan los nodos y lo que
-se diga de ellos, y eso también se puede consultar y relacionar.
-
-## Un ejemplo, de principio a fin
-
-Un proyecto tiene una función que calcula un precio, y un documento de diseño con un párrafo que
-dice: "el precio incluye el impuesto".
-
-Alguien declara que el párrafo se apoya en la función. Con eso nacen adentro dos nodos, uno que
-sigue al párrafo y otro que sigue a la función, y una relación entre ellos. Esa relación es un
-ancla: además de unirlos, recuerda lo que vio de la función en ese momento.
+Lo que sldb sabe del afuera lo sabe por sensores. Cuando alguien marca una parte de un archivo,
+nace adentro un nodo atado a ella. El nodo recuerda qué vio, es decir el contenido de la parte y
+una huella, que es una marca corta que cambia si el contenido cambia; y recuerda dónde lo vio.
+Eso es un ancla.
 
 ```mermaid
 ---
@@ -149,7 +75,7 @@ config:
 ---
 %% specir: generated from docs/spec/principios/diagramas/component.ejemplo.yml; do not edit, run `sldb notations validate docs/spec/principios/diagramas/component.ejemplo.yml` and re-render
 flowchart TD
-    subgraph Proyecto ["Fuentes del proyecto (la realidad)"]
+    subgraph Afuera ["Afuera (los archivos del proyecto)"]
         subgraph Documento ["Documento de diseño"]
             Parrafo["Párrafo: el precio incluye el impuesto"]
         end
@@ -157,101 +83,128 @@ flowchart TD
             Funcion["Función que calcula el precio"]
         end
     end
-    subgraph Store ["Store (lo que sldb registra)"]
-        Declarado["Declarado: el ancla «se apoya en». Responde quien la declaró"]
-        Observado["Observado: el contenido y la huella de la función. Si difiere, manda la fuente"]
-        Calculado["Calculado: índices y resultados. Se puede borrar y rehacer"]
+    subgraph Adentro ["Adentro (nodos y relaciones)"]
+        NodoParrafo["Nodo: lo que dice el párrafo"]
+        NodoFuncion["Nodo: lo que hace la función"]
     end
-    Parrafo -->|"se apoya en"| Funcion
-    Declarado -->|"sigue"| Parrafo
-    Observado -->|"lo que vio"| Funcion
-    Calculado -->|"se rehace desde"| Declarado
+    NodoParrafo -->|"se apoya en"| NodoFuncion
+    NodoParrafo -->|"sensor"| Parrafo
+    NodoFuncion -->|"sensor"| Funcion
 ```
 
-Desde ahí se puede preguntar. Qué dice el párrafo. En qué se apoya. Qué otras cosas del proyecto
-se apoyan en esa misma función. Si hay algún documento de diseño que no se apoya en nada.
+sldb siente del afuera solo lo que tiene sensor. No hace falta sensorizar un archivo entero: se
+marca la función, el párrafo o el valor que importa. Del resto, a nivel de archivo, ya se ocupa
+el control de versiones.
 
-Una semana después alguien cambia la función, con el editor que quiera. sldb no estaba mirando
-y no importa: la próxima vez que se le pregunte, compara la huella que guardó con la función de
-ahora, ve que difieren, y muestra el párrafo como pendiente de revisión. No dice que el párrafo
-esté mal. Quizá solo ordenaron el código y el impuesto sigue incluido. Eso lo decide quien
-revisa; cuando lo confirma, ancla de nuevo, y queda quién lo hizo.
+De aquí sale qué quiere decir "la misma parte". Una parte sin marcar no tiene continuidad ni la
+necesita: se la nombra por dónde está, y si se mueve, ese lugar nombra lo que haya ahí ahora. Lo
+que persiste es el nodo. Si la función cambia de lugar, lo que se actualiza es el "dónde" de su
+nodo.
 
-Si a la función le cambiaron el nombre, sldb no sale a buscar cuál es ahora. El ancla queda en
-una zona movida hasta que alguien ancle de nuevo. Reconectar no es algo que el sistema persiga:
-es lo que resulta de un anclaje nuevo.
+Un ancla no es un enlace. Un enlace dice "esto se refiere a aquello" y sigue funcionando aunque
+aquello ya diga otra cosa. Un ancla recuerda qué decía, y por eso puede notar que cambió.
 
-Si en vez de cambiarla la borran, adentro no se borra nada. Queda declarado que la función ya no
-está, y eso baja hasta el párrafo. Puede que el párrafo quede sin ningún apoyo. Puede también
-que se sostenga por otro lado, porque se apoyaba además en una prueba o en otra decisión. sldb
-muestra cuál de las dos es.
+## Entrar y volver a salir
 
-Y si el equipo decidió que todo documento de diseño tiene que apoyarse en algo del código, eso
-no se programa: se declara como una regla, igual que se declaró el ancla, y sldb la comprueba
-cada vez que alguien intenta escribir.
+Marcar una parte la hace entrar: lo que dice pasa a estar en un nodo. Se puede marcar poco o
+mucho. Un documento marcado por completo vive adentro, como los nodos que se tomaron de él.
 
-## Lo que se sigue de la idea
+Lo que está adentro se puede sacar de muchas formas, y cada una es una proyección: una ficha,
+una fila de una tabla, una caja de un diagrama, un tablero. Una de esas proyecciones es
+especial: sacar los nodos por la misma estructura que el documento tenía cuando entró. Esa
+devuelve el documento tal como estaba.
 
-Si los archivos son el dato, varias cosas dejan de ser opcionales.
+Por ahí se edita. Se cambia el nodo y se proyecta de nuevo a su archivo. Se puede recuperar una
+sección sola, o cambiar una sección sola, sin tocar el resto.
 
-**Un cambio viaja, y no se lo lleva todo.** Lo que hay adentro se construyó desde las fuentes
-y vale mientras ellas no cambien. Cuando una cambia, el sensor lo nota y queda declarado que
-hubo un cambio. Esa perturbación baja por las relaciones: se sabe qué nodos tienen un camino
-desde la parte que cambió. Pero que algo cambie afuera no vuelve inválido todo lo que se sabía.
-Algunos nodos quedan sin ningún apoyo. Otros se sostienen por otro lado. Y la mayoría ni se
-entera.
+Así que de una misma cosa hay tres aspectos que no se mezclan: dónde estaba afuera, que es su
+anclaje; qué dice, que es su significado; y cómo se la muestra, que es una proyección. Se
+pregunta por lo que dice. Se detecta el cambio en donde estaba. Y lo que se muestra se genera:
+no se escribe dos veces.
 
-Por eso lo que se sabe no es simplemente vigente o caído. Hay zonas donde todo sigue apoyado y
-zonas donde algo se movió. De ahí se puede decir cuánta certeza hay en una parte del grafo y
-cuánto desorden acumuló, y es en las zonas movidas donde aparecen las contradicciones y los
-errores.
+## Familias
 
-**Adentro no se borra.** Borrar algo es declarar que se borró. El nodo sigue, con ese hecho
-encima, y la consecuencia baja como cualquier otro cambio. Sacar de verdad los nodos que quedaron
-sin apoyo es otra etapa, posterior y pedida, una limpieza; y lo que había en los archivos sigue
-en el control de versiones. Afuera es distinto: ahí las cosas sí desaparecen, pero eso solo
-llega adentro a través de sus anclas.
+Mucho de lo que se escribe en un proyecto tiene una forma más o menos fija: un reporte, un
+formulario, una decisión, una tarea. Y mucho otro es texto libre. sldb no parte de los tipos para
+decidir qué acepta. Parte de lo que entró y mira qué comparte.
 
-**El grafo se consulta, no se mira.** Nadie ve el grafo entero ni hace falta. Lo que importa
-adentro es que toda pregunta tenga una respuesta transparente: qué se sabe, en qué se apoya y
-qué tan firme está.
+**Por la forma.** Si varios documentos entraron con exactamente la misma estructura, hay un
+modelo en común: "esto es un reporte de tal clase". El modelo no se les impuso; es el nombre de
+lo que ya compartían. Sirve hacia los dos lados: dice qué tomar al entrar y cómo proyectar al
+salir. Si otros documentos son iguales salvo por una parte de más, son una variación de ese
+modelo. Y con eso aparece lo conocido: una variación hereda de su modelo, documentos distintos
+se tratan como el mismo en lo que comparten, un modelo se arma juntando otros. Herencia, clases,
+polimorfismo y composición no son algo que sldb agregue. Son lo que resulta de especializar.
 
-**Manda la fuente.** sldb puede tener el contenido de lo que sigue, y lo necesita para responder
-y para generar. Pero es una observación, y una observación puede estar vieja. Por eso las fuentes
-pueden cambiar por fuera de sldb sin que eso sea un daño: es un cambio que hay que ver. Y por eso
-todo lo calculado se tiene que poder borrar sin perder nada. Si al borrarlo se pierde algo, eso
-no era un cálculo: era algo que alguien declaró y quedó guardado en el lugar equivocado.
+Un documento sin modelo propio no queda fuera. Está en la clase más general, la de ser un árbol
+de partes. Lo que no calza con un modelo no se fuerza: se especializa.
 
-**Apoyarse no es apuntar.** Un enlace que solo dice "esto se refiere a aquello" sigue funcionando
-aunque aquello haya cambiado por completo. Lo que hace falta saber no es si el destino existe,
-sino si dice lo mismo que cuando se lo citó. Para eso el ancla guarda lo que vio. La huella sirve
-para notar el cambio y para nada más: no dice qué significa una parte, ni que dos partes sean
-iguales, ni es el nombre de la parte.
+**Por lo que es.** Un nodo puede llevar además un tipo por lo que significa, por el papel que
+cumple en el texto o por para qué sirve: esto es un diagnóstico, esto es una conclusión, esto es
+un requisito. Sobre esos tipos se arma otra jerarquía. Un reporte de epicrisis y un reporte de
+rendimiento son los dos reportes aunque por fuera no se parezcan.
 
-**Nada se oculta.** El valor de sldb está en que se pueda confiar en lo que muestra. Si una
-respuesta vacía puede significar tanto "no hay nada" como "no pude mirar", esa confianza se
-acaba. Lo que no se sabe se dice que no se sabe.
+Las dos jerarquías no coinciden. Dos documentos pueden tener la misma forma y ser cosas
+distintas, o ser lo mismo con formas distintas. Por eso van separadas: unas relaciones son de
+estructura y otras de significado.
 
-**Preguntar no cambia nada.** Una consulta no modifica lo registrado ni lo arregla por su
-cuenta. Si lo hiciera, dos que preguntan lo mismo verían cosas distintas.
+Con esto se puede tratar distinto lo que es distinto. Donde hay forma estándar hay un modelo, y
+con él se comprueba y se proyecta. Donde no la hay, quedan los nodos y lo que se diga de ellos, y
+eso también se consulta y se relaciona.
 
-**Las mismas reglas por cualquier puerta.** Un cambio pedido a sldb se propone, se comprueba, y
-solo si pasa se escribe en el archivo. Da lo mismo por dónde se pidió. Si una entrada comprueba y
-otra no, la regla es un adorno.
+## Cuando el afuera se mueve
 
-**Lo que se genera no se escribe a mano.** Desde lo que sldb sabe se pueden generar otras
-expresiones: un tablero, una ficha, los datos de un diagrama. Lo generado remite a su origen.
-Editarlo a mano, o escribir a mano lo que se pudo generar, es volver a tener dos versiones.
+Lo que hay adentro se construyó desde los archivos, y dice cosas ciertas sobre ellos mientras no
+cambien. Cuando uno cambia, el sensor lo nota y queda declarado que hubo un cambio.
 
-**El sentido es local.** Un nombre vale dentro de su store. Que dos proyectos usen la palabra
-"precio" no significa que hablen de lo mismo. Decir que sí es una declaración que alguien hace, no
-algo que se deduce de que las letras coincidan. Lo mismo vale para un parecido que encuentra una
-máquina: es una sugerencia hasta que alguien la declara.
+Ese cambio entra por el ancla y baja por las relaciones. Alguien edita la función del precio: su
+nodo ya no coincide con lo que hay afuera. El párrafo se apoyaba en ese nodo, así que el párrafo
+queda en duda. Y lo que se apoyaba en el párrafo, también.
 
-**sldb no sabe de qué trata el proyecto.** No sabe qué es una tarea, ni una decisión, ni un
-diagrama de cierta norma. Sabe de partes, relaciones, modelos, reglas y vistas. Qué es una tarea
-lo declara el proyecto que las usa, con esos mismos mecanismos. Un sldb que conociera a su primer
-usuario dejaría de servirle al segundo.
+Pero un cambio no se lleva todo. Algunos nodos quedan sin ningún apoyo. Otros se sostienen por
+otro lado: el párrafo se apoyaba además en una prueba, y la prueba sigue igual. Y la mayor parte
+del grafo no tiene ningún camino desde la función y no se entera.
+
+Por eso lo que se sabe no está simplemente vigente o caído. Hay zonas firmes y zonas movidas. De
+una zona se puede decir cuánta certeza tiene y cuánto desorden acumuló, y es en las movidas
+donde aparecen las contradicciones y los errores.
+
+sldb no decide si el párrafo sigue siendo cierto. Quizá solo ordenaron el código y el impuesto
+sigue incluido. Eso lo ve quien revisa, y lo resuelve anclando de nuevo; queda quién lo hizo. Lo
+mismo si a la función le cambiaron el nombre: sldb no sale a buscar cuál es ahora. Reconectar no
+es algo que el sistema persiga, es lo que resulta de un anclaje nuevo.
+
+Y adentro no se borra. Si borran la función, queda declarado que ya no está, su nodo sigue con
+ese hecho encima, y la consecuencia baja como cualquier otro cambio. Quitar de verdad los nodos
+que quedaron sin apoyo es una limpieza aparte, posterior y pedida. Afuera las cosas sí
+desaparecen, pero eso solo llega adentro por sus anclas.
+
+## Lo que resulta
+
+Varias cosas que suelen escribirse como reglas salen solas de lo anterior.
+
+Si lo de adentro se tomó de afuera, manda afuera. El contenido que guarda un nodo es una
+observación, y una observación puede estar vieja. Cuando difieren, vale el archivo. Por lo mismo,
+lo que sldb calcula a partir de lo que tiene, un índice o una respuesta, no vale por sí mismo: se
+puede borrar y rehacer. Lo que no se puede rehacer es lo que alguien declaró, y eso no puede
+quedar guardado junto con lo que se borra.
+
+Si el grafo se consulta para saber qué tan firme está algo, preguntar no puede cambiar la
+respuesta, y una respuesta no puede esconder lo que no sabe. "No hay nada" y "no pude mirar" son
+respuestas distintas.
+
+Si una regla del proyecto es un nodo como cualquier otro, se la puede leer, relacionar y
+comprobar igual que al párrafo. Y si es del grafo y no de una de sus entradas, vale lo mismo por
+cualquier puerta por donde se pida un cambio.
+
+Si el sentido de un nodo está en sus relaciones, no está en su nombre. Que dos proyectos usen la
+palabra "precio" no los hace hablar de lo mismo. Decir que sí es una relación que alguien
+declara, una persona o un agente, y queda quién fue. Un parecido que encuentra una máquina es una
+sugerencia hasta que alguien lo declara.
+
+Y si los tipos salen de lo que entró, sldb no trae ninguno. No sabe qué es una tarea ni una
+decisión ni un diagrama de cierta norma. Eso lo declara cada proyecto, con los mismos nodos y
+relaciones.
 
 ## Para qué se usa
 
@@ -259,7 +212,7 @@ Tres usos, todos declarados encima de sldb por quien lo usa:
 
 - **Llevar el trabajo de un equipo.** Cada tarea es un documento. El equipo declara qué campos
   tiene una tarea, por qué estados pasa y qué reglas cumple. El tablero se genera.
-- **Describir un sistema y dibujarlo.** Los componentes y sus conexiones se declaran como partes
+- **Describir un sistema y dibujarlo.** Los componentes y sus conexiones se declaran como nodos
   y relaciones. Una vista elige qué mostrar y una notación dice con qué figura. sldb entrega la
   vista resuelta; la dibuja otro programa.
 - **Mantener al día lo que se dice del código.** Es el ejemplo de arriba.
@@ -269,11 +222,12 @@ apoya lo que otro escribió, sin tener que creerle.
 
 ## Lo que sldb no es
 
-- No es la base de datos donde viven los documentos. Los documentos viven en sus archivos.
+- No reemplaza a los archivos. Aunque un documento esté entero adentro, su archivo sigue siendo
+  un archivo común, y si difieren manda el archivo.
 - No es un control de versiones. Ese dice qué líneas cambiaron; sldb dice qué dependía de ellas.
 - No es un buscador. Un buscador encuentra palabras parecidas; sldb responde por relaciones.
 - No es un generador de documentación. Genera, pero como consecuencia de saber, no como fin.
-- No es un juez. Dice si lo registrado es consistente y si su soporte cambió, no si es cierto.
+- No es un juez. Dice si lo que sabe es consistente y qué tan firme está, no si es cierto.
 
 ## Lo que falta decidir
 

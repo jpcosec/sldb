@@ -6,7 +6,7 @@ config:
 ---
 %% specir: generated from docs/spec/principios/diagramas/component.ejemplo.yml; do not edit, run `sldb notations validate docs/spec/principios/diagramas/component.ejemplo.yml` and re-render
 flowchart TD
-    subgraph Proyecto ["Fuentes del proyecto (la realidad)"]
+    subgraph Afuera ["Afuera (los archivos del proyecto)"]
         subgraph Documento ["Documento de diseño"]
             Parrafo["Párrafo: el precio incluye el impuesto"]
         end
@@ -14,12 +14,10 @@ flowchart TD
             Funcion["Función que calcula el precio"]
         end
     end
-    subgraph Store ["Store (lo que sldb registra)"]
-        Declarado["Declarado: el ancla «se apoya en». Responde quien la declaró"]
-        Observado["Observado: el contenido y la huella de la función. Si difiere, manda la fuente"]
-        Calculado["Calculado: índices y resultados. Se puede borrar y rehacer"]
+    subgraph Adentro ["Adentro (nodos y relaciones)"]
+        NodoParrafo["Nodo: lo que dice el párrafo"]
+        NodoFuncion["Nodo: lo que hace la función"]
     end
-    Parrafo -->|"se apoya en"| Funcion
-    Declarado -->|"sigue"| Parrafo
-    Observado -->|"lo que vio"| Funcion
-    Calculado -->|"se rehace desde"| Declarado
+    NodoParrafo -->|"se apoya en"| NodoFuncion
+    NodoParrafo -->|"sensor"| Parrafo
+    NodoFuncion -->|"sensor"| Funcion

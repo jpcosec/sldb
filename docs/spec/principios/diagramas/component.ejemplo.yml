@@ -1,12 +1,12 @@
 id: component.sldb-principios-ejemplo
-title: El ejemplo del precio, las fuentes y el store
+title: El ejemplo del precio, adentro y afuera
 type: component
-version: "0.1"
+version: "0.2"
 
 data:
   nodes:
-    Proyecto:
-      label: Fuentes del proyecto (la realidad)
+    Afuera:
+      label: Afuera (los archivos del proyecto)
       kind: boundary
       contains:
         - Documento
@@ -27,33 +27,26 @@ data:
     Funcion:
       label: Función que calcula el precio
       kind: core
-    Store:
-      label: Store (lo que sldb registra)
+    Adentro:
+      label: Adentro (nodos y relaciones)
       kind: boundary
       contains:
-        - Declarado
-        - Observado
-        - Calculado
-    Declarado:
-      label: "Declarado: el ancla «se apoya en». Responde quien la declaró"
+        - NodoParrafo
+        - NodoFuncion
+    NodoParrafo:
+      label: "Nodo: lo que dice el párrafo"
       kind: core
-    Observado:
-      label: "Observado: el contenido y la huella de la función. Si difiere, manda la fuente"
+    NodoFuncion:
+      label: "Nodo: lo que hace la función"
       kind: core
-    Calculado:
-      label: "Calculado: índices y resultados. Se puede borrar y rehacer"
-      kind: database
 
   edges:
-    - from: Parrafo
-      to: Funcion
+    - from: NodoParrafo
+      to: NodoFuncion
       label: se apoya en
-    - from: Declarado
+    - from: NodoParrafo
       to: Parrafo
-      label: sigue
-    - from: Observado
+      label: sensor
+    - from: NodoFuncion
       to: Funcion
-      label: lo que vio
-    - from: Calculado
-      to: Declarado
-      label: se rehace desde
+      label: sensor
