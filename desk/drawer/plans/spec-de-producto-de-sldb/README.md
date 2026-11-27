@@ -41,8 +41,15 @@ sistema modelado; la máquina de estados genérica del punto 6 es de sldb.
 
 ## 1. Qué es sldb
 
-- Es una base de datos: el store es un grafo de documentos Markdown con modelos, reglas, tags y
-  anclas. Es la única puerta a los datos.
+- Lo que el repo ya declara (`contracts/identity.toml`, README): un sistema para representar
+  cualquier cosa con estructura derivable de forma determinista (documentos, código, interfaces
+  de programa) como documentos direccionables, consultables, anclados a su origen y reversibles
+  a su superficie. El núcleo no distingue Markdown de código.
+- sldb no guarda las fuentes: guarda lo que sigue de ellas (qué marcó, sus hashes, sus anclajes
+  y sus relaciones). Un documento puede seguirse entero, a medias o en un par de campos; por eso
+  compara hashes y no archivos (JP, 2026-11-27).
+- Corrección: hasta el 2026-11-27 este punto decía "un grafo de documentos Markdown". Estaba mal
+  y varias preguntas mal hechas a JP salieron de ahí.
 - **Lo genérico de una base va en sldb; deskops, specIR y todo lo demás son plugins** (JP,
   2026-11-26). Un mecanismo que cualquier store puede usar es de sldb. Un plugin declara su
   contenido encima.
