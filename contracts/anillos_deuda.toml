@@ -291,10 +291,6 @@ file = "api/edges/edge_reading.py"
 module = "api.stores.open_store"
 
 [[import]]
-file = "api/edges/edges_holding.py"
-module = "api.rules.rules_on_transition"
-
-[[import]]
 file = "api/edges/init_relations.py"
 module = "api.stores.open_store"
 

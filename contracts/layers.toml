@@ -593,7 +593,7 @@ identity = false
 [[axis]]
 id = "reglas"
 ring = "1"
-paths = ["api/rules", "api/tags"]
+paths = ["api/rules", "api/tags", "api/edges/edges_holding.py", "api/edges/edges_blocked.py"]
 external = []
 does = "evaluar RuleDoc con el lenguaje de predicados en escritura, transición y check, incremental y a punto fijo; los espacios de etiquetas como familia de reglas (GO06, GO08, GD27)"
 identity = false

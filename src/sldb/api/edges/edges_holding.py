@@ -7,6 +7,7 @@ from typing import Any, Iterable
 
 from sldb.api.edges.edge_effects import effects_of
 from sldb.api.edges.edge_reading import edges_from
+from sldb.api.rules.rules_on_transition import transition_findings
 from sldb.store.models import EdgeRecord
 from sldb.store.graph.language.predicate_documents import payload_holds
 
@@ -46,8 +47,6 @@ def edges_holding(store: str | Path | None, export_id: str, subject: dict[str, A
 def transition(store: str | Path | None, export_id: str, subject: dict[str, Any], relation: str | None, include_linked: bool, exclude_tags: Iterable[str], document: str | None) -> tuple[list[EdgeRecord], list[Any] | None]:
     """The edges whose condition holds (with `effects`), and the subject's `on_transition`
     findings (None without `document`)."""
-    from sldb.api.rules.rules_on_transition import transition_findings
-
     edges = edges_from(store, export_id, relation, include_linked, exclude_tags)
     held = [e for e in edges if payload_holds(e.metadata.get("condition") or "", subject)]
     effects = [effects_of(e.metadata.get("attributes"), subject) for e in held]
