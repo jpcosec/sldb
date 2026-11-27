@@ -117,9 +117,10 @@ Además del anillo, cada pieza lleva:
 
 - **Son 49 piezas.** 10 en el anillo 0a, 9 en el 0b, 12 en el 1, 4 en el 2, 10 en el 3 y 4 caras.
 - **Casi todo lo que tiene nombre cayó en el anillo 3**, que es lo esperado con el núcleo limpio.
-- **Doce piezas están abiertas.** Ocho se concentran en dos lugares: cómo pasa algo de anclaje a
-  conocimiento (juntar, sintetizar), y cómo el sistema se mueve (propagación, hook,
-  condicionales, resultado de una ejecución).
+- **Nueve piezas están abiertas.** Seis se concentran en dos lugares: cómo pasa algo de anclaje
+  a conocimiento (juntar, sintetizar), y cómo el sistema se mueve (propagación, hook,
+  condicionales, resultado de una ejecución). Las otras tres: el contrato de persistencia,
+  varios stores y qué trae la declaración de base.
 - **"Lectura y escritura" de la lista original son seis piezas**: leer, escribir por la misma
   estructura, y cuatro gramáticas.
 - **El anclaje quedó en el anillo 1 y no en el 0.** El nodo que lleva un ancla es del 0b; atarlo
