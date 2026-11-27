@@ -1,0 +1,37 @@
+id: component.sldb-anillos
+title: Anillos de sldb
+type: component
+version: "0.1"
+
+data:
+  nodes:
+    Caras:
+      label: "Caras: línea de comandos, servicio, editores. No agregan operaciones"
+      kind: boundary
+      contains:
+        - Anillo3
+    Anillo3:
+      label: "Anillo 3. Lo compuesto: vistas, notaciones, análisis del grafo"
+      kind: core
+      contains:
+        - Anillo2
+    Anillo2:
+      label: "Anillo 2. El store entero"
+      kind: core
+      contains:
+        - Anillo1
+    Anillo1:
+      label: "Anillo 1. Mantiene el grafo correcto: reglas, estados, anclas, escritura con revisión"
+      kind: core
+      contains:
+        - Anillo0b
+    Anillo0b:
+      label: "Anillo 0b. El grafo: partes, relaciones, consulta, guardar"
+      kind: core
+      contains:
+        - Anillo0a
+    Anillo0a:
+      label: "Anillo 0a. Texto a árbol y de vuelta, sin store"
+      kind: core
+
+  edges: []

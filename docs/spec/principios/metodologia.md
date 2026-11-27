@@ -140,3 +140,10 @@ desk, que es la pieza que el workspace ya tiene para conocimiento durable.
 El método funcionó si al final hay: (a) una página de principios donde cada uno pasa las cuatro
 pruebas y tiene origen; (b) las dos listas del paso 3; (c) la lista de contradicciones; y (d) el
 paso 8 muestra que los principios deciden los casos conocidos sin ayuda.
+
+## Criterio 5W1H+ (JP, 2026-11-27)
+
+Con las preguntas de los átomos del desk: los principios rectores son en su mayoría el **por
+qué** y el **qué**. El resto del spec (objetos, operaciones, mecanismos) es el **cómo** y el
+**dónde**. Se pueden cruzar, pero una afirmación que solo contesta cómo o dónde no va en la
+página de principios: va en el spec, colgada del principio que la justifica.

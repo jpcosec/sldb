@@ -1,0 +1,25 @@
+---
+config:
+  layout: elk
+  flowchart:
+    curve: linear
+---
+%% specir: generated from docs/spec/principios/diagramas/component.ejemplo.yml; do not edit, run `sldb notations validate docs/spec/principios/diagramas/component.ejemplo.yml` and re-render
+flowchart TD
+    subgraph Proyecto ["Fuentes del proyecto (la realidad)"]
+        subgraph Documento ["Documento de diseño"]
+            Parrafo["Párrafo: el precio incluye el impuesto"]
+        end
+        subgraph Codigo ["Archivo de código"]
+            Funcion["Función que calcula el precio"]
+        end
+    end
+    subgraph Store ["Store (lo que sldb registra)"]
+        Declarado["Declarado: el ancla «se apoya en». Responde quien la declaró"]
+        Observado["Observado: la huella de la función. Sirve para comparar"]
+        Calculado["Calculado: índices y resultados. Se puede borrar y rehacer"]
+    end
+    Parrafo -->|"se apoya en"| Funcion
+    Declarado -->|"sigue"| Parrafo
+    Observado -->|"lo que vio"| Funcion
+    Calculado -->|"se rehace desde"| Declarado

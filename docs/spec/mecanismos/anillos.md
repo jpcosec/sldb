@@ -3,6 +3,32 @@
 Clase de página: mecanismo. Fecha: 2026-11-27. Estado: reparto confirmado por JP el 2026-11-27
 ("demosle").
 
+
+Cada anillo contiene a los de adentro y solo depende de ellos. El diagrama se genera de
+`diagramas/component.anillos.yml`; no se edita a mano.
+
+```mermaid
+---
+config:
+  layout: elk
+  flowchart:
+    curve: linear
+---
+%% specir: generated from docs/spec/mecanismos/diagramas/component.anillos.yml; do not edit, run `sldb notations validate docs/spec/mecanismos/diagramas/component.anillos.yml` and re-render
+flowchart TD
+    subgraph Caras ["Caras: línea de comandos, servicio, editores. No agregan operaciones"]
+        subgraph Anillo3 ["Anillo 3. Lo compuesto: vistas, notaciones, análisis del grafo"]
+            subgraph Anillo2 ["Anillo 2. El store entero"]
+                subgraph Anillo1 ["Anillo 1. Mantiene el grafo correcto: reglas, estados, anclas, escritura con revisión"]
+                    subgraph Anillo0b ["Anillo 0b. El grafo: partes, relaciones, consulta, guardar"]
+                        Anillo0a["Anillo 0a. Texto a árbol y de vuelta, sin store"]
+                    end
+                end
+            end
+        end
+    end
+```
+
 ## Regla
 
 Cada anillo importa solo de los de adentro. Las caras llaman a la operación completa (revisar y

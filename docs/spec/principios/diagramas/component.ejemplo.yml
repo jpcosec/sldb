@@ -1,0 +1,59 @@
+id: component.sldb-principios-ejemplo
+title: El ejemplo del precio, las fuentes y el store
+type: component
+version: "0.1"
+
+data:
+  nodes:
+    Proyecto:
+      label: Fuentes del proyecto (la realidad)
+      kind: boundary
+      contains:
+        - Documento
+        - Codigo
+    Documento:
+      label: Documento de diseño
+      kind: core
+      contains:
+        - Parrafo
+    Parrafo:
+      label: "Párrafo: el precio incluye el impuesto"
+      kind: core
+    Codigo:
+      label: Archivo de código
+      kind: core
+      contains:
+        - Funcion
+    Funcion:
+      label: Función que calcula el precio
+      kind: core
+    Store:
+      label: Store (lo que sldb registra)
+      kind: boundary
+      contains:
+        - Declarado
+        - Observado
+        - Calculado
+    Declarado:
+      label: "Declarado: el ancla «se apoya en». Responde quien la declaró"
+      kind: core
+    Observado:
+      label: "Observado: la huella de la función. Sirve para comparar"
+      kind: core
+    Calculado:
+      label: "Calculado: índices y resultados. Se puede borrar y rehacer"
+      kind: database
+
+  edges:
+    - from: Parrafo
+      to: Funcion
+      label: se apoya en
+    - from: Declarado
+      to: Parrafo
+      label: sigue
+    - from: Observado
+      to: Funcion
+      label: lo que vio
+    - from: Calculado
+      to: Declarado
+      label: se rehace desde
