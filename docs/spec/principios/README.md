@@ -143,10 +143,11 @@ Editar tiene una regla. Sobre lo que se observó manda el archivo; sobre las con
 la red. Un cambio se aplica sobre la versión que se vio. Si mientras tanto alguien tocó otra
 parte del archivo, eso se conserva. Si tocó la misma, hay un choque, y se muestra.
 
-Así que hay tres clases de nodo, distintas y enlazadas: el de anclaje, que es dónde estaba algo
-afuera; el de significado, que es lo que se sabe; y el de proyección, que es una forma de
-decirlo. Se pregunta por lo que se sabe. Se detecta el cambio en el anclaje. Y lo que se
-muestra se genera: no se escribe dos veces.
+Así que los nodos no son todos iguales, pero no porque haya clases fijas. Un nodo lleva lo que
+haga falta: uno lleva un anclaje y la forma de notar que cambió; otro, una afirmación; otro,
+solo el orden de otros; otro, una regla o algo que se ejecuta. Esa libertad es lo que permite
+armar cosas distintas con las mismas piezas. Se pregunta por lo que se sabe. Se detecta el
+cambio en el anclaje. Y lo que se muestra se genera: no se escribe dos veces.
 
 ## Familias
 
@@ -180,6 +181,10 @@ con qué se hace la interfaz, qué estilo visual lleva, cómo se manejan los est
 negocio se trata, de qué pantalla, qué componentes hay y cuándo se usa cada uno, cómo funciona
 el servidor, qué tipos de datos y qué interfaces existen. Cada una de esas cosas se dice una
 sola vez, en su eje.
+
+Un eje no es una pieza especial: es una consulta. Todo lo etiquetado como decisión de
+arquitectura es el eje de las decisiones de arquitectura. Qué ejes hay lo declara cada
+proyecto.
 
 Lo que hace falta para escribir una pieza concreta está en el cruce. La pantalla de
 transferencias de un banco es el punto donde se encuentran el eje del negocio, el de la

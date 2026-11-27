@@ -17,49 +17,35 @@ Una cosa de la que se sabe algo. (P1)
 
 - Tiene identidad propia: estable, única dentro de su store, nunca reutilizada. No depende de su
   contenido, de su nombre ni de dónde está algo afuera. (P3)
-- Puede llevar contenido, y lo que lleva adentro puede a su vez tener relaciones. (P1)
-- No tiene un tipo obligatorio. Sus tipos son relaciones. (P5)
+- No tiene clase ni tipo en el núcleo. El núcleo no les pone nombre a los nodos (JP,
+  2026-11-27). Un nodo es un recipiente, y lo que lo distingue es lo que lleva adentro.
 
-Los nodos son de clases distintas, y puede haber muchas (JP, 2026-11-27). La clase de un nodo
-es el papel que cumple en el camino entre las fuentes y lo que se sabe. No es una lista
-cerrada: una clase es un tipo como cualquier otro (P5), y un proyecto puede declarar las suyas.
+Lo que un nodo puede llevar, en cualquier combinación:
 
-Las tres que los niveles 1 y 2 nombran:
+- un anclaje a algo de afuera, con su huella;
+- una función de detección, es decir algo que se ejecuta para saber si lo anclado cambió;
+- información semántica y una proposición: lo que el nodo dice;
+- información estructural: dónde va respecto de otros;
+- algo ejecutable.
 
-| Clase | Qué lleva | Cómo nace |
-|---|---|---|
-| de anclaje | dónde está una parte afuera y qué se vio de ella | al anclar: un anclaje crea un solo nodo, este |
-| de significado | lo que se sabe: una afirmación del árbol de conocimiento | al juntar y sintetizar lo que dicen los anclajes |
-| de proyección | una forma de decirlo afuera, con sus reglas | al sacar o al reconocer un texto como derivado |
+Un nodo que lleva anclaje, huella y detección hace de sensor. Uno que lleva una proposición
+hace de afirmación. Uno que lleva solo estructura ordena a otros. Un modelo, una regla, un hook
+o un programa también son nodos. Ninguno de esos papeles es una clase del núcleo: son
+descripciones de lo que el nodo lleva.
 
-El Zettelkasten sirve de ejemplo de cómo conviven más clases, cada una con su papel. No es el
-diseño de sldb: es la forma de pensarlo.
+Esa flexibilidad es el punto. Lo que se puede hacer con sldb sale de combinar lo que los nodos
+llevan, no de una lista de clases previstas.
 
-| En un Zettelkasten | Papel | Lo que sería en sldb |
-|---|---|---|
-| ficha bibliográfica | dice de qué fuente se trata | el nodo de una fuente entera |
-| nota de lectura | lo que dice una fuente, en un lugar preciso | nodo de anclaje |
-| nota pasajera | una idea suelta, para desechar o pasar en limpio | algo propuesto, todavía sin declarar |
-| nota permanente | una idea propia, una sola, enlazada con otras | nodo de significado |
-| nota de estructura | reúne y ordena notas sobre un tema | "las fuentes dicen"; un modelo; una vista |
-| entrada del registro | una palabra con pocos puntos de entrada | un tipo por lo que algo es |
-| manuscrito | lo que se escribe desde las notas | nodo de proyección |
+Entrar tiene etapas, y en cada una nacen nodos que llevan cosas distintas:
 
-Lo que enseña el ejemplo: las clases no forman una jerarquía, forman un recorrido. Una nota
-pasa de una clase a otra, o da origen a una de otra clase, y lo que las une son enlaces. Y hay
-clases cuyo único trabajo es ordenar a las demás.
-
-El paso de anclajes a conocimiento tiene etapas:
-
-1. **Anclar.** Cada parte marcada da un nodo de anclaje. Nada más.
+1. **Anclar.** Cada parte marcada da un solo nodo, con su anclaje.
 2. **Juntar.** Varios anclajes que dicen lo mismo se reúnen en un "las fuentes dicen".
-3. **Sintetizar.** De ahí se arma el árbol de conocimiento: los nodos de significado.
+3. **Sintetizar.** De ahí se arma el árbol de conocimiento: nodos con una proposición cada uno.
 
-Un mismo nodo de significado puede tener muchos anclajes. Una página web, las instrucciones de
-un asistente y un manual pueden traer la misma afirmación, y tiene que ser la misma. Entre esos
-textos uno suele ser la fuente y los otros derivaciones de ella. Cuando hay que cambiar la
-afirmación, el nodo de significado dice de inmediato en qué lugares está escrita, sin leer
-todos los documentos.
+Un mismo nodo de conocimiento puede estar enlazado a muchos anclajes. Una página web, las
+instrucciones de un asistente y un manual pueden traer la misma afirmación, y tiene que ser la
+misma. Entre esos textos uno suele ser la fuente y los otros derivaciones. Cuando hay que
+cambiar la afirmación, su nodo dice de inmediato en qué lugares está escrita.
 
 ### Relación
 
@@ -171,26 +157,50 @@ El contexto dentro del cual valen los nombres. (P1)
 - Que dos nodos de stores distintos son la misma cosa es una relación declarada.
 - Un store puede usar nodos de otro. Cómo se nombra entonces un modelo ajeno: sin decidir.
 
-## Lo que sldb trae y lo que no
+## Fuera del núcleo: lo que se declara
 
-sldb no trae tipos de dominio: no sabe qué es una tarea ni una decisión.
+El núcleo son nodos, relaciones y hechos, sin nombres. Todo lo que les pone nombre se declara
+encima, con esos mismos nodos y relaciones.
 
-Trae los tipos de relación que sus propios principios nombran. **Lectura:**
+### Clases de nodo
 
-| Relación | De dónde sale |
+Si a un proyecto le sirve hablar de "nodos de anclaje", "nodos de significado" o "nodos de
+proyección", los declara. El Zettelkasten es un ejemplo de cómo conviven varias clases, cada
+una con su papel:
+
+| En un Zettelkasten | Papel |
 |---|---|
-| contiene | la estructura de lo que entró (P1) |
-| se apoya en | P7 |
-| es variación de | P5 |
-| es del tipo | P5 |
-| es la misma que | P1 |
-| se proyecta por | P2 |
+| ficha bibliográfica | dice de qué fuente se trata |
+| nota de lectura | lo que dice una fuente en un lugar preciso |
+| nota pasajera | una idea suelta, para desechar o pasar en limpio |
+| nota permanente | una idea propia, una sola, enlazada con otras |
+| nota de estructura | reúne y ordena notas sobre un tema |
+| entrada del registro | una palabra con pocos puntos de entrada |
+| manuscrito | lo que se escribe desde las notas |
 
-Todo lo demás lo declara quien usa sldb.
+Las clases forman un recorrido, no una jerarquía, y hay clases cuyo único trabajo es ordenar a
+las demás.
+
+### Eje
+
+Un eje es un filtro, es decir una consulta sobre el grafo. Todos los nodos etiquetados como
+decisión de arquitectura forman el eje de las decisiones de arquitectura. Qué es un eje se
+declara, fuera del núcleo.
+
+El cruce de varios ejes es la consulta que junta sus filtros. Es lo que entrega, para una pieza
+concreta, lo que hace falta saber de ella.
+
+### Tipos de relación
+
+Los tipos de relación son nodos. Cuáles vienen ya declarados y cuáles pone cada proyecto no es
+asunto del núcleo. **Lectura:** los niveles 1 y 2 usan seis (contiene, se apoya en, es
+variación de, es del tipo, es la misma que, se proyecta por), y tendría sentido que vinieran
+en una declaración de base, fuera del núcleo.
 
 ## Sin decidir en este nivel
 
-- Qué clases de nodo trae sldb además de las tres nombradas, y cuáles declara cada proyecto.
+- Qué viene en la declaración de base que acompaña al núcleo: qué clases, ejes y tipos de
+  relación trae ya declarados.
 - Cómo se juntan los anclajes: quién dice que dos anclajes dicen lo mismo, y cuánto de eso
   puede proponer una máquina. Por el principio 1, que dos cosas son la misma se declara.
 - Cómo se dice que un texto es fuente y otro derivación, y qué pasa cuando una derivación deja
