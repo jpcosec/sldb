@@ -101,3 +101,8 @@ posición que la ignora.
 ## Mecanismos
 
 - [Los anillos](mecanismos/anillos.md): reparto de los 32 ejes del repo, confirmado por JP el 2026-11-27.
+
+## Principios
+
+- [Metodología para destilar los principios](principios/metodologia.md): aprobada por JP el
+  2026-11-27. Las fichas por grupo de fuentes van en `principios/fichas/`.
