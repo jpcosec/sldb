@@ -44,10 +44,10 @@ nodo (`docs/architecture/one-address-grammar-two-spaces.md`, decisión 2 y 3).
 
 | Verbo | Hoy | Evidencia | Qué significa (propuesta) |
 |---|---|---|---|
-| Crear | `docs create`: escribe un Markdown nuevo desde un payload y lo rastrea; sobrescribe el archivo si existe. `docs track`: rastrea un Markdown que ya existe (`--glob`, `--force`, `--reindex`) y no lo reescribe | `src/sldb/cli/parsers/docs1.py:12-30`, `src/sldb/cli/commands/doc.py:45,50`, `src/sldb/api/documents/create_document.py:26,33`, `src/sldb/api/documents/track_document_file.py:22` | **Sin confirmar:** crear es que exista un documento válido en el store; `create` y `track` son dos caminos a ese mismo efecto |
+| Crear | `docs create`: escribe un Markdown nuevo desde un payload y lo rastrea; sobrescribe el archivo si existe. `docs track`: rastrea un Markdown que ya existe (`--glob`, `--force`, `--reindex`) y no lo reescribe | `src/sldb/cli/parsers/docs1.py:12-30`, `src/sldb/cli/commands/doc.py:45,50`, `src/sldb/api/documents/create_document.py:26,33`, `src/sldb/api/documents/track_document_file.py:22` | **Sin confirmar:** crear es que un documento entre: marcar lo que se toma de él. No exige modelo ni que sea "válido"; `create` y `track` son dos caminos a ese efecto. (corregido 2026-11-27 con los fundamentos) |
 | Leer | `docs show` (AST y payload), `docs list`, `docs exists`, `docs select`, `docs history`, `docs compose` | `src/sldb/cli/commands/docs.py:40,45,50`, `docs_exists.py:14`, `docs_select.py:15`, `docs_history.py:11` | **Sin confirmar:** leer es una dirección, o una consulta, que devuelve el documento |
 | Cambiar | `docs update`: reemplaza el payload entero. `docs replace`: cambia exactamente N apariciones de un texto literal (también en archivos no rastreados). `sldb move`: mueve archivo o directorio y reescribe campos y enlaces. `fields *` cambia un valor (ver `valor-en-un-documento`) | `src/sldb/cli/commands/doc.py:63`, `docs_replace.py:17` y `src/sldb/api/documents/replace_text.py:34`, `src/sldb/cli/commands/move.py:13` y `src/sldb/api/documents/move_path.py:14` | **Sin confirmar:** cambiar es dejar el documento con otro contenido o en otra ruta, conservando su nombre |
-| Borrar | `docs untrack`: lo saca del store y deja el archivo. `docs delete`: lo saca y borra el archivo; pregunta salvo `--yes` | `src/sldb/cli/commands/doc.py:90,95`, `src/sldb/api/documents/untrack_document.py:29`, `src/sldb/api/documents/delete_document.py:12,35` | **Sin confirmar:** borrar quita el nodo y sus aristas; si además se pierde el archivo es una decisión aparte |
+| Borrar | `docs untrack`: lo saca del store y deja el archivo. `docs delete`: lo saca y borra el archivo; pregunta salvo `--yes` | `src/sldb/cli/commands/doc.py:90,95`, `src/sldb/api/documents/untrack_document.py:29`, `src/sldb/api/documents/delete_document.py:12,35` | **Sin confirmar:** borrar no existe adentro: es declarar que el documento ya no está o ya no se sigue. El nodo y sus relaciones quedan dichos; el archivo es cosa de afuera. (corregido 2026-11-27 con los fundamentos) |
 
 Lo que verifiqué y no coincide con el registro de ejes:
 
@@ -99,6 +99,30 @@ Lo que verifiqué y no coincide con el registro de ejes:
    se queda?
 5. ¿Cambiar un documento es siempre reemplazar el payload entero, o también admite un parche
    por campo a este nivel?
+
+## Desde los fundamentos
+
+- **Qué es.** Un documento marcado por completo: vive adentro como un nodo con los nodos que se
+  tomaron de él. Su archivo sigue siendo un archivo común. Proyectar sus nodos por la estructura
+  que tenía devuelve el archivo.
+- **De qué principio cuelga.** 3 (adentro y afuera; entrar y proyectar) y 5 (el modelo sale de lo
+  que varios documentos comparten, no al revés).
+- **Qué contradice los niveles 1 y 2.**
+  - (h) "Un documento es un archivo Markdown que un modelo describe y que el store rastrea": define
+    todo por el archivo y por el modelo. Para el nivel 2 el archivo está afuera y el documento es
+    lo que entró.
+  - (c) "que un modelo describe": un documento sin modelo no queda fuera, es un árbol de partes.
+  - (a) Borrar: "`docs delete`", "`docs untrack`" y "quita el nodo y sus aristas". Adentro no se
+    borra; Abierto 4 (si borrar incluye el archivo) mezcla afuera y adentro.
+  - (b) Abierto 1 ("¿Qué identifica a un documento: su nombre o su ruta?"): la identidad es del
+    nodo; la ruta es dónde estaba. Mover cambia el "dónde", no el nodo.
+  - (g) "Dónde se guarda": el contenido en el archivo, los hashes en `.sldb/`. Sobre lo observado
+    manda el archivo; lo declarado (tags, procedencia) vive adentro.
+  - (d) "El store guarda su nombre, su ruta, sus hashes": falta que el nodo lleva su contenido.
+  - Abierto 2 (sobrescribir con `create`): una edición se aplica sobre la versión vista y muestra
+    el choque; el nivel 2 ya lo decide.
+- **Qué queda igual.** Que es el nodo desde el cual se nombran secciones y valores, la guarda
+  contra pérdida, el round trip, la procedencia por escritura y los hashes de contenido.
 
 ## Cómo se absorbe en la lógica de kimun
 

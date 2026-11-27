@@ -49,7 +49,7 @@ La ruta se guarda relativa a la raíz del proyecto, salvo que se escriba con `/`
 | Crear | `stores add PATH [--name] [--replace]` | `src/sldb/cli/commands/store_add.py:12`; `src/sldb/api/stores/link_store.py:20` | **Sin confirmar:** enlazar el store local con otro; crea la arista y deja el alias disponible en las direcciones. |
 | Leer | `stores list [--format]`; `edges show sldb://store`; `graph get` | `src/sldb/cli/commands/stores.py:61`; `src/sldb/api/stores/store_links.py:16`; `src/sldb/cli/commands/edges.py:30` | **Sin confirmar:** dar los stores enlazados y el estado de cada ruta (ok, ausente). |
 | Cambiar | `stores add --replace` (apunta el mismo alias a otra ruta). No hay `stores set` ni cambio de alias | `src/sldb/api/stores/link_store.py:44` | **Sin confirmar:** cambiar la ruta o el alias sin soltar la arista. |
-| Borrar | `stores remove ALIAS` | `src/sldb/cli/commands/store_add.py:18`; `src/sldb/api/stores/unlink_store.py:18` | **Sin confirmar:** quitar la arista; el store enlazado no se toca. |
+| Borrar | `stores remove ALIAS` | `src/sldb/cli/commands/store_add.py:18`; `src/sldb/api/stores/unlink_store.py:18` | **Sin confirmar:** declarar que el enlace se retiró; queda dicho, y el store enlazado no se toca (corregido 2026-11-27 con los fundamentos). |
 
 Restricciones que ya existen:
 
@@ -88,6 +88,30 @@ Restricciones que ya existen:
 - ¿El alias es el nombre de la arista (se puede renombrar) o un atributo del store enlazado?
 - Un enlace entre stores, ¿es una arista como las demás o es el único caso que no admite
   atributos propios (condición, tipo)?
+
+## Desde los fundamentos
+
+**Qué es.** Una relación entre dos redes: un sistema que dice que otro existe y que puede usar
+lo que él declaró. Los nodos extremos son sistemas (un adentro cada uno), no archivos.
+
+**De qué principio cuelga.** 1, El valor sale de las relaciones. Y 3: cada red es un adentro con
+su borde, y se toca con otra por un punto preciso.
+
+**Qué contradice los niveles 1 y 2.**
+- (a) Borrar: "`stores remove ALIAS` ... quitar la arista". Adentro no se borra: se declara que el
+  enlace se retiró y queda dicho.
+- (f) "Dos archivos guardan el mismo hecho" (`store_index.yaml` y `store.yaml`): lo que alguien
+  declara vive adentro, no en un archivo que se reescribe. Que el hecho esté duplicado es un
+  síntoma de eso.
+- (h) "el store lee los documentos del otro y hereda sus modelos": lo que se comparte son nodos,
+  relaciones y modelos que salieron de lo que entró, no solo documentos.
+- (b) El alias como "nombre de la arista" y prefijo de dirección: el nombre no da identidad; la
+  da la relación.
+
+**Qué queda igual.** El enlace es una arista con extremos que son stores. Es base de la
+federación. `stores remove` que se niega mientras un modelo local dependa del store es
+consecuencia que baja por las relaciones. Que la carpeta enlazada desaparezca se nota por su
+sensor y no rompe la arista.
 
 ## Cómo se absorbe en la lógica de kimun
 

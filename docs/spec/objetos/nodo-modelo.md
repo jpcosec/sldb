@@ -46,10 +46,10 @@ decisión 4, confirmada por el dueño el 2026-11-26).
 
 | Verbo | Hoy | Evidencia | Qué significa (propuesta) |
 |---|---|---|---|
-| Crear | Dos pasos o uno según la puerta. `models create` solo genera el código Python, no registra. `models add` registra una clase que ya existe. `api.create_model` genera y registra; no hay comando de CLI que lo llame (lo usa `serve`) | `src/sldb/cli/commands/models_create.py:12-16,28-31`, `src/sldb/cli/commands/model.py:50-58`, `src/sldb/api/model_registry/add_model.py:18-40`, `src/sldb/api/model_create/create_model.py:21,66-70`, `src/sldb/cli/serve/models_create_routes.py:18` | **Sin confirmar:** escribir la clase y registrarla en un solo acto, calificada con el store dueño. |
+| Crear | Dos pasos o uno según la puerta. `models create` solo genera el código Python, no registra. `models add` registra una clase que ya existe. `api.create_model` genera y registra; no hay comando de CLI que lo llame (lo usa `serve`) | `src/sldb/cli/commands/models_create.py:12-16,28-31`, `src/sldb/cli/commands/model.py:50-58`, `src/sldb/api/model_registry/add_model.py:18-40`, `src/sldb/api/model_create/create_model.py:21,66-70`, `src/sldb/cli/serve/models_create_routes.py:18` | **Sin confirmar:** declarar el nombre de la estructura que ya compartían varios documentos. El modelo es consecuencia de lo que entró, no un requisito previo; escribir su clase es una forma de declararlo. (corregido 2026-11-27 con los fundamentos) |
 | Leer | `models list`, `models show`, `models check` (registrado o ausente); MCP `list_models` y `describe_model` | `src/sldb/cli/commands/models_list.py:11`, `src/sldb/cli/commands/models.py:69-72`, `src/sldb/cli/commands/models_check.py:11-15`, `src/sldb/mcp/read/models.py:19-32` | **Sin confirmar:** devolver el contrato (campos, plantilla, metadatos) y el origen; los documentos son otra lectura. |
 | Cambiar | Por borrador: `models fields add/remove`, `models template edit`, `models metadata edit`, y se aplica con `models validate --promote [--backfill]`. A mano: editar la clase y correr `models update` (recalcula hashes) | `src/sldb/cli/parsers/models2.py:13-14,44-60,78-92`, `src/sldb/api/model_drafts/draft_validation.py:34-43`, `src/sldb/cli/commands/model.py:103-112` | **Sin confirmar:** cambiar el contrato con un borrador validado contra los documentos y una promoción que sube la versión. |
-| Borrar | `models remove`: quita el registro, los índices y los shards; no toca la clase. Se rechaza si el modelo aún tiene documentos, salvo `--with-documents`, que los deja de seguir (los archivos quedan). No revisa si otro modelo lo extiende | `src/sldb/cli/commands/models.py:52-56`, `src/sldb/api/model_registry/remove_model.py:20-65` | **Sin confirmar:** desregistrar el modelo; qué pasa con sus documentos es la pregunta abierta de abajo. |
+| Borrar | `models remove`: quita el registro, los índices y los shards; no toca la clase. Se rechaza si el modelo aún tiene documentos, salvo `--with-documents`, que los deja de seguir (los archivos quedan). No revisa si otro modelo lo extiende | `src/sldb/cli/commands/models.py:52-56`, `src/sldb/api/model_registry/remove_model.py:20-65` | **Sin confirmar:** declarar que el modelo se retiró. No hay cascada ni rechazo: los documentos y los modelos que lo extienden siguen dichos, y lo que se apoyaba en él se revisa. (corregido 2026-11-27 con los fundamentos) |
 
 El MCP no escribe modelos: el servidor no sirve escribir código de modelo (`src/sldb/mcp/mutability.py:1-8`, nivel 3 "nunca servido").
 
@@ -86,6 +86,30 @@ El MCP no escribe modelos: el servidor no sirve escribir código de modelo (`src
   desregistra solo en este store, o el dueño puede borrar y dejar huérfanos a los demás?
 - Crear un modelo escribe Python: ¿sldb escribe el archivo, o solo registra uno que alguien
   escribió? Hoy el MCP se niega a lo primero.
+
+## Desde los fundamentos
+
+- **Qué es.** El nombre de lo que varios documentos ya compartían en su estructura. Una variación
+  es el mismo modelo con una parte de más. Sirve para decir qué tomar al entrar y cómo proyectar
+  al salir. Es un nodo como los demás.
+- **De qué principio cuelga.** 5 (los tipos salen de lo que entró) y 4 (un modelo es un nodo, no
+  vive fuera de la red).
+- **Qué contradice los niveles 1 y 2.**
+  - (c) "Un modelo es una clase Python... que define la forma de un documento" y "El modelo es la
+    fuente de la validación": el modelo es consecuencia, no fuente ni requisito. Un documento sin
+    modelo no queda fuera.
+  - (a) Borrar y Abiertos 1 y 2: "se rechaza si el modelo aún tiene documentos", "`--with-documents`",
+    "dejar huérfanos". Adentro no se borra, no hay cascada ni rechazo.
+  - (f) "La definición: el código Python de la clase" y "El registro... es derivado": lo que
+    alguien declara vive adentro; el código es una forma de escribirlo. Los hashes sí se rehacen.
+  - (b) "Es un solo nodo para todos los stores" y `alias:Modelo`: la identidad es del nodo; qué
+    store lo declaró es un hecho sobre él.
+  - (h) "El store registra el modelo y sigue a sus documentos": el modelo no es un registro de
+    archivos.
+  - Abierto 3 (¿sldb escribe Python?): el nivel 2 no pide Python; pide nodos y relaciones.
+- **Qué queda igual.** Herencia (`extends`) y variación; el contrato como lo que se comprueba y
+  proyecta; que cambiar el contrato mueve el hash; que el modelo tiene relaciones con campos,
+  documentos y tags.
 
 ## Cómo se absorbe en la lógica de kimun
 

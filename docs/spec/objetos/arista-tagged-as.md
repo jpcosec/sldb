@@ -43,8 +43,8 @@ El índice de aristas está en `.sldb_cache/` (ignorado, regenerable). Ver
 |---|---|---|---|
 | Crear | Poner el tag en el campo `semantic_tags` o `tags` del documento (edición del Markdown, p. ej. `docs update`, `fields update`) o en `__semantics__` del modelo. No hay comando que cree solo la arista | `src/sldb/store/semantic_tags.py:29-35`, `src/sldb/store/edge_index/doc_structure.py:17` | Crear la arista es agregar el tag al portador. **Sin confirmar.** |
 | Leer | `sldb edges show`, `sldb graph neighborhood`, `sldb graph similar` (relación por defecto `tagged_as`), `sldb find <tag> --in semantic`. Sin verificar: la sintaxis exacta de `edges show` para esta relación | `src/sldb/cli/parsers/graph_analysis.py:62`, `src/sldb/cli/commands/graph_analysis.py:92`, `src/sldb/cli/parsers/find.py:6-7` | Leer en las dos direcciones: qué tags lleva algo, qué lleva un tag. **Sin confirmar.** |
-| Cambiar | no existe. Busqué en `src/sldb/cli/` y `src/sldb/api/edges/`: `edges rewrite` es para aristas autoradas, no para esta | `src/sldb/cli/parsers/semantic.py:11-18` | **Sin confirmar:** la arista no tiene atributos; cambiarla sería mover el extremo (otro tag) y es borrar más crear. |
-| Borrar | Quitar el tag del campo del documento o de `__semantics__`. No hay comando que borre la arista | `src/sldb/store/edge_index/doc_structure.py:17-19` | Borrar la arista es quitar el tag al portador; el tag no se borra. **Sin confirmar.** |
+| Cambiar | no existe. Busqué en `src/sldb/cli/` y `src/sldb/api/edges/`: `edges rewrite` es para aristas autoradas, no para esta | `src/sldb/cli/parsers/semantic.py:11-18` | **Sin confirmar:** la arista no tiene atributos; cambiarla sería mover el extremo (otro tag) y era borrar más crear; adentro no se borra: cambiar es declarar que el tag anterior ya no vale y declarar el nuevo. (corregido 2026-11-27 con los fundamentos) |
+| Borrar | Quitar el tag del campo del documento o de `__semantics__`. No hay comando que borre la arista | `src/sldb/store/edge_index/doc_structure.py:17-19` | Borrar no existe adentro: es declarar que la relación ya no se sostiene. La relación queda dicha con ese hecho; el tag no se toca. **Sin confirmar.** (corregido 2026-11-27 con los fundamentos) |
 
 ## Aristas que le llegan y que salen
 
@@ -66,6 +66,25 @@ también la emite (`src/sldb/store/graph/ingest_sldb_nodes.py:29,36,42`).
   que lo haga sin editar el Markdown de la sección).
 - Qué es "cambiar" una arista sin atributos: nada, o mover el extremo.
 - Si la arista de modelo (por `__semantics__`) se puede borrar sin editar código Python.
+
+## Desde los fundamentos
+
+- **Qué es.** Una relación entre dos nodos: lo que lleva el tag y el tag. Es un hecho de adentro,
+  de tipo `tagged_as`. Sirve para agrupar por significado (el eje de "lo que algo es").
+- **De qué principio cuelga.** 1 (el valor sale de las relaciones) y 5 (los tipos salen de lo que
+  entró; el tag es el eje del significado, no el de la forma).
+- **Qué contradice los niveles 1 y 2.**
+  - (a) Borrar: "Borrar la arista es quitar el tag al portador" y "Cambiar... es borrar más crear".
+    Adentro no se borra; se declara que ya no se sostiene (corregido en los verbos).
+  - (f) "No se escribe: es derivada... índice en `.sldb_cache/`": para los tags que alguien
+    declara en un documento o en `__semantics__`, lo declarado vive adentro y no se puede rehacer.
+    Solo el índice que se calcula es regenerable. La página los mezcla.
+  - (b) "se identifica por el par (origen, tag)": una relación de adentro tiene identidad; el par
+    la nombra solo si no hay otra cosa.
+  - (c) Tags de "un modelo, un documento o una sección": supone que todo portador es un documento
+    con modelo. Un tag puede colgar de cualquier nodo.
+- **Qué queda igual.** Que no tenga atributos propios, que sirva para comparar por lo que
+  comparten, que los dos extremos sean nodos y que se lea en las dos direcciones.
 
 ## Cómo se absorbe en la lógica de kimun
 

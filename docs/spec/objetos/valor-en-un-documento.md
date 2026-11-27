@@ -45,7 +45,7 @@ lo guarda aparte. Lo único derivado es el hash por campo: un hash por campo de 
 | Crear | `fields create <ruta> <valor>`: asigna el valor y crea las claves intermedias. `fields append`: agrega un elemento al final de una lista | `src/sldb/cli/parsers/fields.py:24-34`, `src/sldb/cli/commands/fields_mutate.py:18,21`, `src/sldb/api/documents/payload_path_writing.py:48-67` | **Sin confirmar:** crear es dar valor a algo que no lo tenía; si ya lo tenía debería fallar |
 | Leer | `fields show docs/<Doc>/<ruta>`, `fields query <ruta>` (en todos los documentos), `sections fields docs/<Doc>/<sección>` (los valores que posee una sección) | `src/sldb/cli/commands/fields_show.py:45-47,55`, `src/sldb/cli/commands/sections_fields.py:13` | **Sin confirmar:** leer es resolver la dirección y devolver el valor; con posición exacta en el texto cuando se pide |
 | Cambiar | `fields update <ruta> <valor>`: la ruta debe existir (salvo un campo de primer nivel del modelo que falte). `fields clean --dedupe --drop-empty`: depura una lista | `src/sldb/cli/commands/fields_mutate.py:19,22,24-26` | **Sin confirmar:** cambiar es reemplazar el valor existente por otro del mismo tipo |
-| Borrar | `fields remove <ruta>` | `src/sldb/cli/commands/fields_mutate.py:20`, `src/sldb/api/documents/payload_path_writing.py:80` | **Sin confirmar:** borrar es dejar el valor vacío o ausente, si el modelo lo permite |
+| Borrar | `fields remove <ruta>` | `src/sldb/cli/commands/fields_mutate.py:20`, `src/sldb/api/documents/payload_path_writing.py:80` | **Sin confirmar:** si el valor está marcado, borrar es declarar que se borró y su nodo queda con ese hecho; si no, solo cambia el archivo. No depende de que el modelo lo permita (corregido 2026-11-27 con los fundamentos) |
 
 Cómo se aplican los cuatro: `mutate_field` carga el payload, aplica el cambio y llama a
 `save_document_payload` (`src/sldb/cli/commands/fields_mutate.py:8-12`,
@@ -119,6 +119,33 @@ y editar listas de valores simples, y no sirve como extremo durable de una relac
    campo identificador del elemento)?
 4. ¿Cambiar un valor a este nivel debe poder expresarse sin reescribir el documento entero,
    o es siempre una operación del documento?
+
+## Desde los fundamentos
+
+- **Qué es.** Una parte de un archivo. Sin marcar, se nombra por su dirección (documento más
+  ruta) y no tiene identidad. Marcada, entra como nodo con su contenido, su huella y su ancla.
+- **Principio.** 3, "Hay un adentro y un afuera" (las anclas son los sensores).
+- **Qué contradice los niveles 1 y 2:**
+  - "no es un nodo propio del grafo": puede serlo si alguien lo marca, y entonces lleva
+    contenido y relaciones (b, d). La sección final de kimun ya lo dice.
+  - "se lee y se escribe siempre a través de su documento ... un cambio reescribe el documento
+    entero": editar es cambiar el nodo y proyectar de nuevo; se puede cambiar una parte sola sin
+    tocar el resto (nivel 2, "Entrar y volver a salir"). Abierto 4 ya se contesta así.
+  - "Un valor no es extremo de ninguna arista" y "una arista parte del documento": las
+    relaciones unen nodos; un valor marcado es extremo.
+  - "las aristas ... salen de los campos que el modelo marca": el modelo es consecuencia de lo
+    que entró, no la fuente de las relaciones (c).
+  - "Qué lo mantiene correcto: validación del modelo": un documento no necesita modelo; la
+    validación solo rige donde hay modelo.
+  - Abierto 2 ("borrar un valor que el modelo exige ... borrar el documento"): borrar es
+    declarar que se borró; no hay cascada (a).
+  - Abierto 3 (posición o clave estable): lo que necesita identidad se marca y es nodo; la
+    posición queda como dirección de la parte sin marcar. Ya lo dice "Ítems de lista".
+  - Sobre qué manda (g): "sldb cambia el valor en el payload ... y comprueba que se extrae
+    igual" va bien si manda el archivo sobre lo observado y la edición se aplica sobre la
+    versión vista; la página no lo dice.
+- **Qué queda igual.** La dirección por ruta y por posición para lo sin marcar. El hash por
+  campo como huella. "Lo que necesita identidad no es un valor sino un nodo".
 
 ## Cómo se absorbe en la lógica de kimun
 

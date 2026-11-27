@@ -47,7 +47,7 @@ Un cambio pendiente vive en el borrador `.py.temp` del modelo
 | Crear | `models fields add <Modelo> <campo> --type --description [--default]`. Escribe el campo y su sección de plantilla en el **borrador**; no toca el modelo activo hasta promover con `models validate --promote` | `src/sldb/cli/commands/models_fields.py:23-26`, `src/sldb/api/model_drafts/field_drafts.py:26-53`, `src/sldb/cli/parsers/models2.py:13` | **Sin confirmar:** agregar el campo al contrato del modelo, con efecto al promover y con los documentos existentes revisados. |
 | Leer | `fields show models/<Modelo>` (todos) o `models/<Modelo>/<campo>` (uno): nombre, descripción, anotación. MCP `describe_model` devuelve los campos con sus tipos. No hay comando de CLI que lea el nodo del grafo con todos sus atributos | `src/sldb/cli/commands/fields_show.py:15-43`, `src/sldb/mcp/read/models.py:25-32` (buscado en `src/sldb/cli/parsers/{fields,edges,graph}.py`) | **Sin confirmar:** devolver los atributos del esquema del campo (tipo, descripción, defecto, requerido). |
 | Cambiar | No existe. `models fields` solo tiene `add` y `remove`; `models template edit` y `models metadata edit` no cambian el tipo ni la descripción de un campo. Se cambia editando la clase a mano y corriendo `models update` | `src/sldb/cli/parsers/models2.py:39-59,17-37,78-92`, `src/sldb/cli/commands/model.py:103-112` | **Sin confirmar:** cambiar tipo, descripción o defecto de un campo declarado, pasando por el mismo borrador que `add`. |
-| Borrar | `models fields remove <Modelo> <campo>`: quita el campo y su sección de plantilla en el borrador (la plantilla heredada no se toca) | `src/sldb/cli/commands/models_fields.py:36-39`, `src/sldb/api/model_drafts/field_drafts.py:56-76,91-97` | **Sin confirmar:** quitar el campo del contrato; qué hacer con el valor que los documentos ya guardan es la pregunta abierta. |
+| Borrar | `models fields remove <Modelo> <campo>`: quita el campo y su sección de plantilla en el borrador (la plantilla heredada no se toca) | `src/sldb/cli/commands/models_fields.py:36-39`, `src/sldb/api/model_drafts/field_drafts.py:56-76,91-97` | **Sin confirmar:** declarar que el campo ya no forma parte del contrato. Los valores que los documentos ya guardan no se borran ni frenan la operación: quedan, y lo que se apoyaba en el campo se revisa. (corregido 2026-11-27 con los fundamentos) |
 
 ## Aristas que le llegan y que salen
 
@@ -83,6 +83,27 @@ Un cambio pendiente vive en el borrador `.py.temp` del modelo
 - Cambiar el tipo de un campo con valores existentes: ¿migra los valores, los revalida y falla,
   o se trata como quitar y crear?
 - ¿Renombrar un campo es un verbo propio (conserva los valores) o es quitar y crear?
+
+## Desde los fundamentos
+
+- **Qué es.** Una parte de la estructura que varios documentos comparten: lo que el modelo dice
+  de esa posición (nombre, tipo, descripción, defecto). Es un nodo con relaciones, metido en el
+  nodo del modelo.
+- **De qué principio cuelga.** 5 (los tipos salen de lo que entró) y 1 (vale por sus relaciones:
+  el tipo, a qué apunta).
+- **Qué contradice los niveles 1 y 2.**
+  - (a) Borrar y Abierto 1: "¿se borra el valor de cada documento, se conserva..., o se rechaza la
+    operación?". Adentro no se borra, no hay cascada ni rechazo: se declara que el campo se
+    quitó y el valor sigue dicho.
+  - (c) "Es lo que permite validar el valor" y `models fields add`: el campo parece anterior a
+    los documentos. Es al revés: el campo es el nombre de lo que ya compartían.
+  - (d) "ese valor no es un nodo": el nivel 2 dice que un nodo puede llevar cosas adentro, con
+    relaciones propias. Un valor marcado puede ser nodo; uno sin marcar se nombra por su dirección.
+  - (f) "Solo en el código Python del modelo. El nodo es derivado": lo que alguien declara
+    (el campo) vive adentro; el código es una forma de escribirlo.
+  - Abierto 3 (renombrar): identidad es del nodo; renombrar no cambia el nodo.
+- **Qué queda igual.** Que el campo y su valor son cosas distintas, que no salen aristas del
+  campo hacia documentos, y que cambiar el campo mueve el hash del contrato.
 
 ## Cómo se absorbe en la lógica de kimun
 

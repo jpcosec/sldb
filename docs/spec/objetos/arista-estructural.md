@@ -58,7 +58,7 @@ consecuencia. Leer actúa sobre la arista.
 | Crear | `has_model`: `models add`, `models create`. `has_field`: `models fields add` escribe un borrador, que pasa al modelo con `models validate --promote`. `has_document`: `docs create`, `docs track`. `has_section`: no existe comando, nace al escribir un encabezado; buscado en `sections` (solo `show`, `find`, `fields`) | `src/sldb/cli/parsers/models1.py:13`; `src/sldb/cli/commands/models_fields.py:21`; `src/sldb/cli/parsers/models2.py:13`; `src/sldb/cli/parsers/docs1.py:13`; `src/sldb/cli/parsers/sections.py:10`, `:17`, `:28` | **Sin confirmar:** crear el nodo del extremo (modelo, campo, documento, encabezado) crea su arista. |
 | Leer | `edges show <nodo>`, `edges show --to`, `graph get/list/neighborhood`; `models show`, `docs list`, `sections show` | `src/sldb/cli/commands/edges.py:30`; `src/sldb/cli/parsers/graph.py:30`, `:46` | **Sin confirmar:** dar los hijos de un nodo, o su padre con `--to`. |
 | Cambiar | no existe para ninguna: no hay verbo que mueva un campo de un modelo a otro ni un documento a otro modelo | buscado en `src/sldb/cli/parsers/` y `src/sldb/api/edges/` | **Sin confirmar:** cambiar el extremo sería cambiar de nodo, no de arista; queda sin sentido propio. |
-| Borrar | `models remove` (quita `has_model` y sus documentos con `--with-documents`); `docs untrack`, `docs delete`; `models fields remove` (borrador); un encabezado no tiene comando | `src/sldb/cli/parsers/models1.py:26`; `src/sldb/cli/parsers/docs1.py:47`; `models2.py:55` | **Sin confirmar:** borrar el nodo borra su arista; no hay "desenlazar" sin borrar. |
+| Borrar | `models remove` (quita `has_model` y sus documentos con `--with-documents`); `docs untrack`, `docs delete`; `models fields remove` (borrador); un encabezado no tiene comando | `src/sldb/cli/parsers/models1.py:26`; `src/sldb/cli/parsers/docs1.py:47`; `models2.py:55` | **Sin confirmar:** declarar que el nodo ya no está; su arista queda dicha con ese hecho. No hay borrado, y "desenlazar" es declarar que se desenlazó (corregido 2026-11-27 con los fundamentos). |
 
 ## Aristas que le llegan y que salen
 
@@ -85,6 +85,30 @@ consecuencia. Leer actúa sobre la arista.
 - `has_field` lleva `origin: schema` y las otras `structural`: ¿se unifican?
 - Un nodo sin verbo para su arista (sección, campo): ¿se puede crear una sección que no esté en el
   texto, o la sección siempre es una consecuencia del texto?
+
+## Desde los fundamentos
+
+**Qué es.** Relaciones de contención entre nodos: quién está dentro de quién. Las que salen de
+partes marcadas de un archivo (documento a sección) son relaciones de adentro. Las que dicen cómo
+está armado el sistema (store, modelo, campo) son nodos y relaciones como cualquier otra.
+
+**De qué principio cuelga.** 1, El valor sale de las relaciones. Y 3 para la sección: una parte
+sin marcar no tiene identidad.
+
+**Qué contradice los niveles 1 y 2.**
+- (a) Borrar: "borrar el nodo borra su arista" y `models remove`, `docs delete`. Adentro no se
+  borra: se declara que ya no está y la arista queda con ese hecho.
+- (b) Identidad: `has_section` da a cada encabezado un nodo `sldb://section/<Modelo>:<doc>#<ruta>`.
+  Una sección sin marcar se nombra por su dirección y no tiene continuidad. Solo la marcada es nodo.
+- (c) "cada documento de un modelo" y `has_document`: un documento no necesita modelo; el modelo
+  es consecuencia. Todo documento está al menos en la clase de árbol de partes.
+- (h) "de qué está hecho el store: modelos, campos y documentos": el esqueleto está pensado
+  para documentos, no para nodos y partes marcadas.
+- (4) `has_field` sale de "la clase Python del modelo": lo que el sistema sabe de sí debe estar
+  en la red.
+
+**Qué queda igual.** Las aristas son derivadas y nadie las escribe. Leer da hijos o padre. La
+cardinalidad se comprueba como regla. Dejarlas fuera de los análisis salvo que se pida.
 
 ## Cómo se absorbe en la lógica de kimun
 

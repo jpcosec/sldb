@@ -56,7 +56,7 @@ hoy es falso para los padres declarados.
 | Crear | `sldb semantic parent add <tag> <parent>`. Rechaza tag o padre desconocido, auto-padre y ciclo; devuelve "Nothing to change." si ya estaba | `src/sldb/cli/commands/semantic.py:23-28`, `src/sldb/api/semantic/dag_writes.py:19-27`, `src/sldb/store/semantic_parents.py:19-29,52-61` | Crear declara la arista y la guarda donde git la versiona. **Sin confirmar.** |
 | Leer | `sldb semantic show <tag>`: padres, hijos, ancestros, descendientes. Lee el DAG de la caché. También `sldb graph cycles --relation semantic_parent` | `src/sldb/api/semantic/dag_reads.py:13-30`, `src/sldb/cli/commands/help_texts_graph.py:27` | Leer sigue igual, desde la fuente versionada. **Sin confirmar.** |
 | Cambiar | no existe. Busqué en `src/sldb/cli/commands/semantic.py` y `src/sldb/api/semantic/`. Cambiar el padre es `remove` más `add` | `src/sldb/cli/parsers/semantic.py:23-28` | **Sin confirmar:** la arista no tiene atributos; cambiar es mover el extremo padre. |
-| Borrar | `sldb semantic parent remove <tag> <parent>`. Rechaza quitar el padre que da el nombre; "Nothing to change." si no estaba declarado | `src/sldb/cli/commands/semantic.py:23-28`, `src/sldb/store/semantic_parents.py:32-42,64-65` | Borrar quita solo la declarada; la implícita se cambia renombrando el tag. **Sin confirmar.** |
+| Borrar | `sldb semantic parent remove <tag> <parent>`. Rechaza quitar el padre que da el nombre; "Nothing to change." si no estaba declarado | `src/sldb/cli/commands/semantic.py:23-28`, `src/sldb/store/semantic_parents.py:32-42,64-65` | Borrar declara que la relación declarada se retiró; queda dicha, con quién. La implícita no se borra: se deja de sugerir (corregido 2026-11-27 con los fundamentos). **Sin confirmar.** |
 
 ## Aristas que le llegan y que salen
 
@@ -79,6 +79,29 @@ registran `--actor`: no hay procedencia (`dag_writes.py:23-24`).
 - Si `ns:valor` tiene como padre implícito su namespace, o si `parent add` puede crear el padre
   que nadie lleva todavía.
 - Qué hace borrar una arista implícita (hoy se rechaza).
+
+## Desde los fundamentos
+
+**Qué es.** Una relación entre dos nodos de significado: uno es una clase del otro. Es la jerarquía
+de lo que algo es, que no coincide con la de la forma.
+
+**De qué principio cuelga.** 5, Los tipos salen de lo que entró (el eje del significado, con
+parecido de familia). Y 1.
+
+**Qué contradice los niveles 1 y 2.**
+- (a) Borrar: "Borrar quita solo la declarada". Adentro no se borra: se declara que se retiró y
+  queda dicho.
+- (1) "la implícita, que el nombre con puntos ya dice": el sentido está en las relaciones, no en
+  el nombre. Unir cosas porque se llaman parecido es lo que el principio 1 deja afuera. Esa
+  relación sería a lo sumo una sugerencia hasta que alguien la declare.
+- (f) "se escribe SOLO en `.sldb_cache/semantic_dag.yaml`" y se pierde al borrar la caché: lo
+  que alguien declara vive adentro. Hoy lo declarado queda junto a lo que se rehace.
+- (6) "no hay procedencia": la relación declarada no dice quién la declaró.
+- (5) "el nodo se rechaza si ningún documento o modelo lleva el padre": se exige que algo haya
+  entrado antes de aceptar la relación.
+
+**Qué queda igual.** Un tag puede tener varios padres. Rechazar ciclos y comprobarlos con
+`edges check` valen como reglas. Preguntar por el padre alcanza a los hijos.
 
 ## Cómo se absorbe en la lógica de kimun
 

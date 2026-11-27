@@ -51,7 +51,9 @@ dicho es dicho por alguien.
 
 Doyle y los sistemas que mantienen justificaciones. Cada conclusión guarda en qué se apoya;
 puede tener varios apoyos; cuando uno cae se revisa lo que dependía de él, y solo eso. No es
-una de las fuentes de origen: se agrega porque dice con precisión cómo opera el principio 6.
+una de las fuentes de origen: se agrega porque dice con precisión cómo opera el principio 7. De ahí sale también que dos
+apoyos solo cuentan como dos si son independientes: si los dos dependen de lo mismo, caen
+juntos.
 
 ### Un ejemplo, no una fuente
 
@@ -82,7 +84,8 @@ realidad; y dar por fiel una proyección sin decir sus reglas.
 **3. Hay un adentro y un afuera, y el afuera perturba pero no instruye.**
 Adentro hay una red con topología propia, y solo ella tiene identidad. Afuera están los
 archivos. Se tocan por puntos precisos, las anclas, que son los sensores del sistema. Lo que
-pasa afuera perturba; el ajuste lo hace la red, según cómo está enlazada.
+pasa afuera perturba; el ajuste lo hace la red, según cómo está enlazada. Qué dice hoy un
+archivo lo dice el archivo; qué se sigue de eso lo decide la red.
 Viene de: autopoiesis.
 Deja afuera: un sistema que es un espejo de los archivos, y uno que exige que todo pase por él.
 
@@ -91,15 +94,19 @@ No solo siente. Una perturbación puede terminar en una acción, y esa acción p
 propio sistema: si falta un modelo, se detecta y se corrige; si se mide el desorden, se puede
 ordenar. sldb se puede usar para observar a sldb. Para eso lo que el sistema hace tiene que
 estar dicho en la misma red que lo que sabe: una regla, un modelo o una acción son nodos como
-los demás.
+los demás. Y una acción del sistema es un hecho como cualquier otro: tiene autor, que es quien
+declaró la regla que la disparó (principio 6), y se sostiene o cae como los demás (principio 7).
 Viene de: autopoiesis.
 Deja afuera: un sistema que solo avisa, y reglas o acciones que viven fuera de la red.
 
 **5. Los tipos salen de lo que entró.**
-No se parte de una lista de tipos. Lo que comparte estructura es un modelo; lo que la comparte
+Para entrar no se exige un tipo. Un modelo se puede declarar antes, como cualquier otra cosa,
+pero no es la puerta. Lo que comparte estructura es un modelo; lo que la comparte
 con diferencias, una variación; especializar da herencia, polimorfismo y composición. Aparte
 está lo que algo es, por su significado, su papel o su función, donde las cosas se agrupan por
-parecido de familia. Los dos ejes no coinciden. Hay textos con mucha forma y textos con casi
+parecido de familia. Ahí entra también el papel de un hecho: la misma frase puede ser una
+observación, un requisito o una decisión, y eso cambia qué pasa cuando deja de calzar. Los dos
+ejes no coinciden. Hay textos con mucha forma y textos con casi
 ninguna, y no se tratan igual.
 Viene de: el principio 1 (el tipo es una relación más) y Wittgenstein (parecidos de familia,
 para el eje del significado).
@@ -115,8 +122,9 @@ Deja afuera: hechos sin origen, y un sistema que se presenta como juez.
 Un hecho vale mientras se mantiene aquello en que se apoya. Cuando un apoyo se mueve, la
 consecuencia baja por las relaciones y no se lo lleva todo: algo puede sostenerse por otro
 lado. La certeza tiene grados y zonas, y para dudar de una zona hay que dejar firme otra.
-Adentro no se borra: lo que deja de sostenerse queda dicho. Se conserva la red; cambia su
-estado.
+Adentro no se borra lo que alguien declaró ni lo que se observó: lo que deja de sostenerse
+queda dicho. Lo que el sistema calcula a partir de eso es otra cosa: no tiene autoridad y se
+puede rehacer. Se conserva la red; cambia su estado.
 Viene de: autopoiesis (la organización se conserva), Wittgenstein (el orden de la certeza), y
 la fuente de apoyo (justificaciones).
 Deja afuera: lo sabido como vigente o caído, y borrar como forma de corregir.

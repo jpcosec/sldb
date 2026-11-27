@@ -51,8 +51,8 @@ declarados a mano está en `arista-semantic-parent.md`.
 |---|---|---|---|
 | Crear | no existe como comando. Un tag aparece al ponerlo en un documento, sección o modelo. Busqué en `src/sldb/cli/parsers/` (`semantic.py`, `tags.py`) y `src/sldb/api/semantic/`: no hay `tag add` ni `create` | `src/sldb/cli/parsers/semantic.py:11-18`, `src/sldb/cli/parsers/tags.py:19-36`, `src/sldb/store/semantic_dag_sync.py:22-45` | **Sin confirmar:** crear un tag es declararlo en el vocabulario sin que nadie lo lleve aún. |
 | Leer | `sldb semantic show <tag>` (padres, hijos, ancestros, descendientes, equivalentes; falla si ningún documento o modelo lo lleva). `sldb tags tree <namespace>` solo para tags de un namespace declarado. `find <tag> --in semantic` lista lo que lo lleva | `src/sldb/api/semantic/dag_reads.py:13-30`, `src/sldb/cli/parsers/tags.py:24-28`, `src/sldb/cli/parsers/find.py:6-7` | Una sola lectura de `se/<tag>`: el tag, sus aristas y lo que lo lleva. **Sin confirmar.** |
-| Cambiar | no existe. No hay renombrar tag. Busqué en `src/sldb/cli/` y `src/sldb/api/`. Renombrar hoy es editar cada documento y modelo | `src/sldb/cli/parsers/semantic.py:11-18` | **Sin confirmar:** cambiar un tag es renombrarlo en todo lo que lo lleva y en sus aristas. |
-| Borrar | no existe. Quitar un tag de un documento es editar el campo `semantic_tags` de ese documento; el nodo queda en el DAG de la caché | `src/sldb/store/semantic_dag_sync.py:12-19` | **Sin confirmar:** borrar un tag lo quita de lo que lo lleva (ver Abierto). |
+| Cambiar | no existe. No hay renombrar tag. Busqué en `src/sldb/cli/` y `src/sldb/api/`. Renombrar hoy es editar cada documento y modelo | `src/sldb/cli/parsers/semantic.py:11-18` | **Sin confirmar:** cambiar un tag es declarar el nombre nuevo y que es el mismo que el viejo (una equivalencia, que alguien declara); no se reescribe lo que lo lleva (corregido 2026-11-27 con los fundamentos). |
+| Borrar | no existe. Quitar un tag de un documento es editar el campo `semantic_tags` de ese documento; el nodo queda en el DAG de la caché | `src/sldb/store/semantic_dag_sync.py:12-19` | **Sin confirmar:** adentro no se borra: dejar de llevar un tag es declarar que ya no se lleva, y el nodo del tag queda con ese hecho (corregido 2026-11-27 con los fundamentos). |
 
 ## Aristas que le llegan y que salen
 
@@ -93,6 +93,28 @@ JP, 2026-11-26: en esto se copia el comportamiento de kimun. Leído en `~/proyec
 
 - Si renombrar un tag deja una equivalencia con el nombre viejo.
 - Si el namespace (`area:`) es parte del nombre del tag o un atributo aparte.
+
+## Desde los fundamentos
+
+- **Qué es.** Un nodo de significado: el tipo "por lo que es", que se une a otros nodos por
+  relaciones (llevarlo, ser padre, ser equivalente). Es el eje del significado, aparte del eje
+  de la forma (el modelo).
+- **Principio.** 5, "Los tipos salen de lo que entró" (eje del significado, parecidos de
+  familia); también 1, porque que dos tags sean el mismo es una relación que alguien declara.
+- **Qué contradice los niveles 1 y 2:**
+  - "Un tag desaparece cuando nada lo lleva" y "borrar la arista `tagged_as`" (Decidido): adentro
+    no se borra; se declara que ya no se lleva y el tag sigue dicho (a).
+  - "El nodo del tag ... vive solo en `.sldb_cache/semantic_dag.yaml`" y "No hay hash ni
+    procedencia del tag: es derivado": un nodo de adentro tiene identidad y autor. Lo que alguien
+    declara (padres, equivalencias, y llevar un tag) vive adentro y no se pierde con la caché
+    (f, principio 6). Ya corregido en parte por "Decidido".
+  - Los padres "por prefijo del nombre": un parentesco por nombre es unir por cómo se llaman
+    (principio 1, "deja afuera"). Sirve como sugerencia; el padre es una relación declarada.
+  - "Los tags de una sección son los de su documento, copiados" (en nodo-seccion): una relación
+    por documento, no una copia por parte.
+- **Qué queda igual.** Un tag no se crea aparte: aparece al usarse. El DAG semántico (padre,
+  equivalente) son relaciones entre nodos. Hay un solo eje de significado y no exige tipos de
+  antemano. Leer no cambia la red.
 
 ## Cómo se absorbe en la lógica de kimun
 

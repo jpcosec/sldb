@@ -47,7 +47,7 @@ Inconsistencia: `semantic equivalent add` guarda una sola dirección
 | Crear | `sldb semantic equivalent add <local> <global>`. No exige que los tags existan. `sldb stores semantic-map <a> <b>` hace lo mismo en dos direcciones y sin pasar por la API ni refrescar el índice de aristas | `src/sldb/api/semantic/dag_writes.py:41-54`, `src/sldb/cli/commands/semantic.py:30-33`, `src/sldb/cli/commands/store_semantic_map.py:7-13` | Crear declara la equivalencia y la guarda donde git la versiona. **Sin confirmar.** |
 | Leer | `sldb semantic show <tag>` (campo `equivalents`, solo las salientes del tag). `gse.<tag>` bajo `sldb legacy`. En reglas, `model_tag` la lee en las dos direcciones | `src/sldb/api/semantic/dag_reads.py:21`, `src/sldb/store/query_engine/global_semantic.py:25-50`, `src/sldb/store/graph/language/semantic_scope.py:4-6` | Una lectura simétrica: equivalente es lo mismo en cualquier sentido. **Sin confirmar.** |
 | Cambiar | no existe. Busqué en `src/sldb/cli/parsers/semantic.py`, `stores.py` y `src/sldb/api/semantic/` | `src/sldb/cli/parsers/semantic.py:31-36` | **Sin confirmar:** sin atributos, cambiar es mover un extremo. |
-| Borrar | no existe. Busqué `remove`/`delete` de equivalencias en `src/sldb/cli/`, `src/sldb/api/semantic/` y `src/sldb/store/semantic.py`: solo hay `add`. Hoy solo se borra editando el YAML de la caché | `src/sldb/cli/parsers/semantic.py:31-36`, `src/sldb/store/semantic.py:105-111` | Borrar quita la equivalencia en las dos direcciones. **Sin confirmar.** |
+| Borrar | no existe. Busqué `remove`/`delete` de equivalencias en `src/sldb/cli/`, `src/sldb/api/semantic/` y `src/sldb/store/semantic.py`: solo hay `add`. Hoy solo se borra editando el YAML de la caché | `src/sldb/cli/parsers/semantic.py:31-36`, `src/sldb/store/semantic.py:105-111` | Borrar declara que la equivalencia se retiró, en las dos direcciones; queda dicha, con quién. **Sin confirmar.** (corregido 2026-11-27 con los fundamentos) |
 
 ## Aristas que le llegan y que salen
 
@@ -71,6 +71,27 @@ solo cubre `semantic_parent` y `extends`). No hay hash ni procedencia.
 - Si un tag global tiene que existir en algún store, o puede ser solo un nombre.
 - Dónde se guarda para que se versione y sobreviva a borrar la caché.
 - Si `stores semantic-map` se unifica con `semantic equivalent add`.
+
+## Desde los fundamentos
+
+**Qué es.** Un hecho que alguien declara: dos nodos de significado son lo mismo. Es el caso que
+los fundamentos nombran: "que dos cosas sean la misma es también una relación, que alguien
+declara". Pertenece al eje de lo que algo es, no al de la forma.
+
+**De qué principio cuelga.** 1, El valor sale de las relaciones. Y 6, para quién la declaró; y 5
+para el eje del significado.
+
+**Qué contradice los niveles 1 y 2.**
+- (a) Borrar: "Borrar quita la equivalencia en las dos direcciones". Adentro no se borra: se
+  declara que se retiró, queda quién, y las consecuencias bajan.
+- (f) "Solo en `.sldb_cache/semantic_dag.yaml` ... si se borra la caché, se pierden": lo declarado
+  no se puede rehacer y no puede vivir con lo que se borra. Aquí hoy contradice el nivel 2.
+- (6) "No hay hash ni procedencia", "No hay validación al escribir": un hecho sin autor
+  contradice el principio 6. Hoy no hay quién la declaró ni cuándo.
+
+**Qué queda igual.** Es una relación entre nodos de significado. Una máquina puede sugerirla;
+vale cuando alguien la declara. Servir entre stores enlazados. La duda sobre simetría no la
+deciden los fundamentos (ver el informe).
 
 ## Cómo se absorbe en la lógica de kimun
 

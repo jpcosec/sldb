@@ -43,10 +43,10 @@ tags de una sección son los de su documento, copiados (`src/sldb/store/section_
 
 | Verbo | Hoy | Evidencia | Qué significa (propuesta) |
 |---|---|---|---|
-| Crear | No existe. Busqué en los parsers de `sections` (solo `show`, `find`, `fields`), en `src/sldb/api/` (ninguna función de sección) y en la ruta HTTP `/sections` (solo lectura). Lo único que crea una sección es escribir un encabezado en el Markdown | `src/sldb/cli/parsers/sections.py:4-30`, `src/sldb/cli/serve/routes.py:102` | **Sin confirmar:** crear una sección es agregar un encabezado, y qué cuerpo lleva depende de lo que el modelo declare (ver Abierto) |
+| Crear | No existe. Busqué en los parsers de `sections` (solo `show`, `find`, `fields`), en `src/sldb/api/` (ninguna función de sección) y en la ruta HTTP `/sections` (solo lectura). Lo único que crea una sección es escribir un encabezado en el Markdown | `src/sldb/cli/parsers/sections.py:4-30`, `src/sldb/cli/serve/routes.py:102` | **Sin confirmar:** crear una sección es agregar un encabezado; no depende de que el modelo la declare, porque el modelo es consecuencia de lo que entró (corregido 2026-11-27 con los fundamentos) |
 | Leer | `sections show <doc>`, `sections find <término>`, `sections fields docs/<Doc>/<camino>` | `src/sldb/cli/commands/sections_show.py:13`, `sections_find.py:9`, `sections_fields.py:13` | **Sin confirmar:** leer es resolver una dirección de sección y devolver título, camino, tramo de líneas y valores que contiene |
 | Cambiar | No existe, mismas búsquedas. Cambiar el texto de un encabezado (por ejemplo con `docs replace`) cambia el camino y por tanto la dirección | `src/sldb/cli/commands/docs_replace.py:17`, `src/sldb/store/section_rebuild.py:32-38` | **Sin confirmar:** cambiar es reescribir su título o su cuerpo; cambiar el título equivale a renombrar |
-| Borrar | No existe, mismas búsquedas | `src/sldb/cli/parsers/sections.py:4-30` | **Sin confirmar:** borrar es quitar el encabezado y su cuerpo del documento |
+| Borrar | No existe, mismas búsquedas | `src/sldb/cli/parsers/sections.py:4-30` | **Sin confirmar:** si la sección está marcada, borrar es declarar que se borró: su nodo queda con ese hecho y la consecuencia baja por las relaciones. Si no está marcada, solo cambia el archivo (corregido 2026-11-27 con los fundamentos) |
 
 Sobre el registro de ejes: la fila de sección ("crear, cambiar y borrar: —", leer con
 `sections show`) es correcta. Además `sections find` y `sections fields` también leen.
@@ -91,6 +91,29 @@ Qué limita crear hoy. Aunque se pudiera escribir un encabezado, el store rechaz
    tener un id estable aparte?
 5. ¿Los tags de una sección son siempre los de su documento, o una sección puede tener los
    suyos?
+
+## Desde los fundamentos
+
+- **Qué es.** Una parte de un archivo. Sin marcar, no tiene identidad: se nombra por su
+  dirección. Marcada, entra como nodo atado a ella por un ancla, con su contenido y su huella.
+- **Principio.** 3, "Hay un adentro y un afuera": solo la red tiene identidad; afuera están los
+  archivos.
+- **Qué contradice los niveles 1 y 2:**
+  - "Es un nodo derivado ... sea o no que el modelo la declare": una sección sin marcar no es
+    nodo. Es un nodo solo si alguien la marca (b, d).
+  - "una sección no puede ser destino de un ancla con huella" (Qué lo mantiene correcto): en los
+    fundamentos marcar una parte es justo crear un ancla con huella.
+  - Abierto 4 ("id estable aparte"): lo decide el nivel 2. Sin marcar, la dirección; marcada,
+    la identidad es la del nodo y el "dónde" se actualiza al moverse.
+  - Abierto 3 ("borra también las hijas, o falla"): no hay cascada ni rechazo (a).
+  - Abierto 1, lectura (c) ("obliga a declarar antes un campo en el modelo"), y el rechazo del
+    "ruido estructural": un documento no necesita modelo; el modelo es consecuencia (c).
+  - La definición ("encabezado Markdown") trata a sldb como cosa de documentos Markdown (h).
+  - "Los tags de una sección son los de su documento, copiados": un tag es una relación; lo que
+    alguien declara vive adentro (f).
+- **Qué queda igual.** El camino de slugs sigue siendo una dirección válida para la parte sin
+  marcar, y que cambie con el título es coherente con "se nombra por dónde está". Leer con
+  `sections show` no cambia la red (principio 8).
 
 ## Cómo se absorbe en la lógica de kimun
 

@@ -54,7 +54,7 @@ cosas distintas en el código, y solo una es un nodo `anchor` del grafo:
 | Crear | Código: `anchors record <ref> --write <ruta> [--claim --name]` crea un `CodeAnchorDoc`; sin `--write` solo imprime el bloque. Documento: se crea al escribir un valor `doc:...`; el guardado le agrega la huella. `AnchorDoc`: sin comando propio, se crea como cualquier documento (`docs create --model AnchorDoc`) | `src/sldb/cli/commands/anchors.py:21-29`, `src/sldb/api/anchors/anchor_docs.py:50`, `src/sldb/api/documents/doc_anchor_pinning.py:19`, `src/sldb/api/documents/create_document.py:54` | **Sin confirmar:** crear es registrar qué destino ve la afirmación y guardar su huella actual |
 | Leer | Código y documento: `anchors check` (solo lectura). `anchors record <ref>` sin `--write` lee un símbolo. `anchors_resolve` (qué documentos cubren un código o un tag) existe en la API y en MCP, no como comando de CLI. `AnchorDoc`: `edges show` | `src/sldb/cli/commands/anchors.py:31`, `src/sldb/api/anchors/check_anchors.py:21`, `check_doc_anchors.py:29`, `src/sldb/api/anchors/resolve_pointers.py:24`, `src/sldb/mcp/read/tools.py:64`, `src/sldb/cli/parsers/anchors.py:16-27` | **Sin confirmar:** leer es resolver el destino y decir su estado contra lo guardado |
 | Cambiar | Código: `anchors record --write` sobre el mismo archivo vuelve a grabar y conserva `claim` e `history`; `anchors check --record` escribe las reconexiones. Documento: no hay comando; la huella se fija en el próximo guardado, y un ancla `changed` o `lost` queda así hasta que alguien reescribe el valor | `src/sldb/api/anchors/anchor_docs.py:37,50`, `src/sldb/api/anchors/check_anchors.py:28`, `docs/architecture/anchoring.md` §6 | **Sin confirmar:** cambiar es aceptar lo que cambió (volver a grabar la huella) o apuntar a otro destino; son dos cambios distintos |
-| Borrar | Sin comando propio. Como un ancla a código es un documento: `docs untrack` o `docs delete`. Un ancla a documento se borra con `fields remove` o `fields update` del campo. Busqué un subcomando `anchors` de borrado: solo hay `record` y `check` | `src/sldb/cli/parsers/anchors.py:16-27`, `src/sldb/cli/commands/fields_mutate.py:20` | **Sin confirmar:** borrar quita la afirmación anclada, no la fuente |
+| Borrar | Sin comando propio. Como un ancla a código es un documento: `docs untrack` o `docs delete`. Un ancla a documento se borra con `fields remove` o `fields update` del campo. Busqué un subcomando `anchors` de borrado: solo hay `record` y `check` | `src/sldb/cli/parsers/anchors.py:16-27`, `src/sldb/cli/commands/fields_mutate.py:20` | **Sin confirmar:** borrar no existe adentro; es declarar que el ancla se soltó o se retiró. El nodo y lo que vio quedan dichos; la fuente no se toca. (corregido 2026-11-27 con los fundamentos) |
 
 Lo que verifiqué y no coincide con lo escrito:
 
@@ -101,6 +101,29 @@ Lo que verifiqué y no coincide con lo escrito:
    Hoy queda `lost`.
 4. ¿`AnchorDoc` (alias sin huella) queda como modelo de sldb, o desaparece junto con `pron`?
 5. ¿Se ancla una sección o un valor? Haría falta una huella por sección y por subcampo.
+
+## Desde los fundamentos
+
+- **Qué es.** El sensor: un nodo de adentro atado a una parte de un archivo, que recuerda qué vio
+  (contenido y huella) y dónde lo vio. Es lo que une el adentro con el afuera.
+- **De qué principio cuelga.** 3 (adentro y afuera; las anclas son los sensores) y 7 (saber es
+  poder sostener: el ancla es lo que nota que un apoyo se movió).
+- **Qué contradice los niveles 1 y 2.**
+  - (a) Borrar: "`docs untrack` o `docs delete`", "`fields remove`" y "borrar quita la
+    afirmación anclada". Adentro no se borra.
+  - (e) Abierto 3 ("¿Puede una ancla a documento reconectarse cuando el destino se renombra?") y
+    "`anchors check --record` escribe las reconexiones": reconectar no se busca, sale de un
+    anclaje nuevo hecho por alguien, con su autor.
+  - (b) "Hoy 'ancla' nombra tres cosas": el nivel 2 solo tiene una, el nodo atado a una parte. El
+    alias (`AnchorDoc`) es un nombre, no un sensor, y el valor `doc:...@sha256` es otra relación.
+  - (h) Ancla "a documento" por hash de contrato: ancla un nodo de adentro, no un archivo. El
+    nivel 2 dice que adentro hay nodos; no hace falta un ancla distinta para ellos.
+  - (d) El ancla a código guarda "una huella por nodo": el nivel 2 también guarda el contenido
+    visto. La página habla solo de huellas.
+  - Abierto 5 ("¿Se ancla una sección o un valor?"): el nivel 2 ya lo dice: se marca la parte que
+    importa, sea función, párrafo o valor.
+- **Qué queda igual.** El estado se calcula al leer; las huellas con normalización; que el ancla
+  no es un enlace porque recuerda lo que vio; que el código no es un nodo.
 
 ## Cómo se absorbe en la lógica de kimun
 

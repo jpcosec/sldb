@@ -53,7 +53,7 @@ Los predicados se alimentan por `predicates add/sync`, por `stores declare/build
 | Crear | Escribir el texto en el documento (`docs update`, `docs replace`, editor). No hay comando que cree un enlace | `src/sldb/cli/parsers/docs1.py:33`; buscado en `src/sldb/cli/parsers/` | **Sin confirmar:** escribir un enlace en el cuerpo, con destino y tipo opcional. |
 | Leer | `docs recover` (un documento o `--all`) resuelve y marca cada enlace; `docs compose` expande `![[…]]`; `docs compose --render-links` lo convierte en `[título](ruta)`; en `serve`, `/lint` lista los no resueltos | `src/sldb/cli/commands/links.py:18`, `:53`; `src/sldb/links/render.py`; `src/sldb/cli/serve/lint_routes.py:58` | **Sin confirmar:** listar los enlaces de un documento con su destino resuelto. |
 | Cambiar | `move` reescribe solo enlaces `[texto](ruta)` de Markdown al mover un archivo. `edges rewrite` no toca `[[…]]`: reescribe campos y menciones del grafo de proyecto | `src/sldb/api/documents/move_path_links.py:16`; `src/sldb/api/edges/rewrite_values.py:30` | **Sin confirmar:** cambiar el destino o el tipo de un enlace; hoy es editar el texto. |
-| Borrar | Borrar el texto. Sin comando | buscado en `src/sldb/cli/parsers/` | **Sin confirmar:** quitar el enlace sin tocar el resto del párrafo. |
+| Borrar | Borrar el texto. Sin comando | buscado en `src/sldb/cli/parsers/` | **Sin confirmar:** quitar el enlace del texto sin tocar el resto del párrafo. Adentro no se borra: la relación queda declarada como que ya no está en la fuente. (corregido 2026-11-27 con los fundamentos) |
 
 ## Aristas que le llegan y que salen
 
@@ -98,6 +98,28 @@ JP, 2026-11-26: un enlace del texto es una relación más. Ver
   ejemplo de nombre de `RelationTypeDoc` (`relation_type_doc.py:47`): dos vocabularios para lo mismo.
 - Si es arista: ¿el enlace con tipo `[implements:: [[x]]]` es una arista autorada o una
   referencia declarada?
+
+## Desde los fundamentos
+
+- **Qué es.** Un signo en el texto (afuera) que dice una relación entre dos nodos. Entra como
+  relación cuando alguien marca esa parte; el texto es su sensor.
+- **De qué principio cuelga.** 2 (signo y símbolo: el texto es signo, la relación es símbolo) y
+  1 (el enlace por sobre la clasificación).
+- **Qué contradice los niveles 1 y 2.**
+  - (h) "Una referencia escrita dentro del Markdown de un documento": define el enlace por el
+    archivo Markdown. Un enlace es un signo que se lee de cualquier texto marcado.
+  - (g) "se vuelve a leer del archivo cada vez" y "no entran al índice": sobre lo observado manda
+    el archivo (eso sí vale), pero la relación que salga de ahí es consecuencia y vive en la red.
+    Hoy el enlace no es nodo ni relación; el nivel 2 pide que lo sea.
+  - (e) `docs recover` y "resuelve y marca": resolver por nombre o ruta es buscar. Reconectar sale
+    de un anclaje nuevo, no de buscar.
+  - (b) El destino por "nombre de documento" o ruta: una parte sin marcar se nombra por su
+    dirección; el nodo marcado, por su identidad. La página no distingue los dos casos.
+  - (a) "Borrar el texto": afuera sí se borra; adentro se declara que el enlace ya no está
+    (corregido en los verbos).
+- **Qué queda igual.** Las tres formas, que se ignoren los bloques de código, que el tipo del
+  enlace sea un predicado y que la transclusión pida copiar contenido. Lo decidido el
+  2026-11-26 (es una relación más) coincide con el nivel 2.
 
 ## Cómo se absorbe en la lógica de kimun
 

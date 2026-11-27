@@ -46,10 +46,10 @@ poder crear uno hay que registrar los modelos `RelationTypeDoc` y `RelationDoc` 
 
 | Verbo | Hoy | Evidencia | Qué significa (propuesta) |
 |---|---|---|---|
-| Crear | Como cualquier documento: `docs create --model RelationTypeDoc`. `edges init` crea solo los tipos de sldb. MCP: `CreateDocument` con ese modelo, solo con nivel de escritura 2 | `src/sldb/cli/parsers/docs1.py:13-20`, `src/sldb/cli/commands/doc.py:45-48`, `src/sldb/cli/commands/edges.py:21-23`, `src/sldb/mcp/mutability.py:16,30-32` | **Sin confirmar:** declarar un verbo nuevo; el tipo de relación es un documento como otro, con la misma operación. |
+| Crear | Como cualquier documento: `docs create --model RelationTypeDoc`. `edges init` crea solo los tipos de sldb. MCP: `CreateDocument` con ese modelo, solo con nivel de escritura 2 | `src/sldb/cli/parsers/docs1.py:13-20`, `src/sldb/cli/commands/doc.py:45-48`, `src/sldb/cli/commands/edges.py:21-23`, `src/sldb/mcp/mutability.py:16,30-32` | **Sin confirmar:** declarar un verbo nuevo como nodo y relaciones; no hace falta que sea un documento de un modelo (corregido 2026-11-27 con los fundamentos). |
 | Leer | MCP `list_relation_types` y `describe_relation_type`. En CLI no hay comando propio: se lee como documento (`docs show`, `docs list`) o se ve su efecto en `edges check` | `src/sldb/mcp/read/models.py:35-46`, `src/sldb/cli/parsers/docs1.py:54`, `src/sldb/cli/commands/edges.py:46` (buscado en `src/sldb/cli/parsers/{edges,graph,tags}.py`) | **Sin confirmar:** devolver sus atributos; listar los tipos como se listan los modelos. |
 | Cambiar | Como documento: `docs update`; MCP `UpdateDocument` (nivel 2). El lote del MCP simula el índice con el tipo nuevo antes de aplicar | `src/sldb/cli/commands/doc.py:63-73`, `src/sldb/api/documents/batch_simulation.py:42-43,74-84` | **Sin confirmar:** cambiar el contrato del verbo; las aristas existentes se revisan contra el contrato nuevo. |
-| Borrar | Como documento: `docs delete` (borra el archivo) o `docs untrack`; MCP `DeleteDocument` (nivel 2). Las aristas de ese tipo no se tocan: quedan como error "unknown relation type" | `src/sldb/cli/commands/doc.py:90-102`, `src/sldb/mcp/changes/delete_document.py:10-15`, `src/sldb/store/edge_index/validation.py:81` | **Sin confirmar:** retirar el verbo; qué pasa con sus aristas es la pregunta abierta. Sin verificar si el lote del MCP rechaza la baja cuando hay aristas. |
+| Borrar | Como documento: `docs delete` (borra el archivo) o `docs untrack`; MCP `DeleteDocument` (nivel 2). Las aristas de ese tipo no se tocan: quedan como error "unknown relation type" | `src/sldb/cli/commands/doc.py:90-102`, `src/sldb/mcp/changes/delete_document.py:10-15`, `src/sldb/store/edge_index/validation.py:81` | **Sin confirmar:** adentro no se borra: retirar el verbo es declarar que se retiró. Sus aristas no se tocan ni se rechaza la baja; quedan dichas y su estado cambia (corregido 2026-11-27 con los fundamentos). Sin verificar si el lote del MCP rechaza la baja cuando hay aristas. |
 
 ## Aristas que le llegan y que salen
 
@@ -87,6 +87,28 @@ poder crear uno hay que registrar los modelos `RelationTypeDoc` y `RelationDoc` 
   lectura? Hoy sldb impone su definición sobre la del store para las aristas derivadas.
 - Si una arista puede terminar en una sección o un valor, ¿`source_types` y `target_types` se
   expresan por modelo del documento, o hay que poder nombrar secciones y valores?
+
+## Desde los fundamentos
+
+- **Qué es.** El tipo de una relación. Una relación une dos nodos y tiene un tipo; el tipo es
+  una relación más (principio 5) y lo declara cada proyecto con los mismos nodos y relaciones.
+- **Principio.** 5, "Los tipos salen de lo que entró" (el tipo es una relación más); también 4,
+  porque lo que el sistema hace está dicho en la misma red que lo que sabe.
+- **Qué contradice los niveles 1 y 2:**
+  - "Es un documento del store ... un documento de un modelo `RelationTypeDoc`": el tipo es un
+    nodo; no necesita modelo ni ser documento Markdown (c, h).
+  - "Sin un tipo registrado, el índice informa la arista como error": el sistema no exige un tipo
+    antes de aceptar algo (principio 5, "deja afuera"). Informar sin rechazar encaja; rechazar no.
+  - "Los tipos que sldb mismo produce (`has_model`, `links_to`, ...)": sldb no trae tipos; los
+    declara cada proyecto. Hoy hay tipos de fábrica, lo cual choca con "sldb no trae ninguno".
+  - Abierto 1 ("se borran las aristas, se rechaza mientras existan"): no hay cascada ni
+    rechazo (a).
+  - Abierto 2 ("cambiar el `name` ... deja huérfanas las aristas"): el nombre no da identidad;
+    que dos nombres sean el mismo tipo es una relación declarada (principio 1).
+  - "sldb impone su definición sobre la del store": sin tipos propios de sldb, no hay definición
+    que gane.
+- **Qué queda igual.** El tipo declara entre qué clases conecta, su dirección y su cardinalidad;
+  eso es contenido del nodo. `edges check` valida consultando, sin cambiar la red.
 
 ## Cómo se absorbe en la lógica de kimun
 

@@ -51,7 +51,7 @@ destino sería `[store:]st/<Model>/<doc>`, y el campo, un valor dentro del orige
 | Crear | Escribir un valor en el campo declarado: `docs create`, `docs update`, `fields create`/`append`. Declarar el campo: `models create --containment/--compositions` | `src/sldb/store/edge_index/declared_references.py:38`; `composition_edges.py:28`; `src/sldb/cli/parsers/fields.py:25` | **Sin confirmar:** poner un hijo (o una pieza) en el campo; la arista nace del valor. |
 | Leer | `edges show`, `edges referrers`, `graph neighborhood`; `edges unresolved` para valores sin destino. Ninguno es propio de estos tipos | `src/sldb/cli/commands/edges.py:30`, `:57`; `src/sldb/cli/commands/edges_rewrite.py:20` | **Sin confirmar:** listar hijos o piezas de un documento y quién lo contiene. |
 | Cambiar | `contains`: `edges rewrite --to` cambia el valor en todos los campos que lo nombran. `composes`: no existe (la arista no lleva `declared`); se cambia el campo con `fields update` | `src/sldb/api/edges/rewrite_values.py:30` | **Sin confirmar:** mover un hijo a otro padre, o cambiar el orden de las piezas. |
-| Borrar | `contains`: `edges rewrite --remove` o `fields remove`. `composes`: `fields remove` en el campo de referencias | `src/sldb/api/edges/rewrite_values.py:30`; `src/sldb/cli/parsers/fields.py:25` | **Sin confirmar:** quitar el valor; la arista desaparece con él. |
+| Borrar | `contains`: `edges rewrite --remove` o `fields remove`. `composes`: `fields remove` en el campo de referencias | `src/sldb/api/edges/rewrite_values.py:30`; `src/sldb/cli/parsers/fields.py:25` | **Sin confirmar:** declarar que el valor se quitó; la arista queda dicha y cambia de estado, no desaparece (corregido 2026-11-27 con los fundamentos). |
 
 Composición del texto (no es un verbo de la arista). `docs compose` solo expande `![[doc]]` y
 `![[doc#Sección]]` (`src/sldb/links/composer.py:15`); no resuelve `__compositions__`. Esa
@@ -91,6 +91,32 @@ vista, `docs compose` no toca `__compositions__`.
   proyecciones, ¿"borrar la arista" significa borrar el valor?
 - Los destinos de `composes` son rutas y los de `contains` ids: ¿se unifican en una dirección?
 - ¿Cuántos hijos permite `contains` por padre cuando el campo es un escalar?
+
+## Desde los fundamentos
+
+**Qué es.** Dos relaciones que salen de la forma de un modelo: `contains` dice que un nodo
+tiene cosas adentro; `composes` dice de qué otros nodos sale el texto de uno. Son consecuencia
+de lo que entró, no algo que se declare por separado.
+
+**De qué principio cuelga.** 5, Los tipos salen de lo que entró (modelo y composición). Y 1.
+
+**Qué contradice los niveles 1 y 2.**
+- (a) Borrar: "quitar el valor; la arista desaparece con él". Adentro no se borra: queda dicho
+  que el valor se quitó afuera y la arista cambia de estado.
+- (b) Identidad: "el de `composes` se escribe como ruta de proyecto (`desk/tasks/task-a.md`)".
+  Un archivo no tiene identidad para sldb; se nombra por su dirección, o por el nodo si está
+  marcado.
+- (c) "Un campo ... declarado en `__containment__`", "`allowed_models`": el modelo se declara
+  antes del documento. En los fundamentos el modelo es consecuencia de lo que compartían los
+  documentos.
+- (h) "guarda un documento hijo", "el contenido de otro documento": el hijo y la pieza son
+  nodos, no necesariamente documentos.
+- (4) La declaración vive "en el código Python del modelo": un modelo debería ser nodos y
+  relaciones, no código.
+
+**Qué queda igual.** `contains` ordena y `composes` genera. Si cambia una pieza, el padre queda
+en duda: es el cambio que baja por las relaciones. La cardinalidad de `contains` (un hijo, un
+padre) sigue valiendo como regla.
 
 ## Cómo se absorbe en la lógica de kimun
 

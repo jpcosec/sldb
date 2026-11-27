@@ -52,7 +52,7 @@ documento se informa como `endpoint-not-a-node` y la arista se descarta
 | Crear | `docs create --model RelationDoc`; `fields create`/`fields update`/`docs update` en un campo de referencia; `assert_edge` (MCP). No hay `edges create`. | `src/sldb/cli/parsers/docs1.py:13`, `fields.py:25`; `src/sldb/mcp/write/propose.py:14` | **Sin confirmar:** enlazar dos nodos con un tipo; el tipo decide por qué puerta se guarda. |
 | Leer | `edges show [--to] [--relation] [--holds-for]`, `edges referrers`, `graph neighborhood`; MCP `neighbors`, `neighborhood` | `src/sldb/cli/commands/edges.py:30`; `src/sldb/cli/commands/edges_rewrite.py:20`; `src/sldb/mcp/read/graph.py:37` | **Sin confirmar:** listar las aristas de un nodo, filtradas por tipo y por condición. |
 | Cambiar | Solo `RelationDoc`: `docs update` o `update_document` (MCP). `edges rewrite` NO sirve: solo mueve aristas `origin: schema`. | `src/sldb/api/edges/rewrite_values.py:30` | **Sin confirmar:** cambiar extremos, condición o atributos de la misma arista. |
-| Borrar | `retract_edge` (MCP) borra el `RelationDoc`; `docs delete`; vaciar el campo de referencia (`edges rewrite --remove` solo para campos) | `src/sldb/mcp/changes/retract_edge.py:10`; `src/sldb/mcp/write/propose.py:39`; `src/sldb/cli/parsers/docs1.py:47` | **Sin confirmar:** quitar la arista; si la declara un campo, quitar el valor. |
+| Borrar | `retract_edge` (MCP) borra el `RelationDoc`; `docs delete`; vaciar el campo de referencia (`edges rewrite --remove` solo para campos) | `src/sldb/mcp/changes/retract_edge.py:10`; `src/sldb/mcp/write/propose.py:39`; `src/sldb/cli/parsers/docs1.py:47` | **Sin confirmar:** declarar que la arista se retiró; queda dicha, con quién y por qué, y la consecuencia baja por las relaciones. Si la declara un campo, el valor se quita en el archivo y eso llega como cambio (corregido 2026-11-27 con los fundamentos). |
 
 Transiciones (lectura, sin escritura). `edges_holding` devuelve las aristas que salen de un nodo
 cuya condición se cumple sobre un sujeto, con `effects = {sets, terminal}`
@@ -94,6 +94,29 @@ análisis del grafo tratan `references` como derivada, no autorada
   crea?
 - Una transición que se aplica: ¿es un verbo de este objeto (cambiar el sujeto) o pertenece a
   la máquina de estados futura?
+
+## Desde los fundamentos
+
+**Qué es.** Una relación entre dos nodos, con un tipo, que alguien declara. Es un hecho de
+adentro, con autor. Puede salir o llegar a una parte marcada, no solo a un documento.
+
+**De qué principio cuelga.** 1, El valor sale de las relaciones. Y 6, Todo lo dicho es dicho por
+alguien (que dos cosas se relacionen es algo que se declara).
+
+**Qué contradice los niveles 1 y 2.**
+- (a) Borrar: "Borrar ... `retract_edge` borra el `RelationDoc`; `docs delete`; vaciar el campo".
+  Adentro no se borra: retirar una arista es declarar que se retiró; la arista queda dicha.
+- (h) "Une dos documentos": une dos nodos. Un documento es un nodo más, y también lo es una parte
+  marcada.
+- (f) "`RelationDoc`: un Markdown del proyecto": lo que alguien declara vive adentro, no en un
+  archivo de afuera. El Markdown puede ser una proyección.
+- (c/5) "El tipo debe existir como `RelationTypeDoc`; si no, `unknown relation type`": los tipos
+  salen de lo que entró, y no se exige un tipo antes de aceptar algo.
+- (6) La página no dice quién declaró la arista ni en qué se apoya. Los hechos tienen autor.
+
+**Qué queda igual.** Una arista tiene tipo, condición opcional y atributos. Las transiciones
+sueltas. La arista puede terminar en algo metido dentro de un nodo. Las comprobaciones de tipo
+de extremos y de condición siguen valiendo como reglas, que son nodos.
 
 ## Cómo se absorbe en la lógica de kimun
 

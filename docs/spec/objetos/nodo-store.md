@@ -46,7 +46,7 @@ bajo el que viven los dos espacios. La gramática no define una dirección para 
 | Crear | `stores init`; escribe un store vacío y lo registra en el catálogo global | `src/sldb/cli/commands/store_init.py:10-33`, `src/sldb/api/stores/init_store.py:15-27` | **Sin confirmar:** crear un store nuevo en un proyecto, con su `store.yaml` y sus índices vacíos. |
 | Leer | `stores list` (solo los enlaces); `stores declare` (imprime la declaración que implica el índice); `stores check` (salud, no contenido) | `src/sldb/cli/commands/stores.py:61-70`, `src/sldb/cli/commands/stores_build.py:26-33`, `src/sldb/api/stores/store_check.py:30` | **Sin confirmar:** devolver sus atributos (declaración, política, enlaces, hashes raíz), no solo la lista de enlaces. |
 | Cambiar | No existe un comando que cambie el store como nodo. Se edita `store.yaml` a mano y `stores build` rehace lo derivado; `stores declare --write` reescribe `store.yaml` desde el índice | `src/sldb/cli/parsers/stores.py:86-91`, `src/sldb/cli/commands/stores_build.py:29-31`. Buscado en `src/sldb/cli/parsers/stores.py` y `src/sldb/cli/commands/store.py:15-24` | **Sin confirmar:** cambiar la declaración (política, predicados, includes) por una operación, y que el resto se derive. |
-| Borrar | No existe un comando de borrado. El único camino que elimina un store es `stores init --force`, que hace `shutil.rmtree` y lo crea vacío otra vez | `src/sldb/api/stores/init_store.py:41-46` (buscado además en `src/sldb/api/stores/`: ningún `delete_store`) | **Sin confirmar:** quitar el store entero, y sacarlo del catálogo global. |
+| Borrar | No existe un comando de borrado. El único camino que elimina un store es `stores init --force`, que hace `shutil.rmtree` y lo crea vacío otra vez | `src/sldb/api/stores/init_store.py:41-46` (buscado además en `src/sldb/api/stores/`: ningún `delete_store`) | **Sin confirmar:** adentro no se borra: borrar un store es declarar que se borró, y la red queda con ese hecho. Lo que sí se puede hacer es dejar de usar su carpeta o sacarlo del catálogo global, que es afuera (corregido 2026-11-27 con los fundamentos). |
 
 `stores add` y `stores remove` no crean ni borran un store: crean y borran el enlace a otro
 store (`src/sldb/cli/commands/store_add.py:12-21`). Ese enlace es una arista `links_to`.
@@ -82,6 +82,27 @@ store (`src/sldb/cli/commands/store_add.py:12-21`). Ese enlace es una arista `li
 - ¿Cambiar el store es cambiar `store.yaml` (declarado) o también sus derivados? Hoy el
   índice y la declaración pueden divergir y hay dos comandos en sentidos opuestos
   (`declare --write` y `build`).
+
+## Desde los fundamentos
+
+- **Qué es.** El adentro: la red de nodos y relaciones, con su borde. Es lo único que tiene
+  identidad. Los archivos del proyecto quedan afuera y se tocan por anclas.
+- **Principio.** 3, "Hay un adentro y un afuera", y 4 ("el sistema actúa sobre sí mismo": lo que
+  declara el store es red como lo demás).
+- **Qué contradice los niveles 1 y 2:**
+  - "los documentos que siguen a esos modelos" y el verbo Crear ("con su `store.yaml` y sus
+    índices vacíos"): trata el store como un contenedor de documentos Markdown (h) y supone
+    modelos antes que documentos (c).
+  - Borrar, incluida la pregunta abierta de qué pasa con los documentos: adentro no se borra;
+    los archivos de afuera no dependen del store (a).
+  - "`store.yaml` ... es la fuente": lo que alguien declara (política, predicados, includes)
+    vive adentro, como nodos y relaciones. Un YAML aparte es la puerta de hoy, no la fuente (f).
+  - "Es la raíz del espacio de direcciones": solo los nodos y relaciones tienen identidad; las
+    partes sin marcar se nombran por su dirección, que no cuelga de la raíz del store (b).
+  - Abierto 3 (declaración y derivados divergen): los derivados se rehacen; lo declarado no (g).
+- **Qué queda igual.** Los índices y el árbol de hashes son cálculos que se pueden borrar y
+  rehacer. Los enlaces entre stores (`links_to`) son relaciones. `stores check` consulta sin
+  cambiar la red (principio 8).
 
 ## Cómo se absorbe en la lógica de kimun
 
