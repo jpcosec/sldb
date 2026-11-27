@@ -177,8 +177,10 @@ ahora, ve que difieren, y muestra el párrafo como pendiente de revisión. No di
 esté mal. Quizá solo ordenaron el código y el impuesto sigue incluido. Eso lo decide quien
 revisa; cuando lo confirma, el ancla toma la huella nueva y queda quién lo confirmó.
 
-Si en vez de cambiarla la borran, el párrafo no se borra con ella ni se impide el borrado. El
-párrafo queda, marcado como sin soporte.
+Si en vez de cambiarla la borran, adentro no se borra nada. Queda declarado que la función ya no
+está, y eso baja hasta el párrafo. Puede que el párrafo quede sin ningún apoyo. Puede también
+que se sostenga por otro lado, porque se apoyaba además en una prueba o en otra decisión. sldb
+muestra cuál de las dos es.
 
 Y si el equipo decidió que todo documento de diseño tiene que apoyarse en algo del código, eso
 no se programa: se declara como una regla, igual que se declaró el ancla, y sldb la comprueba
@@ -188,10 +190,27 @@ cada vez que alguien intenta escribir.
 
 Si los archivos son el dato, varias cosas dejan de ser opcionales.
 
-**Un cambio viaja.** Como el documento está sensorizado, se sabe qué parte cambió. Y como
-adentro todo son relaciones, se sabe qué nodos tienen un camino desde esa parte. Esos son los
-que hay que actualizar o revisar, y es ahí donde aparecen las contradicciones y los errores: un
-párrafo que ya no calza con su función, una regla que dejó de cumplirse.
+**Un cambio viaja, y no se lo lleva todo.** Lo que hay adentro se construyó desde las fuentes
+y vale mientras ellas no cambien. Cuando una cambia, el sensor lo nota y queda declarado que
+hubo un cambio. Esa perturbación baja por las relaciones: se sabe qué nodos tienen un camino
+desde la parte que cambió. Pero que algo cambie afuera no vuelve inválido todo lo que se sabía.
+Algunos nodos quedan sin ningún apoyo. Otros se sostienen por otro lado. Y la mayoría ni se
+entera.
+
+Por eso lo que se sabe no es simplemente vigente o caído. Hay zonas donde todo sigue apoyado y
+zonas donde algo se movió. De ahí se puede decir cuánta certeza hay en una parte del grafo y
+cuánto desorden acumuló, y es en las zonas movidas donde aparecen las contradicciones y los
+errores.
+
+**Adentro no se borra.** Borrar algo es declarar que se borró. El nodo sigue, con ese hecho
+encima, y la consecuencia baja como cualquier otro cambio. Sacar de verdad los nodos que quedaron
+sin apoyo es otra etapa, posterior y pedida, una limpieza; y lo que había en los archivos sigue
+en el control de versiones. Afuera es distinto: ahí las cosas sí desaparecen, pero eso solo
+llega adentro a través de sus anclas.
+
+**El grafo se consulta, no se mira.** Nadie ve el grafo entero ni hace falta. Lo que importa
+adentro es que toda pregunta tenga una respuesta transparente: qué se sabe, en qué se apoya y
+qué tan firme está.
 
 **Manda la fuente.** sldb puede tener el contenido de lo que sigue, y lo necesita para responder
 y para generar. Pero es una observación, y una observación puede estar vieja. Por eso las fuentes
@@ -205,10 +224,9 @@ sino si dice lo mismo que cuando se lo citó. Para eso el ancla guarda lo que vi
 para notar el cambio y para nada más: no dice qué significa una parte, ni que dos partes sean
 iguales, ni es el nombre de la parte.
 
-**Nada se pierde ni se oculta.** El valor de sldb está en que se pueda confiar en lo que muestra.
-Si borrar una cosa se lleva en silencio otras que dependían de ella, o si una respuesta vacía
-puede significar tanto "no hay nada" como "no pude mirar", esa confianza se acaba. Así que nunca
-se pierde un dato que nadie pidió perder, y lo que no se sabe se dice que no se sabe.
+**Nada se oculta.** El valor de sldb está en que se pueda confiar en lo que muestra. Si una
+respuesta vacía puede significar tanto "no hay nada" como "no pude mirar", esa confianza se
+acaba. Lo que no se sabe se dice que no se sabe.
 
 **Preguntar no cambia nada.** Una consulta no modifica lo registrado ni lo arregla por su
 cuenta. Si lo hiciera, dos que preguntan lo mismo verían cosas distintas.
@@ -257,10 +275,12 @@ apoya lo que otro escribió, sin tener que creerle.
 
 Hay cosas que este texto usa y no resuelve.
 
-1. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
-   dependientes. Pero si ese borrado deja incumplida una regla del proyecto, las dos cosas
-   chocan.
-2. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
+1. **Las etapas de un cambio.** Detectar, declarar el cambio, bajar la consecuencia, revisar,
+   limpiar. Están nombradas pero no cerradas: qué hace cada una, cuál dispara a la siguiente y
+   cuáles esperan a alguien.
+2. **Cómo se mide la certeza.** Que hay zonas más firmes y zonas más movidas está dicho. Falta
+   decir con qué se mide la certeza de una zona y el desorden del grafo.
+3. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
    reconecta el ancla y avisa, o propone y espera.
-3. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
+4. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
    decir si sldb corre esa ejecución o solo ancla un resultado producido afuera.

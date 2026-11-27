@@ -355,6 +355,12 @@ abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
 - A8. **Dónde se escribe lo declarado**: cerrado por JP el 2026-11-27. Lo declarado vive adentro, como
    nodos y arcos. Un documento marcado por completo también vive adentro; su archivo es una de
    sus proyecciones. Ver el whitepaper, "Entrar y volver a salir".
-- A9. **Borrar contra reglas** (toca 6.1 y 7.1). Borrar algo con dependientes no se rechaza. Pero si
-   ese borrado deja incumplida una regla del proyecto, ¿se rechaza por la regla, o se borra y la
-   regla queda en error a la vista?
+- A9. **Borrar contra reglas**: cerrado por JP el 2026-11-27. Adentro no se borra: borrar es declarar
+   que se borró, y la consecuencia baja por las relaciones como cualquier cambio. Una regla no
+   impide un hecho; lo que queda incumplido se ve. Quitar nodos sin apoyo es una etapa de limpieza
+   posterior. Ver el whitepaper, "Adentro no se borra".
+- A10. **Etapas de un cambio y medida de certeza**: abierto. JP (2026-11-27): hay etapas "y es algo
+   que nunca hemos terminado de cerrar en sldb"; se pueden declarar zonas de certeza y tener una
+   medida de certeza y algo como entropía en el árbol. Sin definir.
+- Nota: los criterios 6 y 6.1 de arriba hablan de "sin soporte" como si fuera sí o no. Con A9 y A10
+   eso queda corto: un nodo puede sostenerse por otro lado. Hay que reescribirlos.
