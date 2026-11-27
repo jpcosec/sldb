@@ -1,0 +1,23 @@
+name: 20261127-150114-unclear-desde-mepu-unclear-suggestion
+path: desk/inbox/20261127-150114-unclear-desde-mepu-unclear-suggestion.md
+source_hash: 51d67bf5dbe69435e3ef4c0d715abf4bd99af584b42f6a95ec3cae6d956ca3c2
+content_hash: cdca5a020a24cdc98fe4eb017ca3d6177f8cf1fd4afe0faf173a4ce77a320020
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 0bcdbb2f328e0128237058ca3be5da8ac76aaacb157aceb29d385b830bf1f687
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: cfeb071aa60c593f7a22fc5ed2cb52114a16bd7b2445ce5adad9482ea31fb888
+  body: 4fb39cba486cafd30e6cb11ad931f108df308dbb5f9454d5412851fdda60fe3a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-27T18:05:12Z'
+  authority: generated
+  via: save_document_payload
