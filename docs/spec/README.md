@@ -68,3 +68,9 @@ enlaces.
 - [La lógica del kernel de sldb es la de kimun](decisiones/el-kernel-sigue-la-logica-de-kimun.md):
   fijado por JP el 2026-11-26; lista qué preguntas abiertas de las páginas de objeto contesta.
   Alcance: este spec es el del refactor de sldb; el paso del kernel a kimun no es parte de él.
+- No perder datos (JP, 2026-11-26): nunca se pierden datos salvo pedido explícito, y todo se
+  explicita. Borrar algo con dependientes lo borra y deja a los dependientes marcados como sin
+  soporte; no hay cascada implícita. Cierra esa pregunta en las páginas de modelo, campo de
+  modelo, tipo de relación, sección y store.
+- Toda transición pertenece a una máquina de estados; las sueltas se migran (JP, 2026-11-26).
+  Vale para todo lo que hoy existe fuera de un mecanismo declarado.

@@ -91,6 +91,13 @@ Cada anillo usa solo los de adentro (lectura que JP dio por buena el 2026-11-26)
 
 Qué va en cada anillo no está cerrado.
 
+## 5b. No perder datos
+
+Regla de JP (2026-11-26): nunca se pierden datos salvo que se pida explícito, y todo se
+explicita. Primer caso: borrar algo que tiene dependientes no borra en cascada ni se rechaza; se
+borra y los dependientes quedan marcados como sin soporte. Borrar también los dependientes hay
+que pedirlo.
+
 ## 6. La máquina de estados
 
 - Es un documento declarado, con un grafo de sus estados (JP, 2026-11-26). Es de sldb, por la
@@ -101,6 +108,9 @@ Qué va en cada anillo no está cerrado.
 - Lectura: un modelo dice qué máquina lo gobierna y en qué campo guarda el estado; "tomar una
   transición" es la operación de la máquina sobre un documento (verifica, aplica los efectos y
   escribe), del anillo 1.
+- Toda transición pertenece a una máquina; las sueltas se migran (JP, 2026-11-26). Y es regla
+  para todo lo que hoy existe fuera: lo que vive suelto afuera de un mecanismo declarado de sldb
+  entra a ese mecanismo, no convive con él.
 
 ## 7. La automatización, por etapas
 
@@ -131,6 +141,8 @@ Hoy existe parte de 1 y 2 a pedido: `stores check` clasifica hallazgos y la pol�
   la etapa 5 es de ahí (JP, 2026-11-26). Sin especificar todavía.
 - El patrón de plugins se arregla en este spec y después va a ADR (JP, 2026-11-26). Un ADR no
   lleva cosas sin probar.
+- Para después: hay que crear una forma de incorporar hacia adentro, a sldb, los mecanismos que
+  nacen en los plugins (JP, 2026-11-26). Va en la definición de plugin. Sin diseñar.
 
 ## 10. Lo que falta escribir
 
