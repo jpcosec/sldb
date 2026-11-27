@@ -6,7 +6,7 @@ from typing import Any
 
 from sldb.api.corpus.corpus_entry import CorpusEntry
 from sldb.api.corpus.hit import Hit
-from sldb.api.journal import doc_hashes
+from sldb.api.documents.doc_hashes import doc_hashes
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.store.query import load_runtime_documents
 

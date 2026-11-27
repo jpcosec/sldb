@@ -1,0 +1,567 @@
+# Deuda de anillos y de tamaño. Solo puede encogerse: `tools/check_axes.py`
+# rechaza una entrada que ya no existe, una que creció y cualquiera nueva.
+# Regenerar todo con `--write-debt` borraría el trabajo hecho: no se hace.
+
+[[import]]
+file = "api/anchors/anchor_docs.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/anchors/check_doc_anchors.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/anchors/resolve_pointers.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/apply_batch.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/apply_batch.py"
+module = "store.write_journal"
+
+[[import]]
+file = "api/documents/batch_edges.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/batch_guards.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/batch_inverse.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/batch_prevalidate.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/batch_prevalidate.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/content_hash.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/create_document.py"
+module = "api.rules.rule_writes"
+
+[[import]]
+file = "api/documents/create_document.py"
+module = "api.stores.declaration_sync"
+
+[[import]]
+file = "api/documents/create_document.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/create_document.py"
+module = "api.stores.policy"
+
+[[import]]
+file = "api/documents/create_document.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/create_document.py"
+module = "store.ops"
+
+[[import]]
+file = "api/documents/document_ast.py"
+module = "api.records"
+
+[[import]]
+file = "api/documents/document_history.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/document_ir_serialization.py"
+module = "api.records.build_ir"
+
+[[import]]
+file = "api/documents/document_payload.py"
+module = "api.stores.declared_includes"
+
+[[import]]
+file = "api/documents/document_payload.py"
+module = "api.stores.doc_ref"
+
+[[import]]
+file = "api/documents/document_payload.py"
+module = "api.stores.store_links"
+
+[[import]]
+file = "api/documents/document_render.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/extract_payload.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/lossy_overwrite.py"
+module = "api.stores.policy"
+
+[[import]]
+file = "api/documents/move_document.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/move_path.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/move_path_plan.py"
+module = "api.stores.indexed_documents"
+
+[[import]]
+file = "api/documents/move_path_plan.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/move_path_resolve.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/on_write_gate.py"
+module = "api.rules.rules_on_write"
+
+[[import]]
+file = "api/documents/on_write_gate.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/payload_save.py"
+module = "api.rules.rule_writes"
+
+[[import]]
+file = "api/documents/payload_save.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/payload_save_steps.py"
+module = "api.rules.rules_on_write"
+
+[[import]]
+file = "api/documents/payload_save_steps.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/payload_save_steps.py"
+module = "store.ops"
+
+[[import]]
+file = "api/documents/refuse_structural_noise.py"
+module = "api.stores.policy"
+
+[[import]]
+file = "api/documents/replace_text.py"
+module = "api.rules.rules_on_write"
+
+[[import]]
+file = "api/documents/replace_text.py"
+module = "api.stores.doc_ref"
+
+[[import]]
+file = "api/documents/replace_text.py"
+module = "api.stores.doc_status"
+
+[[import]]
+file = "api/documents/replace_text.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/replace_text.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/replace_text.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/rewrite_loss.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/select_documents.py"
+module = "api.stores.doc_ref"
+
+[[import]]
+file = "api/documents/select_documents.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/track_document_file.py"
+module = "api.stores.declaration_sync"
+
+[[import]]
+file = "api/documents/track_document_file.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/track_document_file.py"
+module = "api.stores.policy"
+
+[[import]]
+file = "api/documents/track_document_file.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/documents/track_document_file.py"
+module = "store.ops"
+
+[[import]]
+file = "api/documents/transaction.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/transaction_paths.py"
+module = "api.stores.store_declaration"
+
+[[import]]
+file = "api/documents/transaction_state.py"
+module = "api.rules.rule_cache"
+
+[[import]]
+file = "api/documents/transaction_state.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/documents/undo_batches.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/undo_batches.py"
+module = "store.write_journal"
+
+[[import]]
+file = "api/documents/untrack_document.py"
+module = "api.stores.declaration_sync"
+
+[[import]]
+file = "api/documents/untrack_document.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/documents/untrack_document.py"
+module = "store.ops"
+
+[[import]]
+file = "api/edges/builtin_relation_writes.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/edges/builtin_relation_writes.py"
+module = "store.ops"
+
+[[import]]
+file = "api/edges/check_edges.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/edge_evidence.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/edge_reading.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/init_relations.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/init_relations.py"
+module = "api.stores.update_store_indexes"
+
+[[import]]
+file = "api/edges/project_graph/project_store.py"
+module = "api.stores.doc_ref_status"
+
+[[import]]
+file = "api/edges/project_graph/project_store.py"
+module = "api.stores.tracked_documents"
+
+[[import]]
+file = "api/edges/project_graph/store_project_graph.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/project_graph/store_project_graph.py"
+module = "api.stores.store_declaration"
+
+[[import]]
+file = "api/edges/rebuild_edges.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/referrer_frontmatter.py"
+module = "api.stores.indexed_documents"
+
+[[import]]
+file = "api/edges/referrers.py"
+module = "api.stores.doc_ref"
+
+[[import]]
+file = "api/edges/referrers.py"
+module = "api.stores.indexed_documents"
+
+[[import]]
+file = "api/edges/referrers.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/referrers.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/edges/rewrite_plan.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/edges/rewrite_plan.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/edges/rewrite_references.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/edges/rewrite_references.py"
+module = "api.stores.store_location"
+
+[[import]]
+file = "api/graph/analyze.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/graph/analyze.py"
+module = "api.stores.store_declaration"
+
+[[import]]
+file = "api/graph/snapshot.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/graph/snapshot.py"
+module = "store.export"
+
+[[import]]
+file = "api/model_create/create_model.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_create/model_check.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/model_drafts/backfill.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_drafts/backfill.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/model_drafts/backfill.py"
+module = "store.facade"
+
+[[import]]
+file = "api/model_drafts/draft_checks.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_drafts/draft_contract.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/model_drafts/draft_restore.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_drafts/draft_validation.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_drafts/field_drafts.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_drafts/metadata_composition_sync.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_drafts/source_location.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/add_model.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/describe_model.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/federated_lookup.py"
+module = "store.link_path"
+
+[[import]]
+file = "api/model_registry/federated_lookup.py"
+module = "store.resolver"
+
+[[import]]
+file = "api/model_registry/federated_registration.py"
+module = "api.stores.declaration_sync"
+
+[[import]]
+file = "api/model_registry/federated_registration.py"
+module = "store.ops"
+
+[[import]]
+file = "api/model_registry/inherit_model.py"
+module = "api.stores.declaration_sync"
+
+[[import]]
+file = "api/model_registry/inherit_model.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/inherit_model.py"
+module = "store.ops"
+
+[[import]]
+file = "api/model_registry/model_index_writes.py"
+module = "api.stores.declaration_sync"
+
+[[import]]
+file = "api/model_registry/model_index_writes.py"
+module = "store.ops"
+
+[[import]]
+file = "api/model_registry/registration_query.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/reindex_model.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/remove_model.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/model_registry/remove_model.py"
+module = "store.ops"
+
+[[import]]
+file = "api/model_registry/template_anchors.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/rules/builtin_tag_findings.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/rules/builtin_tag_rules.py"
+module = "api.stores.store_declaration"
+
+[[import]]
+file = "api/rules/builtin_tag_rules.py"
+module = "api.stores.tag_namespace"
+
+[[import]]
+file = "api/rules/rule_graph.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/rules/rule_view.py"
+module = "api.stores.resolve_indexed_document"
+
+[[import]]
+file = "api/rules/rules_on_check.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/rules/rules_on_transition.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/search.py"
+module = "api.records"
+
+[[import]]
+file = "api/segments/build_extraction_segments.py"
+module = "runtime.validation"
+
+[[import]]
+file = "api/segments/segment_enrichment.py"
+module = "api.notations"
+
+[[import]]
+file = "api/segments/segment_enrichment.py"
+module = "api.notations.resolve_view"
+
+[[import]]
+file = "api/semantic/dag_reads.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/semantic/dag_writes.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/tags/tag_check.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/tags/tag_evaluation.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "api/tags/tag_tree.py"
+module = "api.stores.tag_namespace"
+
+[[import]]
+file = "api/where.py"
+module = "api.records.record_filters"
+
+[[import]]
+file = "api/where.py"
+module = "api.stores.open_store"
+
+[[import]]
+file = "core/renderer.py"
+module = "models.structured_doc"
+
+[[import]]
+file = "models/structured_doc.py"
+module = "runtime.validation"
+
+[[import]]
+file = "store/model_origin.py"
+module = "store.link_path"
+
+[[import]]
+file = "store/query.py"
+module = "store.link_path"
+
+[[import]]
+file = "store/runtime_codec.py"
+module = "runtime.validation"
+
+[[size]]
+key = "api/documents/apply_batch.py::apply_batch"
+lines = 43
+
+[[size]]
+key = "api/model_create/create_model.py::create_model"
+lines = 43
+
+[[size]]
+key = "api/notations/component_spec_graph.py::component_spec_from_graph"
+lines = 49

@@ -99,16 +99,16 @@ upward = [
 # sigue existiendo y está declarado arriba como lo que impide extraer el núcleo.
 # Esto es la diferencia entre resolver y reclasificar, y conviene no confundirlas.
 
-[[pending]]
+[[done]]
 id = "R1"
 edge = "core → runtime"
 at = "src/sldb/core/renderer_engine/python_expr.py#L5"
 imports = "runtime.config.python_expression_is_allowed"
 cycle_weight = "core→runtime: 1 arista · runtime→core: 4 aristas"
-repair = """
-El núcleo pregunta a la configuración si puede evaluar una expresión. Invertir:
-que quien llama pase el permiso como argumento. El núcleo no debe consultar
-estado global para decidir qué le está permitido.
+repaired = """
+Hecho. `config.py` (el permiso de evaluar una expresión al renderizar) no depende de
+nada y solo lo consulta el renderizador: pasó a `core/renderer_engine/config.py`.
+`sldb.configure` sigue siendo la misma función; cambió el módulo que la define.
 """
 
 [[done]]
@@ -205,6 +205,7 @@ confined = ["markdown-it-py", "jinja2", "networkx"]
 
 [[axis]]
 id = "superficie"
+ring = "0a"
 paths = ["core/ast", "core/segments", "core/handlers"]
 external = ["markdown-it-py"]
 does = "texto a árbol unificado; la puerta de entrada de cualquier superficie"
@@ -212,6 +213,7 @@ identity = true
 
 [[axis]]
 id = "representacion"
+ring = "0a"
 paths = ["core/ir", "core/contracts", "core/node.py", "core/node_handler.py"]
 external = ["pydantic"]
 does = "MeaningNode y SurfaceNode: significado y superficie como proyecciones ancladas"
@@ -220,6 +222,7 @@ note = "es *la* idea del sistema; sin esto lo que queda es un conversor de forma
 
 [[axis]]
 id = "render"
+ring = "0a"
 paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py"]
 external = ["jinja2"]
 does = "árbol a texto reversible; sin esto la representación es un volcado, no un lugar donde trabajar"
@@ -227,6 +230,7 @@ identity = true
 
 [[axis]]
 id = "contrato"
+ring = "0b"
 paths = ["models"]
 external = ["pydantic"]
 does = "qué es un documento válido"
@@ -234,33 +238,37 @@ identity = true
 
 [[axis]]
 id = "runtime"
+ring = "1"
 paths = ["runtime"]
 external = []
-does = "la configuración que decide qué se permite al renderizar, y la validación que une modelo con texto"
+does = "la validación que une modelo con texto"
 identity = true
 note = """
 Pequeño y de identidad: `extract_model_data` es la operación que convierte texto
-en un modelo validado, que es la mitad del contrato del sistema. `config` decide
-si una expresión puede evaluarse. Tres archivos que ningún eje puede absorber sin
-volverse otra cosa.
+en un modelo validado, que es la mitad del contrato del sistema. Un archivo de
+identidad que ningún eje puede absorber sin volverse otra cosa (la configuración de
+evaluación pasó a `core/renderer_engine/config.py`).
 """
 
 [[axis]]
 id = "persistencia"
-paths = ["store/io", "store/models", "store/layout.py"]
+ring = "0b"
+paths = ["store/io", "store/models", "store/layout.py", "store/predicates.py"]
 external = []
 does = "guardar, indexar, fragmentar, hashear"
 identity = false
 
 [[axis]]
 id = "consulta"
-paths = ["store/query_engine", "api/search.py", "api/where.py"]
+ring = "0b"
+paths = ["store/query_engine", "store/query.py", "api/search.py", "api/where.py"]
 external = []
 does = "buscar y filtrar por campo"
 identity = false
 
 [[axis]]
 id = "grafo"
+ring = "0b"
 paths = ["store/graph"]
 external = ["networkx"]
 does = "recorrer, ciclos, orden, centralidad, similitud estructural"
@@ -295,6 +303,7 @@ motor sin dependencias y lo vuelve extraíble de verdad.
 
 [[axis]]
 id = "indice_de_aristas"
+ring = "0b"
 paths = ["store/edge_index"]
 external = []
 does = "derivar aristas de documentos; el constructor, no el motor"
@@ -303,6 +312,7 @@ note = "contado junto al grafo en el primer mapa, y es un error: el motor no sab
 
 [[axis]]
 id = "recuperacion"
+ring = "3"
 paths = ["api/matching", "api/corpus"]
 external = []
 does = "similitud aproximada por coseno, con caché de vectores y auditoría del índice"
@@ -315,13 +325,15 @@ invisible desde las dependencias del proyecto — su diseño consiste en no tene
 
 [[axis]]
 id = "bitacora"
-paths = ["store/journal", "store/write_journal.py", "api/journal.py"]
+ring = "1"
+paths = ["store/journal", "store/write_journal.py"]
 external = []
 does = "el registro de lotes aplicados (before-image y hash posterior por documento) con que se deshace entre procesos; la cadena por hash retirada"
 identity = false
 
 [[axis]]
 id = "adaptadores"
+ring = "3"
 paths = ["selfdoc"]
 external = ["ast", "argparse", "click"]
 does = "derivar documentos de código y de interfaces"
@@ -330,6 +342,7 @@ note = "tres adaptadores derivados frente a una sola superficie autorada"
 
 [[axis]]
 id = "semantica"
+ring = "0b"
 paths = ["store/semantic_parents.py", "store/semantic_dag_sync.py", "store/semantic_doc_contribution.py", "store/semantic_dag_graph.py", "store/semantic.py", "store/semantic_tags.py", "store/semantic_doc_tags.py", "api/semantic"]
 external = ["networkx"]
 does = "jerarquía de tipos como DAG"
@@ -337,6 +350,7 @@ identity = false
 
 [[axis]]
 id = "mcp"
+ring = "faces"
 paths = ["mcp"]
 external = ["mcp"]
 does = "servir un store a un cliente MCP por stdio: lectura, propuesta y aplicación de cambios y registro de señales, sobre sldb.api"
@@ -351,6 +365,7 @@ Migrado del servidor MCP de specIR, que no tenía nada de dominio.
 
 [[axis]]
 id = "enlaces"
+ring = "0b"
 paths = ["links"]
 external = []
 does = "relaciones declaradas entre documentos"
@@ -374,6 +389,7 @@ identity = false
 
 [[axis]]
 id = "op_documentos"
+ring = "0b"
 paths = ["api/documents", "api/actor.py", "api/segments", "store/section_doc_contribution.py", "store/section_paths.py", "store/section_rebuild.py", "store/section_sync.py", "store/documents_dirty.py", "store/documents_dirty_persist.py"]
 external = ["markdown-it-py"]
 note = """
@@ -386,6 +402,7 @@ identity = false
 
 [[axis]]
 id = "op_modelos"
+ring = "0b"
 paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema", "store/model_origin.py", "store/model_import_root.py"]
 external = ["ast"]
 note = """
@@ -400,13 +417,15 @@ identity = false
 
 [[axis]]
 id = "op_almacen"
-paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py"]
+ring = "2"
+paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
 identity = false
 
 [[axis]]
 id = "op_aristas"
+ring = "0b"
 paths = ["api/edges", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
 external = []
 does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas de grafo"
@@ -414,6 +433,7 @@ identity = false
 
 [[axis]]
 id = "codigo"
+ring = "0a"
 paths = ["code"]
 external = ["ast", "tree-sitter", "tree-sitter-python"]
 does = "leer código Python como símbolos con tree-sitter, y un fingerprint por nodo de cada definición (portado de kimun)"
@@ -422,6 +442,7 @@ note = "no importa nada de sldb: es la superficie de entrada del código, como `
 
 [[axis]]
 id = "anclaje"
+ring = "1"
 paths = ["api/anchors", "api/code"]
 external = []
 does = "anclar una afirmación a un símbolo de código: grabar lo visto, comprobarlo, reconectar lo que se movió; y exponer los facts de código con su span y source_hash"
@@ -429,6 +450,7 @@ identity = false
 
 [[axis]]
 id = "cache"
+ring = "0b"
 paths = ["store/built_cache.py", "store/disk_caches.py", "store/runtime_cache.py", "store/runtime_cache_disk.py", "store/runtime_cache_signature.py", "store/user_cache.py", "store/derived_rebuild.py"]
 external = []
 does = "memorizar lo derivado y saber cuándo invalidarlo"
@@ -436,6 +458,7 @@ identity = false
 
 [[axis]]
 id = "codec"
+ring = "0b"
 paths = ["store/codec.py", "store/runtime_codec.py", "store/model_contract.py"]
 external = []
 does = "serializar y deserializar el estado del almacén, y leer lo que una clase de modelo declara: las costuras del almacén hacia el resto de sldb"
@@ -443,6 +466,7 @@ identity = false
 
 [[axis]]
 id = "migracion"
+ring = "2"
 paths = ["store/migration.py", "store/migration_hash_names.py", "store/migration_legacy_layout.py", "store/legacy_contract.py"]
 external = []
 does = "leer almacenes escritos por versiones anteriores"
@@ -451,13 +475,15 @@ note = "aquí viven las decisiones que los diagnosticadores encontraron solo en 
 
 [[axis]]
 id = "federacion"
-paths = ["store/catalog.py", "store/link_path.py", "store/resolver.py", "store/facade.py", "store/query.py", "store/predicates.py"]
+ring = "2"
+paths = ["store/catalog.py", "store/link_path.py", "store/resolver.py", "store/facade.py"]
 external = []
 does = "encontrar almacenes, resolver entre varios y ofrecer la fachada de consulta"
 identity = false
 
 [[axis]]
 id = "errores"
+ring = "0a"
 paths = ["core/exceptions", "store/exceptions.py", "core/finding.py", "core/finding_route.py"]
 external = []
 does = "la jerarquía de excepciones del sistema, y el hallazgo (error o alerta) que reporta un comando"
@@ -466,6 +492,7 @@ note = "la capa más baja que todas las demás necesitan nombrar; por eso R2 imp
 
 [[axis]]
 id = "lectura_de_fuentes"
+ring = "0a"
 paths = ["store/source_read.py", "store/source_guard.py"]
 external = []
 does = "decidir si un documento trackeado se puede leer (dentro de la raíz, sin symlinks) y leerlo sin seguir symlinks"
@@ -479,6 +506,7 @@ calcular una huella y decidir si un archivo se puede abrir son dos trabajos, y
 
 [[axis]]
 id = "identidad_y_hash"
+ring = "0b"
 paths = ["store/hashing.py", "store/documents_hash.py"]
 external = []
 does = "calcular y comparar las huellas que detectan deriva"
@@ -543,6 +571,7 @@ superficies derivadas y Markdown es la única autorada por diseño.
 
 [[axis]]
 id = "vocabulario_visual"
+ring = "3"
 paths = ["notations", "models/notation", "models/notation_models.py"]
 external = ["pydantic", "pyyaml"]
 does = "notaciones, glifos, enlaces, paletas y vistas como modelos y catálogos builtin; absorbido de spec2viz (SV01)"
@@ -555,6 +584,7 @@ parser del almacén; sin él no se comprueba, igual que cuando vivía fuera de s
 
 [[axis]]
 id = "vistas"
+ring = "3"
 paths = ["api/notations"]
 external = []
 does = "resolver una notación sobre documentos del almacén y evaluar vistas de proyección; sincronizar notaciones, paletas y specs de diagrama con su catálogo (SV02, D1)"
@@ -562,7 +592,8 @@ identity = false
 
 [[axis]]
 id = "reglas"
-paths = ["api/rules", "api/tags"]
+ring = "1"
+paths = ["api/rules", "api/tags", "api/edges/edges_holding.py", "api/edges/edges_blocked.py"]
 external = []
 does = "evaluar RuleDoc con el lenguaje de predicados en escritura, transición y check, incremental y a punto fijo; los espacios de etiquetas como familia de reglas (GO06, GO08, GD27)"
 identity = false
@@ -575,6 +606,7 @@ del coordinador; alternativas descartadas en runs/subagents/sldb-ci-worker-repor
 
 [[axis]]
 id = "vistas_compuestas"
+ring = "3"
 paths = ["api/views"]
 external = []
 does = "evaluar un ViewDoc con sections sobre un almacén, y el catálogo de vistas (GD25)"
@@ -588,7 +620,7 @@ Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable del coord
 [[unit]]
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "lectura_de_fuentes", "errores", "codigo"]
-needs = 5  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
+needs = 4  # medido 2026-11-27 (refactor por anillos): models ya no reexporta los modelos de notación (corte contrato → vocabulario_visual); antes 5. medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
 needed_by = 59  # medido 2026-11-17 (scan de enlaces): enlaces pide el analizador de superficie para no leer el código (links/scan_text.py → core/ast); antes 58. medido 2026-11-15 (D4): el emparejamiento de átomos avisa con findings (core/finding.py, api/matching/matching_findings.py); antes 57. medido 2026-11-15 (D1): la sincronizacion de specs suma vistas → contrato (models/relation_doc.py, api/notations/spec_refs.py); antes 56. medido 2026-11-15 (D2): vistas lee código Python por codigo (sldb.code.scan_tree, api/notations/component_spec_python.py) y avisa con errores (core/finding.py); antes 54. medido 2026-11-11 (secrest2): enlaces, adaptadores (selfdoc), op_aristas y op_modelos leen y escriben por la guarda lectura_de_fuentes (store/source_guard.py); antes 50. medido 2026-11-11 (secrest, rebasada sobre H9): las lecturas guardadas de consulta, secciones, semántica y aristas suman aristas hacia lectura_de_fuentes; antes 47. 2026-11-11 (H9): vistas_compuestas lee la ViewDoc enlazada por lectura_de_fuentes (api/views/view_source.py); antes 46. 2026-11-11 (seguridad live_stale): eje nuevo lectura_de_fuentes en nucleo; antes 43. 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
 indivisible = false
 why = """
@@ -601,20 +633,19 @@ seguía: mover un archivo cambia de sitio el problema sin resolverlo.
 """
 
 [nucleo_min_cut]
-edges = 4
-total_weight = 6
+edges = 3
+total_weight = 5
 cuts = [
   { edge = "superficie → render", at = "core/segments/instrumented_render.py#L16", imports = "SLDBRenderer", weight = 3, note = "un render instrumentado dentro del eje de superficie: está del lado equivocado" },
   { edge = "representacion → superficie", at = "core/node_handler.py#L3", imports = "SharedNodeHandler", weight = 1, note = "una pieza de representación que conoce al que la va a manejar" },
-  { edge = "render → runtime", at = "core/renderer_engine/python_expr.py#L5", imports = "python_expression_is_allowed", weight = 1, note = "es R1" },
   { edge = "contrato → runtime", at = "models/structured_doc.py#L67", imports = "extract_model_data", weight = 1, note = "es R3; import diferido" },
 ]
 
 [[unit]]
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
-needs = 25  # medido 2026-11-19 (H11b): consulta lee la caché de filas de documentos por cache_keys del índice de aristas (store/query_engine/document_rows_disk.py); antes 24. medido 2026-11-11 (secrest): lecturas de documentos trackeados por la guarda lectura_de_fuentes; antes 22. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
-needed_by = 51  # medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py lee el DAG semántico y los documentos por store/; antes 50. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 49. medido 2026-11-15 (D1): find_store de la sincronizacion de specs reutiliza store/resolver.py (vistas → federacion, api/notations/spec_refs.py); antes 48. medido 2026-11-15 (sldb mcp): el eje mcp lee por store/layout.py (cache_dir del log de señales); antes 47. medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
+needs = 24  # medido 2026-11-27 (refactor por anillos): doc_hashes sale de api/journal.py a api/documents/doc_hashes.py (corte bitácora → op_almacen); antes 25. medido 2026-11-19 (H11b): consulta lee la caché de filas de documentos por cache_keys del índice de aristas (store/query_engine/document_rows_disk.py); antes 24. medido 2026-11-11 (secrest): lecturas de documentos trackeados por la guarda lectura_de_fuentes; antes 22. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
+needed_by = 48  # medido 2026-11-27 (refactor por anillos): store/predicates.py pasa de federación a persistencia y store/query.py de federación a consulta (reclasificaciones); doc_hashes sale de api/journal.py; antes 51. medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py lee el DAG semántico y los documentos por store/; antes 50. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 49. medido 2026-11-15 (D1): find_store de la sincronizacion de specs reutiliza store/resolver.py (vistas → federacion, api/notations/spec_refs.py); antes 48. medido 2026-11-15 (sldb mcp): el eje mcp lee por store/layout.py (cache_dir del log de señales); antes 47. medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
@@ -672,7 +703,7 @@ why = "transporte: nadie depende de él salvo la interfaz (`sldb mcp`, import di
 [[unit]]
 id = "recuperacion"
 axes = ["recuperacion"]
-needs = 9  # medido (D4): el emparejamiento de átomos con elementos de diagrama (api/matching/explicit_*, store_*, spec_view_elements) lee documentos y aristas por sldb.api, colecciones de specs de api/notations y avisa con findings; antes 4
+needs = 8  # medido 2026-11-27 (refactor por anillos): corpus lee doc_hashes de api/documents y no de api/journal.py; antes 9. medido (D4): el emparejamiento de átomos con elementos de diagrama (api/matching/explicit_*, store_*, spec_view_elements) lee documentos y aristas por sldb.api, colecciones de specs de api/notations y avisa con findings; antes 4
 needed_by = 1  # medido 2026-11-15 (sldb mcp): las sugerencias de señales usan api.matching; antes 0
 extractable_today = true
 why = "solo el eje mcp depende de él; puerto Embedder sin dependencia vectorial propia"
@@ -683,7 +714,7 @@ why = "solo el eje mcp depende de él; puerto Embedder sin dependencia vectorial
 id = "notacion"
 axes = ["vocabulario_visual", "vistas"]
 needs = 8  # medido 2026-11-15 (D1): la sincronizacion de specs suma vistas → contrato (models/relation_doc.py) y vistas → federacion (store/resolver.py), en api/notations/spec_refs.py; antes 6. medido 2026-11-15 (D2): el spec de componentes desde Python suma vistas → codigo y vistas → errores (api/notations/component_spec_python.py, component_spec_findings.py); antes 4. medido 2026-11-10 (main-de-sldb-en-verde): GD25 suma vocabulario_visual → grafo (models/notation/view_doc_checks.py:61); antes 3
-needed_by = 4  # medido (D4): api/matching/spec_view_elements.py reutiliza las colecciones de elementos de api/notations; antes 3. medido 2026-11-10: GD25 vistas_compuestas → vocabulario_visual; antes 2
+needed_by = 3  # medido 2026-11-27 (refactor por anillos): models ya no reexporta los modelos de notación (corte contrato → vocabulario_visual); antes 4. medido (D4): api/matching/spec_view_elements.py reutiliza las colecciones de elementos de api/notations; antes 3. medido 2026-11-10: GD25 vistas_compuestas → vocabulario_visual; antes 2
 indivisible = false
 why = """
 Lo que spec2viz hacía fuera del repositorio, adentro: el vocabulario (capa 0) y
@@ -694,8 +725,8 @@ notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puert
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje", "reglas", "vistas_compuestas"]
-needs = 73  # medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py → persistencia; antes 72. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 71. medido 2026-11-11 (secrest2): op_aristas, op_modelos y op_documentos leen y escriben por store/source_guard.py; antes 70. medido 2026-11-11 (secrest, rebasada sobre H9): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 69. 2026-11-11 (H9): vistas_compuestas → lectura_de_fuentes (api/views/view_source.py); antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
-needed_by = 15  # medido (D4): api/matching lee por api/documents (runtime_documents), api/stores (open_store) y api/edges (edge_reading); antes 12. medido 2026-11-15 (sldb mcp): el eje mcp es transporte sobre api; antes 11. medido 2026-11-10: GO05 api/where.py → op_aristas, GD23 → op_modelos; antes 47/9
+needs = 72  # medido 2026-11-27 (refactor por anillos): store/query.py pasa de federación a consulta (reclasificación); antes 73. medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py → persistencia; antes 72. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 71. medido 2026-11-11 (secrest2): op_aristas, op_modelos y op_documentos leen y escriben por store/source_guard.py; antes 70. medido 2026-11-11 (secrest, rebasada sobre H9): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 69. 2026-11-11 (H9): vistas_compuestas → lectura_de_fuentes (api/views/view_source.py); antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
+needed_by = 14  # medido 2026-11-27 (refactor por anillos): corpus lee doc_hashes de api/documents y no de api/journal.py; antes 15. medido (D4): api/matching lee por api/documents (runtime_documents), api/stores (open_store) y api/edges (edge_reading); antes 12. medido 2026-11-15 (sldb mcp): el eje mcp es transporte sobre api; antes 11. medido 2026-11-10: GO05 api/where.py → op_aristas, GD23 → op_modelos; antes 47/9
 verdict = "fachada"
 why = """
 158 archivos, el grupo más grande, y el candidato más obvio por tamaño. Pero
@@ -709,7 +740,7 @@ variedad: cualquier cambio en las unidades de abajo la obliga a cambiar.
 [[non_unit]]
 id = "enlaces"
 axes = ["enlaces"]
-needs = 5  # medido 2026-11-17 (scan de enlaces): el scan parsea con el markdown-it de superficie (links/scan_text.py → core/ast/markdown_ast_handler.py) y salta el código; antes 4. medido 2026-11-11 (secrest2): el resolver de enlaces chequea la guarda lectura_de_fuentes antes de resolver, y nombra el objetivo único con errores; antes 2.
+needs = 4  # medido 2026-11-27 (refactor por anillos): store/predicates.py pasa de federación a persistencia (reclasificación); antes 5. medido 2026-11-17 (scan de enlaces): el scan parsea con el markdown-it de superficie (links/scan_text.py → core/ast/markdown_ast_handler.py) y salta el código; antes 4. medido 2026-11-11 (secrest2): el resolver de enlaces chequea la guarda lectura_de_fuentes antes de resolver, y nombra el objetivo único con errores; antes 2.
 needed_by = 0
 verdict = "capacidad sin superficie"
 why = """

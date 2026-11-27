@@ -107,7 +107,7 @@ actual `{doc, payload}` (sin `base_version`) debe seguir funcionando (compatibil
 ## 3. Implementado en esta ronda (solo aditivo)
 
 - `sldb.api.documents.serialize_document` (contrato compartido) ahora emite
-  `"version": <hash_d del documento>` — leído del shard vía `api.journal.doc_hashes`.
+  `"version": <hash_d del documento>` — leído del shard vía `api.documents.doc_hashes`.
   Única clave nueva; shape existente intacta.
 - Como consecuencia, la versión aparece en:
   - `GET /graph` → cada documento trae `version`.

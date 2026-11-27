@@ -24,6 +24,7 @@ y queda para revisión humana.
 from __future__ import annotations
 
 import argparse
+import ast
 import re
 import sys
 import tomllib
@@ -33,6 +34,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src" / "sldb"
 CONTRACT = ROOT / "contracts" / "layers.toml"
+#: Deuda de anillos y de tamaño: solo puede encogerse (ver `debt_problems`).
+DEBT = ROOT / "contracts" / "anillos_deuda.toml"
+
+#: Anillos de adentro hacia afuera (docs/spec/mecanismos/anillos.md). Cada eje
+#: declara `ring`; un eje solo puede importar de su anillo o de uno más interno.
+RINGS = ["0a", "0b", "1", "2", "3", "faces"]
+
+#: Techos de tamaño. Lo que hoy los excede está en la lista de deuda.
+MAX_FUNCTION_LINES = 40
+MAX_FILE_LINES = 300
 
 #: Fuera del mapa por diseño: la interfaz es transporte y no una capacidad, los
 #: ejemplos y plantillas son material, y la raíz del paquete solo reexporta.
@@ -78,7 +89,12 @@ def owner_map(axes: list[dict]) -> tuple[dict[str, str], set[str]]:
 
 
 def coupling(owner: dict[str, str]) -> dict[tuple[str, str], int]:
-    """Aristas entre ejes: un import de un archivo de A a un archivo de B."""
+    """Aristas entre ejes: un import absoluto de un archivo de A a un archivo de B.
+
+    Solo ve `from sldb.x import`: no los relativos. Las cifras de las unidades
+    declaradas en el contrato están medidas así; la puerta de anillos usa
+    `import_edges`, que sí los ve.
+    """
     edges: dict[tuple[str, str], int] = defaultdict(int)
     for rel, axis in owner.items():
         text = (SRC / rel).read_text(encoding="utf-8", errors="ignore")
@@ -89,6 +105,148 @@ def coupling(owner: dict[str, str]) -> dict[tuple[str, str], int]:
                     edges[(axis, target)] += 1
                     break
     return edges
+
+
+def _module_file(owner: dict[str, str], dotted: str) -> str | None:
+    base = dotted.replace(".", "/")
+    return next((c for c in (f"{base}.py", f"{base}/__init__.py") if c in owner), None)
+
+
+def _type_checking_lines(tree: ast.AST) -> set[int]:
+    """Líneas dentro de `if TYPE_CHECKING:`: no son dependencia de ejecución."""
+    lines: set[int] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.If):
+            test = ast.unparse(node.test)
+            if test in ("TYPE_CHECKING", "typing.TYPE_CHECKING"):
+                for child in node.body:
+                    lines.update(range(child.lineno, (child.end_lineno or child.lineno) + 1))
+    return lines
+
+
+def import_edges(owner: dict[str, str]) -> list[tuple[str, str, str]]:
+    """Cada import de sldb entre archivos mapeados: (archivo, módulo, archivo destino).
+
+    Lee con `ast`, así que ve los imports relativos (`from .x import y`), los
+    diferidos dentro de funciones y los `import sldb.x`; deja fuera lo que está
+    bajo `TYPE_CHECKING`. `from pkg import sub` cuenta como el módulo `pkg.sub`
+    cuando ese archivo existe.
+    """
+    out: list[tuple[str, str, str]] = []
+    for rel in sorted(owner):
+        tree = ast.parse((SRC / rel).read_text(encoding="utf-8", errors="ignore"))
+        skip = _type_checking_lines(tree)
+        pkg = rel.split("/")[:-1]
+        for node in ast.walk(tree):
+            if getattr(node, "lineno", None) in skip:
+                continue
+            targets: list[str] = []
+            if isinstance(node, ast.ImportFrom):
+                if node.level:
+                    base = pkg[: len(pkg) - (node.level - 1)] if node.level > 1 else pkg
+                    mod = ".".join(base + ([node.module] if node.module else []))
+                elif node.module and (node.module == "sldb" or node.module.startswith("sldb.")):
+                    mod = node.module[len("sldb."):] if node.module != "sldb" else ""
+                else:
+                    continue
+                for alias in node.names:
+                    sub = f"{mod}.{alias.name}" if mod else alias.name
+                    targets.append(sub if _module_file(owner, sub) else mod)
+            elif isinstance(node, ast.Import):
+                targets = [a.name[len("sldb."):] for a in node.names if a.name.startswith("sldb.")]
+            for mod in targets:
+                if mod and (dest := _module_file(owner, mod)) and dest != rel:
+                    out.append((rel, mod, dest))
+    return sorted(set(out))
+
+
+def ring_violations(axes: list[dict], owner: dict[str, str]) -> set[tuple[str, str]]:
+    """Imports de un eje a otro de un anillo MÁS EXTERNO: (archivo, módulo)."""
+    rank = {a["id"]: RINGS.index(a["ring"]) for a in axes}
+    return {(rel, mod) for rel, mod, dest in import_edges(owner)
+            if rank[owner[dest]] > rank[owner[rel]]}
+
+
+def size_offenders(rels: list[str]) -> dict[str, int]:
+    """Archivos y funciones sobre el techo: clave `archivo` o `archivo::calificado`."""
+    found: dict[str, int] = {}
+    for rel in rels:
+        text = (SRC / rel).read_text(encoding="utf-8", errors="ignore")
+        if (n := len(text.splitlines())) > MAX_FILE_LINES:
+            found[rel] = n
+        stack: list[str] = []
+
+        def visit(node: ast.AST) -> None:
+            for child in ast.iter_child_nodes(node):
+                if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                    stack.append(child.name)
+                    if not isinstance(child, ast.ClassDef):
+                        size = child.end_lineno - child.lineno + 1
+                        if size > MAX_FUNCTION_LINES:
+                            found[f"{rel}::{'.'.join(stack)}"] = size
+                    visit(child)
+                    stack.pop()
+                else:
+                    visit(child)
+
+        visit(ast.parse(text))
+    return found
+
+
+def debt_problems(found: dict[str, int], declared: dict[str, int], what: str) -> list[str]:
+    """La deuda solo puede encogerse: ni nuevas, ni vencidas, ni crecidas."""
+    problems = []
+    for key in sorted(found.keys() - declared.keys()):
+        problems.append(f"{what} nuevo, fuera de la lista de deuda: {key}"
+                        + (f" ({found[key]})" if found[key] else ""))
+    for key in sorted(declared.keys() - found.keys()):
+        problems.append(f"{what} vencido en la lista de deuda (ya no existe): {key} — "
+                        f"sácalo de contracts/anillos_deuda.toml")
+    for key in sorted(found.keys() & declared.keys()):
+        if found[key] > declared[key]:
+            problems.append(f"{what} creció: {key} tenía {declared[key]} y ahora {found[key]}")
+        elif found[key] < declared[key]:
+            problems.append(f"{what} encogió: {key} {declared[key]} → {found[key]}; "
+                            f"baja la cifra en contracts/anillos_deuda.toml")
+    return problems
+
+
+def load_debt(path: Path = DEBT) -> dict[str, dict[str, int]]:
+    raw = tomllib.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+    return {
+        "import": {f"{e['file']} -> {e['module']}": 0 for e in raw.get("import", [])},
+        "size": {e["key"]: e["lines"] for e in raw.get("size", [])},
+    }
+
+
+def anillos_problems(axes: list[dict], owner: dict[str, str],
+                     debt: dict[str, dict[str, int]]) -> list[str]:
+    """Imports hacia un anillo externo, contra la lista de deuda."""
+    problems = []
+    for axis in axes:
+        if axis.get("ring") not in RINGS:
+            problems.append(f"el eje `{axis['id']}` no declara `ring` válido {RINGS}")
+    if problems:
+        return problems
+    found = {f"{f} -> {m}": 0 for f, m in ring_violations(axes, owner)}
+    return debt_problems(found, debt["import"], "import hacia un anillo externo")
+
+
+def size_problems(owner: dict[str, str], debt: dict[str, dict[str, int]]) -> list[str]:
+    """Funciones y archivos sobre el techo, contra la lista de deuda."""
+    return debt_problems(size_offenders(sorted(owner)), debt["size"], "tamaño sobre el techo")
+
+
+def write_debt(axes: list[dict], owner: dict[str, str]) -> None:
+    """Escribe la deuda de hoy. Solo para fijar el punto de partida: después se edita a mano hacia abajo."""
+    lines = ["# Deuda de anillos y de tamaño. Solo puede encogerse: `tools/check_axes.py`",
+             "# rechaza una entrada que ya no existe, una que creció y cualquiera nueva.",
+             "# Regenerar todo con `--write-debt` borraría el trabajo hecho: no se hace.", ""]
+    for f, m in sorted(ring_violations(axes, owner)):
+        lines += ["[[import]]", f'file = "{f}"', f'module = "{m}"', ""]
+    for key, n in sorted(size_offenders(sorted(owner)).items()):
+        lines += ["[[size]]", f'key = "{key}"', f"lines = {n}", ""]
+    DEBT.write_text("\n".join(lines), encoding="utf-8")
 
 
 def print_units(contract: dict, sizes: dict[str, int]) -> None:
@@ -185,10 +343,17 @@ def print_dag(axes: list[dict], owner: dict[str, str], sizes: dict[str, int]) ->
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--map", action="store_true", help="imprime el mapa y sale")
-    parser.add_argument("--dag", action="store_true",
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--map", action="store_true", help="imprime el mapa y sale")
+    modes.add_argument("--dag", action="store_true",
                         help="niveles, nudos y las aristas que los cierran")
-    parser.add_argument("--units", action="store_true",
+    modes.add_argument("--rings", action="store_true",
+                        help="solo la puerta de anillos: imports hacia un anillo externo")
+    modes.add_argument("--size", action="store_true",
+                        help="solo la puerta de tamaño: funciones y archivos sobre el techo")
+    modes.add_argument("--write-debt", action="store_true",
+                        help="escribe la deuda actual en contracts/anillos_deuda.toml")
+    modes.add_argument("--units", action="store_true",
                         help="las unidades viables y qué función les falta")
     args = parser.parse_args()
 
@@ -201,6 +366,20 @@ def main() -> int:
     sizes: dict[str, int] = defaultdict(int)
     for axis in owner.values():
         sizes[axis] += 1
+
+    if args.write_debt:
+        write_debt(axes, owner)
+        return 0
+
+    if args.rings or args.size:
+        debt = load_debt()
+        found = anillos_problems(axes, owner, debt) if args.rings else size_problems(owner, debt)
+        name = "anillos" if args.rings else "tamaño"
+        for problem in found:
+            print(f"  ERROR  {problem}")
+        print(f"  deuda  {len(debt['import' if args.rings else 'size'])} entradas; solo pueden salir")
+        print(f"{'FAIL' if found else 'PASS'}: {name} — {len(found)} violaciones")
+        return 1 if found else 0
 
     if args.map:
         print("  eje                    archivos  identidad  externo")
@@ -313,8 +492,6 @@ def main() -> int:
     cut = contract.get("nucleo_min_cut")
     if cut:
         import networkx as nx
-        nucleus = next((u for u in contract.get("unit", [])
-                        if u["id"] == "nucleo"), None)
         knot = {"contrato", "render", "representacion", "superficie", "runtime"}
         inner = [(a, b, n) for (a, b), n in coupling(owner).items()
                  if a in knot and b in knot]
