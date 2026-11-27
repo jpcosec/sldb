@@ -109,8 +109,9 @@ pero no es la puerta. Lo que comparte estructura es un modelo; lo que la compart
 con diferencias, una variación; especializar da herencia, polimorfismo y composición. Aparte
 está lo que algo es, por su significado, su papel o su función, donde las cosas se agrupan por
 parecido de familia. Ahí entra también el papel de un hecho: la misma frase puede ser una
-observación, un requisito o una decisión, y eso cambia qué pasa cuando deja de calzar. Los dos
-ejes no coinciden. Hay textos con mucha forma y textos con casi
+observación, un requisito o una decisión, y eso cambia qué pasa cuando deja de calzar. Los
+ejes no coinciden, y puede haber muchos, independientes entre sí. Cada cosa se dice una vez, en
+su eje, y lo que hace falta para un caso concreto está en el cruce. Hay textos con mucha forma y textos con casi
 ninguna, y no se tratan igual.
 Viene de: el principio 1 (el tipo es una relación más) y Wittgenstein (parecidos de familia,
 para el eje del significado).

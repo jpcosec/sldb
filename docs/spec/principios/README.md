@@ -174,6 +174,23 @@ Las dos jerarquías no coinciden. Dos documentos pueden tener la misma forma y s
 distintas, o ser lo mismo con formas distintas. Por eso van separadas: unas relaciones son de
 estructura y otras de significado.
 
+**Muchos ejes, y el cruce.** Forma y significado no son los únicos ejes. Lo que se sabe de un
+programa se ordena por muchos lados que no dependen unos de otros: cómo se escribe el código,
+con qué se hace la interfaz, qué estilo visual lleva, cómo se manejan los estados, de qué
+negocio se trata, de qué pantalla, qué componentes hay y cuándo se usa cada uno, cómo funciona
+el servidor, qué tipos de datos y qué interfaces existen. Cada una de esas cosas se dice una
+sola vez, en su eje.
+
+Lo que hace falta para escribir una pieza concreta está en el cruce. La pantalla de
+transferencias de un banco es el punto donde se encuentran el eje del negocio, el de la
+pantalla, el de los componentes, el del estilo y el de los datos. Preguntando por ese cruce
+sale de una vez la especificación de esa pieza, y sale apuntando al código y a los comentarios
+que ya existen, por sus anclas. No hay que leer toda la documentación por un lado y todo el
+código por el otro.
+
+Y como cada cosa está dicha una vez y anclada, se nota cuando el código deja de cumplir lo que
+se dijo de él.
+
 Con esto se puede tratar distinto lo que es distinto. Donde hay forma estándar hay un modelo, y
 con él se comprueba y se proyecta. Donde no la hay, quedan los nodos y lo que se diga de ellos, y
 eso también se consulta y se relaciona.
@@ -241,7 +258,12 @@ Tres usos, todos declarados encima de sldb por quien lo usa:
 - **Describir un sistema y dibujarlo.** Los componentes y sus conexiones se declaran como nodos
   y relaciones. Una vista elige qué mostrar y una notación dice con qué figura. sldb entrega la
   vista resuelta; la dibuja otro programa.
-- **Mantener al día lo que se dice del código.** Es el ejemplo de arriba.
+- **Mantener al día lo que se dice del código.** Es el ejemplo del precio.
+- **Decir una cosa una sola vez.** Es el ejemplo del plazo de devolución: una afirmación, tres
+  textos.
+- **Sacar la especificación de una pieza desde un cruce.** Lo que se sabe de un programa está
+  dicho por ejes. Para escribir una pieza se pregunta por el punto donde se cruzan, y la
+  respuesta apunta directo al código.
 
 Lo usan personas y agentes sobre un mismo proyecto. Para un agente es la forma de saber en qué se
 apoya lo que otro escribió, sin tener que creerle.
