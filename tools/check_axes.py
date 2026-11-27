@@ -138,7 +138,7 @@ def import_edges(owner: dict[str, str]) -> list[tuple[str, str, str]]:
         skip = _type_checking_lines(tree)
         pkg = rel.split("/")[:-1]
         for node in ast.walk(tree):
-            if node.lineno in skip if hasattr(node, "lineno") else False:
+            if getattr(node, "lineno", None) in skip:
                 continue
             targets: list[str] = []
             if isinstance(node, ast.ImportFrom):
@@ -343,16 +343,17 @@ def print_dag(axes: list[dict], owner: dict[str, str], sizes: dict[str, int]) ->
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--map", action="store_true", help="imprime el mapa y sale")
-    parser.add_argument("--dag", action="store_true",
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--map", action="store_true", help="imprime el mapa y sale")
+    modes.add_argument("--dag", action="store_true",
                         help="niveles, nudos y las aristas que los cierran")
-    parser.add_argument("--rings", action="store_true",
+    modes.add_argument("--rings", action="store_true",
                         help="solo la puerta de anillos: imports hacia un anillo externo")
-    parser.add_argument("--size", action="store_true",
+    modes.add_argument("--size", action="store_true",
                         help="solo la puerta de tamaño: funciones y archivos sobre el techo")
-    parser.add_argument("--write-debt", action="store_true",
+    modes.add_argument("--write-debt", action="store_true",
                         help="escribe la deuda actual en contracts/anillos_deuda.toml")
-    parser.add_argument("--units", action="store_true",
+    modes.add_argument("--units", action="store_true",
                         help="las unidades viables y qué función les falta")
     args = parser.parse_args()
 
@@ -491,8 +492,6 @@ def main() -> int:
     cut = contract.get("nucleo_min_cut")
     if cut:
         import networkx as nx
-        nucleus = next((u for u in contract.get("unit", [])
-                        if u["id"] == "nucleo"), None)
         knot = {"contrato", "render", "representacion", "superficie", "runtime"}
         inner = [(a, b, n) for (a, b), n in coupling(owner).items()
                  if a in knot and b in knot]
