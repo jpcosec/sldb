@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-27T17:44:57Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: unclear
 # e.g., other_repo
@@ -8,11 +13,15 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-27T14:11:35'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-27T14:44:42'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Error de diagnóstico: el comando existe, es deskops atoms add-namespace
+  (escribe desk/atoms/tag-namespaces.yaml, y deskops desk update reescribe tag_namespaces
+  de store.yaml desde ahí). Queda la nota de seguimiento sobre el mensaje de error.'
 # conversation thread/message the note came from, e.g. #hilo/1234
 ---
 
