@@ -74,3 +74,26 @@ enlaces.
   modelo, tipo de relación, sección y store.
 - Toda transición pertenece a una máquina de estados; las sueltas se migran (JP, 2026-11-26).
   Vale para todo lo que hoy existe fuera de un mecanismo declarado.
+
+## Hipótesis de JP sobre el problema de fondo (2026-11-26)
+
+JP: es muy posible que el problema de fondo sea que hay implementación que no se usa, y que venga
+de que sldb no se diseñó en anillos y no se respetan las fronteras.
+
+Lo que mide `tools/check_axes.py` del propio repo el 2026-11-26 (corrido con `--units` y
+`--dag`; no verifiqué sus números por otra vía):
+
+- El contrato `contracts/layers.toml` declara 5 capas y 32 ejes y la puerta pasa con 0
+  violaciones. Aun así los ejes no forman un DAG: 23 de los 32 son un solo nudo de 788 de los
+  1.013 archivos.
+- `operacion` (370 archivos) no es una unidad: es fachada.
+- `enlaces` (12 archivos) es "capacidad sin superficie": nadie la necesita. `adaptadores` y `mcp`
+  tampoco los necesita nadie, y hay una deuda declarada `adaptador-sin-uso`.
+- La herramienta dice que el núcleo se parte cortando 4 aristas, y que mientras existan las
+  aristas débiles "reorganizar carpetas es cosmético".
+
+Casos vistos al escribir las páginas que calzan con la hipótesis: dos funciones que recorren una
+ruta dentro de un documento (`payload_path_reading.deep_get` con puntos y
+`segments/payload_values.value_at` con barras); `docs update` que no pasa por
+`save_document_payload`; y la contención, que da identidad a un ítem, junto a la dirección por
+posición que la ignora.
