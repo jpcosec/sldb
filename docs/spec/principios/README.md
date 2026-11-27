@@ -112,25 +112,41 @@ aquello ya diga otra cosa. Un ancla recuerda qué decía, y por eso puede notar 
 
 ## Entrar y volver a salir
 
-Marcar una parte la hace entrar: lo que dice pasa a estar en un nodo. Se puede marcar poco o
-mucho. Un documento marcado por completo vive adentro, como los nodos que se tomaron de él.
+Entrar tiene etapas.
 
-Lo que está adentro se puede sacar de muchas formas, y cada una es una proyección: una ficha,
-una fila de una tabla, una caja de un diagrama, un tablero. Una de esas proyecciones es
+Primero se ancla. Cada parte que alguien marca da un nodo de anclaje: recuerda dónde estaba la
+parte y qué se vio. Un anclaje crea ese nodo y nada más.
+
+Después se junta. Distintas fuentes suelen decir lo mismo. Si tres anclajes traen la misma
+afirmación, se reúnen en un "las fuentes dicen".
+
+Y de ahí se sintetiza. De lo que las fuentes dicen se arma el árbol de conocimiento, con nodos
+de significado. Un nodo de significado es una afirmación, una sola, por muchos lugares en que
+esté escrita.
+
+Sirve un ejemplo distinto del precio. Una empresa tiene un manual interno, una página web y las
+instrucciones de un asistente que atiende por mensajería. Los tres dicen cuál es el plazo de
+devolución, y tienen que decir lo mismo. El manual es la fuente y los otros dos se derivan de
+él. Con los tres anclados y juntos en un solo nodo de significado, cuando el plazo cambia se
+sabe de inmediato en qué tres lugares está escrito, sin leer ningún documento.
+
+Salir es proyectar. Lo que está adentro se saca de muchas formas, y cada una es una proyección
+con sus reglas: una ficha, una fila de una tabla, una caja de un diagrama, un tablero. Un texto
+derivado de otro es eso: una proyección del mismo conocimiento. Una de las proyecciones es
 especial: sacar los nodos por la misma estructura que el documento tenía cuando entró. Esa
-devuelve el documento tal como estaba.
+devuelve el documento tal como estaba. Un documento marcado por completo vive adentro, y por
+esa proyección se lo recupera entero o por secciones.
 
-Por ahí se edita. Se cambia el nodo y se proyecta de nuevo a su archivo. Se puede recuperar una
-sección sola, o cambiar una sección sola, sin tocar el resto.
+Por ahí se edita. Se cambia el nodo y se proyecta de nuevo a su archivo, sin tocar el resto.
 
 Editar tiene una regla. Sobre lo que se observó manda el archivo; sobre las consecuencias manda
 la red. Un cambio se aplica sobre la versión que se vio. Si mientras tanto alguien tocó otra
 parte del archivo, eso se conserva. Si tocó la misma, hay un choque, y se muestra.
 
-Así que de una misma cosa hay tres aspectos que no se mezclan: dónde estaba afuera, que es su
-anclaje; qué dice, que es su significado; y cómo se la muestra, que es una proyección. Se
-pregunta por lo que dice. Se detecta el cambio en donde estaba. Y lo que se muestra se genera:
-no se escribe dos veces.
+Así que hay tres clases de nodo, distintas y enlazadas: el de anclaje, que es dónde estaba algo
+afuera; el de significado, que es lo que se sabe; y el de proyección, que es una forma de
+decirlo. Se pregunta por lo que se sabe. Se detecta el cambio en el anclaje. Y lo que se
+muestra se genera: no se escribe dos veces.
 
 ## Familias
 

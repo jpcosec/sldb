@@ -20,17 +20,25 @@ Una cosa de la que se sabe algo. (P1)
 - Puede llevar contenido, y lo que lleva adentro puede a su vez tener relaciones. (P1)
 - No tiene un tipo obligatorio. Sus tipos son relaciones. (P5)
 
-Hay tres clases de nodo, según qué cara de una cosa llevan:
+Hay tres clases de nodo, y son nodos distintos, enlazados entre sí (JP, 2026-11-27):
 
-| Clase | Qué lleva | Para qué |
+| Clase | Qué lleva | Cómo nace |
 |---|---|---|
-| de anclaje | dónde está una parte afuera y qué se vio de ella | sentir el afuera |
-| de significado | lo que la parte dice | preguntar, relacionar, comprobar |
-| de proyección | una forma de mostrarlo, con sus reglas | sacar texto, vistas, archivos |
+| de anclaje | dónde está una parte afuera y qué se vio de ella | al anclar: un anclaje crea un solo nodo, este |
+| de significado | lo que se sabe: una afirmación del árbol de conocimiento | al juntar y sintetizar lo que dicen los anclajes |
+| de proyección | una forma de decirlo afuera, con sus reglas | al sacar o al reconocer un texto como derivado |
 
-**Lectura:** que sean tres clases de nodo y no tres aspectos de un mismo nodo. El whitepaper
-dice "tres aspectos que no se mezclan". Las dos formas cumplen los principios; cambia cuántos
-nodos nacen al marcar una parte.
+El paso de anclajes a conocimiento tiene etapas:
+
+1. **Anclar.** Cada parte marcada da un nodo de anclaje. Nada más.
+2. **Juntar.** Varios anclajes que dicen lo mismo se reúnen en un "las fuentes dicen".
+3. **Sintetizar.** De ahí se arma el árbol de conocimiento: los nodos de significado.
+
+Un mismo nodo de significado puede tener muchos anclajes. Una página web, las instrucciones de
+un asistente y un manual pueden traer la misma afirmación, y tiene que ser la misma. Entre esos
+textos uno suele ser la fuente y los otros derivaciones de ella. Cuando hay que cambiar la
+afirmación, el nodo de significado dice de inmediato en qué lugares está escrita, sin leer
+todos los documentos.
 
 ### Relación
 
@@ -161,7 +169,10 @@ Todo lo demás lo declara quien usa sldb.
 
 ## Sin decidir en este nivel
 
-- Si son tres clases de nodo o tres aspectos de uno.
+- Cómo se juntan los anclajes: quién dice que dos anclajes dicen lo mismo, y cuánto de eso
+  puede proponer una máquina. Por el principio 1, que dos cosas son la misma se declara.
+- Cómo se dice que un texto es fuente y otro derivación, y qué pasa cuando una derivación deja
+  de decir lo mismo que su fuente.
 - Si un nombre con partes (`a.b`) da por sí solo una relación entre `a.b` y `a`, o es solo una
   sugerencia hasta que alguien la declare.
 - Cómo se nombra un modelo que declara un store y usa otro.
