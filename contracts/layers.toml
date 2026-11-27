@@ -253,7 +253,7 @@ volverse otra cosa.
 [[axis]]
 id = "persistencia"
 ring = "0b"
-paths = ["store/io", "store/models", "store/layout.py"]
+paths = ["store/io", "store/models", "store/layout.py", "store/predicates.py"]
 external = []
 does = "guardar, indexar, fragmentar, hashear"
 identity = false
@@ -476,7 +476,7 @@ note = "aquí viven las decisiones que los diagnosticadores encontraron solo en 
 [[axis]]
 id = "federacion"
 ring = "2"
-paths = ["store/catalog.py", "store/link_path.py", "store/resolver.py", "store/facade.py", "store/query.py", "store/predicates.py"]
+paths = ["store/catalog.py", "store/link_path.py", "store/resolver.py", "store/facade.py", "store/query.py"]
 external = []
 does = "encontrar almacenes, resolver entre varios y ofrecer la fachada de consulta"
 identity = false
@@ -646,7 +646,7 @@ cuts = [
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
 needs = 25  # medido 2026-11-19 (H11b): consulta lee la caché de filas de documentos por cache_keys del índice de aristas (store/query_engine/document_rows_disk.py); antes 24. medido 2026-11-11 (secrest): lecturas de documentos trackeados por la guarda lectura_de_fuentes; antes 22. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
-needed_by = 51  # medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py lee el DAG semántico y los documentos por store/; antes 50. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 49. medido 2026-11-15 (D1): find_store de la sincronizacion de specs reutiliza store/resolver.py (vistas → federacion, api/notations/spec_refs.py); antes 48. medido 2026-11-15 (sldb mcp): el eje mcp lee por store/layout.py (cache_dir del log de señales); antes 47. medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
+needed_by = 50  # medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py lee el DAG semántico y los documentos por store/; antes 50. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 49. medido 2026-11-15 (D1): find_store de la sincronizacion de specs reutiliza store/resolver.py (vistas → federacion, api/notations/spec_refs.py); antes 48. medido 2026-11-15 (sldb mcp): el eje mcp lee por store/layout.py (cache_dir del log de señales); antes 47. medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
@@ -741,7 +741,7 @@ variedad: cualquier cambio en las unidades de abajo la obliga a cambiar.
 [[non_unit]]
 id = "enlaces"
 axes = ["enlaces"]
-needs = 5  # medido 2026-11-17 (scan de enlaces): el scan parsea con el markdown-it de superficie (links/scan_text.py → core/ast/markdown_ast_handler.py) y salta el código; antes 4. medido 2026-11-11 (secrest2): el resolver de enlaces chequea la guarda lectura_de_fuentes antes de resolver, y nombra el objetivo único con errores; antes 2.
+needs = 4  # medido 2026-11-17 (scan de enlaces): el scan parsea con el markdown-it de superficie (links/scan_text.py → core/ast/markdown_ast_handler.py) y salta el código; antes 4. medido 2026-11-11 (secrest2): el resolver de enlaces chequea la guarda lectura_de_fuentes antes de resolver, y nombra el objetivo único con errores; antes 2.
 needed_by = 0
 verdict = "capacidad sin superficie"
 why = """
