@@ -84,6 +84,11 @@ Lo que sí revisa: `docs recover --all` y `GET /lint` informan enlaces `unresolv
 `custom` (`src/sldb/links/audit.py:7-9`). El comando `lint` de la CLI no revisa `[[…]]`: solo
 rutas canónicas (`src/sldb/cli/commands/lint.py:1`).
 
+## Decidido
+
+JP, 2026-11-26: un enlace del texto es una relación más. Ver
+`../decisiones/el-kernel-sigue-la-logica-de-kimun.md`. Queda por escribir cómo entra al índice.
+
 ## Abierto
 
 - ¿Un enlace del texto es una arista más (entra al índice, con tipo y extremos) o una cosa

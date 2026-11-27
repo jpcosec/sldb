@@ -62,3 +62,8 @@ Correcciones al registro de ejes (`desk/drawer/plans/ejes-y-anillos-de-operacion
 `docs move` no existe (es `sldb move`); `edges rewrite` no cambia un `RelationDoc`; el `lint` de
 la CLI no revisa `[[…]]`; `move` reescribe `[texto](ruta)` y no `[[…]]`; `docs batch` no lee
 enlaces.
+
+## Decisiones
+
+- [La lógica del kernel de sldb es la de kimun](decisiones/el-kernel-sigue-la-logica-de-kimun.md):
+  fijado por JP el 2026-11-26; lista qué preguntas abiertas de las páginas de objeto contesta.

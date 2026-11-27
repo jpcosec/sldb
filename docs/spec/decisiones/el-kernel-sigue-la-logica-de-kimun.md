@@ -1,0 +1,63 @@
+# Decisión: la lógica del kernel de sldb es la de kimun
+
+Clase de página: decisión. Fecha: 2026-11-26. Estado: fijado por JP; las respuestas de la tabla
+dicen de quién es cada una.
+
+## Qué fijó JP (2026-11-26)
+
+- Todo lo que viene después va a envolver a kimun. Por eso la lógica de kernel que se escriba en
+  este spec tiene que ser la misma lógica de kimun.
+- kimun es solo nodos y relaciones. Los nodos son de tres clases: de anclaje, de significado y de
+  proyección. Las relaciones se tipan, y ahí caen herencia, transclusión, hook y las demás.
+- Un enlace del texto es una relación más.
+- Los modelos de documento son consecuencia y no principio, al revés que en sldb hoy. Es una
+  relajación que aprovecha que todo es Clojure: un Lisp es AST puro.
+
+## Preguntas abiertas del spec que esta lógica contesta
+
+Leído en `~/proyectos/kimun` (`370beaff`): `docs/v2/00-nucleo.md`, `docs/v2/14-juego-del-lenguaje.md`
+§18 y §21, `docs/v2/drafts/diseno-nucleo-sldb.md`. "Dueño" es texto de JP en kimun; "concilio" y
+"equipo" son inferencias registradas allá como tales; "borrador" es elección del borrador de kimun
+como núcleo de sldb, sin confirmar.
+
+| Página | Pregunta | Respuesta | Origen |
+|---|---|---|---|
+| nodo-documento | Qué lo identifica: nombre o ruta | Un id propio que nace al marcarlo y no cambia; la ruta es su anclaje. `Modelo:nombre` se conserva porque está escrito en las fuentes | dueño (identidad no es hash ni lugar); id opaco: concilio |
+| nodo-documento | Mover es cambiar o verbo aparte | Es re-anclar y se declara con motivo. El kernel no mueve archivos ni detecta movimientos | concilio |
+| nodo-documento | Borrar | Cerrar es una declaración con motivo. Que el archivo falte no lo borra: queda `missing` | concilio |
+| nodo-seccion | Identidad: camino de slugs o id estable | Id estable; el camino es el anclaje | concilio (sin implementar en kimun) |
+| nodo-seccion | Crear una sección que el modelo no declara | No es error ni ruido: queda en el archivo y no entra al grafo. Si importa, se especializa la clase | dueño (14 §18.2, §18.4) |
+| nodo-ancla | Nodo o arista con huella | Vínculo verificable entre un conocimiento y su soporte; no es identidad | dueño (núcleo 2.3) |
+| nodo-ancla | Cambiar un ancla `changed` | Releer es una observación nueva de la misma unidad; reapuntar es re-anclar y se declara | concilio |
+| nodo-ancla | Reconexión al renombrar el destino | No es automática: el sensor propone y la continuidad se declara. La pérdida no se oculta | dueño (núcleo 2.4), concilio |
+| nodo-ancla | Anclar sección o valor | Sí, en cada nivel: archivo, sección, campo | concilio |
+| nodo-campo-de-modelo | Renombrar un campo | Una unidad `missing` más una nueva | equipo |
+| nodo-campo-de-modelo | Cambiar el tipo con valores existentes | Una clase cambiada es otra clase; los documentos siguen en la original hasta reclasificarlos | dueño (núcleo 5.2) |
+| arista-estructural, arista-contains-y-composes | Aristas o proyecciones | Proyecciones derivadas del modelo al leer; no se escriben. Borrar una es cambiar la fuente | borrador |
+| arista-autorada | `RelationDoc` y campo de referencia: una cosa o dos | Una: son relaciones, con dos puertas | borrador |
+| arista-links-to, nodo-store | Declaración contra índice | Manda la declaración; lo reconstruible no tiene autoridad | dueño (núcleo 6.3) |
+| arista-semantic-parent, arista-semantic-equivalent | Dónde se guardan | En el store versionado, como relaciones; es curaduría explícita | dueño (núcleo 3.2) |
+| enlace-en-el-texto | Es una arista | Sí, una relación más | JP, 2026-11-26 |
+
+## Contestadas a medias
+
+- Borrar algo con dependientes: kimun no borra en cascada; lo que dependía se revisa y la pérdida
+  se declara. No dice si la operación se rechaza antes.
+- Aplicar una transición: calcular el resultado es una función pura; escribirlo en la fuente
+  depende de la pregunta de abajo.
+
+## No contestadas por kimun
+
+- Todo lo que es escribir la fuente (crear sobre un archivo que existe, parche por campo o
+  documento entero, escribir el Python de un modelo). Es la pregunta 2 del borrador de kimun, sin
+  contestar.
+- Elemento de lista por posición o por clave.
+- Borrar o renombrar un tipo de relación, renombrar un tag, simetría de la equivalencia.
+
+## Consecuencias para este spec, sin hacer
+
+- Las páginas de objeto están ordenadas con el modelo como principio (store, modelo, campo,
+  documento, sección). Con esta lógica el orden es nodos de anclaje, de significado y de
+  proyección, más tipos de relación, y el modelo se deriva.
+- kimun separa el modelo de lectura del de generación y la ida y vuelta idéntica deja de ser
+  obligación (14 §18.7, dueño). sldb usa hoy una plantilla para las dos direcciones.
