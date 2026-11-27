@@ -75,7 +75,11 @@ Deja afuera: un sistema cuya unidad sea el archivo, y unir cosas porque se llama
 El texto, hablado o escrito, es signo. El grafo de conocimiento es símbolo. La correspondencia
 entre los dos es arbitraria: un mismo grafo se dice con muchos textos y un texto admite más de
 un grafo. Lo que los une es un juego con sus reglas. Y el grafo tampoco es "la cosa misma": es
-también una proyección, como el texto, con otro conjunto de reglas. Cada proyección dice con
+también una proyección, como el texto, con otro conjunto de reglas. Los dos proyectan lo mismo:
+los hechos, que están en el espacio lógico y no en ningún soporte. El texto los dice con las
+reglas de un idioma y un formato; el grafo, con las de nodos y relaciones. El grafo tiene
+identidad propia no por ser más verdadero, sino porque es la proyección sobre la que el sistema
+opera: ahí se nombra, se enlaza y se consulta. Cada proyección dice con
 qué reglas se hace, y por eso se puede comprobar volviendo.
 Viene de: Wittgenstein (signo y símbolo; juegos del lenguaje).
 Deja afuera: tratar un texto como si fuera el conocimiento, o el grafo como si fuera la

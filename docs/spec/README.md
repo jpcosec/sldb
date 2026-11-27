@@ -12,7 +12,9 @@ El spec tiene tres niveles (JP, 2026-11-27):
 2. **sldb como declaración de sistema**: [`principios/README.md`](principios/README.md). Qué es
    el sistema, dicho desde esos principios: adentro, afuera y sensores, entrar y salir,
    familias, qué pasa cuando el afuera se mueve.
-3. **Técnicas, capacidades y estructuras de datos**: todo lo demás de esta carpeta.
+3. **Técnicas, capacidades y estructuras de datos**: todo lo demás de esta carpeta. Lo que ya
+   está escrito como objetivo: [`estructuras.md`](estructuras.md). Las páginas de objeto
+   describen el sldb de hoy y son insumo del documento de diferencias, que va al final.
 
 Para revisar una pieza o una página contra los principios:
 [`principios/criterios.md`](principios/criterios.md). Lo conversado que todavía no existe:

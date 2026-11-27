@@ -7,9 +7,9 @@ tres por separado.
 
 ## Del modelo (niveles 1 y 2)
 
-1. **De qué son proyección el texto y el grafo.** El principio 2 dice que el grafo es símbolo y
-   también una proyección, como el texto. No dice de qué. Y el whitepaper le da al grafo
-   identidad propia, lo que no calza con que sea una proyección más.
+1. **De qué son proyección el texto y el grafo.** Cerrado por JP el 2026-11-27: de los hechos,
+   que están en el espacio lógico y no en ningún soporte. El grafo tiene identidad propia porque
+   es la proyección sobre la que el sistema opera, no por ser más verdadero.
 2. **Cómo queda dicho que algo se quitó.** "Borrar es declarar que se borró" no dice si eso es
    una relación nueva, un estado del nodo o un hecho encima, ni qué ve una consulta sobre lo
    quitado. Lo preguntaron los tres.

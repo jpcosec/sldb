@@ -27,8 +27,9 @@ Tiene un adentro y un afuera. Adentro hay nodos y relaciones. Afuera están los 
 siguen siendo archivos comunes. Lo que une las dos cosas son sensores: puntos donde un nodo de
 adentro está atado a una parte de un archivo, y por donde se entera de que esa parte cambió.
 
-El grafo no es la realidad del proyecto ni reemplaza a sus textos. Es otra forma de decir lo
-mismo, con otras reglas, que se deja consultar.
+El grafo no es la realidad del proyecto ni reemplaza a sus textos. Los textos y el grafo dicen
+lo mismo, los hechos del proyecto, cada uno con sus reglas. El grafo es la forma sobre la que
+sldb opera: ahí se nombra, se enlaza y se consulta.
 
 Lo que se hace con sldb se hace adentro: preguntar, relacionar, comprobar, cambiar. Y lo que hay
 adentro se puede volver a sacar, como el mismo archivo del que salió o de otra forma.
