@@ -97,3 +97,7 @@ ruta dentro de un documento (`payload_path_reading.deep_get` con puntos y
 `segments/payload_values.value_at` con barras); `docs update` que no pasa por
 `save_document_payload`; y la contención, que da identidad a un ítem, junto a la dirección por
 posición que la ignora.
+
+## Mecanismos
+
+- [Los anillos](mecanismos/anillos.md): reparto de los 32 ejes del repo, propuesta sin confirmar.
