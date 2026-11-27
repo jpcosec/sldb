@@ -20,13 +20,34 @@ Una cosa de la que se sabe algo. (P1)
 - Puede llevar contenido, y lo que lleva adentro puede a su vez tener relaciones. (P1)
 - No tiene un tipo obligatorio. Sus tipos son relaciones. (P5)
 
-Hay tres clases de nodo, y son nodos distintos, enlazados entre sí (JP, 2026-11-27):
+Los nodos son de clases distintas, y puede haber muchas (JP, 2026-11-27). La clase de un nodo
+es el papel que cumple en el camino entre las fuentes y lo que se sabe. No es una lista
+cerrada: una clase es un tipo como cualquier otro (P5), y un proyecto puede declarar las suyas.
+
+Las tres que los niveles 1 y 2 nombran:
 
 | Clase | Qué lleva | Cómo nace |
 |---|---|---|
 | de anclaje | dónde está una parte afuera y qué se vio de ella | al anclar: un anclaje crea un solo nodo, este |
 | de significado | lo que se sabe: una afirmación del árbol de conocimiento | al juntar y sintetizar lo que dicen los anclajes |
 | de proyección | una forma de decirlo afuera, con sus reglas | al sacar o al reconocer un texto como derivado |
+
+El Zettelkasten sirve de ejemplo de cómo conviven más clases, cada una con su papel. No es el
+diseño de sldb: es la forma de pensarlo.
+
+| En un Zettelkasten | Papel | Lo que sería en sldb |
+|---|---|---|
+| ficha bibliográfica | dice de qué fuente se trata | el nodo de una fuente entera |
+| nota de lectura | lo que dice una fuente, en un lugar preciso | nodo de anclaje |
+| nota pasajera | una idea suelta, para desechar o pasar en limpio | algo propuesto, todavía sin declarar |
+| nota permanente | una idea propia, una sola, enlazada con otras | nodo de significado |
+| nota de estructura | reúne y ordena notas sobre un tema | "las fuentes dicen"; un modelo; una vista |
+| entrada del registro | una palabra con pocos puntos de entrada | un tipo por lo que algo es |
+| manuscrito | lo que se escribe desde las notas | nodo de proyección |
+
+Lo que enseña el ejemplo: las clases no forman una jerarquía, forman un recorrido. Una nota
+pasa de una clase a otra, o da origen a una de otra clase, y lo que las une son enlaces. Y hay
+clases cuyo único trabajo es ordenar a las demás.
 
 El paso de anclajes a conocimiento tiene etapas:
 
@@ -169,6 +190,7 @@ Todo lo demás lo declara quien usa sldb.
 
 ## Sin decidir en este nivel
 
+- Qué clases de nodo trae sldb además de las tres nombradas, y cuáles declara cada proyecto.
 - Cómo se juntan los anclajes: quién dice que dos anclajes dicen lo mismo, y cuánto de eso
   puede proponer una máquina. Por el principio 1, que dos cosas son la misma se declara.
 - Cómo se dice que un texto es fuente y otro derivación, y qué pasa cuando una derivación deja
