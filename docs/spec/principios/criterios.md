@@ -339,8 +339,9 @@ abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
 - A2. **Qué se puede hacer con una fuente sin modelo** (toca 3.1). Se puede observar el párrafo
    antes de darle un modelo. Al registrarlo, ¿pertenece igual a alguna clase general, o a
    ninguna?
-- A3. **Qué queda igual al escribir de vuelta** (toca 1.3). Si editar una fuente tiene que dejar
-   idéntico todo lo que no se tocó, y si eso vale también al generar un texto nuevo.
+- A3. **Qué queda igual al escribir de vuelta**: cerrado por JP el 2026-11-27. Proyectar por la
+   estructura que el documento tenía al entrar lo devuelve tal como estaba. Otras proyecciones no
+   prometen eso.
 - A4. **Partes que el modelo no declara** (toca 1.2 y 3.1). Si un documento con modelo trae una
    sección que el modelo no conoce, ¿es un error o una parte que no se sigue?
 - A5. **Reconectar un ancla** (toca 6.2 y 6.3). Si la función cambió de nombre y hay un solo
@@ -349,9 +350,9 @@ abiertos, las proposiciones que tocan valen en lo que no dependa de ellos.
    contiene este párrafo". ¿Pedir borrarla se rechaza o se traduce en editar la fuente?
 - A7. **Quién ejecuta** (toca 4.1). Si sldb dispara la ejecución cuyo resultado ancla, o solo ancla
    un resultado que se produjo afuera.
-- A8. **Dónde se escribe lo declarado** (toca 1 y 5). Hoy una relación o una regla declarada es
-   ella misma un documento del proyecto, es decir, otra fuente. Falta decir si eso es un
-   principio o solo la forma actual.
+- A8. **Dónde se escribe lo declarado**: cerrado por JP el 2026-11-27. Lo declarado vive adentro, como
+   nodos y arcos. Un documento marcado por completo también vive adentro; su archivo es una de
+   sus proyecciones. Ver el whitepaper, "Entrar y volver a salir".
 - A9. **Borrar contra reglas** (toca 6.1 y 7.1). Borrar algo con dependientes no se rechaza. Pero si
    ese borrado deja incumplida una regla del proyecto, ¿se rechaza por la regla, o se borra y la
    regla queda en error a la vista?

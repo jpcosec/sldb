@@ -69,17 +69,23 @@ Con partes y relaciones se arma un grafo, y sldb no tiene nada más que eso. Un 
 o una vista también se expresan como partes y relaciones. Lo importante de una parte no es ella
 misma: son sus relaciones.
 
-**Tres caras de una parte.** De una misma parte hay tres cosas distintas que conviene no
-mezclar:
+**Entrar y volver a salir.** Marcar una parte la hace entrar: lo que dice pasa a ser un nodo
+de adentro. Se puede marcar poco o mucho. Un documento marcado por completo vive adentro, como
+los nodos que se tomaron de él.
 
-- dónde está en su fuente y cómo se la encuentra de nuevo (su anclaje);
-- qué dice (su significado);
-- cómo se muestra (su proyección).
+Lo que está adentro se puede volver a mostrar de muchas formas, y cada forma es una proyección.
+Una de ellas es especial: proyectar por la misma estructura que el documento tenía al entrar.
+Esa proyección devuelve el documento tal como estaba. Por ahí se recupera una sección, y por
+ahí se la modifica: se cambia el nodo y se proyecta de nuevo a su archivo.
 
-El párrafo del ejemplo está en cierto lugar de cierto archivo, dice que el precio incluye el
-impuesto, y se puede mostrar tal como fue escrito, o como una fila de una tabla, o como una caja
-en un diagrama. Las preguntas se hacen sobre lo que dice. Los cambios se detectan en donde está.
-Y lo que se muestra se genera, no se escribe dos veces.
+Entonces hay tres cosas que conviene no mezclar: dónde estaba una parte en su fuente (su
+anclaje), qué dice (su significado), y cómo se muestra (una proyección). Las preguntas se hacen
+sobre lo que dice. Los cambios se detectan en donde estaba. Y lo que se muestra se genera.
+
+Un modelo es eso mismo visto desde una familia de documentos. Cuando varios comparten
+estructura, esa estructura se declara una vez, y sirve para las dos cosas: para saber qué partes
+tomar al entrar y para proyectarlos al salir. Por eso un modelo no es requisito para leer una
+fuente: es lo que se obtiene cuando varias se parecen.
 
 **El store.** Lo que sldb registra de un proyecto se llama store. No es una copia del proyecto.
 Tiene tres clases de cosas y cada una vale distinto:
@@ -149,6 +155,11 @@ cada vez que alguien intenta escribir.
 
 Si los archivos son el dato, varias cosas dejan de ser opcionales.
 
+**Un cambio viaja.** Como el documento está sensorizado, se sabe qué parte cambió. Y como
+adentro todo son relaciones, se sabe qué nodos tienen un camino desde esa parte. Esos son los
+que hay que actualizar o revisar, y es ahí donde aparecen las contradicciones y los errores: un
+párrafo que ya no calza con su función, una regla que dejó de cumplirse.
+
 **Manda la fuente.** sldb puede tener el contenido de lo que sigue, y lo necesita para responder
 y para generar. Pero es una observación, y una observación puede estar vieja. Por eso las fuentes
 pueden cambiar por fuera de sldb sin que eso sea un daño: es un cambio que hay que ver. Y por eso
@@ -213,18 +224,13 @@ apoya lo que otro escribió, sin tener que creerle.
 
 Hay cosas que este texto usa y no resuelve.
 
-1. **Dónde vive lo declarado.** Una relación o una regla declarada puede ser ella misma un
-   documento más del proyecto, es decir otra fuente, o vivir solo en el store. Lo primero hace
-   que el proyecto tenga archivos que existen por sldb; lo segundo, que dejar sldb pierda algo.
-2. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
+1. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
    dependientes. Pero si ese borrado deja incumplida una regla del proyecto, las dos cosas
    chocan.
-3. **Qué se le garantiza a un archivo al escribir en él.** Si todo lo que no se tocó queda
-   idéntico.
-4. **Qué compromiso asume un modelo.** Si un documento con modelo trae una sección que el modelo
+2. **Qué compromiso asume un modelo.** Si un documento con modelo trae una sección que el modelo
    no conoce, eso es un error o simplemente una parte que no se sigue. Y si una fuente sin
    modelo pertenece igual a alguna clase general.
-5. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
+3. **Cuánto decide sldb solo.** Si una función cambió de nombre y hay una sola candidata, sldb
    reconecta el ancla y avisa, o propone y espera.
-6. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
+4. **Quién ejecuta.** Una afirmación puede apoyarse en un resultado ("la prueba pasa"). Falta
    decir si sldb corre esa ejecución o solo ancla un resultado producido afuera.
