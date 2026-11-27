@@ -13,6 +13,18 @@ dicen de quién es cada una.
 - Los modelos de documento son consecuencia y no principio, al revés que en sldb hoy. Es una
   relajación que aprovecha que todo es Clojure: un Lisp es AST puro.
 
+## Qué precisó JP después (2026-11-26)
+
+- **El store es una clase de grafos**, nada más. kimun, por ser Lisp, es homoicónico: lo mismo es
+  dato y es código.
+- **Falta definir la persistencia.** JP lo nombra como el gran problema abierto.
+- **El modelo no es un objeto del spec.** Un documento nunca entra crudo, siempre como AST. Los
+  nodos del AST tienen propiedades, que al final también son relaciones, y a grandes rasgos se
+  separan en semánticas y estructurales. Además un nodo puede llevar un hash como propiedad (para
+  un árbol de Merkle), un anclaje de referencia a un blob de git, y otras.
+- **De dónde sale un modelo**: una familia de documentos que comparten en su AST las propiedades
+  estructurales es un modelo como los de sldb, y ese modelo se puede declarar como un AST tipado.
+
 ## Preguntas abiertas del spec que esta lógica contesta
 
 Leído en `~/proyectos/kimun` (`370beaff`): `docs/v2/00-nucleo.md`, `docs/v2/14-juego-del-lenguaje.md`
