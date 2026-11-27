@@ -99,16 +99,16 @@ upward = [
 # sigue existiendo y está declarado arriba como lo que impide extraer el núcleo.
 # Esto es la diferencia entre resolver y reclasificar, y conviene no confundirlas.
 
-[[pending]]
+[[done]]
 id = "R1"
 edge = "core → runtime"
 at = "src/sldb/core/renderer_engine/python_expr.py#L5"
 imports = "runtime.config.python_expression_is_allowed"
 cycle_weight = "core→runtime: 1 arista · runtime→core: 4 aristas"
-repair = """
-El núcleo pregunta a la configuración si puede evaluar una expresión. Invertir:
-que quien llama pase el permiso como argumento. El núcleo no debe consultar
-estado global para decidir qué le está permitido.
+repaired = """
+Hecho. `config.py` (el permiso de evaluar una expresión al renderizar) no depende de
+nada y solo lo consulta el renderizador: pasó a `core/renderer_engine/config.py`.
+`sldb.configure` sigue siendo la misma función; cambió el módulo que la define.
 """
 
 [[done]]
@@ -241,13 +241,13 @@ id = "runtime"
 ring = "1"
 paths = ["runtime"]
 external = []
-does = "la configuración que decide qué se permite al renderizar, y la validación que une modelo con texto"
+does = "la validación que une modelo con texto"
 identity = true
 note = """
 Pequeño y de identidad: `extract_model_data` es la operación que convierte texto
-en un modelo validado, que es la mitad del contrato del sistema. `config` decide
-si una expresión puede evaluarse. Tres archivos que ningún eje puede absorber sin
-volverse otra cosa.
+en un modelo validado, que es la mitad del contrato del sistema. Un archivo de
+identidad que ningún eje puede absorber sin volverse otra cosa (la configuración de
+evaluación pasó a `core/renderer_engine/config.py`).
 """
 
 [[axis]]
@@ -633,12 +633,11 @@ seguía: mover un archivo cambia de sitio el problema sin resolverlo.
 """
 
 [nucleo_min_cut]
-edges = 4
-total_weight = 6
+edges = 3
+total_weight = 5
 cuts = [
   { edge = "superficie → render", at = "core/segments/instrumented_render.py#L16", imports = "SLDBRenderer", weight = 3, note = "un render instrumentado dentro del eje de superficie: está del lado equivocado" },
   { edge = "representacion → superficie", at = "core/node_handler.py#L3", imports = "SharedNodeHandler", weight = 1, note = "una pieza de representación que conoce al que la va a manejar" },
-  { edge = "render → runtime", at = "core/renderer_engine/python_expr.py#L5", imports = "python_expression_is_allowed", weight = 1, note = "es R1" },
   { edge = "contrato → runtime", at = "models/structured_doc.py#L67", imports = "extract_model_data", weight = 1, note = "es R3; import diferido" },
 ]
 

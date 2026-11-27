@@ -567,10 +567,6 @@ file = "core/renderer.py"
 module = "models.structured_doc"
 
 [[import]]
-file = "core/renderer_engine/python_expr.py"
-module = "runtime.config"
-
-[[import]]
 file = "models/structured_doc.py"
 module = "runtime.validation"
 

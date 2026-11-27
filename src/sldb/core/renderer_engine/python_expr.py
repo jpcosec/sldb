@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from sldb.runtime.config import python_expression_is_allowed
+from sldb.core.renderer_engine.config import python_expression_is_allowed
 
 
 class PythonExpressionRenderer:
