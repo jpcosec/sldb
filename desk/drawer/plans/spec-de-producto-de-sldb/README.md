@@ -134,6 +134,22 @@ Hoy existe parte de 1 y 2 a pedido: `stores check` clasifica hallazgos y la pol�
 - Cuál motor: abierto. El criterio de JP es preparar la llegada de kimun. kimun no declara hoy
   ningún motor Datalog en sus dependencias.
 
+## 8b. Fuentes, hooks, persistencia y motor (JP, 2026-11-27)
+
+- sldb puede llegar a escribir código, no solo Markdown: es el caso fácil de lo que ya hace. El
+  spec vale para Markdown y para código.
+- No todo documento necesita modelo (kimun; sldb ya lo considera con el grafo de proyecto y la
+  lectura de código). Lectura: el anillo 0 trabaja con fuentes como árbol, con o sin modelo;
+  validar contra el modelo y correr reglas es anillo 1 siempre, también al escribir.
+- Hooks: algo propuesto antes y nunca cumplido es que un valor hasheado puede venir de ejecutar
+  algo y anclar su resultado. kimun lo nombra como ancla de evaluación (`14 §7`, motores `sci`,
+  `shell:CMD`, `llm:`; no implementado allá). Sin diseñar aquí.
+- Persistencia y caché hay que verlas ahora: en el corto plazo sldb tiene que poder correr sobre
+  Postgres.
+- Para el grafo conviene adoptar un motor externo de inmediato, sin esperar. Esto reabre P1; la
+  propuesta que había (Cozo con sqlite, `desk/drawer/plans/grafo-datalog-daemon/`) es anterior
+  al requisito de Postgres.
+
 ## 9. Los plugins
 
 - deskops y specIR son plugins (JP, 2026-11-25).
