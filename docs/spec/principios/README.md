@@ -1,8 +1,7 @@
 # sldb
 
-Estado: borrador, sin aprobar. Este texto explica qué es sldb y por qué es así. No describe
-cómo está construido. De él se desprende una lista de criterios para revisar el spec, que está
-aparte en `criterios.md`; lo que falta decidir está al final.
+Borrador, sin aprobar. Este texto explica qué es sldb y por qué es así. No describe cómo está
+construido ni en qué estado está.
 
 ## El problema
 
@@ -174,7 +173,7 @@ usuario dejaría de servirle al segundo.
 
 ## Para qué se usa
 
-Tres usos que existen hoy, todos declarados encima de sldb por otros proyectos:
+Tres usos, todos declarados encima de sldb por quien lo usa:
 
 - **Llevar el trabajo de un equipo.** Cada tarea es un documento. El equipo declara qué campos
   tiene una tarea, por qué estados pasa y qué reglas cumple. El tablero se genera.
@@ -194,20 +193,6 @@ apoya lo que otro escribió, sin tener que creerle.
 - No es un generador de documentación. Genera, pero como consecuencia de saber, no como fin.
 - No es un juez. Dice si lo registrado es consistente y si su soporte cambió, no si es cierto.
 
-## Lo que este texto describe y lo que hay hoy
-
-Esto es cómo tiene que ser sldb, no cómo es. El sldb de hoy nació como una herramienta para
-documentos con plantilla, y de ahí vienen sus distancias con este texto. Las más grandes:
-
-- El código no entra como árbol de partes igual que los documentos. Entra por otro camino, como
-  una lista de hechos.
-- Para seguir un documento todavía hay que declararle un modelo antes.
-- Los enlaces escritos dentro de un texto no aparecen junto a las demás relaciones.
-- Hay entradas que escriben sin comprobar las reglas.
-- Borrar algo no deja marcado lo que dependía de ello.
-
-El detalle, criterio por criterio, está en `criterios.md`.
-
 ## Lo que falta decidir
 
 Hay cosas que este texto usa y no resuelve. La primera es la más seria, porque sin ella lo demás
@@ -217,8 +202,9 @@ no se puede construir.
    archivo o se renombra una función, algo tiene que permitir decir "es la de antes". No puede
    ser su huella, que cambia al editarla, ni su posición, que cambia al insertar algo. Y no
    debería exigir escribir nada en el archivo.
-2. **Dónde vive lo declarado.** Hoy una relación o una regla declarada es un documento más del
-   proyecto. Falta saber si eso es parte de la idea o solo la forma actual.
+2. **Dónde vive lo declarado.** Una relación o una regla declarada puede ser ella misma un
+   documento más del proyecto, es decir otra fuente, o vivir solo en el store. Lo primero hace
+   que el proyecto tenga archivos que existen por sldb; lo segundo, que dejar sldb pierda algo.
 3. **Qué pasa cuando un borrado rompe una regla.** Borrar no se rechaza porque haya
    dependientes. Pero si ese borrado deja incumplida una regla del proyecto, las dos cosas
    chocan.

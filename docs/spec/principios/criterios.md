@@ -8,6 +8,20 @@ Cada criterio trae su por qué, un caso que rechaza, y si hoy se cumple. Usan el
 whitepaper: un párrafo que dice "el precio incluye el impuesto" y se apoya en la función que
 calcula el precio.
 
+## La distancia con el sldb de hoy
+
+El whitepaper dice cómo tiene que ser sldb, no cómo es. El sldb de hoy nació como una herramienta para
+documentos con plantilla, y de ahí vienen sus distancias con él. Las más grandes:
+
+- El código no entra como árbol de partes igual que los documentos. Entra por otro camino, como
+  una lista de hechos.
+- Para seguir un documento todavía hay que declararle un modelo antes.
+- Los enlaces escritos dentro de un texto no aparecen junto a las demás relaciones.
+- Hay entradas que escriben sin comprobar las reglas.
+- Borrar algo no deja marcado lo que dependía de ello.
+
+El detalle está en el "Hoy" de cada criterio.
+
 ## Las proposiciones
 
 Las proposiciones 1.1, 1.2 y 1.3 comentan a la 1, y así en cada grupo. Cada una trae su **por qué**, que sirve para decidir un caso
