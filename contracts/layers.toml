@@ -235,7 +235,7 @@ note = "es *la* idea del sistema; sin esto lo que queda es un conversor de forma
 [[axis]]
 id = "render"
 ring = "0a"
-paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py"]
+paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py", "core/template_payload.py"]
 external = ["jinja2"]
 does = "árbol a texto reversible; sin esto la representación es un volcado, no un lugar donde trabajar"
 identity = true
