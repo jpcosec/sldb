@@ -15,8 +15,8 @@ flowchart TD
         end
     end
     subgraph Adentro ["Adentro (nodos y relaciones)"]
-        NodoParrafo["Nodo: lo que dice el párrafo"]
-        NodoFuncion["Nodo: lo que hace la función"]
+        NodoParrafo["Nodo de anclaje del párrafo: dónde estaba y qué se vio"]
+        NodoFuncion["Nodo de anclaje de la función: dónde estaba y qué se vio"]
     end
     NodoParrafo -->|"se apoya en"| NodoFuncion
     NodoParrafo -->|"sensor"| Parrafo

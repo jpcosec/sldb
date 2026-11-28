@@ -35,16 +35,16 @@ Lo que se hace con sldb se hace adentro: preguntar, relacionar, comprobar, cambi
 adentro se puede volver a sacar, como el mismo archivo del que salió o de otra forma.
 
 El resto de este texto recorre eso en orden: qué hay adentro, cómo se toca con el afuera, cómo
-entra y sale algo, cómo aparecen los tipos, y qué pasa cuando el afuera se mueve. Se usa un solo
-ejemplo: un proyecto con una función que calcula un precio, y un documento de diseño con un
-párrafo que dice "el precio incluye el impuesto".
+entra y sale algo, cómo aparecen los tipos, y qué pasa cuando el afuera se mueve. El ejemplo
+principal es un proyecto con una función que calcula un precio, y un documento de diseño con un
+párrafo que dice "el precio incluye el impuesto". Más adelante aparecen otros dos.
 
 ## Adentro
 
-Adentro hay nodos y relaciones entre nodos, y nada más. Un nodo es una cosa de la que se sabe
+Adentro hay nodos, relaciones entre nodos, y hechos sobre unos y otros. Nada más. Un nodo es una cosa de la que se sabe
 algo: lo que dice un párrafo, lo que hace una función, una tarea, una decisión. Una relación une
 dos nodos y tiene un tipo: este párrafo se apoya en esta función, esta sección contiene a este
-párrafo, esta tarea responde a esta decisión. Sobre nodos y relaciones hay hechos: quién declaró
+párrafo, esta tarea responde a esta decisión. Un hecho es lo que se dice de un nodo o de una relación: quién declaró
 esto, cuándo se vio aquello, que tal cosa cambió.
 
 Un nodo puede llevar cosas adentro, y esas cosas también pueden tener relaciones. Lo que el
@@ -90,8 +90,8 @@ flowchart TD
         end
     end
     subgraph Adentro ["Adentro (nodos y relaciones)"]
-        NodoParrafo["Nodo: lo que dice el párrafo"]
-        NodoFuncion["Nodo: lo que hace la función"]
+        NodoParrafo["Nodo de anclaje del párrafo: dónde estaba y qué se vio"]
+        NodoFuncion["Nodo de anclaje de la función: dónde estaba y qué se vio"]
     end
     NodoParrafo -->|"se apoya en"| NodoFuncion
     NodoParrafo -->|"sensor"| Parrafo
@@ -104,8 +104,8 @@ el control de versiones.
 
 De aquí sale qué quiere decir "la misma parte". Una parte sin marcar no tiene continuidad ni la
 necesita: se la nombra por dónde está, y si se mueve, ese lugar nombra lo que haya ahí ahora. Lo
-que persiste es el nodo. Si la función cambia de lugar, lo que se actualiza es el "dónde" de su
-nodo.
+que persiste es el nodo. Si la función cambia de lugar, el nodo sigue siendo el mismo; su
+"dónde" se actualiza cuando alguien la ancla de nuevo.
 
 Un ancla no es un enlace. Un enlace dice "esto se refiere a aquello" y sigue funcionando aunque
 aquello ya diga otra cosa. Un ancla recuerda qué decía, y por eso puede notar que cambió.
@@ -157,7 +157,8 @@ decidir qué acepta. Parte de lo que entró y mira qué comparte.
 
 **Por la forma.** Si varios documentos entraron con exactamente la misma estructura, hay un
 modelo en común: "esto es un reporte de tal clase". El modelo no se les impuso; es el nombre de
-lo que ya compartían. Sirve hacia los dos lados: dice qué tomar al entrar y cómo proyectar al
+lo que ya compartían. Un proyecto también puede declarar un modelo antes de tener documentos,
+como declara cualquier otra cosa, pero nunca es la puerta de entrada. Sirve hacia los dos lados: dice qué tomar al entrar y cómo proyectar al
 salir. Si otros documentos son iguales salvo por una parte de más, son una variación de ese
 modelo. Y con eso aparece lo conocido: una variación hereda de su modelo, documentos distintos
 se tratan como el mismo en lo que comparten, un modelo se arma juntando otros. Herencia, clases,
@@ -256,7 +257,7 @@ relaciones.
 
 ## Para qué se usa
 
-Tres usos, todos declarados encima de sldb por quien lo usa:
+Cinco usos, todos declarados encima de sldb por quien lo usa:
 
 - **Llevar el trabajo de un equipo.** Cada tarea es un documento. El equipo declara qué campos
   tiene una tarea, por qué estados pasa y qué reglas cumple. El tablero se genera.

@@ -34,10 +34,10 @@ data:
         - NodoParrafo
         - NodoFuncion
     NodoParrafo:
-      label: "Nodo: lo que dice el párrafo"
+      label: "Nodo de anclaje del párrafo: dónde estaba y qué se vio"
       kind: core
     NodoFuncion:
-      label: "Nodo: lo que hace la función"
+      label: "Nodo de anclaje de la función: dónde estaba y qué se vio"
       kind: core
 
   edges:
