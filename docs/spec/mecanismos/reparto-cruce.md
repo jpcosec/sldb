@@ -73,3 +73,45 @@ está dicha con precisión todavía.
 3. Si diagnóstico y declaración del store son un módulo o dos.
 4. Si editar el código de un modelo va aparte o con modelos.
 5. Qué es `api/records`: 18 archivos que ninguno de los dos pudo ubicar con claridad.
+
+## Segunda pasada, con el kernel de ocho módulos
+
+Después de que JP fijó el criterio del kernel (lo que si falta, sldb deja de ser sldb; módulos
+con frontera), se volvió a clasificar con Jev usando los ocho módulos de `modulos.md`, cada uno
+con lo que hace y lo que no hace. Se separaron además "lotes y transacciones" y "código de un
+modelo", que el agente había propuesto. Datos en `reparto-jev-2.json`.
+
+| Destino | Archivos | Líneas |
+|---|---|---|
+| Documentos con modelo | 64 | 3.570 |
+| Administración del store | 50 | 3.294 |
+| Grafo de proyecto | 40 | 1.891 |
+| Modelos | 26 | 1.035 |
+| Código de un modelo | 23 | 1.381 |
+| Reglas, estados y política | 22 | 1.297 |
+| **Kernel: Grafo** | 21 | 998 |
+| Lotes y transacciones | 14 | 908 |
+| Relaciones declaradas | 13 | 626 |
+| **Kernel: Anclaje** | 12 | 621 |
+| Lo que se hace con git | 11 | 606 |
+| Varios stores y migración | 11 | 715 |
+| Notaciones y vistas | 11 | 579 |
+| Semántica | 7 | 338 |
+| **Kernel: Proyección, Árboles, Consulta, Sostén, Acción, Puertos** | 10 entre todos | 591 |
+| Caras, fachadas y otros | 20 | 763 |
+
+Lo que cambia con la frontera dicha:
+
+- **El kernel dentro del bloque operación baja de 58 archivos a 43**, unas 2.200 líneas de
+  17.000. Casi todo lo que hay en operación es librería.
+- **Lotes y transacciones sale limpio**: 14 archivos, confianza 0,85. Es un módulo.
+- **Código de un modelo también**: 23 archivos.
+- **Consulta, Árboles, Proyección, Sostén y Acción casi no tienen código en este bloque.** Es
+  coherente: Consulta y Árboles viven en otros ejes, y Sostén y Acción no existen. De Sostén
+  aparece un solo archivo, `api/edges/referrers.py` (quién se refiere a qué), y de Acción uno,
+  `api/edges/apply_effects.py`, que además solo lo usa una prueba.
+- **Puertos tiene un archivo**, `store/package_version.py`. Confirma que la interfaz con lo de
+  afuera no existe como pieza.
+
+Queda sin hacer: la misma clasificación sobre los otros 25 ejes, que es donde están el resto
+del kernel (árboles, grafo, consulta) y las cimas.

@@ -1,0 +1,4972 @@
+[
+ {
+  "file": "api/actor.py",
+  "axis": "op_documentos",
+  "lines": 25,
+  "module": "face",
+  "confidence": 0.4,
+  "top3": {
+   "face": 0.42,
+   "kernel_ports": 0.25,
+   "kernel_graph": 0.16
+  },
+  "fits": 0.37,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/anchors/anchor_docs.py",
+  "axis": "anclaje",
+  "lines": 64,
+  "module": "kernel_anchoring",
+  "confidence": 0.89,
+  "top3": {
+   "kernel_anchoring": 0.89,
+   "lib_documents": 0.09,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.82,
+  "mixed": 0.18
+ },
+ {
+  "file": "api/anchors/anchor_report.py",
+  "axis": "anclaje",
+  "lines": 52,
+  "module": "kernel_anchoring",
+  "confidence": 0.76,
+  "top3": {
+   "kernel_anchoring": 0.77,
+   "lib_rules_states_policy": 0.08,
+   "lib_store_admin": 0.06
+  },
+  "fits": 0.72,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/anchors/check_anchors.py",
+  "axis": "anclaje",
+  "lines": 64,
+  "module": "kernel_anchoring",
+  "confidence": 0.97,
+  "top3": {
+   "kernel_anchoring": 0.97,
+   "lib_store_admin": 0.03,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.15
+ },
+ {
+  "file": "api/anchors/check_doc_anchors.py",
+  "axis": "anclaje",
+  "lines": 76,
+  "module": "lib_store_admin",
+  "confidence": 0.46,
+  "top3": {
+   "lib_store_admin": 0.48,
+   "kernel_anchoring": 0.47,
+   "kernel_support": 0.02
+  },
+  "fits": 0.86,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/anchors/reconnect.py",
+  "axis": "anclaje",
+  "lines": 48,
+  "module": "kernel_anchoring",
+  "confidence": 0.97,
+  "top3": {
+   "kernel_anchoring": 0.97,
+   "lib_relations": 0.03,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.88,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/anchors/record_anchor.py",
+  "axis": "anclaje",
+  "lines": 60,
+  "module": "kernel_anchoring",
+  "confidence": 0.94,
+  "top3": {
+   "kernel_anchoring": 0.94,
+   "lib_code_to_docs": 0.05,
+   "lib_project_graph": 0.01
+  },
+  "fits": 0.87,
+  "mixed": 0.22
+ },
+ {
+  "file": "api/anchors/resolve_pointers.py",
+  "axis": "anclaje",
+  "lines": 108,
+  "module": "kernel_anchoring",
+  "confidence": 0.5,
+  "top3": {
+   "kernel_anchoring": 0.52,
+   "lib_code_to_docs": 0.15,
+   "lib_relations": 0.12
+  },
+  "fits": 0.77,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/anchors/tag_reach.py",
+  "axis": "anclaje",
+  "lines": 24,
+  "module": "lib_semantic",
+  "confidence": 0.9,
+  "top3": {
+   "lib_semantic": 0.9,
+   "lib_graph_analysis": 0.06,
+   "kernel_support": 0.02
+  },
+  "fits": 0.87,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/code/code_facts.py",
+  "axis": "anclaje",
+  "lines": 39,
+  "module": "lib_code_to_docs",
+  "confidence": 0.51,
+  "top3": {
+   "lib_code_to_docs": 0.53,
+   "lib_project_graph": 0.32,
+   "kernel_trees": 0.05
+  },
+  "fits": 0.65,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/code/requested_files.py",
+  "axis": "anclaje",
+  "lines": 46,
+  "module": "lib_code_to_docs",
+  "confidence": 0.41,
+  "top3": {
+   "lib_code_to_docs": 0.43,
+   "kernel_ports": 0.24,
+   "kernel_trees": 0.15
+  },
+  "fits": 0.57,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/documents/apply_batch.py",
+  "axis": "op_documentos",
+  "lines": 110,
+  "module": "lib_batches",
+  "confidence": 0.97,
+  "top3": {
+   "lib_batches": 0.97,
+   "lib_documents": 0.03,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.78,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/batch_edges.py",
+  "axis": "op_documentos",
+  "lines": 91,
+  "module": "lib_batches",
+  "confidence": 0.86,
+  "top3": {
+   "lib_batches": 0.87,
+   "lib_relations": 0.11,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.83,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/batch_guards.py",
+  "axis": "op_documentos",
+  "lines": 34,
+  "module": "lib_batches",
+  "confidence": 0.59,
+  "top3": {
+   "lib_batches": 0.61,
+   "lib_documents": 0.33,
+   "kernel_anchoring": 0.04
+  },
+  "fits": 0.75,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/documents/batch_inverse.py",
+  "axis": "op_documentos",
+  "lines": 79,
+  "module": "lib_batches",
+  "confidence": 0.93,
+  "top3": {
+   "lib_batches": 0.93,
+   "lib_documents": 0.07,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/batch_prevalidate.py",
+  "axis": "op_documentos",
+  "lines": 102,
+  "module": "lib_batches",
+  "confidence": 0.99,
+  "top3": {
+   "lib_batches": 0.99,
+   "lib_documents": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.88,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/batch_report.py",
+  "axis": "op_documentos",
+  "lines": 20,
+  "module": "lib_batches",
+  "confidence": 0.93,
+  "top3": {
+   "lib_batches": 0.93,
+   "lib_documents": 0.06,
+   "face": 0.01
+  },
+  "fits": 0.85,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/batch_simulation.py",
+  "axis": "op_documentos",
+  "lines": 85,
+  "module": "lib_batches",
+  "confidence": 0.68,
+  "top3": {
+   "lib_batches": 0.69,
+   "kernel_graph": 0.26,
+   "lib_relations": 0.03
+  },
+  "fits": 0.82,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/documents/content_hash.py",
+  "axis": "op_documentos",
+  "lines": 19,
+  "module": "lib_documents",
+  "confidence": 0.67,
+  "top3": {
+   "lib_documents": 0.68,
+   "kernel_anchoring": 0.23,
+   "kernel_trees": 0.05
+  },
+  "fits": 0.68,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/create_document.py",
+  "axis": "op_documentos",
+  "lines": 117,
+  "module": "lib_documents",
+  "confidence": 0.99,
+  "top3": {
+   "lib_documents": 0.99,
+   "kernel_projection": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.87,
+  "mixed": 0.26
+ },
+ {
+  "file": "api/documents/data_values.py",
+  "axis": "op_documentos",
+  "lines": 30,
+  "module": "face",
+  "confidence": 0.28,
+  "top3": {
+   "face": 0.31,
+   "lib_documents": 0.29,
+   "kernel_trees": 0.25
+  },
+  "fits": 0.4,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/delete_document.py",
+  "axis": "op_documentos",
+  "lines": 61,
+  "module": "lib_documents",
+  "confidence": 1.0,
+  "top3": {
+   "lib_documents": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/doc_anchor_pinning.py",
+  "axis": "op_documentos",
+  "lines": 47,
+  "module": "kernel_anchoring",
+  "confidence": 0.82,
+  "top3": {
+   "kernel_anchoring": 0.83,
+   "lib_documents": 0.12,
+   "kernel_action": 0.02
+  },
+  "fits": 0.78,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/doc_hashes.py",
+  "axis": "op_documentos",
+  "lines": 15,
+  "module": "lib_documents",
+  "confidence": 0.59,
+  "top3": {
+   "lib_documents": 0.61,
+   "kernel_anchoring": 0.23,
+   "kernel_graph": 0.15
+  },
+  "fits": 0.72,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/document_ast.py",
+  "axis": "op_documentos",
+  "lines": 35,
+  "module": "face",
+  "confidence": 0.57,
+  "top3": {
+   "face": 0.59,
+   "lib_code_to_docs": 0.18,
+   "kernel_trees": 0.13
+  },
+  "fits": 0.58,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/documents/document_history.py",
+  "axis": "op_documentos",
+  "lines": 63,
+  "module": "lib_git_workflows",
+  "confidence": 0.94,
+  "top3": {
+   "lib_git_workflows": 0.94,
+   "lib_documents": 0.05,
+   "kernel_ports": 0.01
+  },
+  "fits": 0.8,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/document_history_versions.py",
+  "axis": "op_documentos",
+  "lines": 26,
+  "module": "lib_documents",
+  "confidence": 0.66,
+  "top3": {
+   "lib_documents": 0.67,
+   "lib_git_workflows": 0.24,
+   "kernel_anchoring": 0.08
+  },
+  "fits": 0.75,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/document_ir_serialization.py",
+  "axis": "op_documentos",
+  "lines": 23,
+  "module": "face",
+  "confidence": 0.82,
+  "top3": {
+   "face": 0.83,
+   "lib_code_to_docs": 0.06,
+   "lib_documents": 0.05
+  },
+  "fits": 0.62,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/document_lookup.py",
+  "axis": "op_documentos",
+  "lines": 51,
+  "module": "lib_documents",
+  "confidence": 0.7,
+  "top3": {
+   "lib_documents": 0.71,
+   "facade": 0.11,
+   "kernel_graph": 0.09
+  },
+  "fits": 0.7,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/document_payload.py",
+  "axis": "op_documentos",
+  "lines": 97,
+  "module": "lib_documents",
+  "confidence": 0.65,
+  "top3": {
+   "lib_documents": 0.66,
+   "face": 0.23,
+   "lib_multi_store": 0.1
+  },
+  "fits": 0.69,
+  "mixed": 0.13
+ },
+ {
+  "file": "api/documents/document_reference.py",
+  "axis": "op_documentos",
+  "lines": 18,
+  "module": "lib_documents",
+  "confidence": 0.91,
+  "top3": {
+   "lib_documents": 0.91,
+   "face": 0.07,
+   "lib_models": 0.01
+  },
+  "fits": 0.82,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/document_render.py",
+  "axis": "op_documentos",
+  "lines": 39,
+  "module": "face",
+  "confidence": 0.57,
+  "top3": {
+   "face": 0.59,
+   "lib_documents": 0.32,
+   "facade": 0.04
+  },
+  "fits": 0.6,
+  "mixed": 0.17
+ },
+ {
+  "file": "api/documents/document_serialization.py",
+  "axis": "op_documentos",
+  "lines": 33,
+  "module": "face",
+  "confidence": 0.83,
+  "top3": {
+   "face": 0.84,
+   "lib_documents": 0.12,
+   "kernel_projection": 0.03
+  },
+  "fits": 0.6,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/extract_payload.py",
+  "axis": "op_documentos",
+  "lines": 18,
+  "module": "lib_documents",
+  "confidence": 0.69,
+  "top3": {
+   "lib_documents": 0.7,
+   "kernel_trees": 0.16,
+   "kernel_projection": 0.07
+  },
+  "fits": 0.69,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/frontmatter_keys.py",
+  "axis": "op_documentos",
+  "lines": 90,
+  "module": "lib_documents",
+  "confidence": 0.97,
+  "top3": {
+   "lib_documents": 0.97,
+   "kernel_projection": 0.01,
+   "lib_models": 0.01
+  },
+  "fits": 0.9,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/heading_scan.py",
+  "axis": "op_documentos",
+  "lines": 72,
+  "module": "kernel_trees",
+  "confidence": 0.83,
+  "top3": {
+   "kernel_trees": 0.84,
+   "lib_documents": 0.12,
+   "kernel_anchoring": 0.01
+  },
+  "fits": 0.74,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/documents/invalid_document.py",
+  "axis": "op_documentos",
+  "lines": 16,
+  "module": "lib_documents",
+  "confidence": 0.95,
+  "top3": {
+   "lib_documents": 0.95,
+   "lib_models": 0.04,
+   "face": 0.01
+  },
+  "fits": 0.86,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/documents/lossy_overwrite.py",
+  "axis": "op_documentos",
+  "lines": 93,
+  "module": "lib_documents",
+  "confidence": 0.91,
+  "top3": {
+   "lib_documents": 0.91,
+   "kernel_projection": 0.05,
+   "lib_rules_states_policy": 0.04
+  },
+  "fits": 0.83,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/move_document.py",
+  "axis": "op_documentos",
+  "lines": 52,
+  "module": "lib_documents",
+  "confidence": 1.0,
+  "top3": {
+   "lib_documents": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/move_path.py",
+  "axis": "op_documentos",
+  "lines": 45,
+  "module": "lib_documents",
+  "confidence": 0.96,
+  "top3": {
+   "lib_documents": 0.96,
+   "facade": 0.02,
+   "lib_batches": 0.01
+  },
+  "fits": 0.83,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/move_path_apply.py",
+  "axis": "op_documentos",
+  "lines": 85,
+  "module": "lib_documents",
+  "confidence": 0.93,
+  "top3": {
+   "lib_documents": 0.93,
+   "lib_batches": 0.05,
+   "kernel_ports": 0.01
+  },
+  "fits": 0.75,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/move_path_fields.py",
+  "axis": "op_documentos",
+  "lines": 43,
+  "module": "lib_documents",
+  "confidence": 0.97,
+  "top3": {
+   "lib_documents": 0.97,
+   "lib_relations": 0.02,
+   "kernel_support": 0.01
+  },
+  "fits": 0.89,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/move_path_files.py",
+  "axis": "op_documentos",
+  "lines": 46,
+  "module": "lib_documents",
+  "confidence": 0.57,
+  "top3": {
+   "lib_documents": 0.59,
+   "lib_relations": 0.14,
+   "kernel_support": 0.11
+  },
+  "fits": 0.64,
+  "mixed": 0.21
+ },
+ {
+  "file": "api/documents/move_path_links.py",
+  "axis": "op_documentos",
+  "lines": 64,
+  "module": "lib_links",
+  "confidence": 0.34,
+  "top3": {
+   "lib_links": 0.37,
+   "lib_documents": 0.33,
+   "lib_relations": 0.26
+  },
+  "fits": 0.71,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/move_path_plan.py",
+  "axis": "op_documentos",
+  "lines": 65,
+  "module": "lib_documents",
+  "confidence": 0.96,
+  "top3": {
+   "lib_documents": 0.96,
+   "kernel_projection": 0.01,
+   "kernel_support": 0.01
+  },
+  "fits": 0.8,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/move_path_remap.py",
+  "axis": "op_documentos",
+  "lines": 23,
+  "module": "lib_documents",
+  "confidence": 0.6,
+  "top3": {
+   "lib_documents": 0.62,
+   "kernel_support": 0.24,
+   "lib_relations": 0.07
+  },
+  "fits": 0.78,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/move_path_report.py",
+  "axis": "op_documentos",
+  "lines": 23,
+  "module": "lib_documents",
+  "confidence": 0.68,
+  "top3": {
+   "lib_documents": 0.69,
+   "lib_relations": 0.18,
+   "kernel_support": 0.1
+  },
+  "fits": 0.81,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/move_path_resolve.py",
+  "axis": "op_documentos",
+  "lines": 31,
+  "module": "lib_documents",
+  "confidence": 0.99,
+  "top3": {
+   "lib_documents": 0.99,
+   "lib_batches": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.89,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/nothing_to_undo.py",
+  "axis": "op_documentos",
+  "lines": 14,
+  "module": "lib_batches",
+  "confidence": 0.93,
+  "top3": {
+   "lib_batches": 0.93,
+   "lib_documents": 0.05,
+   "face": 0.01
+  },
+  "fits": 0.85,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/documents/on_write_gate.py",
+  "axis": "op_documentos",
+  "lines": 30,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.48,
+  "top3": {
+   "lib_rules_states_policy": 0.5,
+   "lib_documents": 0.47,
+   "facade": 0.02
+  },
+  "fits": 0.83,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/payload_diff.py",
+  "axis": "op_documentos",
+  "lines": 36,
+  "module": "lib_documents",
+  "confidence": 0.97,
+  "top3": {
+   "lib_documents": 0.97,
+   "kernel_graph": 0.01,
+   "kernel_anchoring": 0.01
+  },
+  "fits": 0.74,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/documents/payload_path_reading.py",
+  "axis": "op_documentos",
+  "lines": 63,
+  "module": "lib_documents",
+  "confidence": 0.97,
+  "top3": {
+   "lib_documents": 0.97,
+   "facade": 0.02,
+   "kernel_support": 0.01
+  },
+  "fits": 0.64,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/payload_path_writing.py",
+  "axis": "op_documentos",
+  "lines": 100,
+  "module": "lib_documents",
+  "confidence": 0.99,
+  "top3": {
+   "lib_documents": 0.99,
+   "facade": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.67,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/payload_save.py",
+  "axis": "op_documentos",
+  "lines": 57,
+  "module": "lib_documents",
+  "confidence": 0.96,
+  "top3": {
+   "lib_documents": 0.96,
+   "kernel_projection": 0.04,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.77,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/payload_save_steps.py",
+  "axis": "op_documentos",
+  "lines": 115,
+  "module": "lib_documents",
+  "confidence": 0.94,
+  "top3": {
+   "lib_documents": 0.94,
+   "kernel_graph": 0.04,
+   "kernel_projection": 0.02
+  },
+  "fits": 0.6,
+  "mixed": 0.13
+ },
+ {
+  "file": "api/documents/provenance_stamp.py",
+  "axis": "op_documentos",
+  "lines": 68,
+  "module": "lib_documents",
+  "confidence": 0.78,
+  "top3": {
+   "lib_documents": 0.79,
+   "kernel_projection": 0.15,
+   "kernel_ports": 0.03
+  },
+  "fits": 0.68,
+  "mixed": 0.14
+ },
+ {
+  "file": "api/documents/refuse_structural_noise.py",
+  "axis": "op_documentos",
+  "lines": 40,
+  "module": "lib_documents",
+  "confidence": 0.95,
+  "top3": {
+   "lib_documents": 0.95,
+   "lib_rules_states_policy": 0.05,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.87,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/relocate_file.py",
+  "axis": "op_documentos",
+  "lines": 30,
+  "module": "lib_documents",
+  "confidence": 0.35,
+  "top3": {
+   "lib_documents": 0.38,
+   "kernel_ports": 0.32,
+   "lib_git_workflows": 0.3
+  },
+  "fits": 0.65,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/documents/replace_text.py",
+  "axis": "op_documentos",
+  "lines": 115,
+  "module": "lib_documents",
+  "confidence": 0.6,
+  "top3": {
+   "lib_documents": 0.62,
+   "kernel_projection": 0.36,
+   "lib_batches": 0.02
+  },
+  "fits": 0.64,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/rewrite_loss.py",
+  "axis": "op_documentos",
+  "lines": 60,
+  "module": "lib_documents",
+  "confidence": 0.83,
+  "top3": {
+   "lib_documents": 0.84,
+   "kernel_projection": 0.1,
+   "lib_store_admin": 0.03
+  },
+  "fits": 0.71,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/runtime_documents.py",
+  "axis": "op_documentos",
+  "lines": 71,
+  "module": "lib_documents",
+  "confidence": 0.57,
+  "top3": {
+   "lib_documents": 0.59,
+   "facade": 0.28,
+   "face": 0.07
+  },
+  "fits": 0.56,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/documents/select_documents.py",
+  "axis": "op_documentos",
+  "lines": 63,
+  "module": "lib_documents",
+  "confidence": 0.91,
+  "top3": {
+   "lib_documents": 0.91,
+   "facade": 0.07,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/selector.py",
+  "axis": "op_documentos",
+  "lines": 35,
+  "module": "lib_documents",
+  "confidence": 0.99,
+  "top3": {
+   "lib_documents": 0.99,
+   "kernel_query": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.93,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/documents/structural_noise.py",
+  "axis": "op_documentos",
+  "lines": 54,
+  "module": "lib_documents",
+  "confidence": 0.98,
+  "top3": {
+   "lib_documents": 0.98,
+   "lib_models": 0.01,
+   "lib_rules_states_policy": 0.01
+  },
+  "fits": 0.89,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/structural_noise_report.py",
+  "axis": "op_documentos",
+  "lines": 41,
+  "module": "lib_documents",
+  "confidence": 0.48,
+  "top3": {
+   "lib_documents": 0.5,
+   "lib_models": 0.31,
+   "lib_rules_states_policy": 0.07
+  },
+  "fits": 0.68,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/track_document_file.py",
+  "axis": "op_documentos",
+  "lines": 91,
+  "module": "lib_documents",
+  "confidence": 1.0,
+  "top3": {
+   "lib_documents": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.9,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/documents/transaction.py",
+  "axis": "op_documentos",
+  "lines": 111,
+  "module": "lib_batches",
+  "confidence": 0.96,
+  "top3": {
+   "lib_batches": 0.96,
+   "lib_documents": 0.03,
+   "facade": 0.01
+  },
+  "fits": 0.84,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/documents/transaction_ops.py",
+  "axis": "op_documentos",
+  "lines": 95,
+  "module": "lib_documents",
+  "confidence": 0.56,
+  "top3": {
+   "lib_documents": 0.58,
+   "lib_batches": 0.42,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.8,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/documents/transaction_paths.py",
+  "axis": "op_documentos",
+  "lines": 67,
+  "module": "lib_batches",
+  "confidence": 0.72,
+  "top3": {
+   "lib_batches": 0.73,
+   "lib_documents": 0.17,
+   "kernel_graph": 0.04
+  },
+  "fits": 0.61,
+  "mixed": 0.17
+ },
+ {
+  "file": "api/documents/transaction_state.py",
+  "axis": "op_documentos",
+  "lines": 92,
+  "module": "lib_batches",
+  "confidence": 0.95,
+  "top3": {
+   "lib_batches": 0.95,
+   "kernel_graph": 0.03,
+   "lib_documents": 0.02
+  },
+  "fits": 0.75,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/documents/undo_batches.py",
+  "axis": "op_documentos",
+  "lines": 48,
+  "module": "lib_batches",
+  "confidence": 1.0,
+  "top3": {
+   "lib_batches": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.9,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/undo_report.py",
+  "axis": "op_documentos",
+  "lines": 15,
+  "module": "lib_batches",
+  "confidence": 0.89,
+  "top3": {
+   "lib_batches": 0.89,
+   "face": 0.05,
+   "lib_documents": 0.04
+  },
+  "fits": 0.79,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/documents/untrack_document.py",
+  "axis": "op_documentos",
+  "lines": 76,
+  "module": "lib_documents",
+  "confidence": 0.97,
+  "top3": {
+   "lib_documents": 0.97,
+   "lib_store_admin": 0.02,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.22
+ },
+ {
+  "file": "api/edges/apply_effects.py",
+  "axis": "op_aristas",
+  "lines": 27,
+  "module": "kernel_action",
+  "confidence": 0.61,
+  "top3": {
+   "kernel_action": 0.63,
+   "lib_relations": 0.21,
+   "lib_rules_states_policy": 0.12
+  },
+  "fits": 0.73,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/builtin_relation_writes.py",
+  "axis": "op_aristas",
+  "lines": 82,
+  "module": "lib_store_admin",
+  "confidence": 0.56,
+  "top3": {
+   "lib_store_admin": 0.58,
+   "lib_relations": 0.34,
+   "kernel_graph": 0.03
+  },
+  "fits": 0.6,
+  "mixed": 0.38
+ },
+ {
+  "file": "api/edges/check_edges.py",
+  "axis": "op_aristas",
+  "lines": 47,
+  "module": "lib_store_admin",
+  "confidence": 0.56,
+  "top3": {
+   "lib_store_admin": 0.58,
+   "lib_relations": 0.27,
+   "kernel_graph": 0.12
+  },
+  "fits": 0.77,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/document_edge.py",
+  "axis": "op_aristas",
+  "lines": 19,
+  "module": "lib_relations",
+  "confidence": 0.85,
+  "top3": {
+   "lib_relations": 0.86,
+   "kernel_graph": 0.04,
+   "lib_notation_views": 0.04
+  },
+  "fits": 0.77,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/edges/document_edges.py",
+  "axis": "op_aristas",
+  "lines": 42,
+  "module": "lib_relations",
+  "confidence": 0.65,
+  "top3": {
+   "lib_relations": 0.66,
+   "kernel_graph": 0.28,
+   "lib_store_admin": 0.04
+  },
+  "fits": 0.77,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/edge_check_report.py",
+  "axis": "op_aristas",
+  "lines": 22,
+  "module": "kernel_graph",
+  "confidence": 0.59,
+  "top3": {
+   "kernel_graph": 0.61,
+   "lib_store_admin": 0.35,
+   "lib_relations": 0.04
+  },
+  "fits": 0.87,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/edge_effects.py",
+  "axis": "op_aristas",
+  "lines": 45,
+  "module": "lib_relations",
+  "confidence": 0.25,
+  "top3": {
+   "lib_relations": 0.28,
+   "kernel_action": 0.26,
+   "kernel_support": 0.2
+  },
+  "fits": 0.63,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/edge_evidence.py",
+  "axis": "op_aristas",
+  "lines": 46,
+  "module": "kernel_graph",
+  "confidence": 0.68,
+  "top3": {
+   "kernel_graph": 0.69,
+   "facade": 0.14,
+   "lib_relations": 0.06
+  },
+  "fits": 0.81,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/edges/edge_reading.py",
+  "axis": "op_aristas",
+  "lines": 74,
+  "module": "kernel_graph",
+  "confidence": 0.89,
+  "top3": {
+   "kernel_graph": 0.89,
+   "lib_graph_analysis": 0.05,
+   "lib_relations": 0.02
+  },
+  "fits": 0.92,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/edges/edge_serialization.py",
+  "axis": "op_aristas",
+  "lines": 24,
+  "module": "face",
+  "confidence": 0.84,
+  "top3": {
+   "face": 0.85,
+   "kernel_graph": 0.1,
+   "lib_graph_analysis": 0.02
+  },
+  "fits": 0.62,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/edges_blocked.py",
+  "axis": "reglas",
+  "lines": 22,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.95,
+  "top3": {
+   "lib_rules_states_policy": 0.95,
+   "kernel_action": 0.03,
+   "kernel_support": 0.01
+  },
+  "fits": 0.92,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/edges_holding.py",
+  "axis": "reglas",
+  "lines": 55,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.67,
+  "top3": {
+   "lib_rules_states_policy": 0.68,
+   "kernel_action": 0.23,
+   "kernel_query": 0.04
+  },
+  "fits": 0.72,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/edges/init_relations.py",
+  "axis": "op_aristas",
+  "lines": 39,
+  "module": "lib_store_admin",
+  "confidence": 0.77,
+  "top3": {
+   "lib_store_admin": 0.78,
+   "lib_relations": 0.13,
+   "kernel_graph": 0.07
+  },
+  "fits": 0.73,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/edges/project_graph/declaration.py",
+  "axis": "op_aristas",
+  "lines": 14,
+  "module": "lib_project_graph",
+  "confidence": 0.66,
+  "top3": {
+   "lib_project_graph": 0.67,
+   "lib_relations": 0.28,
+   "kernel_graph": 0.02
+  },
+  "fits": 0.86,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/declared_file_targets.py",
+  "axis": "op_aristas",
+  "lines": 23,
+  "module": "lib_project_graph",
+  "confidence": 0.68,
+  "top3": {
+   "lib_project_graph": 0.69,
+   "lib_models": 0.18,
+   "lib_documents": 0.12
+  },
+  "fits": 0.85,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/edges/project_graph/declared_target_nodes.py",
+  "axis": "op_aristas",
+  "lines": 72,
+  "module": "lib_project_graph",
+  "confidence": 1.0,
+  "top3": {
+   "lib_project_graph": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/project_graph/document_declarations.py",
+  "axis": "op_aristas",
+  "lines": 78,
+  "module": "lib_project_graph",
+  "confidence": 0.96,
+  "top3": {
+   "lib_project_graph": 0.96,
+   "lib_documents": 0.03,
+   "lib_models": 0.01
+  },
+  "fits": 0.87,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/project_graph/document_edge_reader.py",
+  "axis": "op_aristas",
+  "lines": 52,
+  "module": "lib_project_graph",
+  "confidence": 0.79,
+  "top3": {
+   "lib_project_graph": 0.8,
+   "lib_relations": 0.15,
+   "lib_documents": 0.04
+  },
+  "fits": 0.84,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/project_graph/document_metadata.py",
+  "axis": "op_aristas",
+  "lines": 69,
+  "module": "lib_project_graph",
+  "confidence": 0.69,
+  "top3": {
+   "lib_project_graph": 0.7,
+   "lib_documents": 0.23,
+   "kernel_trees": 0.06
+  },
+  "fits": 0.75,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/project_graph/document_node.py",
+  "axis": "op_aristas",
+  "lines": 28,
+  "module": "lib_project_graph",
+  "confidence": 0.9,
+  "top3": {
+   "lib_project_graph": 0.9,
+   "lib_documents": 0.05,
+   "kernel_graph": 0.03
+  },
+  "fits": 0.84,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/document_nodes.py",
+  "axis": "op_aristas",
+  "lines": 67,
+  "module": "lib_project_graph",
+  "confidence": 1.0,
+  "top3": {
+   "lib_project_graph": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/project_graph/document_surface.py",
+  "axis": "op_aristas",
+  "lines": 56,
+  "module": "lib_project_graph",
+  "confidence": 0.88,
+  "top3": {
+   "lib_project_graph": 0.88,
+   "lib_documents": 0.08,
+   "lib_models": 0.04
+  },
+  "fits": 0.81,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/file_exclusions.py",
+  "axis": "op_aristas",
+  "lines": 44,
+  "module": "lib_project_graph",
+  "confidence": 0.98,
+  "top3": {
+   "lib_project_graph": 0.98,
+   "kernel_ports": 0.01,
+   "lib_git_workflows": 0.01
+  },
+  "fits": 0.88,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/file_node.py",
+  "axis": "op_aristas",
+  "lines": 27,
+  "module": "lib_project_graph",
+  "confidence": 0.98,
+  "top3": {
+   "lib_project_graph": 0.98,
+   "kernel_graph": 0.02,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.88,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/file_nodes.py",
+  "axis": "op_aristas",
+  "lines": 44,
+  "module": "lib_project_graph",
+  "confidence": 1.0,
+  "top3": {
+   "lib_project_graph": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/project_graph/file_rule.py",
+  "axis": "op_aristas",
+  "lines": 37,
+  "module": "lib_project_graph",
+  "confidence": 0.99,
+  "top3": {
+   "lib_project_graph": 0.99,
+   "lib_rules_states_policy": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.9,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/frontmatter_mapping.py",
+  "axis": "op_aristas",
+  "lines": 47,
+  "module": "lib_project_graph",
+  "confidence": 0.49,
+  "top3": {
+   "lib_project_graph": 0.51,
+   "kernel_trees": 0.34,
+   "lib_documents": 0.14
+  },
+  "fits": 0.86,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/edges/project_graph/inverse_edges.py",
+  "axis": "op_aristas",
+  "lines": 25,
+  "module": "lib_project_graph",
+  "confidence": 0.81,
+  "top3": {
+   "lib_project_graph": 0.82,
+   "kernel_graph": 0.07,
+   "lib_graph_analysis": 0.05
+  },
+  "fits": 0.88,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/edges/project_graph/line_mentions.py",
+  "axis": "op_aristas",
+  "lines": 21,
+  "module": "lib_project_graph",
+  "confidence": 0.91,
+  "top3": {
+   "lib_project_graph": 0.91,
+   "lib_models": 0.05,
+   "kernel_anchoring": 0.02
+  },
+  "fits": 0.86,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/project_graph/mapping_declarations.py",
+  "axis": "op_aristas",
+  "lines": 60,
+  "module": "lib_project_graph",
+  "confidence": 0.86,
+  "top3": {
+   "lib_project_graph": 0.87,
+   "lib_models": 0.05,
+   "lib_relations": 0.05
+  },
+  "fits": 0.85,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/project_graph/mention_pattern.py",
+  "axis": "op_aristas",
+  "lines": 27,
+  "module": "lib_project_graph",
+  "confidence": 0.81,
+  "top3": {
+   "lib_project_graph": 0.82,
+   "kernel_anchoring": 0.13,
+   "lib_links": 0.04
+  },
+  "fits": 0.89,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/missing_project_target.py",
+  "axis": "op_aristas",
+  "lines": 30,
+  "module": "lib_project_graph",
+  "confidence": 0.55,
+  "top3": {
+   "lib_project_graph": 0.57,
+   "lib_relations": 0.16,
+   "lib_models": 0.12
+  },
+  "fits": 0.83,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/missing_target_kind.py",
+  "axis": "op_aristas",
+  "lines": 25,
+  "module": "lib_project_graph",
+  "confidence": 0.57,
+  "top3": {
+   "lib_project_graph": 0.59,
+   "lib_relations": 0.26,
+   "lib_graph_analysis": 0.05
+  },
+  "fits": 0.85,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/node_lookup.py",
+  "axis": "op_aristas",
+  "lines": 73,
+  "module": "lib_project_graph",
+  "confidence": 0.91,
+  "top3": {
+   "lib_project_graph": 0.91,
+   "kernel_graph": 0.04,
+   "lib_relations": 0.02
+  },
+  "fits": 0.88,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/edges/project_graph/node_provenance.py",
+  "axis": "op_aristas",
+  "lines": 16,
+  "module": "lib_project_graph",
+  "confidence": 0.58,
+  "top3": {
+   "lib_project_graph": 0.6,
+   "kernel_graph": 0.22,
+   "kernel_anchoring": 0.15
+  },
+  "fits": 0.79,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/edges/project_graph/path_text.py",
+  "axis": "op_aristas",
+  "lines": 15,
+  "module": "lib_project_graph",
+  "confidence": 0.56,
+  "top3": {
+   "lib_project_graph": 0.58,
+   "kernel_support": 0.2,
+   "lib_graph_analysis": 0.1
+  },
+  "fits": 0.6,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/edges/project_graph/project_edge.py",
+  "axis": "op_aristas",
+  "lines": 32,
+  "module": "lib_relations",
+  "confidence": 0.4,
+  "top3": {
+   "lib_relations": 0.42,
+   "lib_project_graph": 0.41,
+   "lib_models": 0.13
+  },
+  "fits": 0.84,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/edges/project_graph/project_file_walk.py",
+  "axis": "op_aristas",
+  "lines": 56,
+  "module": "lib_project_graph",
+  "confidence": 0.98,
+  "top3": {
+   "lib_project_graph": 0.98,
+   "kernel_ports": 0.02,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.85,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/project_graph/project_graph.py",
+  "axis": "op_aristas",
+  "lines": 92,
+  "module": "lib_project_graph",
+  "confidence": 1.0,
+  "top3": {
+   "lib_project_graph": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/edges/project_graph/project_graph_config.py",
+  "axis": "op_aristas",
+  "lines": 85,
+  "module": "lib_project_graph",
+  "confidence": 1.0,
+  "top3": {
+   "lib_project_graph": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/project_graph/project_graph_config_mapping.py",
+  "axis": "op_aristas",
+  "lines": 79,
+  "module": "lib_project_graph",
+  "confidence": 0.85,
+  "top3": {
+   "lib_project_graph": 0.86,
+   "lib_models": 0.09,
+   "lib_store_admin": 0.02
+  },
+  "fits": 0.75,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/project_graph/project_graph_extraction.py",
+  "axis": "op_aristas",
+  "lines": 18,
+  "module": "lib_project_graph",
+  "confidence": 0.88,
+  "top3": {
+   "lib_project_graph": 0.88,
+   "lib_relations": 0.08,
+   "lib_graph_analysis": 0.02
+  },
+  "fits": 0.84,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/project_graph/project_graph_memo.py",
+  "axis": "op_aristas",
+  "lines": 101,
+  "module": "lib_project_graph",
+  "confidence": 0.98,
+  "top3": {
+   "lib_project_graph": 0.98,
+   "kernel_graph": 0.01,
+   "lib_store_admin": 0.01
+  },
+  "fits": 0.82,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/edges/project_graph/project_nodes.py",
+  "axis": "op_aristas",
+  "lines": 30,
+  "module": "lib_project_graph",
+  "confidence": 1.0,
+  "top3": {
+   "lib_project_graph": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/project_graph/project_store.py",
+  "axis": "op_aristas",
+  "lines": 36,
+  "module": "kernel_graph",
+  "confidence": 0.69,
+  "top3": {
+   "kernel_graph": 0.7,
+   "lib_project_graph": 0.27,
+   "lib_multi_store": 0.02
+  },
+  "fits": 0.86,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/project_graph/project_texts.py",
+  "axis": "op_aristas",
+  "lines": 78,
+  "module": "lib_project_graph",
+  "confidence": 0.9,
+  "top3": {
+   "lib_project_graph": 0.9,
+   "lib_documents": 0.08,
+   "kernel_trees": 0.01
+  },
+  "fits": 0.8,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/edges/project_graph/reference_field.py",
+  "axis": "op_aristas",
+  "lines": 29,
+  "module": "lib_project_graph",
+  "confidence": 0.42,
+  "top3": {
+   "lib_project_graph": 0.44,
+   "lib_models": 0.31,
+   "lib_relations": 0.12
+  },
+  "fits": 0.81,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/section_mentions.py",
+  "axis": "op_aristas",
+  "lines": 19,
+  "module": "lib_project_graph",
+  "confidence": 0.79,
+  "top3": {
+   "lib_project_graph": 0.8,
+   "lib_models": 0.07,
+   "lib_documents": 0.04
+  },
+  "fits": 0.84,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/source_edges.py",
+  "axis": "op_aristas",
+  "lines": 38,
+  "module": "lib_project_graph",
+  "confidence": 0.86,
+  "top3": {
+   "lib_project_graph": 0.87,
+   "lib_relations": 0.08,
+   "kernel_support": 0.04
+  },
+  "fits": 0.88,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/project_graph/store_edges.py",
+  "axis": "op_aristas",
+  "lines": 50,
+  "module": "lib_project_graph",
+  "confidence": 0.5,
+  "top3": {
+   "lib_project_graph": 0.52,
+   "kernel_graph": 0.24,
+   "lib_relations": 0.21
+  },
+  "fits": 0.82,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/project_graph/store_project_graph.py",
+  "axis": "op_aristas",
+  "lines": 43,
+  "module": "lib_project_graph",
+  "confidence": 0.78,
+  "top3": {
+   "lib_project_graph": 0.79,
+   "facade": 0.11,
+   "kernel_graph": 0.04
+  },
+  "fits": 0.7,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/edges/project_graph/store_sources.py",
+  "axis": "op_aristas",
+  "lines": 70,
+  "module": "lib_project_graph",
+  "confidence": 0.67,
+  "top3": {
+   "lib_project_graph": 0.68,
+   "kernel_graph": 0.22,
+   "lib_relations": 0.05
+  },
+  "fits": 0.84,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/project_graph/store_unresolved.py",
+  "axis": "op_aristas",
+  "lines": 58,
+  "module": "lib_project_graph",
+  "confidence": 0.5,
+  "top3": {
+   "lib_project_graph": 0.52,
+   "lib_relations": 0.34,
+   "kernel_graph": 0.09
+  },
+  "fits": 0.84,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/project_graph/text_declarations.py",
+  "axis": "op_aristas",
+  "lines": 57,
+  "module": "lib_project_graph",
+  "confidence": 0.93,
+  "top3": {
+   "lib_project_graph": 0.93,
+   "kernel_anchoring": 0.04,
+   "kernel_trees": 0.01
+  },
+  "fits": 0.81,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/edges/rebuild_edges.py",
+  "axis": "op_aristas",
+  "lines": 40,
+  "module": "lib_store_admin",
+  "confidence": 0.88,
+  "top3": {
+   "lib_store_admin": 0.88,
+   "kernel_graph": 0.11,
+   "lib_relations": 0.01
+  },
+  "fits": 0.85,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/edges/referrer.py",
+  "axis": "op_aristas",
+  "lines": 25,
+  "module": "lib_relations",
+  "confidence": 0.72,
+  "top3": {
+   "lib_relations": 0.73,
+   "lib_documents": 0.09,
+   "lib_models": 0.08
+  },
+  "fits": 0.8,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/edges/referrer_frontmatter.py",
+  "axis": "op_aristas",
+  "lines": 38,
+  "module": "lib_project_graph",
+  "confidence": 0.56,
+  "top3": {
+   "lib_project_graph": 0.58,
+   "lib_relations": 0.31,
+   "lib_documents": 0.06
+  },
+  "fits": 0.7,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/edges/referrers.py",
+  "axis": "op_aristas",
+  "lines": 120,
+  "module": "kernel_support",
+  "confidence": 0.54,
+  "top3": {
+   "kernel_support": 0.56,
+   "lib_relations": 0.31,
+   "lib_graph_analysis": 0.05
+  },
+  "fits": 0.61,
+  "mixed": 0.14
+ },
+ {
+  "file": "api/edges/relation_models.py",
+  "axis": "op_aristas",
+  "lines": 42,
+  "module": "lib_models",
+  "confidence": 0.34,
+  "top3": {
+   "lib_models": 0.37,
+   "lib_multi_store": 0.29,
+   "lib_store_admin": 0.19
+  },
+  "fits": 0.76,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/edges/relations_init_report.py",
+  "axis": "op_aristas",
+  "lines": 20,
+  "module": "lib_store_admin",
+  "confidence": 0.69,
+  "top3": {
+   "lib_store_admin": 0.7,
+   "lib_relations": 0.16,
+   "kernel_graph": 0.13
+  },
+  "fits": 0.81,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/rewrite_mentions.py",
+  "axis": "op_aristas",
+  "lines": 105,
+  "module": "lib_relations",
+  "confidence": 0.5,
+  "top3": {
+   "lib_relations": 0.52,
+   "lib_project_graph": 0.26,
+   "kernel_projection": 0.21
+  },
+  "fits": 0.78,
+  "mixed": 0.19
+ },
+ {
+  "file": "api/edges/rewrite_plan.py",
+  "axis": "op_aristas",
+  "lines": 55,
+  "module": "lib_relations",
+  "confidence": 0.99,
+  "top3": {
+   "lib_relations": 0.99,
+   "kernel_projection": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.74,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/edges/rewrite_references.py",
+  "axis": "op_aristas",
+  "lines": 102,
+  "module": "lib_relations",
+  "confidence": 1.0,
+  "top3": {
+   "lib_relations": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.89,
+  "mixed": 0.27
+ },
+ {
+  "file": "api/edges/rewrite_report.py",
+  "axis": "op_aristas",
+  "lines": 19,
+  "module": "lib_relations",
+  "confidence": 0.96,
+  "top3": {
+   "lib_relations": 0.96,
+   "kernel_projection": 0.03,
+   "facade": 0.01
+  },
+  "fits": 0.77,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/edges/rewrite_values.py",
+  "axis": "op_aristas",
+  "lines": 75,
+  "module": "lib_relations",
+  "confidence": 0.8,
+  "top3": {
+   "lib_relations": 0.81,
+   "kernel_projection": 0.09,
+   "lib_documents": 0.07
+  },
+  "fits": 0.69,
+  "mixed": 0.14
+ },
+ {
+  "file": "api/edges/unresolved_references.py",
+  "axis": "op_aristas",
+  "lines": 29,
+  "module": "lib_relations",
+  "confidence": 0.97,
+  "top3": {
+   "lib_relations": 0.97,
+   "kernel_graph": 0.02,
+   "lib_store_admin": 0.01
+  },
+  "fits": 0.84,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/graph/analyze.py",
+  "axis": "op_aristas",
+  "lines": 99,
+  "module": "lib_graph_analysis",
+  "confidence": 1.0,
+  "top3": {
+   "lib_graph_analysis": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.93,
+  "mixed": 0.16
+ },
+ {
+  "file": "api/graph/execute.py",
+  "axis": "op_aristas",
+  "lines": 38,
+  "module": "kernel_query",
+  "confidence": 0.58,
+  "top3": {
+   "kernel_query": 0.6,
+   "facade": 0.23,
+   "kernel_graph": 0.16
+  },
+  "fits": 0.57,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/graph/neighborhood.py",
+  "axis": "op_aristas",
+  "lines": 20,
+  "module": "facade",
+  "confidence": 0.81,
+  "top3": {
+   "facade": 0.82,
+   "lib_graph_analysis": 0.16,
+   "kernel_graph": 0.02
+  },
+  "fits": 0.45,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/graph/snapshot.py",
+  "axis": "op_aristas",
+  "lines": 46,
+  "module": "lib_store_admin",
+  "confidence": 0.44,
+  "top3": {
+   "lib_store_admin": 0.46,
+   "kernel_graph": 0.31,
+   "facade": 0.07
+  },
+  "fits": 0.65,
+  "mixed": 0.34
+ },
+ {
+  "file": "api/graph/traverse.py",
+  "axis": "op_aristas",
+  "lines": 78,
+  "module": "lib_graph_analysis",
+  "confidence": 0.52,
+  "top3": {
+   "lib_graph_analysis": 0.54,
+   "kernel_query": 0.27,
+   "kernel_graph": 0.15
+  },
+  "fits": 0.75,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/journal.py",
+  "axis": "op_almacen",
+  "lines": 42,
+  "module": "kernel_graph",
+  "confidence": 0.39,
+  "top3": {
+   "kernel_graph": 0.41,
+   "facade": 0.21,
+   "lib_store_admin": 0.17
+  },
+  "fits": 0.47,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/model_create/create_model.py",
+  "axis": "op_modelos",
+  "lines": 64,
+  "module": "lib_model_code",
+  "confidence": 0.75,
+  "top3": {
+   "lib_model_code": 0.76,
+   "lib_models": 0.22,
+   "lib_store_admin": 0.01
+  },
+  "fits": 0.77,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/model_create/field_decl.py",
+  "axis": "op_modelos",
+  "lines": 93,
+  "module": "lib_model_code",
+  "confidence": 0.92,
+  "top3": {
+   "lib_model_code": 0.92,
+   "lib_models": 0.06,
+   "kernel_projection": 0.01
+  },
+  "fits": 0.84,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_create/model_check.py",
+  "axis": "op_modelos",
+  "lines": 73,
+  "module": "lib_models",
+  "confidence": 0.48,
+  "top3": {
+   "lib_models": 0.5,
+   "lib_model_code": 0.49,
+   "lib_store_admin": 0.01
+  },
+  "fits": 0.73,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/model_create/model_declaration.py",
+  "axis": "op_modelos",
+  "lines": 40,
+  "module": "lib_model_code",
+  "confidence": 0.49,
+  "top3": {
+   "lib_model_code": 0.51,
+   "lib_models": 0.48,
+   "lib_documents": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_create/model_generation.py",
+  "axis": "op_modelos",
+  "lines": 52,
+  "module": "lib_model_code",
+  "confidence": 0.95,
+  "top3": {
+   "lib_model_code": 0.95,
+   "lib_models": 0.03,
+   "kernel_projection": 0.01
+  },
+  "fits": 0.86,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/model_create/model_module_lines.py",
+  "axis": "op_modelos",
+  "lines": 46,
+  "module": "lib_model_code",
+  "confidence": 0.99,
+  "top3": {
+   "lib_model_code": 0.99,
+   "kernel_projection": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.89,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_create/model_source.py",
+  "axis": "op_modelos",
+  "lines": 71,
+  "module": "lib_model_code",
+  "confidence": 0.98,
+  "top3": {
+   "lib_model_code": 0.98,
+   "kernel_projection": 0.01,
+   "lib_models": 0.01
+  },
+  "fits": 0.9,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_create/module_writing.py",
+  "axis": "op_modelos",
+  "lines": 38,
+  "module": "lib_model_code",
+  "confidence": 0.94,
+  "top3": {
+   "lib_model_code": 0.94,
+   "kernel_projection": 0.03,
+   "lib_models": 0.02
+  },
+  "fits": 0.8,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/model_drafts/backfill.py",
+  "axis": "op_modelos",
+  "lines": 110,
+  "module": "lib_model_code",
+  "confidence": 0.48,
+  "top3": {
+   "lib_model_code": 0.5,
+   "lib_documents": 0.39,
+   "lib_multi_store": 0.04
+  },
+  "fits": 0.75,
+  "mixed": 0.17
+ },
+ {
+  "file": "api/model_drafts/composition_contract.py",
+  "axis": "op_modelos",
+  "lines": 21,
+  "module": "lib_model_code",
+  "confidence": 0.76,
+  "top3": {
+   "lib_model_code": 0.77,
+   "lib_models": 0.12,
+   "lib_documents": 0.07
+  },
+  "fits": 0.77,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/model_drafts/draft_checks.py",
+  "axis": "op_modelos",
+  "lines": 16,
+  "module": "lib_model_code",
+  "confidence": 0.49,
+  "top3": {
+   "lib_model_code": 0.51,
+   "lib_models": 0.3,
+   "lib_documents": 0.06
+  },
+  "fits": 0.68,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/model_drafts/draft_contract.py",
+  "axis": "op_modelos",
+  "lines": 62,
+  "module": "lib_model_code",
+  "confidence": 0.6,
+  "top3": {
+   "lib_model_code": 0.62,
+   "lib_models": 0.23,
+   "facade": 0.08
+  },
+  "fits": 0.73,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_drafts/draft_document_check.py",
+  "axis": "op_modelos",
+  "lines": 16,
+  "module": "lib_documents",
+  "confidence": 0.68,
+  "top3": {
+   "lib_documents": 0.69,
+   "lib_model_code": 0.25,
+   "lib_models": 0.03
+  },
+  "fits": 0.76,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/model_drafts/draft_loading.py",
+  "axis": "op_modelos",
+  "lines": 38,
+  "module": "lib_models",
+  "confidence": 0.66,
+  "top3": {
+   "lib_models": 0.67,
+   "lib_model_code": 0.31,
+   "kernel_ports": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.15
+ },
+ {
+  "file": "api/model_drafts/draft_restore.py",
+  "axis": "op_modelos",
+  "lines": 40,
+  "module": "lib_batches",
+  "confidence": 0.47,
+  "top3": {
+   "lib_batches": 0.49,
+   "lib_store_admin": 0.22,
+   "lib_model_code": 0.16
+  },
+  "fits": 0.62,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/model_drafts/draft_validation.py",
+  "axis": "op_modelos",
+  "lines": 90,
+  "module": "lib_model_code",
+  "confidence": 0.53,
+  "top3": {
+   "lib_model_code": 0.55,
+   "lib_models": 0.4,
+   "lib_documents": 0.03
+  },
+  "fits": 0.63,
+  "mixed": 0.26
+ },
+ {
+  "file": "api/model_drafts/draft_validation_report.py",
+  "axis": "op_modelos",
+  "lines": 27,
+  "module": "lib_model_code",
+  "confidence": 0.71,
+  "top3": {
+   "lib_model_code": 0.72,
+   "lib_documents": 0.12,
+   "face": 0.06
+  },
+  "fits": 0.7,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_drafts/field_blocks.py",
+  "axis": "op_modelos",
+  "lines": 80,
+  "module": "lib_model_code",
+  "confidence": 0.99,
+  "top3": {
+   "lib_model_code": 0.99,
+   "kernel_projection": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.95,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_drafts/field_drafts.py",
+  "axis": "op_modelos",
+  "lines": 108,
+  "module": "lib_model_code",
+  "confidence": 1.0,
+  "top3": {
+   "lib_model_code": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_drafts/metadata_composition_sync.py",
+  "axis": "op_modelos",
+  "lines": 58,
+  "module": "lib_model_code",
+  "confidence": 0.6,
+  "top3": {
+   "lib_model_code": 0.62,
+   "kernel_projection": 0.2,
+   "lib_documents": 0.13
+  },
+  "fits": 0.75,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/model_drafts/metadata_drafts.py",
+  "axis": "op_modelos",
+  "lines": 56,
+  "module": "lib_model_code",
+  "confidence": 0.86,
+  "top3": {
+   "lib_model_code": 0.87,
+   "lib_models": 0.1,
+   "kernel_projection": 0.01
+  },
+  "fits": 0.73,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_drafts/metadata_literals.py",
+  "axis": "op_modelos",
+  "lines": 76,
+  "module": "lib_model_code",
+  "confidence": 0.96,
+  "top3": {
+   "lib_model_code": 0.96,
+   "kernel_projection": 0.04,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.86,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/model_drafts/model_draft.py",
+  "axis": "op_modelos",
+  "lines": 15,
+  "module": "lib_model_code",
+  "confidence": 0.98,
+  "top3": {
+   "lib_model_code": 0.98,
+   "kernel_projection": 0.01,
+   "face": 0.01
+  },
+  "fits": 0.87,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/model_drafts/model_source.py",
+  "axis": "op_modelos",
+  "lines": 31,
+  "module": "lib_models",
+  "confidence": 0.81,
+  "top3": {
+   "lib_models": 0.82,
+   "lib_model_code": 0.18,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.89,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_drafts/source_editing.py",
+  "axis": "op_modelos",
+  "lines": 49,
+  "module": "lib_model_code",
+  "confidence": 0.78,
+  "top3": {
+   "lib_model_code": 0.79,
+   "kernel_projection": 0.2,
+   "kernel_trees": 0.01
+  },
+  "fits": 0.83,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_drafts/source_location.py",
+  "axis": "op_modelos",
+  "lines": 74,
+  "module": "lib_model_code",
+  "confidence": 0.62,
+  "top3": {
+   "lib_model_code": 0.64,
+   "lib_models": 0.33,
+   "kernel_anchoring": 0.02
+  },
+  "fits": 0.73,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/model_drafts/template_drafts.py",
+  "axis": "op_modelos",
+  "lines": 51,
+  "module": "lib_model_code",
+  "confidence": 0.46,
+  "top3": {
+   "lib_model_code": 0.48,
+   "lib_documents": 0.22,
+   "kernel_projection": 0.21
+  },
+  "fits": 0.69,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/model_drafts/template_literals.py",
+  "axis": "op_modelos",
+  "lines": 84,
+  "module": "lib_model_code",
+  "confidence": 0.98,
+  "top3": {
+   "lib_model_code": 0.98,
+   "kernel_projection": 0.02,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.89,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_drafts/template_sections.py",
+  "axis": "op_modelos",
+  "lines": 80,
+  "module": "kernel_projection",
+  "confidence": 0.45,
+  "top3": {
+   "kernel_projection": 0.47,
+   "lib_model_code": 0.41,
+   "lib_documents": 0.09
+  },
+  "fits": 0.75,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_registry/add_model.py",
+  "axis": "op_modelos",
+  "lines": 51,
+  "module": "lib_models",
+  "confidence": 0.95,
+  "top3": {
+   "lib_models": 0.95,
+   "lib_store_admin": 0.05,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_registry/describe_model.py",
+  "axis": "op_modelos",
+  "lines": 85,
+  "module": "lib_models",
+  "confidence": 0.91,
+  "top3": {
+   "lib_models": 0.91,
+   "face": 0.08,
+   "lib_documents": 0.01
+  },
+  "fits": 0.72,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_registry/federated_lookup.py",
+  "axis": "op_modelos",
+  "lines": 75,
+  "module": "lib_multi_store",
+  "confidence": 0.94,
+  "top3": {
+   "lib_multi_store": 0.94,
+   "lib_models": 0.04,
+   "facade": 0.02
+  },
+  "fits": 0.85,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/model_registry/federated_registration.py",
+  "axis": "op_modelos",
+  "lines": 74,
+  "module": "lib_multi_store",
+  "confidence": 0.71,
+  "top3": {
+   "lib_multi_store": 0.72,
+   "lib_models": 0.2,
+   "lib_store_admin": 0.05
+  },
+  "fits": 0.67,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/model_registry/inherit_model.py",
+  "axis": "op_modelos",
+  "lines": 108,
+  "module": "lib_multi_store",
+  "confidence": 0.95,
+  "top3": {
+   "lib_multi_store": 0.95,
+   "lib_models": 0.05,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.87,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_registry/load_registered_model.py",
+  "axis": "op_modelos",
+  "lines": 39,
+  "module": "lib_models",
+  "confidence": 0.59,
+  "top3": {
+   "lib_models": 0.61,
+   "lib_multi_store": 0.39,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.74,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/model_registry/model_class_attrs.py",
+  "axis": "op_modelos",
+  "lines": 32,
+  "module": "lib_models",
+  "confidence": 0.83,
+  "top3": {
+   "lib_models": 0.84,
+   "lib_model_code": 0.14,
+   "lib_documents": 0.01
+  },
+  "fits": 0.82,
+  "mixed": 0.16
+ },
+ {
+  "file": "api/model_registry/model_description.py",
+  "axis": "op_modelos",
+  "lines": 32,
+  "module": "lib_models",
+  "confidence": 0.71,
+  "top3": {
+   "lib_models": 0.72,
+   "face": 0.2,
+   "lib_documents": 0.03
+  },
+  "fits": 0.8,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_registry/model_document_summary.py",
+  "axis": "op_modelos",
+  "lines": 14,
+  "module": "lib_models",
+  "confidence": 0.49,
+  "top3": {
+   "lib_models": 0.51,
+   "lib_documents": 0.44,
+   "face": 0.03
+  },
+  "fits": 0.82,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/model_registry/model_field_summary.py",
+  "axis": "op_modelos",
+  "lines": 14,
+  "module": "lib_models",
+  "confidence": 0.88,
+  "top3": {
+   "lib_models": 0.88,
+   "face": 0.08,
+   "lib_model_code": 0.02
+  },
+  "fits": 0.78,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/model_registry/model_files.py",
+  "axis": "op_modelos",
+  "lines": 30,
+  "module": "lib_models",
+  "confidence": 0.32,
+  "top3": {
+   "lib_models": 0.35,
+   "kernel_graph": 0.33,
+   "lib_store_admin": 0.29
+  },
+  "fits": 0.75,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_registry/model_index_writes.py",
+  "axis": "op_modelos",
+  "lines": 101,
+  "module": "lib_models",
+  "confidence": 0.48,
+  "top3": {
+   "lib_models": 0.5,
+   "lib_store_admin": 0.42,
+   "kernel_graph": 0.07
+  },
+  "fits": 0.44,
+  "mixed": 0.19
+ },
+ {
+  "file": "api/model_registry/model_lineage.py",
+  "axis": "op_modelos",
+  "lines": 40,
+  "module": "lib_models",
+  "confidence": 0.93,
+  "top3": {
+   "lib_models": 0.93,
+   "facade": 0.04,
+   "lib_model_code": 0.01
+  },
+  "fits": 0.78,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_registry/model_reference.py",
+  "axis": "op_modelos",
+  "lines": 104,
+  "module": "lib_models",
+  "confidence": 0.99,
+  "top3": {
+   "lib_models": 0.99,
+   "lib_multi_store": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.87,
+  "mixed": 0.17
+ },
+ {
+  "file": "api/model_registry/model_registration.py",
+  "axis": "op_modelos",
+  "lines": 15,
+  "module": "lib_models",
+  "confidence": 0.97,
+  "top3": {
+   "lib_models": 0.97,
+   "kernel_graph": 0.02,
+   "lib_store_admin": 0.01
+  },
+  "fits": 0.83,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/model_registry/registered_model.py",
+  "axis": "op_modelos",
+  "lines": 18,
+  "module": "lib_models",
+  "confidence": 0.97,
+  "top3": {
+   "lib_models": 0.97,
+   "lib_multi_store": 0.02,
+   "face": 0.01
+  },
+  "fits": 0.84,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/model_registry/registration_query.py",
+  "axis": "op_modelos",
+  "lines": 33,
+  "module": "lib_models",
+  "confidence": 0.71,
+  "top3": {
+   "lib_models": 0.72,
+   "lib_multi_store": 0.21,
+   "lib_store_admin": 0.06
+  },
+  "fits": 0.71,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_registry/reindex_model.py",
+  "axis": "op_modelos",
+  "lines": 54,
+  "module": "lib_models",
+  "confidence": 0.58,
+  "top3": {
+   "lib_models": 0.6,
+   "lib_store_admin": 0.35,
+   "lib_documents": 0.03
+  },
+  "fits": 0.71,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/model_registry/remove_model.py",
+  "axis": "op_modelos",
+  "lines": 67,
+  "module": "lib_models",
+  "confidence": 0.96,
+  "top3": {
+   "lib_models": 0.96,
+   "lib_store_admin": 0.04,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.75,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/model_registry/template_anchors.py",
+  "axis": "op_modelos",
+  "lines": 54,
+  "module": "lib_documents",
+  "confidence": 0.34,
+  "top3": {
+   "lib_documents": 0.37,
+   "lib_models": 0.29,
+   "kernel_projection": 0.17
+  },
+  "fits": 0.73,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/ast_target.py",
+  "axis": "op_almacen",
+  "lines": 54,
+  "module": "lib_documents",
+  "confidence": 0.34,
+  "top3": {
+   "lib_documents": 0.37,
+   "lib_links": 0.13,
+   "kernel_anchoring": 0.1
+  },
+  "fits": 0.46,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/records/build_ast.py",
+  "axis": "op_almacen",
+  "lines": 61,
+  "module": "lib_store_admin",
+  "confidence": 0.55,
+  "top3": {
+   "lib_store_admin": 0.57,
+   "kernel_graph": 0.11,
+   "lib_models": 0.07
+  },
+  "fits": 0.63,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/build_ir.py",
+  "axis": "op_almacen",
+  "lines": 90,
+  "module": "lib_documents",
+  "confidence": 0.25,
+  "top3": {
+   "lib_documents": 0.28,
+   "lib_store_admin": 0.22,
+   "lib_project_graph": 0.21
+  },
+  "fits": 0.42,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/extract.py",
+  "axis": "op_almacen",
+  "lines": 60,
+  "module": "kernel_trees",
+  "confidence": 0.52,
+  "top3": {
+   "kernel_trees": 0.54,
+   "lib_code_to_docs": 0.23,
+   "lib_documents": 0.07
+  },
+  "fits": 0.58,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/records/fields.py",
+  "axis": "op_almacen",
+  "lines": 55,
+  "module": "lib_documents",
+  "confidence": 0.82,
+  "top3": {
+   "lib_documents": 0.83,
+   "face": 0.09,
+   "facade": 0.04
+  },
+  "fits": 0.67,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/records/flatten.py",
+  "axis": "op_almacen",
+  "lines": 11,
+  "module": "kernel_graph",
+  "confidence": 0.58,
+  "top3": {
+   "kernel_graph": 0.6,
+   "face": 0.23,
+   "lib_documents": 0.06
+  },
+  "fits": 0.38,
+  "mixed": 0.02
+ },
+ {
+  "file": "api/records/iter_records.py",
+  "axis": "op_almacen",
+  "lines": 20,
+  "module": "lib_documents",
+  "confidence": 0.72,
+  "top3": {
+   "lib_documents": 0.73,
+   "kernel_graph": 0.12,
+   "facade": 0.04
+  },
+  "fits": 0.54,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/iter_records_docs.py",
+  "axis": "op_almacen",
+  "lines": 74,
+  "module": "lib_documents",
+  "confidence": 0.31,
+  "top3": {
+   "lib_documents": 0.34,
+   "lib_store_admin": 0.26,
+   "lib_project_graph": 0.14
+  },
+  "fits": 0.55,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/records/iter_records_helpers.py",
+  "axis": "op_almacen",
+  "lines": 82,
+  "module": "lib_documents",
+  "confidence": 0.3,
+  "top3": {
+   "lib_documents": 0.33,
+   "lib_store_admin": 0.19,
+   "face": 0.12
+  },
+  "fits": 0.45,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/records/map_fields.py",
+  "axis": "op_almacen",
+  "lines": 75,
+  "module": "lib_documents",
+  "confidence": 0.33,
+  "top3": {
+   "lib_documents": 0.36,
+   "kernel_graph": 0.11,
+   "kernel_anchoring": 0.11
+  },
+  "fits": 0.49,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/records/matches.py",
+  "axis": "op_almacen",
+  "lines": 36,
+  "module": "kernel_graph",
+  "confidence": 0.4,
+  "top3": {
+   "kernel_graph": 0.42,
+   "kernel_query": 0.24,
+   "face": 0.12
+  },
+  "fits": 0.4,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/record_filters.py",
+  "axis": "op_almacen",
+  "lines": 82,
+  "module": "kernel_query",
+  "confidence": 0.59,
+  "top3": {
+   "kernel_query": 0.61,
+   "lib_documents": 0.24,
+   "kernel_graph": 0.1
+  },
+  "fits": 0.73,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/record_serialization.py",
+  "axis": "op_almacen",
+  "lines": 32,
+  "module": "face",
+  "confidence": 0.66,
+  "top3": {
+   "face": 0.67,
+   "kernel_graph": 0.17,
+   "lib_graph_analysis": 0.05
+  },
+  "fits": 0.47,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/records/resolve.py",
+  "axis": "op_almacen",
+  "lines": 18,
+  "module": "lib_documents",
+  "confidence": 0.66,
+  "top3": {
+   "lib_documents": 0.67,
+   "lib_multi_store": 0.09,
+   "facade": 0.09
+  },
+  "fits": 0.73,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/records/runtime_doc_proxy.py",
+  "axis": "op_almacen",
+  "lines": 14,
+  "module": "lib_documents",
+  "confidence": 0.3,
+  "top3": {
+   "lib_documents": 0.33,
+   "facade": 0.19,
+   "lib_code_to_docs": 0.16
+  },
+  "fits": 0.33,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/records/search_record.py",
+  "axis": "op_almacen",
+  "lines": 29,
+  "module": "kernel_graph",
+  "confidence": 0.49,
+  "top3": {
+   "kernel_graph": 0.51,
+   "kernel_query": 0.2,
+   "lib_documents": 0.18
+  },
+  "fits": 0.53,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/records/section_record.py",
+  "axis": "op_almacen",
+  "lines": 12,
+  "module": "kernel_graph",
+  "confidence": 0.59,
+  "top3": {
+   "kernel_graph": 0.61,
+   "lib_documents": 0.14,
+   "lib_models": 0.14
+  },
+  "fits": 0.62,
+  "mixed": 0.02
+ },
+ {
+  "file": "api/records/utils.py",
+  "axis": "op_almacen",
+  "lines": 42,
+  "module": "kernel_graph",
+  "confidence": 0.34,
+  "top3": {
+   "kernel_graph": 0.37,
+   "kernel_anchoring": 0.18,
+   "lib_documents": 0.15
+  },
+  "fits": 0.26,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/rules/builtin_tag_findings.py",
+  "axis": "reglas",
+  "lines": 63,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.67,
+  "top3": {
+   "lib_rules_states_policy": 0.68,
+   "lib_semantic": 0.3,
+   "lib_documents": 0.01
+  },
+  "fits": 0.77,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/rules/builtin_tag_rules.py",
+  "axis": "reglas",
+  "lines": 88,
+  "module": "lib_semantic",
+  "confidence": 0.52,
+  "top3": {
+   "lib_semantic": 0.54,
+   "lib_rules_states_policy": 0.46,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.82,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/rules/dirty_set.py",
+  "axis": "reglas",
+  "lines": 79,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.78,
+  "top3": {
+   "lib_rules_states_policy": 0.79,
+   "kernel_support": 0.16,
+   "lib_graph_analysis": 0.03
+  },
+  "fits": 0.61,
+  "mixed": 0.17
+ },
+ {
+  "file": "api/rules/fixpoint.py",
+  "axis": "reglas",
+  "lines": 46,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.65,
+  "top3": {
+   "lib_rules_states_policy": 0.66,
+   "kernel_query": 0.32,
+   "kernel_projection": 0.01
+  },
+  "fits": 0.76,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/rules/rule_cache.py",
+  "axis": "reglas",
+  "lines": 70,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.7,
+  "top3": {
+   "lib_rules_states_policy": 0.71,
+   "kernel_ports": 0.19,
+   "kernel_graph": 0.04
+  },
+  "fits": 0.61,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/rules/rule_graph.py",
+  "axis": "reglas",
+  "lines": 118,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.8,
+  "top3": {
+   "lib_rules_states_policy": 0.81,
+   "lib_multi_store": 0.09,
+   "kernel_graph": 0.05
+  },
+  "fits": 0.77,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/rules/rule_reach.py",
+  "axis": "reglas",
+  "lines": 113,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.5,
+  "top3": {
+   "lib_rules_states_policy": 0.52,
+   "lib_multi_store": 0.45,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.78,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/rules/rule_subjects.py",
+  "axis": "reglas",
+  "lines": 80,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.97,
+  "top3": {
+   "lib_rules_states_policy": 0.97,
+   "lib_relations": 0.02,
+   "facade": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/rules/rule_view.py",
+  "axis": "reglas",
+  "lines": 34,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.73,
+  "top3": {
+   "lib_rules_states_policy": 0.74,
+   "lib_graph_analysis": 0.13,
+   "kernel_graph": 0.04
+  },
+  "fits": 0.78,
+  "mixed": 0.29
+ },
+ {
+  "file": "api/rules/rule_writes.py",
+  "axis": "reglas",
+  "lines": 39,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.96,
+  "top3": {
+   "lib_rules_states_policy": 0.96,
+   "lib_documents": 0.02,
+   "kernel_projection": 0.01
+  },
+  "fits": 0.81,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/rules/rules_check.py",
+  "axis": "reglas",
+  "lines": 55,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.96,
+  "top3": {
+   "lib_rules_states_policy": 0.96,
+   "lib_store_admin": 0.04,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.81,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/rules/rules_explain.py",
+  "axis": "reglas",
+  "lines": 40,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.8,
+  "top3": {
+   "lib_rules_states_policy": 0.81,
+   "face": 0.16,
+   "kernel_query": 0.01
+  },
+  "fits": 0.76,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/rules/rules_on_check.py",
+  "axis": "reglas",
+  "lines": 67,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.86,
+  "top3": {
+   "lib_rules_states_policy": 0.87,
+   "lib_store_admin": 0.1,
+   "kernel_action": 0.03
+  },
+  "fits": 0.75,
+  "mixed": 0.13
+ },
+ {
+  "file": "api/rules/rules_on_transition.py",
+  "axis": "reglas",
+  "lines": 46,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.99,
+  "top3": {
+   "lib_rules_states_policy": 0.99,
+   "kernel_action": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.9,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/rules/rules_on_write.py",
+  "axis": "reglas",
+  "lines": 75,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.99,
+  "top3": {
+   "lib_rules_states_policy": 0.99,
+   "lib_documents": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/schema/describe_field.py",
+  "axis": "op_modelos",
+  "lines": 26,
+  "module": "lib_models",
+  "confidence": 0.85,
+  "top3": {
+   "lib_models": 0.86,
+   "lib_code_to_docs": 0.07,
+   "facade": 0.03
+  },
+  "fits": 0.78,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/schema/field_description.py",
+  "axis": "op_modelos",
+  "lines": 4,
+  "module": "facade",
+  "confidence": 0.99,
+  "top3": {
+   "facade": 0.99,
+   "lib_models": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.83,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/schema/store_schema.py",
+  "axis": "op_modelos",
+  "lines": 24,
+  "module": "face",
+  "confidence": 0.47,
+  "top3": {
+   "face": 0.49,
+   "lib_models": 0.43,
+   "lib_store_admin": 0.05
+  },
+  "fits": 0.72,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/schema/unavailable_model.py",
+  "axis": "op_modelos",
+  "lines": 20,
+  "module": "lib_models",
+  "confidence": 0.94,
+  "top3": {
+   "lib_models": 0.94,
+   "face": 0.06,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.86,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/build_document_segments.py",
+  "axis": "op_documentos",
+  "lines": 44,
+  "module": "lib_notation_views",
+  "confidence": 0.68,
+  "top3": {
+   "lib_notation_views": 0.69,
+   "lib_documents": 0.13,
+   "kernel_projection": 0.06
+  },
+  "fits": 0.53,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/build_extraction_segments.py",
+  "axis": "op_documentos",
+  "lines": 101,
+  "module": "kernel_anchoring",
+  "confidence": 0.52,
+  "top3": {
+   "kernel_anchoring": 0.54,
+   "kernel_projection": 0.23,
+   "lib_documents": 0.16
+  },
+  "fits": 0.62,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/segments/composition_piece.py",
+  "axis": "op_documentos",
+  "lines": 33,
+  "module": "lib_links",
+  "confidence": 0.61,
+  "top3": {
+   "lib_links": 0.63,
+   "lib_notation_views": 0.11,
+   "face": 0.08
+  },
+  "fits": 0.67,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/composition_spec.py",
+  "axis": "op_documentos",
+  "lines": 17,
+  "module": "lib_models",
+  "confidence": 0.32,
+  "top3": {
+   "lib_models": 0.35,
+   "lib_links": 0.29,
+   "lib_notation_views": 0.14
+  },
+  "fits": 0.64,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/segments/document_segments.py",
+  "axis": "op_documentos",
+  "lines": 23,
+  "module": "lib_documents",
+  "confidence": 0.42,
+  "top3": {
+   "lib_documents": 0.44,
+   "kernel_projection": 0.28,
+   "kernel_anchoring": 0.15
+  },
+  "fits": 0.53,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/extract_markdown_segments.py",
+  "axis": "op_documentos",
+  "lines": 57,
+  "module": "lib_documents",
+  "confidence": 0.41,
+  "top3": {
+   "lib_documents": 0.43,
+   "kernel_trees": 0.14,
+   "face": 0.14
+  },
+  "fits": 0.59,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/segments/extracted_field.py",
+  "axis": "op_documentos",
+  "lines": 25,
+  "module": "kernel_anchoring",
+  "confidence": 0.65,
+  "top3": {
+   "kernel_anchoring": 0.66,
+   "kernel_trees": 0.11,
+   "lib_documents": 0.09
+  },
+  "fits": 0.76,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/segments/extraction_segments.py",
+  "axis": "op_documentos",
+  "lines": 23,
+  "module": "kernel_anchoring",
+  "confidence": 0.58,
+  "top3": {
+   "kernel_anchoring": 0.6,
+   "kernel_trees": 0.15,
+   "kernel_projection": 0.09
+  },
+  "fits": 0.65,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/segments/field_ref_resolver.py",
+  "axis": "op_documentos",
+  "lines": 77,
+  "module": "lib_documents",
+  "confidence": 0.82,
+  "top3": {
+   "lib_documents": 0.83,
+   "lib_relations": 0.09,
+   "kernel_query": 0.02
+  },
+  "fits": 0.7,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/field_segment.py",
+  "axis": "op_documentos",
+  "lines": 35,
+  "module": "lib_notation_views",
+  "confidence": 0.2,
+  "top3": {
+   "lib_notation_views": 0.23,
+   "kernel_projection": 0.22,
+   "face": 0.18
+  },
+  "fits": 0.43,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/segments/literal_segment.py",
+  "axis": "op_documentos",
+  "lines": 17,
+  "module": "kernel_projection",
+  "confidence": 0.51,
+  "top3": {
+   "kernel_projection": 0.53,
+   "kernel_trees": 0.15,
+   "kernel_anchoring": 0.11
+  },
+  "fits": 0.49,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/payload_values.py",
+  "axis": "op_documentos",
+  "lines": 74,
+  "module": "lib_documents",
+  "confidence": 0.91,
+  "top3": {
+   "lib_documents": 0.91,
+   "lib_models": 0.08,
+   "face": 0.01
+  },
+  "fits": 0.68,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/segments/segment.py",
+  "axis": "op_documentos",
+  "lines": 22,
+  "module": "lib_models",
+  "confidence": 0.44,
+  "top3": {
+   "lib_models": 0.46,
+   "kernel_trees": 0.21,
+   "facade": 0.13
+  },
+  "fits": 0.53,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/segments/segment_display.py",
+  "axis": "op_documentos",
+  "lines": 56,
+  "module": "lib_documents",
+  "confidence": 0.33,
+  "top3": {
+   "lib_documents": 0.36,
+   "kernel_projection": 0.21,
+   "kernel_trees": 0.15
+  },
+  "fits": 0.35,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/segment_enrichment.py",
+  "axis": "op_documentos",
+  "lines": 72,
+  "module": "lib_notation_views",
+  "confidence": 0.35,
+  "top3": {
+   "lib_notation_views": 0.38,
+   "lib_documents": 0.28,
+   "kernel_projection": 0.06
+  },
+  "fits": 0.42,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/segments/segment_nodes.py",
+  "axis": "op_documentos",
+  "lines": 45,
+  "module": "face",
+  "confidence": 0.33,
+  "top3": {
+   "face": 0.36,
+   "lib_code_to_docs": 0.22,
+   "lib_graph_analysis": 0.2
+  },
+  "fits": 0.25,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/source_ref.py",
+  "axis": "op_documentos",
+  "lines": 15,
+  "module": "kernel_anchoring",
+  "confidence": 0.59,
+  "top3": {
+   "kernel_anchoring": 0.61,
+   "kernel_graph": 0.18,
+   "lib_links": 0.07
+  },
+  "fits": 0.65,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/segments/text_range.py",
+  "axis": "op_documentos",
+  "lines": 14,
+  "module": "kernel_anchoring",
+  "confidence": 0.53,
+  "top3": {
+   "kernel_anchoring": 0.55,
+   "kernel_trees": 0.2,
+   "kernel_projection": 0.16
+  },
+  "fits": 0.57,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/stores/ambiguous_document.py",
+  "axis": "op_almacen",
+  "lines": 13,
+  "module": "lib_documents",
+  "confidence": 0.33,
+  "top3": {
+   "lib_documents": 0.36,
+   "lib_models": 0.23,
+   "lib_multi_store": 0.18
+  },
+  "fits": 0.58,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/stores/apply_declaration.py",
+  "axis": "op_almacen",
+  "lines": 100,
+  "module": "lib_store_admin",
+  "confidence": 0.8,
+  "top3": {
+   "lib_store_admin": 0.81,
+   "lib_multi_store": 0.19,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.82,
+  "mixed": 0.21
+ },
+ {
+  "file": "api/stores/apply_findings.py",
+  "axis": "op_almacen",
+  "lines": 50,
+  "module": "lib_store_admin",
+  "confidence": 0.34,
+  "top3": {
+   "lib_store_admin": 0.37,
+   "lib_rules_states_policy": 0.3,
+   "kernel_action": 0.28
+  },
+  "fits": 0.76,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/branch_stores.py",
+  "axis": "op_almacen",
+  "lines": 29,
+  "module": "lib_git_workflows",
+  "confidence": 0.88,
+  "top3": {
+   "lib_git_workflows": 0.88,
+   "kernel_ports": 0.04,
+   "lib_multi_store": 0.04
+  },
+  "fits": 0.82,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/build_store.py",
+  "axis": "op_almacen",
+  "lines": 83,
+  "module": "lib_store_admin",
+  "confidence": 1.0,
+  "top3": {
+   "lib_store_admin": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.95,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/stores/conflict_sides.py",
+  "axis": "op_almacen",
+  "lines": 41,
+  "module": "lib_git_workflows",
+  "confidence": 0.97,
+  "top3": {
+   "lib_git_workflows": 0.97,
+   "kernel_ports": 0.02,
+   "kernel_projection": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.42
+ },
+ {
+  "file": "api/stores/declaration_sync.py",
+  "axis": "op_almacen",
+  "lines": 99,
+  "module": "lib_store_admin",
+  "confidence": 0.86,
+  "top3": {
+   "lib_store_admin": 0.87,
+   "lib_models": 0.06,
+   "lib_documents": 0.02
+  },
+  "fits": 0.76,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/stores/declare_store.py",
+  "axis": "op_almacen",
+  "lines": 51,
+  "module": "lib_store_admin",
+  "confidence": 0.99,
+  "top3": {
+   "lib_store_admin": 0.99,
+   "kernel_projection": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.87,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/declared_files.py",
+  "axis": "op_almacen",
+  "lines": 43,
+  "module": "lib_store_admin",
+  "confidence": 0.49,
+  "top3": {
+   "lib_store_admin": 0.51,
+   "lib_rules_states_policy": 0.3,
+   "lib_project_graph": 0.09
+  },
+  "fits": 0.69,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/declared_includes.py",
+  "axis": "op_almacen",
+  "lines": 43,
+  "module": "lib_store_admin",
+  "confidence": 0.56,
+  "top3": {
+   "lib_store_admin": 0.58,
+   "lib_documents": 0.18,
+   "kernel_projection": 0.11
+  },
+  "fits": 0.7,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/derived_recovery.py",
+  "axis": "op_almacen",
+  "lines": 56,
+  "module": "lib_git_workflows",
+  "confidence": 0.91,
+  "top3": {
+   "lib_git_workflows": 0.91,
+   "kernel_ports": 0.04,
+   "kernel_graph": 0.02
+  },
+  "fits": 0.68,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/doc_ref.py",
+  "axis": "op_almacen",
+  "lines": 46,
+  "module": "lib_multi_store",
+  "confidence": 0.95,
+  "top3": {
+   "lib_multi_store": 0.95,
+   "lib_relations": 0.02,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.85,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/doc_ref_status.py",
+  "axis": "op_almacen",
+  "lines": 23,
+  "module": "lib_relations",
+  "confidence": 0.46,
+  "top3": {
+   "lib_relations": 0.48,
+   "lib_multi_store": 0.14,
+   "lib_links": 0.13
+  },
+  "fits": 0.51,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/stores/doc_status.py",
+  "axis": "op_almacen",
+  "lines": 55,
+  "module": "lib_relations",
+  "confidence": 0.25,
+  "top3": {
+   "lib_relations": 0.28,
+   "lib_documents": 0.23,
+   "lib_links": 0.17
+  },
+  "fits": 0.67,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/document_field_hashes.py",
+  "axis": "op_almacen",
+  "lines": 44,
+  "module": "kernel_graph",
+  "confidence": 0.29,
+  "top3": {
+   "kernel_graph": 0.32,
+   "kernel_anchoring": 0.25,
+   "lib_documents": 0.25
+  },
+  "fits": 0.62,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/stores/ensure_merge_driver.py",
+  "axis": "op_almacen",
+  "lines": 85,
+  "module": "lib_git_workflows",
+  "confidence": 0.92,
+  "top3": {
+   "lib_git_workflows": 0.92,
+   "lib_store_admin": 0.06,
+   "kernel_ports": 0.02
+  },
+  "fits": 0.85,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/gitignore_lines.py",
+  "axis": "op_almacen",
+  "lines": 64,
+  "module": "lib_git_workflows",
+  "confidence": 0.93,
+  "top3": {
+   "lib_git_workflows": 0.93,
+   "kernel_ports": 0.04,
+   "kernel_projection": 0.02
+  },
+  "fits": 0.81,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/stores/gitignore_policy.py",
+  "axis": "op_almacen",
+  "lines": 38,
+  "module": "lib_git_workflows",
+  "confidence": 0.99,
+  "top3": {
+   "lib_git_workflows": 0.99,
+   "kernel_ports": 0.01,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/stores/include_losers.py",
+  "axis": "op_almacen",
+  "lines": 46,
+  "module": "lib_store_admin",
+  "confidence": 0.66,
+  "top3": {
+   "lib_store_admin": 0.67,
+   "lib_documents": 0.1,
+   "lib_multi_store": 0.09
+  },
+  "fits": 0.69,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/include_resolution.py",
+  "axis": "op_almacen",
+  "lines": 66,
+  "module": "lib_store_admin",
+  "confidence": 0.55,
+  "top3": {
+   "lib_store_admin": 0.57,
+   "lib_rules_states_policy": 0.26,
+   "lib_multi_store": 0.09
+  },
+  "fits": 0.66,
+  "mixed": 0.15
+ },
+ {
+  "file": "api/stores/index_commit.py",
+  "axis": "op_almacen",
+  "lines": 55,
+  "module": "lib_store_admin",
+  "confidence": 0.95,
+  "top3": {
+   "lib_store_admin": 0.95,
+   "kernel_graph": 0.04,
+   "facade": 0.01
+  },
+  "fits": 0.69,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/stores/index_refresh.py",
+  "axis": "op_almacen",
+  "lines": 112,
+  "module": "lib_store_admin",
+  "confidence": 0.81,
+  "top3": {
+   "lib_store_admin": 0.82,
+   "lib_documents": 0.09,
+   "kernel_anchoring": 0.06
+  },
+  "fits": 0.68,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/indexed_documents.py",
+  "axis": "op_almacen",
+  "lines": 27,
+  "module": "lib_documents",
+  "confidence": 0.39,
+  "top3": {
+   "lib_documents": 0.41,
+   "lib_store_admin": 0.33,
+   "lib_multi_store": 0.17
+  },
+  "fits": 0.76,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/stores/init_store.py",
+  "axis": "op_almacen",
+  "lines": 69,
+  "module": "lib_store_admin",
+  "confidence": 0.99,
+  "top3": {
+   "lib_store_admin": 0.99,
+   "kernel_graph": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.9,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/judge_findings.py",
+  "axis": "op_almacen",
+  "lines": 94,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.9,
+  "top3": {
+   "lib_rules_states_policy": 0.9,
+   "lib_store_admin": 0.09,
+   "lib_documents": 0.01
+  },
+  "fits": 0.81,
+  "mixed": 0.14
+ },
+ {
+  "file": "api/stores/link_store.py",
+  "axis": "op_almacen",
+  "lines": 97,
+  "module": "lib_multi_store",
+  "confidence": 1.0,
+  "top3": {
+   "lib_multi_store": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.9,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/linked_store.py",
+  "axis": "op_almacen",
+  "lines": 15,
+  "module": "lib_multi_store",
+  "confidence": 0.97,
+  "top3": {
+   "lib_multi_store": 0.97,
+   "kernel_graph": 0.02,
+   "face": 0.01
+  },
+  "fits": 0.9,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/stores/merge_driver.py",
+  "axis": "op_almacen",
+  "lines": 64,
+  "module": "lib_git_workflows",
+  "confidence": 1.0,
+  "top3": {
+   "lib_git_workflows": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.91,
+  "mixed": 0.18
+ },
+ {
+  "file": "api/stores/merge_driver_install.py",
+  "axis": "op_almacen",
+  "lines": 50,
+  "module": "lib_git_workflows",
+  "confidence": 0.94,
+  "top3": {
+   "lib_git_workflows": 0.94,
+   "kernel_ports": 0.06,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.85,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/merged_includes.py",
+  "axis": "op_almacen",
+  "lines": 51,
+  "module": "lib_store_admin",
+  "confidence": 0.67,
+  "top3": {
+   "lib_store_admin": 0.68,
+   "lib_rules_states_policy": 0.15,
+   "lib_multi_store": 0.05
+  },
+  "fits": 0.59,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/migrate_hash_names.py",
+  "axis": "op_almacen",
+  "lines": 17,
+  "module": "facade",
+  "confidence": 0.85,
+  "top3": {
+   "facade": 0.86,
+   "lib_multi_store": 0.08,
+   "face": 0.03
+  },
+  "fits": 0.66,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/migrate_layout.py",
+  "axis": "op_almacen",
+  "lines": 88,
+  "module": "lib_multi_store",
+  "confidence": 0.78,
+  "top3": {
+   "lib_multi_store": 0.79,
+   "lib_store_admin": 0.16,
+   "lib_git_workflows": 0.02
+  },
+  "fits": 0.74,
+  "mixed": 0.11
+ },
+ {
+  "file": "api/stores/open_store.py",
+  "axis": "op_almacen",
+  "lines": 43,
+  "module": "kernel_graph",
+  "confidence": 0.71,
+  "top3": {
+   "kernel_graph": 0.72,
+   "lib_store_admin": 0.17,
+   "lib_multi_store": 0.07
+  },
+  "fits": 0.86,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/policy.py",
+  "axis": "op_almacen",
+  "lines": 59,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.97,
+  "top3": {
+   "lib_rules_states_policy": 0.97,
+   "lib_store_admin": 0.02,
+   "lib_multi_store": 0.01
+  },
+  "fits": 0.87,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/policy_subject.py",
+  "axis": "op_almacen",
+  "lines": 16,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.38,
+  "top3": {
+   "lib_rules_states_policy": 0.4,
+   "lib_documents": 0.23,
+   "kernel_graph": 0.16
+  },
+  "fits": 0.59,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/stores/read_store.py",
+  "axis": "op_almacen",
+  "lines": 62,
+  "module": "kernel_graph",
+  "confidence": 0.82,
+  "top3": {
+   "kernel_graph": 0.83,
+   "lib_store_admin": 0.1,
+   "lib_multi_store": 0.05
+  },
+  "fits": 0.83,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/stores/rebuild_index.py",
+  "axis": "op_almacen",
+  "lines": 108,
+  "module": "lib_store_admin",
+  "confidence": 0.99,
+  "top3": {
+   "lib_store_admin": 0.99,
+   "kernel_graph": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.88,
+  "mixed": 0.2
+ },
+ {
+  "file": "api/stores/resolve_indexed_document.py",
+  "axis": "op_almacen",
+  "lines": 81,
+  "module": "lib_documents",
+  "confidence": 0.78,
+  "top3": {
+   "lib_documents": 0.79,
+   "kernel_graph": 0.14,
+   "lib_multi_store": 0.04
+  },
+  "fits": 0.76,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/scaffold_report.py",
+  "axis": "op_almacen",
+  "lines": 26,
+  "module": "lib_store_admin",
+  "confidence": 0.99,
+  "top3": {
+   "lib_store_admin": 0.99,
+   "lib_models": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.88,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/stores/scaffold_sources.py",
+  "axis": "op_almacen",
+  "lines": 52,
+  "module": "lib_store_admin",
+  "confidence": 0.85,
+  "top3": {
+   "lib_store_admin": 0.86,
+   "kernel_projection": 0.07,
+   "kernel_ports": 0.02
+  },
+  "fits": 0.75,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/scaffold_store.py",
+  "axis": "op_almacen",
+  "lines": 108,
+  "module": "lib_store_admin",
+  "confidence": 1.0,
+  "top3": {
+   "lib_store_admin": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.93,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/scan_cache.py",
+  "axis": "op_almacen",
+  "lines": 82,
+  "module": "lib_store_admin",
+  "confidence": 0.5,
+  "top3": {
+   "lib_store_admin": 0.52,
+   "kernel_anchoring": 0.18,
+   "kernel_projection": 0.14
+  },
+  "fits": 0.71,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/scan_rewrite_loss.py",
+  "axis": "op_almacen",
+  "lines": 24,
+  "module": "kernel_projection",
+  "confidence": 0.23,
+  "top3": {
+   "kernel_projection": 0.26,
+   "lib_documents": 0.25,
+   "lib_store_admin": 0.22
+  },
+  "fits": 0.66,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/scan_structural_noise.py",
+  "axis": "op_almacen",
+  "lines": 44,
+  "module": "lib_store_admin",
+  "confidence": 0.74,
+  "top3": {
+   "lib_store_admin": 0.75,
+   "lib_documents": 0.24,
+   "lib_graph_analysis": 0.01
+  },
+  "fits": 0.81,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/seed.py",
+  "axis": "op_almacen",
+  "lines": 47,
+  "module": "lib_store_admin",
+  "confidence": 0.98,
+  "top3": {
+   "lib_store_admin": 0.98,
+   "lib_documents": 0.01,
+   "lib_models": 0.01
+  },
+  "fits": 0.88,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/store_check.py",
+  "axis": "op_almacen",
+  "lines": 95,
+  "module": "lib_store_admin",
+  "confidence": 0.86,
+  "top3": {
+   "lib_store_admin": 0.87,
+   "face": 0.1,
+   "facade": 0.03
+  },
+  "fits": 0.81,
+  "mixed": 0.13
+ },
+ {
+  "file": "api/stores/store_check_summary.py",
+  "axis": "op_almacen",
+  "lines": 43,
+  "module": "lib_store_admin",
+  "confidence": 0.97,
+  "top3": {
+   "lib_store_admin": 0.97,
+   "kernel_graph": 0.02,
+   "lib_graph_analysis": 0.01
+  },
+  "fits": 0.82,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/store_declaration.py",
+  "axis": "op_almacen",
+  "lines": 110,
+  "module": "lib_store_admin",
+  "confidence": 0.89,
+  "top3": {
+   "lib_store_admin": 0.89,
+   "lib_multi_store": 0.07,
+   "lib_models": 0.03
+  },
+  "fits": 0.74,
+  "mixed": 0.17
+ },
+ {
+  "file": "api/stores/store_discovery.py",
+  "axis": "op_almacen",
+  "lines": 77,
+  "module": "kernel_graph",
+  "confidence": 0.58,
+  "top3": {
+   "kernel_graph": 0.6,
+   "lib_multi_store": 0.27,
+   "facade": 0.07
+  },
+  "fits": 0.71,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/store_file_merge.py",
+  "axis": "op_almacen",
+  "lines": 55,
+  "module": "lib_git_workflows",
+  "confidence": 0.9,
+  "top3": {
+   "lib_git_workflows": 0.9,
+   "lib_store_admin": 0.07,
+   "lib_multi_store": 0.03
+  },
+  "fits": 0.78,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/store_findings.py",
+  "axis": "op_almacen",
+  "lines": 71,
+  "module": "lib_store_admin",
+  "confidence": 0.97,
+  "top3": {
+   "lib_store_admin": 0.97,
+   "kernel_support": 0.03,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.81,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/store_fingerprint.py",
+  "axis": "op_almacen",
+  "lines": 34,
+  "module": "lib_store_admin",
+  "confidence": 0.69,
+  "top3": {
+   "lib_store_admin": 0.7,
+   "kernel_graph": 0.22,
+   "kernel_anchoring": 0.06
+  },
+  "fits": 0.75,
+  "mixed": 0.05
+ },
+ {
+  "file": "api/stores/store_links.py",
+  "axis": "op_almacen",
+  "lines": 44,
+  "module": "lib_multi_store",
+  "confidence": 0.79,
+  "top3": {
+   "lib_multi_store": 0.8,
+   "kernel_graph": 0.09,
+   "lib_store_admin": 0.05
+  },
+  "fits": 0.76,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/stores/store_location.py",
+  "axis": "op_almacen",
+  "lines": 19,
+  "module": "kernel_graph",
+  "confidence": 0.88,
+  "top3": {
+   "kernel_graph": 0.88,
+   "kernel_ports": 0.09,
+   "lib_store_admin": 0.02
+  },
+  "fits": 0.88,
+  "mixed": 0.03
+ },
+ {
+  "file": "api/stores/store_skeleton.py",
+  "axis": "op_almacen",
+  "lines": 47,
+  "module": "lib_store_admin",
+  "confidence": 0.97,
+  "top3": {
+   "lib_store_admin": 0.97,
+   "kernel_graph": 0.02,
+   "lib_multi_store": 0.01
+  },
+  "fits": 0.86,
+  "mixed": 0.25
+ },
+ {
+  "file": "api/stores/store_surroundings.py",
+  "axis": "op_almacen",
+  "lines": 100,
+  "module": "lib_store_admin",
+  "confidence": 0.78,
+  "top3": {
+   "lib_store_admin": 0.79,
+   "lib_multi_store": 0.17,
+   "lib_rules_states_policy": 0.02
+  },
+  "fits": 0.75,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/stores/store_update_report.py",
+  "axis": "op_almacen",
+  "lines": 25,
+  "module": "lib_store_admin",
+  "confidence": 0.95,
+  "top3": {
+   "lib_store_admin": 0.95,
+   "kernel_graph": 0.02,
+   "facade": 0.02
+  },
+  "fits": 0.85,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/stores/tag_namespace.py",
+  "axis": "op_almacen",
+  "lines": 76,
+  "module": "lib_semantic",
+  "confidence": 0.99,
+  "top3": {
+   "lib_semantic": 0.99,
+   "lib_store_admin": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/stores/tracked_documents.py",
+  "axis": "op_almacen",
+  "lines": 54,
+  "module": "lib_documents",
+  "confidence": 0.64,
+  "top3": {
+   "lib_documents": 0.65,
+   "lib_relations": 0.08,
+   "lib_store_admin": 0.08
+  },
+  "fits": 0.75,
+  "mixed": 0.07
+ },
+ {
+  "file": "api/stores/unlink_store.py",
+  "axis": "op_almacen",
+  "lines": 48,
+  "module": "lib_multi_store",
+  "confidence": 0.94,
+  "top3": {
+   "lib_multi_store": 0.94,
+   "lib_store_admin": 0.05,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.86,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/stores/unread_documents.py",
+  "axis": "op_almacen",
+  "lines": 56,
+  "module": "lib_store_admin",
+  "confidence": 0.78,
+  "top3": {
+   "lib_store_admin": 0.79,
+   "lib_documents": 0.19,
+   "lib_rules_states_policy": 0.01
+  },
+  "fits": 0.64,
+  "mixed": 0.14
+ },
+ {
+  "file": "api/stores/unresolvable_documents.py",
+  "axis": "op_almacen",
+  "lines": 56,
+  "module": "lib_store_admin",
+  "confidence": 0.55,
+  "top3": {
+   "lib_store_admin": 0.57,
+   "lib_documents": 0.3,
+   "face": 0.06
+  },
+  "fits": 0.68,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/stores/update_store_indexes.py",
+  "axis": "op_almacen",
+  "lines": 52,
+  "module": "lib_store_admin",
+  "confidence": 0.97,
+  "top3": {
+   "lib_store_admin": 0.97,
+   "kernel_graph": 0.02,
+   "lib_documents": 0.01
+  },
+  "fits": 0.74,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/tags/tag_check.py",
+  "axis": "reglas",
+  "lines": 25,
+  "module": "lib_semantic",
+  "confidence": 0.92,
+  "top3": {
+   "lib_semantic": 0.92,
+   "lib_store_admin": 0.05,
+   "lib_rules_states_policy": 0.01
+  },
+  "fits": 0.88,
+  "mixed": 0.22
+ },
+ {
+  "file": "api/tags/tag_evaluation.py",
+  "axis": "reglas",
+  "lines": 36,
+  "module": "lib_semantic",
+  "confidence": 0.8,
+  "top3": {
+   "lib_semantic": 0.81,
+   "lib_rules_states_policy": 0.17,
+   "lib_store_admin": 0.02
+  },
+  "fits": 0.76,
+  "mixed": 0.08
+ },
+ {
+  "file": "api/tags/tag_folder.py",
+  "axis": "reglas",
+  "lines": 20,
+  "module": "lib_semantic",
+  "confidence": 0.98,
+  "top3": {
+   "lib_semantic": 0.98,
+   "lib_documents": 0.02,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.84,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/tags/tag_tree.py",
+  "axis": "reglas",
+  "lines": 69,
+  "module": "lib_semantic",
+  "confidence": 1.0,
+  "top3": {
+   "lib_semantic": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.92,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/views/list_views.py",
+  "axis": "vistas_compuestas",
+  "lines": 49,
+  "module": "lib_notation_views",
+  "confidence": 0.92,
+  "top3": {
+   "lib_notation_views": 0.92,
+   "lib_multi_store": 0.06,
+   "lib_documents": 0.01
+  },
+  "fits": 0.83,
+  "mixed": 0.16
+ },
+ {
+  "file": "api/views/run_view.py",
+  "axis": "vistas_compuestas",
+  "lines": 65,
+  "module": "lib_notation_views",
+  "confidence": 0.98,
+  "top3": {
+   "lib_notation_views": 0.98,
+   "lib_graph_analysis": 0.01,
+   "facade": 0.01
+  },
+  "fits": 0.89,
+  "mixed": 0.09
+ },
+ {
+  "file": "api/views/view_edges.py",
+  "axis": "vistas_compuestas",
+  "lines": 53,
+  "module": "lib_graph_analysis",
+  "confidence": 0.5,
+  "top3": {
+   "lib_graph_analysis": 0.52,
+   "lib_notation_views": 0.39,
+   "kernel_graph": 0.02
+  },
+  "fits": 0.77,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/views/view_groups.py",
+  "axis": "vistas_compuestas",
+  "lines": 26,
+  "module": "lib_notation_views",
+  "confidence": 0.51,
+  "top3": {
+   "lib_notation_views": 0.53,
+   "lib_graph_analysis": 0.2,
+   "face": 0.18
+  },
+  "fits": 0.48,
+  "mixed": 0.04
+ },
+ {
+  "file": "api/views/view_links.py",
+  "axis": "vistas_compuestas",
+  "lines": 35,
+  "module": "lib_notation_views",
+  "confidence": 0.68,
+  "top3": {
+   "lib_notation_views": 0.69,
+   "lib_multi_store": 0.27,
+   "lib_links": 0.02
+  },
+  "fits": 0.78,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/views/view_nodes.py",
+  "axis": "vistas_compuestas",
+  "lines": 29,
+  "module": "lib_multi_store",
+  "confidence": 0.44,
+  "top3": {
+   "lib_multi_store": 0.46,
+   "lib_graph_analysis": 0.19,
+   "lib_notation_views": 0.18
+  },
+  "fits": 0.69,
+  "mixed": 0.06
+ },
+ {
+  "file": "api/views/view_reading.py",
+  "axis": "vistas_compuestas",
+  "lines": 74,
+  "module": "lib_notation_views",
+  "confidence": 0.95,
+  "top3": {
+   "lib_notation_views": 0.95,
+   "kernel_query": 0.02,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.84,
+  "mixed": 0.18
+ },
+ {
+  "file": "api/views/view_revision.py",
+  "axis": "vistas_compuestas",
+  "lines": 40,
+  "module": "lib_notation_views",
+  "confidence": 0.66,
+  "top3": {
+   "lib_notation_views": 0.67,
+   "kernel_support": 0.17,
+   "kernel_anchoring": 0.07
+  },
+  "fits": 0.64,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/views/view_rows.py",
+  "axis": "vistas_compuestas",
+  "lines": 72,
+  "module": "lib_notation_views",
+  "confidence": 0.92,
+  "top3": {
+   "lib_notation_views": 0.92,
+   "lib_documents": 0.03,
+   "face": 0.03
+  },
+  "fits": 0.77,
+  "mixed": 0.1
+ },
+ {
+  "file": "api/views/view_rules.py",
+  "axis": "vistas_compuestas",
+  "lines": 59,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.68,
+  "top3": {
+   "lib_rules_states_policy": 0.69,
+   "lib_notation_views": 0.26,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.83,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/views/view_source.py",
+  "axis": "vistas_compuestas",
+  "lines": 67,
+  "module": "lib_notation_views",
+  "confidence": 0.69,
+  "top3": {
+   "lib_notation_views": 0.7,
+   "lib_multi_store": 0.24,
+   "lib_documents": 0.06
+  },
+  "fits": 0.66,
+  "mixed": 0.12
+ },
+ {
+  "file": "api/views/view_transitions.py",
+  "axis": "vistas_compuestas",
+  "lines": 37,
+  "module": "lib_rules_states_policy",
+  "confidence": 0.6,
+  "top3": {
+   "lib_rules_states_policy": 0.62,
+   "lib_notation_views": 0.3,
+   "kernel_action": 0.04
+  },
+  "fits": 0.84,
+  "mixed": 0.08
+ },
+ {
+  "file": "store/catalog_reconcile.py",
+  "axis": "op_almacen",
+  "lines": 39,
+  "module": "lib_store_admin",
+  "confidence": 0.68,
+  "top3": {
+   "lib_store_admin": 0.69,
+   "kernel_graph": 0.13,
+   "lib_multi_store": 0.09
+  },
+  "fits": 0.6,
+  "mixed": 0.06
+ },
+ {
+  "file": "store/diagnostics.py",
+  "axis": "op_almacen",
+  "lines": 102,
+  "module": "lib_store_admin",
+  "confidence": 1.0,
+  "top3": {
+   "lib_store_admin": 1.0,
+   "kernel_ports": 0.0,
+   "kernel_trees": 0.0
+  },
+  "fits": 0.93,
+  "mixed": 0.04
+ },
+ {
+  "file": "store/diagnostics_models/diagnosis_note.py",
+  "axis": "op_almacen",
+  "lines": 16,
+  "module": "lib_models",
+  "confidence": 0.47,
+  "top3": {
+   "lib_models": 0.49,
+   "lib_documents": 0.23,
+   "lib_store_admin": 0.13
+  },
+  "fits": 0.64,
+  "mixed": 0.05
+ },
+ {
+  "file": "store/diagnostics_models/document_diagnosis.py",
+  "axis": "op_almacen",
+  "lines": 110,
+  "module": "lib_documents",
+  "confidence": 0.32,
+  "top3": {
+   "lib_documents": 0.35,
+   "lib_store_admin": 0.32,
+   "lib_rules_states_policy": 0.14
+  },
+  "fits": 0.55,
+  "mixed": 0.03
+ },
+ {
+  "file": "store/diagnostics_models/document_verdicts.py",
+  "axis": "op_almacen",
+  "lines": 75,
+  "module": "lib_store_admin",
+  "confidence": 0.71,
+  "top3": {
+   "lib_store_admin": 0.72,
+   "lib_documents": 0.09,
+   "lib_models": 0.09
+  },
+  "fits": 0.58,
+  "mixed": 0.07
+ },
+ {
+  "file": "store/diagnostics_models/invalid_verdict.py",
+  "axis": "op_almacen",
+  "lines": 43,
+  "module": "lib_documents",
+  "confidence": 0.66,
+  "top3": {
+   "lib_documents": 0.67,
+   "lib_store_admin": 0.31,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.76,
+  "mixed": 0.1
+ },
+ {
+  "file": "store/diagnostics_models/model_diagnosis.py",
+  "axis": "op_almacen",
+  "lines": 90,
+  "module": "lib_store_admin",
+  "confidence": 0.56,
+  "top3": {
+   "lib_store_admin": 0.58,
+   "lib_models": 0.24,
+   "lib_documents": 0.12
+  },
+  "fits": 0.55,
+  "mixed": 0.04
+ },
+ {
+  "file": "store/diagnostics_models/store_diagnosis.py",
+  "axis": "op_almacen",
+  "lines": 69,
+  "module": "lib_store_admin",
+  "confidence": 0.99,
+  "top3": {
+   "lib_store_admin": 0.99,
+   "lib_models": 0.01,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.86,
+  "mixed": 0.03
+ },
+ {
+  "file": "store/diagnostics_models/text_history.py",
+  "axis": "op_almacen",
+  "lines": 61,
+  "module": "lib_git_workflows",
+  "confidence": 0.84,
+  "top3": {
+   "lib_git_workflows": 0.85,
+   "lib_store_admin": 0.11,
+   "kernel_anchoring": 0.03
+  },
+  "fits": 0.8,
+  "mixed": 0.07
+ },
+ {
+  "file": "store/diagnostics_models/unread_verdict.py",
+  "axis": "op_almacen",
+  "lines": 29,
+  "module": "lib_store_admin",
+  "confidence": 0.67,
+  "top3": {
+   "lib_store_admin": 0.68,
+   "lib_documents": 0.27,
+   "kernel_anchoring": 0.02
+  },
+  "fits": 0.68,
+  "mixed": 0.07
+ },
+ {
+  "file": "store/diagnostics_models/verdict_notes.py",
+  "axis": "op_almacen",
+  "lines": 48,
+  "module": "lib_store_admin",
+  "confidence": 0.73,
+  "top3": {
+   "lib_store_admin": 0.74,
+   "kernel_support": 0.11,
+   "lib_models": 0.07
+  },
+  "fits": 0.72,
+  "mixed": 0.08
+ },
+ {
+  "file": "store/documents_dirty.py",
+  "axis": "op_documentos",
+  "lines": 66,
+  "module": "lib_documents",
+  "confidence": 0.52,
+  "top3": {
+   "lib_documents": 0.54,
+   "kernel_graph": 0.2,
+   "kernel_anchoring": 0.15
+  },
+  "fits": 0.57,
+  "mixed": 0.07
+ },
+ {
+  "file": "store/documents_dirty_persist.py",
+  "axis": "op_documentos",
+  "lines": 91,
+  "module": "kernel_graph",
+  "confidence": 0.41,
+  "top3": {
+   "kernel_graph": 0.43,
+   "kernel_ports": 0.21,
+   "lib_documents": 0.16
+  },
+  "fits": 0.64,
+  "mixed": 0.06
+ },
+ {
+  "file": "store/edge_doc_contribution.py",
+  "axis": "op_aristas",
+  "lines": 81,
+  "module": "kernel_graph",
+  "confidence": 0.61,
+  "top3": {
+   "kernel_graph": 0.63,
+   "kernel_anchoring": 0.17,
+   "lib_documents": 0.08
+  },
+  "fits": 0.74,
+  "mixed": 0.12
+ },
+ {
+  "file": "store/edge_rebuild.py",
+  "axis": "op_aristas",
+  "lines": 82,
+  "module": "kernel_graph",
+  "confidence": 0.58,
+  "top3": {
+   "kernel_graph": 0.6,
+   "lib_store_admin": 0.4,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.79,
+  "mixed": 0.11
+ },
+ {
+  "file": "store/edge_sync.py",
+  "axis": "op_aristas",
+  "lines": 68,
+  "module": "kernel_graph",
+  "confidence": 0.65,
+  "top3": {
+   "kernel_graph": 0.66,
+   "lib_store_admin": 0.31,
+   "lib_documents": 0.01
+  },
+  "fits": 0.8,
+  "mixed": 0.09
+ },
+ {
+  "file": "store/export.py",
+  "axis": "op_almacen",
+  "lines": 103,
+  "module": "lib_store_admin",
+  "confidence": 0.94,
+  "top3": {
+   "lib_store_admin": 0.94,
+   "lib_graph_analysis": 0.04,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.78,
+  "mixed": 0.06
+ },
+ {
+  "file": "store/field_set_drift.py",
+  "axis": "op_almacen",
+  "lines": 60,
+  "module": "lib_documents",
+  "confidence": 0.8,
+  "top3": {
+   "lib_documents": 0.81,
+   "kernel_graph": 0.1,
+   "lib_models": 0.03
+  },
+  "fits": 0.77,
+  "mixed": 0.07
+ },
+ {
+  "file": "store/model_import_root.py",
+  "axis": "op_modelos",
+  "lines": 21,
+  "module": "lib_models",
+  "confidence": 0.97,
+  "top3": {
+   "lib_models": 0.97,
+   "kernel_ports": 0.01,
+   "lib_model_code": 0.01
+  },
+  "fits": 0.85,
+  "mixed": 0.04
+ },
+ {
+  "file": "store/model_node.py",
+  "axis": "op_aristas",
+  "lines": 46,
+  "module": "kernel_graph",
+  "confidence": 0.81,
+  "top3": {
+   "kernel_graph": 0.82,
+   "lib_models": 0.1,
+   "kernel_anchoring": 0.03
+  },
+  "fits": 0.82,
+  "mixed": 0.09
+ },
+ {
+  "file": "store/model_origin.py",
+  "axis": "op_modelos",
+  "lines": 91,
+  "module": "lib_multi_store",
+  "confidence": 0.86,
+  "top3": {
+   "lib_multi_store": 0.87,
+   "lib_models": 0.13,
+   "kernel_ports": 0.0
+  },
+  "fits": 0.85,
+  "mixed": 0.11
+ },
+ {
+  "file": "store/ops.py",
+  "axis": "op_almacen",
+  "lines": 100,
+  "module": "lib_store_admin",
+  "confidence": 0.55,
+  "top3": {
+   "lib_store_admin": 0.57,
+   "kernel_graph": 0.39,
+   "lib_documents": 0.03
+  },
+  "fits": 0.62,
+  "mixed": 0.09
+ },
+ {
+  "file": "store/package_version.py",
+  "axis": "op_almacen",
+  "lines": 71,
+  "module": "kernel_ports",
+  "confidence": 0.95,
+  "top3": {
+   "kernel_ports": 0.95,
+   "face": 0.02,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.79,
+  "mixed": 0.08
+ },
+ {
+  "file": "store/section_doc_contribution.py",
+  "axis": "op_documentos",
+  "lines": 33,
+  "module": "lib_documents",
+  "confidence": 0.3,
+  "top3": {
+   "lib_documents": 0.33,
+   "kernel_anchoring": 0.23,
+   "kernel_graph": 0.12
+  },
+  "fits": 0.62,
+  "mixed": 0.11
+ },
+ {
+  "file": "store/section_paths.py",
+  "axis": "op_documentos",
+  "lines": 35,
+  "module": "kernel_graph",
+  "confidence": 0.52,
+  "top3": {
+   "kernel_graph": 0.54,
+   "kernel_trees": 0.16,
+   "kernel_anchoring": 0.11
+  },
+  "fits": 0.63,
+  "mixed": 0.17
+ },
+ {
+  "file": "store/section_rebuild.py",
+  "axis": "op_documentos",
+  "lines": 96,
+  "module": "lib_store_admin",
+  "confidence": 0.97,
+  "top3": {
+   "lib_store_admin": 0.97,
+   "lib_documents": 0.02,
+   "kernel_graph": 0.01
+  },
+  "fits": 0.75,
+  "mixed": 0.06
+ },
+ {
+  "file": "store/section_sync.py",
+  "axis": "op_documentos",
+  "lines": 108,
+  "module": "lib_store_admin",
+  "confidence": 0.75,
+  "top3": {
+   "lib_store_admin": 0.76,
+   "lib_documents": 0.15,
+   "kernel_graph": 0.04
+  },
+  "fits": 0.57,
+  "mixed": 0.22
+ }
+]
