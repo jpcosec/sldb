@@ -83,6 +83,79 @@ Estado en los dos códigos:
 | Sostén | no existe | no existe |
 | Acción | no existe | evaluación aislada de declaraciones; nada más |
 
+### El kernel con dos criterios
+
+Criterio de JP (2026-11-27): juntar quién importa a quién con qué no debería cambiar nunca, o
+casi nunca.
+
+El primero se mide. El segundo es una decisión: sale de los principios. Medido sobre el reparto
+de [`reparto-completo.md`](reparto-completo.md):
+
+- **Lo usan**: imports que llegan al módulo desde otros módulos.
+- **Usa**: imports que salen del módulo hacia otros.
+- **Inestabilidad**: usa dividido por la suma de los dos. Cerca de 0, todos dependen de él y él
+  de casi nadie: es base. Cerca de 1, depende de todos y nadie de él: es punta.
+- **Cambios por archivo**: commits que tocaron cada archivo desde agosto de 2026, en promedio.
+
+| Módulo | Archivos | Lo usan | Usa | Inestabilidad | Cambios por archivo |
+|---|---|---|---|---|---|
+| Errores y hallazgos compartidos | 30 | 53 | 1 | 0.02 | 1.2 |
+| Kernel: Puertos | 11 | 53 | 3 | 0.05 | 2.4 |
+| Kernel: Grafo | 108 | 348 | 59 | 0.14 | 2.4 |
+| Base de los modelos | 21 | 71 | 23 | 0.24 | 2.2 |
+| Modelos (registro, esquema) | 32 | 101 | 53 | 0.34 | 2.6 |
+| Semántica | 20 | 33 | 25 | 0.43 | 2.4 |
+| Fachadas | 10 | 45 | 35 | 0.44 | 2.5 |
+| Kernel: Consulta | 38 | 48 | 38 | 0.44 | 2.6 |
+| Kernel: Acción | 3 | 5 | 4 | 0.44 | 0.7 |
+| Lo que se hace con git | 12 | 9 | 9 | 0.50 | 1.4 |
+| Kernel: Árboles | 19 | 29 | 30 | 0.51 | 1.5 |
+| Kernel: Anclaje | 26 | 33 | 35 | 0.51 | 1.4 |
+| Kernel: Proyección | 13 | 16 | 18 | 0.53 | 2.2 |
+| Varios stores y migración | 19 | 40 | 48 | 0.55 | 2.6 |
+| Caras | 38 | 29 | 38 | 0.57 | 1.8 |
+| Relaciones declaradas | 23 | 29 | 41 | 0.59 | 1.8 |
+| Análisis del grafo | 18 | 14 | 20 | 0.59 | 1.9 |
+| Documentos con modelo | 85 | 114 | 200 | 0.64 | 2.6 |
+| Reglas, estados y política | 26 | 30 | 71 | 0.70 | 2.4 |
+| Grafo de proyecto | 40 | 10 | 25 | 0.71 | 1.3 |
+| Lotes y transacciones | 20 | 19 | 52 | 0.73 | 2.4 |
+| Enlaces en el texto | 12 | 3 | 10 | 0.77 | 1.8 |
+| Notaciones y vistas | 193 | 29 | 104 | 0.78 | 1.2 |
+| Similitud | 15 | 3 | 11 | 0.79 | 1.3 |
+| Administración del store | 59 | 44 | 181 | 0.80 | 3.9 |
+| Código a documentos | 35 | 10 | 47 | 0.82 | 1.6 |
+| Kernel: Sostén | 1 | 2 | 10 | 0.83 | 3.0 |
+| Código de un modelo | 23 | 1 | 30 | 0.97 | 2.6 |
+
+Cruzando los dos criterios salen cuatro grupos:
+
+| | Todos lo importan (base) | Pocos lo importan |
+|---|---|---|
+| **No debería cambiar** (sale de un principio) | **Kernel que ya está en su lugar**: Puertos, Grafo, y los errores y hallazgos compartidos. | **Kernel que hay que sacar o construir**: Árboles, Anclaje y Proyección están a media altura porque dependen de los modelos; Consulta también; Sostén y Acción no existen. |
+| **Puede cambiar** (lo declara cada proyecto) | **El centro equivocado de hoy**: la base de los modelos y el registro de modelos. Todos dependen de ellos, y por los principios no deberían ser base. | **Librerías**: todo lo demás. |
+
+Lo que esto corrige de la tabla de más arriba:
+
+- **Errores y hallazgos compartidos es del kernel.** Es lo más estable del repo (0,02) y lo
+  usa todo. No estaba en la lista de ocho. Es el vocabulario con que cualquier módulo dice que
+  algo falló o que algo cambió.
+- **Puertos y Grafo se confirman** con el número: 0,05 y 0,14.
+- **El kernel de hoy no es el kernel que queremos.** En el código, el centro son los modelos de
+  documento: `structured_doc`, la validación y la referencia a un modelo. Árboles, Anclaje y
+  Proyección, que por principio van al centro, hoy importan tanto como los importan (0,5).
+  Mover el kernel no es mover carpetas: es invertir esa dependencia, que leer una fuente deje
+  de necesitar un modelo.
+- **Los cambios por archivo casi no distinguen**: todo se mueve entre 1 y 4. Sirven para ver
+  archivos sueltos. `store/query.py` es del kernel y cambió 17 veces: es el cargador de
+  documentos mezclado con la carga desde otros stores. Un archivo del kernel que cambia mucho
+  es una frontera mal puesta.
+- **Administración del store y documentos con modelo son los que más cambian y los que más
+  usan a otros.** Son punta, como corresponde a una librería.
+
+Límite: estos números describen el reparto que hizo Jev, con sus dudas. Para los módulos con
+pocos archivos seguros (Árboles, Proyección) el número es una pista, no una medida.
+
 ### Librerías
 
 | Librería | En sldb hoy | En kimun hoy |
