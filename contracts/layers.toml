@@ -265,7 +265,7 @@ evaluación pasó a `core/renderer_engine/config.py`).
 [[axis]]
 id = "persistencia"
 ring = "0b"
-paths = ["store/io", "store/models", "store/layout.py", "store/predicates.py"]
+paths = ["store/io", "store/models", "store/layout.py", "store/predicates.py", "api/stores/store_location.py"]
 external = []
 does = "guardar, indexar, fragmentar, hashear"
 identity = false
@@ -430,7 +430,7 @@ identity = false
 [[axis]]
 id = "op_almacen"
 ring = "2"
-paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
+paths = ["api/stores/__init__.py", "api/stores/ambiguous_document.py", "api/stores/apply_declaration.py", "api/stores/apply_findings.py", "api/stores/branch_stores.py", "api/stores/build_store.py", "api/stores/conflict_sides.py", "api/stores/declaration_sync.py", "api/stores/declare_store.py", "api/stores/declared_files.py", "api/stores/declared_includes.py", "api/stores/derived_recovery.py", "api/stores/doc_ref.py", "api/stores/doc_ref_status.py", "api/stores/doc_status.py", "api/stores/document_field_hashes.py", "api/stores/ensure_merge_driver.py", "api/stores/gitignore_lines.py", "api/stores/gitignore_policy.py", "api/stores/include_losers.py", "api/stores/include_resolution.py", "api/stores/index_commit.py", "api/stores/index_refresh.py", "api/stores/indexed_documents.py", "api/stores/init_store.py", "api/stores/judge_findings.py", "api/stores/link_store.py", "api/stores/linked_store.py", "api/stores/merge_driver.py", "api/stores/merge_driver_install.py", "api/stores/merged_includes.py", "api/stores/migrate_hash_names.py", "api/stores/migrate_layout.py", "api/stores/open_store.py", "api/stores/policy.py", "api/stores/policy_subject.py", "api/stores/read_store.py", "api/stores/rebuild_index.py", "api/stores/resolve_indexed_document.py", "api/stores/scaffold_report.py", "api/stores/scaffold_sources.py", "api/stores/scaffold_store.py", "api/stores/scan_cache.py", "api/stores/scan_rewrite_loss.py", "api/stores/scan_structural_noise.py", "api/stores/seed.py", "api/stores/store_check.py", "api/stores/store_check_summary.py", "api/stores/store_declaration.py", "api/stores/store_discovery.py", "api/stores/store_file_merge.py", "api/stores/store_findings.py", "api/stores/store_fingerprint.py", "api/stores/store_links.py", "api/stores/store_skeleton.py", "api/stores/store_surroundings.py", "api/stores/store_update_report.py", "api/stores/tag_namespace.py", "api/stores/tracked_documents.py", "api/stores/unlink_store.py", "api/stores/unread_documents.py", "api/stores/unresolvable_documents.py", "api/stores/update_store_indexes.py", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
 identity = false

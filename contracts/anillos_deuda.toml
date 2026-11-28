@@ -24,28 +24,8 @@ file = "api/documents/apply_batch.py"
 module = "store.write_journal"
 
 [[import]]
-file = "api/documents/batch_edges.py"
-module = "api.stores.store_location"
-
-[[import]]
-file = "api/documents/batch_guards.py"
-module = "api.stores.store_location"
-
-[[import]]
-file = "api/documents/batch_inverse.py"
-module = "api.stores.store_location"
-
-[[import]]
-file = "api/documents/batch_prevalidate.py"
-module = "api.stores.store_location"
-
-[[import]]
 file = "api/documents/batch_prevalidate.py"
 module = "runtime.validation"
-
-[[import]]
-file = "api/documents/content_hash.py"
-module = "api.stores.store_location"
 
 [[import]]
 file = "api/documents/create_document.py"
@@ -120,14 +100,6 @@ file = "api/documents/move_path_plan.py"
 module = "api.stores.indexed_documents"
 
 [[import]]
-file = "api/documents/move_path_plan.py"
-module = "api.stores.store_location"
-
-[[import]]
-file = "api/documents/move_path_resolve.py"
-module = "api.stores.store_location"
-
-[[import]]
 file = "api/documents/on_write_gate.py"
 module = "api.rules.rules_on_write"
 
@@ -177,10 +149,6 @@ module = "api.stores.open_store"
 
 [[import]]
 file = "api/documents/replace_text.py"
-module = "api.stores.store_location"
-
-[[import]]
-file = "api/documents/replace_text.py"
 module = "runtime.validation"
 
 [[import]]
@@ -226,10 +194,6 @@ module = "api.stores.store_declaration"
 [[import]]
 file = "api/documents/transaction_state.py"
 module = "api.rules.rule_cache"
-
-[[import]]
-file = "api/documents/transaction_state.py"
-module = "api.stores.store_location"
 
 [[import]]
 file = "api/documents/undo_batches.py"
@@ -316,24 +280,12 @@ file = "api/edges/referrers.py"
 module = "api.stores.open_store"
 
 [[import]]
-file = "api/edges/referrers.py"
-module = "api.stores.store_location"
-
-[[import]]
-file = "api/edges/rewrite_plan.py"
-module = "api.stores.store_location"
-
-[[import]]
 file = "api/edges/rewrite_plan.py"
 module = "runtime.validation"
 
 [[import]]
 file = "api/edges/rewrite_references.py"
 module = "api.stores.open_store"
-
-[[import]]
-file = "api/edges/rewrite_references.py"
-module = "api.stores.store_location"
 
 [[import]]
 file = "api/graph/analyze.py"
