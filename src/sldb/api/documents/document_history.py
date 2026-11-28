@@ -8,13 +8,13 @@ before. Outside a git work tree, or for a file git never saw, the history is emp
 
 from __future__ import annotations
 
-import subprocess
 from pathlib import Path
 from typing import Any
 
 from sldb.api.documents.document_history_versions import changed_fields, version_facts
 from sldb.api.documents.document_payload import runtime_document
 from sldb.api.stores.open_store import open_store
+from sldb.ports.git import git_output
 
 _DEPTH = 200
 _SEP = "\x1f"
@@ -39,7 +39,7 @@ def _entry(meta: tuple[str, str, str], now: dict[str, Any], before: dict[str, An
 
 def _commits(root: Path, rel_path: str) -> list[tuple[str, str, str]]:
     """`(sha, iso date, path at that commit)`, newest first; renames followed."""
-    out = _git(root, "log", "--follow", f"-n{_DEPTH}", f"--format=%H{_SEP}%cI", "--name-only", "--", rel_path)
+    out = git_output(root, "log", "--follow", f"-n{_DEPTH}", f"--format=%H{_SEP}%cI", "--name-only", "--", rel_path)
     found, pending = [], None
     for line in (out or "").splitlines():
         if _SEP in line:
@@ -51,12 +51,4 @@ def _commits(root: Path, rel_path: str) -> list[tuple[str, str, str]]:
 
 
 def _show(root: Path, sha: str, rel_path: str) -> str:
-    return _git(root, "show", f"{sha}:{rel_path}") or ""
-
-
-def _git(root: Path, *argv: str) -> str | None:
-    try:
-        done = subprocess.run(["git", *argv], cwd=root, capture_output=True, text=True, check=False)
-    except OSError:
-        return None
-    return done.stdout if done.returncode == 0 else None
+    return git_output(root, "show", f"{sha}:{rel_path}") or ""

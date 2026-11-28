@@ -10,6 +10,18 @@
 # El orden no es una preferencia de estilo: es lo que decide si una pieza se
 # puede probar aislada y si alguien puede entender una parte sin cargar el resto.
 
+# Los puertos son la capa más baja: lo único que habla con lo que no es sldb (hoy, git).
+# No importan nada del sistema. `level` es solo un nombre: el orden lo da la posición.
+[[layers]]
+level = -1
+name = "puertos"
+packages = ["ports"]
+rationale = """
+La interfaz con lo de afuera, una por cosa (hoy `ports/git.py`). No decide nada y no conoce
+nodos, documentos ni stores, así que cualquier otra capa puede llamarla sin crear un ciclo.
+`tools/check_axes.py --ports` rechaza una llamada a `git` fuera de acá.
+"""
+
 [[layers]]
 level = 0
 name = "núcleo"
@@ -223,7 +235,7 @@ note = "es *la* idea del sistema; sin esto lo que queda es un conversor de forma
 [[axis]]
 id = "render"
 ring = "0a"
-paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py"]
+paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py", "core/template_payload.py"]
 external = ["jinja2"]
 does = "árbol a texto reversible; sin esto la representación es un volcado, no un lugar donde trabajar"
 identity = true
@@ -231,7 +243,7 @@ identity = true
 [[axis]]
 id = "contrato"
 ring = "0b"
-paths = ["models"]
+paths = ["models/__init__.py", "models/anchor_doc.py", "models/anchor_state.py", "models/builtin_relation_types.py", "models/cli_command_doc.py", "models/code_anchor_doc.py", "models/code_ref.py", "models/doc_anchor_value.py", "models/knowledge_surface.py", "models/knowledge_tag.py", "models/provenance.py", "models/provenance_block.py", "models/python_symbol_doc.py", "models/relation_doc.py", "models/relation_type_doc.py", "models/rule_doc.py", "models/structured_doc.py", "models/surface_doc.py", "models/transition_attributes.py", "models/field_schema"]
 external = ["pydantic"]
 does = "qué es un documento válido"
 identity = true
@@ -253,7 +265,7 @@ evaluación pasó a `core/renderer_engine/config.py`).
 [[axis]]
 id = "persistencia"
 ring = "0b"
-paths = ["store/io", "store/models", "store/layout.py", "store/predicates.py"]
+paths = ["store/io", "store/models", "store/layout.py", "store/predicates.py", "api/stores/store_location.py"]
 external = []
 does = "guardar, indexar, fragmentar, hashear"
 identity = false
@@ -418,7 +430,7 @@ identity = false
 [[axis]]
 id = "op_almacen"
 ring = "2"
-paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
+paths = ["api/stores/__init__.py", "api/stores/ambiguous_document.py", "api/stores/apply_declaration.py", "api/stores/apply_findings.py", "api/stores/branch_stores.py", "api/stores/build_store.py", "api/stores/conflict_sides.py", "api/stores/declaration_sync.py", "api/stores/declare_store.py", "api/stores/declared_files.py", "api/stores/declared_includes.py", "api/stores/derived_recovery.py", "api/stores/doc_ref.py", "api/stores/doc_ref_status.py", "api/stores/doc_status.py", "api/stores/document_field_hashes.py", "api/stores/ensure_merge_driver.py", "api/stores/gitignore_lines.py", "api/stores/gitignore_policy.py", "api/stores/include_losers.py", "api/stores/include_resolution.py", "api/stores/index_commit.py", "api/stores/index_refresh.py", "api/stores/indexed_documents.py", "api/stores/init_store.py", "api/stores/judge_findings.py", "api/stores/link_store.py", "api/stores/linked_store.py", "api/stores/merge_driver.py", "api/stores/merge_driver_install.py", "api/stores/merged_includes.py", "api/stores/migrate_hash_names.py", "api/stores/migrate_layout.py", "api/stores/open_store.py", "api/stores/policy.py", "api/stores/policy_subject.py", "api/stores/read_store.py", "api/stores/rebuild_index.py", "api/stores/resolve_indexed_document.py", "api/stores/scaffold_report.py", "api/stores/scaffold_sources.py", "api/stores/scaffold_store.py", "api/stores/scan_cache.py", "api/stores/scan_rewrite_loss.py", "api/stores/scan_structural_noise.py", "api/stores/seed.py", "api/stores/store_check.py", "api/stores/store_check_summary.py", "api/stores/store_declaration.py", "api/stores/store_discovery.py", "api/stores/store_file_merge.py", "api/stores/store_findings.py", "api/stores/store_fingerprint.py", "api/stores/store_links.py", "api/stores/store_skeleton.py", "api/stores/store_surroundings.py", "api/stores/store_update_report.py", "api/stores/tag_namespace.py", "api/stores/tracked_documents.py", "api/stores/unlink_store.py", "api/stores/unread_documents.py", "api/stores/unresolvable_documents.py", "api/stores/update_store_indexes.py", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
 identity = false
@@ -426,10 +438,19 @@ identity = false
 [[axis]]
 id = "op_aristas"
 ring = "0b"
-paths = ["api/edges", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
+paths = ["api/edges/__init__.py", "api/edges/apply_effects.py", "api/edges/builtin_relation_writes.py", "api/edges/check_edges.py", "api/edges/document_edge.py", "api/edges/document_edges.py", "api/edges/edge_check_report.py", "api/edges/edge_effects.py", "api/edges/edge_evidence.py", "api/edges/edge_reading.py", "api/edges/edge_serialization.py", "api/edges/init_relations.py", "api/edges/rebuild_edges.py", "api/edges/referrer.py", "api/edges/referrer_frontmatter.py", "api/edges/referrers.py", "api/edges/relation_models.py", "api/edges/relations_init_report.py", "api/edges/rewrite_mentions.py", "api/edges/rewrite_plan.py", "api/edges/rewrite_references.py", "api/edges/rewrite_report.py", "api/edges/rewrite_values.py", "api/edges/unresolved_references.py", "api/edges/project_graph", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
 external = []
 does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas de grafo"
 identity = false
+
+[[axis]]
+id = "puertos"
+ring = "0a"
+paths = ["ports"]
+external = []
+does = "hablar con lo que no es sldb: hoy, correr git; una función por pregunta que sldb le hace"
+identity = false
+note = "no importa nada de sldb; `tools/check_axes.py --ports` exige que ninguna otra pieza lance git"
 
 [[axis]]
 id = "codigo"
@@ -649,6 +670,14 @@ needed_by = 48  # medido 2026-11-27 (refactor por anillos): store/predicates.py 
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
+id = "puertos"
+axes = ["puertos"]
+needs = 0
+needed_by = 2  # medido 2026-11-28 (refactor por módulos): op_almacen y op_documentos llaman a git por ports/git.py
+extractable_today = false
+why = "la interfaz con git: no depende de nadie y la llaman desde el almacén y las operaciones"
+
+[[unit]]
 id = "grafo"
 axes = ["grafo"]
 needs = 5  # GO03: eval de store/graph/backend reutiliza el parser where de store/query_engine
@@ -725,7 +754,7 @@ notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puert
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje", "reglas", "vistas_compuestas"]
-needs = 72  # medido 2026-11-27 (refactor por anillos): store/query.py pasa de federación a consulta (reclasificación); antes 73. medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py → persistencia; antes 72. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 71. medido 2026-11-11 (secrest2): op_aristas, op_modelos y op_documentos leen y escriben por store/source_guard.py; antes 70. medido 2026-11-11 (secrest, rebasada sobre H9): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 69. 2026-11-11 (H9): vistas_compuestas → lectura_de_fuentes (api/views/view_source.py); antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
+needs = 74  # medido 2026-11-28 (refactor por módulos): op_almacen y op_documentos hablan con git por el eje puertos (ports/git.py); antes 72. medido 2026-11-27 (refactor por anillos): store/query.py pasa de federación a consulta (reclasificación); antes 73. medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py → persistencia; antes 72. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 71. medido 2026-11-11 (secrest2): op_aristas, op_modelos y op_documentos leen y escriben por store/source_guard.py; antes 70. medido 2026-11-11 (secrest, rebasada sobre H9): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 69. 2026-11-11 (H9): vistas_compuestas → lectura_de_fuentes (api/views/view_source.py); antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
 needed_by = 14  # medido 2026-11-27 (refactor por anillos): corpus lee doc_hashes de api/documents y no de api/journal.py; antes 15. medido (D4): api/matching lee por api/documents (runtime_documents), api/stores (open_store) y api/edges (edge_reading); antes 12. medido 2026-11-15 (sldb mcp): el eje mcp es transporte sobre api; antes 11. medido 2026-11-10: GO05 api/where.py → op_aristas, GD23 → op_modelos; antes 47/9
 verdict = "fachada"
 why = """

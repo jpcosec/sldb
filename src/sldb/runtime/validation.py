@@ -1,11 +1,14 @@
 from __future__ import annotations
 from functools import lru_cache
 from pathlib import Path
-from typing import get_args, Any, cast, Literal
+from typing import get_args, Any, Literal
 from sldb.core.ast import AST_Handler
 from sldb.core.data_extractor import DataExtractor
 from sldb.core.renderer import SLDBRenderer
 from sldb.core.template_extractor import TemplateExtractor
+# The only re-export of this module: these two take a template, not a model class, so they moved
+# to the render axis (core/template_payload.py); deskops imports them from here.
+from sldb.core.template_payload import extract_payload, render_markdown  # noqa: F401
 from sldb.models.structured_doc import StructuredNLDoc
 
 class Validator:
@@ -80,11 +83,3 @@ def extract_model_data(m: type[StructuredNLDoc], md: str) -> dict[str, Any]: ret
 def validate_model_input_roundtrip(m: type[StructuredNLDoc], md: str) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(markdown=md)
 def validate_model_data_roundtrip(m: type[StructuredNLDoc], d: dict[str, Any]) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(data=d)
 def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
-
-def extract_payload(template: str, markdown: str) -> dict[str, Any]:
-    ast = AST_Handler()
-    return DataExtractor().extract_values(ast.split_nodes(markdown), TemplateExtractor().extract_nodes(ast.split_nodes(template)), raw_markdown=markdown)
-
-def render_markdown(template: str, data: dict[str, Any]) -> str:
-    R = type("_R", (), {"__template__": template, "model_dump": lambda s, mode="json": data})
-    return SLDBRenderer().render(cast(StructuredNLDoc, R()))

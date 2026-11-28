@@ -73,6 +73,63 @@ def test_long_file_is_an_offender(tmp_path, monkeypatch):
     assert check_axes.size_offenders(["a.py"]) == {"a.py": 301}
 
 
+def test_file_claimed_by_two_axes_is_found(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"x/a.py": "", "x/b.py": ""})
+    axes = [{"id": "uno", "paths": ["x"]}, {"id": "dos", "paths": ["x/a.py"]}]
+    assert check_axes.duplicate_claims(axes) == {"x/a.py": ["uno", "dos"]}
+
+
+def test_disjoint_axes_have_no_duplicate_claims(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"x/a.py": "", "y/b.py": ""})
+    axes = [{"id": "uno", "paths": ["x"]}, {"id": "dos", "paths": ["y", "x/ausente.py"]}]
+    assert check_axes.duplicate_claims(axes) == {}
+
+
+def test_real_repo_has_no_file_in_two_axes():
+    assert check_axes.duplicate_claims(check_axes.load()["axis"]) == {}
+
+
+NO_GIT_DEBT = {"import": {}, "size": {}, "git": {}}
+RUN_GIT = "import subprocess\n\n\ndef f():\n    return subprocess.run([\"git\", \"log\"], capture_output=True)\n"
+
+
+def test_git_call_inside_the_ports_axis_passes(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"ports/git.py": RUN_GIT})
+    assert check_axes.ports_problems({"ports/git.py": "puertos"}, NO_GIT_DEBT) == []
+
+
+def test_git_call_outside_the_ports_axis_fails(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"ports/git.py": "", "api/x.py": RUN_GIT})
+    problems = check_axes.ports_problems({"ports/git.py": "puertos", "api/x.py": "fuera"}, NO_GIT_DEBT)
+    assert len(problems) == 1 and "nuevo" in problems[0] and "api/x.py" in problems[0]
+
+
+def test_git_call_in_an_unmapped_file_also_fails(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"cli/x.py": "from subprocess import run\nrun(['git', 'status'])\n"})
+    assert "cli/x.py" in check_axes.ports_problems({}, NO_GIT_DEBT)[0]
+
+
+def test_non_git_subprocess_passes(tmp_path, monkeypatch):
+    src = "import subprocess\nsubprocess.run(['ls'])\nsubprocess.run(split('git x'))\nsubprocess.Popen(argv)\n"
+    _tree(tmp_path, monkeypatch, {"api/x.py": src})
+    assert check_axes.ports_problems({"api/x.py": "fuera"}, NO_GIT_DEBT) == []
+
+
+def test_git_debt_can_only_shrink(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"api/x.py": RUN_GIT})
+    owner = {"api/x.py": "fuera"}
+    assert check_axes.ports_problems(owner, {**NO_GIT_DEBT, "git": {"api/x.py": 1}}) == []
+    assert "encogió" in check_axes.ports_problems(owner, {**NO_GIT_DEBT, "git": {"api/x.py": 2}})[0]
+    stale = check_axes.ports_problems(owner, {**NO_GIT_DEBT, "git": {"api/x.py": 1, "api/y.py": 1}})
+    assert len(stale) == 1 and "vencido" in stale[0]
+
+
+def test_real_repo_runs_git_only_through_the_ports():
+    contract = check_axes.load()
+    owner, _ = check_axes.owner_map(contract["axis"])
+    assert check_axes.ports_problems(owner, check_axes.load_debt()) == []
+
+
 def test_real_repo_gates_pass():
     contract = check_axes.load()
     owner, _ = check_axes.owner_map(contract["axis"])

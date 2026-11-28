@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from sldb.cli.bench.environment import SLDB_SRC
+from sldb.ports.git import dirty_paths, head_sha
 
 _PROBE = "import sldb, deskops; print(sldb.__file__); print(deskops.__file__)"
 
@@ -20,14 +21,12 @@ def bench_meta(desks: dict[str, Path], deskops: str) -> dict:
 
 
 def git_sha(path: Path) -> str:
-    out = subprocess.run(["git", "-C", str(path), "rev-parse", "HEAD"], capture_output=True, text=True)
-    return out.stdout.strip() or "unknown"
+    return head_sha(path) or "unknown"
 
 
 def git_dirty(path: Path) -> int:
     """Uncommitted paths in the copied working tree: the copy is HEAD plus these."""
-    out = subprocess.run(["git", "-C", str(path), "status", "--porcelain"], capture_output=True, text=True)
-    return len(out.stdout.splitlines())
+    return len(dirty_paths(path))
 
 
 def machine() -> dict:

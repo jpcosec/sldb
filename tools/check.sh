@@ -55,6 +55,9 @@ gate "anillos" python3 tools/check_axes.py --rings
 # Techo de tamaño de funciones y archivos, con la misma lista de deuda.
 gate "tamaño" python3 tools/check_axes.py --size
 
+# `git` se corre solo desde el eje `puertos` (src/sldb/ports/git.py).
+gate "puertos" python3 tools/check_axes.py --ports
+
 # S4 · lo que los consumidores del ecosistema importan está declarado.
 # Se salta sola si los consumidores no están presentes, y lo dice.
 gate "superficie" python3 tools/check_surface.py
