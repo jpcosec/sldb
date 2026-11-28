@@ -36,12 +36,17 @@ propio; Datalevin, tree-sitter y el anclaje están fuera del kernel, en los anil
 
 ### Kernel
 
-| Módulo | En sldb hoy | En kimun hoy | Qué falta |
-|---|---|---|---|
-| Datos: el grafo tipado y su motor | bloque almacén y grafo: archivos YAML, índice de aristas, networkx | `kernel.db`, `kernel.datalog` (Datalog propio), `host.datalevin` (opcional) | En sldb no hay motor. En kimun el motor de verdad quedó fuera del kernel y conviven tres modelos de datos. |
-| Consultas y reglas | lenguaje de predicados, dentro del eje grafo; motor de campos en consulta | Datalog con reglas recursivas; el lenguaje de predicados de sldb no existe | Un solo lenguaje. Hoy hay dos en sldb y tres en kimun. |
-| Árboles: leer una fuente por su estructura | Markdown en superficie (markdown-it); código en codigo (tree-sitter y `ast`); datos repartidos en 63 archivos | pod de tree-sitter (Markdown, Python, Clojure); árbol propio de Markdown; datos solo como encabezado | Un solo árbol para todos los tipos de fuente. En los dos repos Markdown y código entran por caminos distintos. |
-| Anclaje: huella y detección de cambio | anclaje, huellas de código, hashing, detección de rancidez en el índice | estados de ancla en el kernel; anclas de Markdown y de Clojure; cambio por git | Está repartido en tres o cuatro lugares en cada repo. |
+Lo de afuera no es del kernel; la interfaz con lo de afuera sí (JP, 2026-11-27). git, el motor
+de base de datos, tree-sitter y el disco son piezas ajenas. Lo que el kernel tiene es la forma
+de hablarles.
+
+| Módulo | Con qué habla afuera | En sldb hoy | En kimun hoy | Qué falta |
+|---|---|---|---|---|
+| Datos: el grafo tipado | el motor de base de datos | bloque almacén y grafo: archivos YAML, índice de aristas, networkx | `kernel.db`, `kernel.datalog` (Datalog propio), `host.datalevin` (opcional) | En sldb no hay motor. En kimun conviven tres modelos de datos. |
+| Consultas y reglas | el mismo motor | lenguaje de predicados dentro del eje grafo; motor de campos en consulta | Datalog con reglas recursivas | Un solo lenguaje. Hoy hay dos en sldb y tres en kimun. |
+| Árboles: leer una fuente por su estructura | tree-sitter | Markdown en superficie (markdown-it); código en codigo (tree-sitter y `ast`); datos repartidos | pod de tree-sitter; árbol propio de Markdown | Un solo árbol para todos los tipos de fuente. |
+| Anclaje: huella y detección de cambio | git y el disco | anclaje, huellas de código, hashing, detección de rancidez | estados de ancla; anclas de Markdown y de Clojure; cambio por git | Está repartido en tres o cuatro lugares en cada repo. |
+| Interfaz con git | git | repartida en op_almacen y op_documentos | `host.git`, puntero de commit | En sldb no existe como pieza: está mezclada con las operaciones. |
 
 ### Librerías
 
@@ -57,7 +62,7 @@ propio; Datalevin, tree-sitter y el anclaje están fuera del kernel, en los anil
 | Código a documentos | adaptadores | no existe |
 | Similitud | recuperacion | no existe |
 | Varios stores y migración | federacion, migracion | no existe |
-| git: historia, driver de merge | repartido en op_almacen y op_documentos | `host.git`, cambios, puntero de commit |
+| Lo que se hace con git encima de la interfaz: driver de merge, historia de un documento | repartido en op_almacen y op_documentos | cambios, puntero de commit |
 | Declaraciones evaluadas y recetas | no existe | `declare`, `reading`, `generate` |
 
 ### Caras
@@ -76,15 +81,18 @@ propio; Datalevin, tree-sitter y el anclaje están fuera del kernel, en los anil
 - Juntar y sintetizar. kimun reúne proposiciones con el mismo identificador; nada más.
 - Certeza y propagación de un cambio por las relaciones.
 
-## Dudas
+## Resuelto con JP (2026-11-27)
 
-1. **git.** JP lo listó aparte. Aquí quedó como librería, pero el anclaje lo necesita para saber
-   que un archivo cambió. Si es así, es del kernel.
-2. **Documentos con forma.** JP listó "AST documento (lo que ahora en sldb son modelos)" junto
-   al AST de código, los dos igual de nucleares. Aquí los modelos quedaron como librería y solo
-   el árbol en el kernel. Puede que el corte correcto sea otro.
-3. **Operación.** En sldb es la capa más grande (unos 17.000 líneas) y no es un módulo. No está
-   claro si se reparte entre las librerías o si es una librería propia.
-4. **Lo que usan los otros repos.** deskops entra a `runtime.validation` 73 veces y a
-   `store.io` 18; specIR usa notaciones, código, anclas y MCP; graph_ui usa la API de
-   documentos y `cli.serve`. Cualquier corte tiene que conservar eso o migrarlo.
+- **git** no es del kernel; la interfaz con git sí. El mismo criterio vale para el motor de
+  base de datos, tree-sitter y el disco.
+- **Modelos de documento**: el corte de arriba (el árbol en el kernel, los modelos como
+  librería) está bien pensando en kimun.
+- **Operación** no es un módulo: es algo que pasa sobre los módulos, y por eso hoy está
+  repartida. Al repartir cada trozo de código donde corresponde puede aparecer algún módulo más.
+- **Lo que usan los otros repos** se conserva o se migra.
+
+## Lo que sigue
+
+Repartir el bloque operación de sldb: tomar cada archivo de `op_documentos`, `op_modelos`,
+`op_aristas`, `op_almacen`, `anclaje`, `reglas` y `vistas_compuestas` y decir a qué módulo de
+esta página pertenece. Lo que no calce en ninguno es candidato a módulo nuevo.
