@@ -1,26 +1,22 @@
 {
   "project_identity": "sldb",
   "dispatch": {
-    "project": "sldb-1",
-    "workspace": "/mnt/ssd/proyectos/SLDB_1",
-    "templates_dir": "/home/robocop/.scion/project-configs/sldb-1__b0899ed7/.scion/templates",
-    "context_file": "/mnt/ssd/proyectos/SLDB_1/.bootstrap/sldb-scion-context.json",
+    "runtime": "paseo",
     "roles_root": "/mnt/ssd/proyectos/SLDB_1/deskops",
-    "quick_gates": ["bash", "tools/check.sh", "--fast"],
+    "quick_gates": [
+      "bash",
+      "tools/check.sh",
+      "--fast"
+    ],
     "roles": {
       "executor": {
         "role": "deskops-executor",
-        "harness": "claude",
-        "model_alias": "medium",
-        "harness_auth": "oauth-token",
-        "env_config": "/mnt/ssd/proyectos/SLDB_1/.bootstrap/ir-scion-env.yaml"
+        "provider": "claude",
+        "mode": "bypass"
       },
       "tester": {
         "role": "deskops-tester",
-        "harness": "pi",
-        "model_alias": "medium",
-        "harness_auth": "api-key",
-        "env_config": "/mnt/ssd/proyectos/SLDB_1/.bootstrap/pi-scion-env.yaml"
+        "provider": "pi"
       }
     }
   },
