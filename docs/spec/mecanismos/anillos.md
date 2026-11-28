@@ -49,6 +49,9 @@ Los nombres de eje son los de `contracts/layers.toml`.
 
 ## Módulos del sistema que queremos, por anillo
 
+> Esta tabla se hizo sin mirar el código. La lectura de los dos códigos, con los módulos de
+> verdad, está en [`modulos.md`](modulos.md).
+
 Los anillos ordenan módulos: qué módulo puede usar a cuál. Esta tabla toma la lista de módulos
 que dio JP el 2026-11-27 y los ubica. Es propuesta del agente, sin revisar. El reparto de más
 arriba es otro: ubica los 32 ejes del código de hoy.

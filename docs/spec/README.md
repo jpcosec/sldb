@@ -23,7 +23,7 @@ Para revisar una pieza o una página contra los principios:
 Clases de página del nivel 3: objeto, operación, mecanismo, plugin, decisión y abierto. Hay
 páginas de objeto, tres de mecanismo o decisión y una de abierto:
 
-- Mecanismos: [anillos](mecanismos/anillos.md), [cambio y certeza](mecanismos/cambio-y-certeza.md)
+- Mecanismos: [anillos](mecanismos/anillos.md), [de lo implementado a librerías](mecanismos/modulos.md), [cambio y certeza](mecanismos/cambio-y-certeza.md)
   (propuesta de mínimo viable, sin revisar).
 - Decisiones: [el kernel sigue la lógica de kimun](decisiones/el-kernel-sigue-la-logica-de-kimun.md).
 - Abiertos: [qué es un hook](abiertos/hooks.md).
