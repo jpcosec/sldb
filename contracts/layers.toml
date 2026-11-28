@@ -10,6 +10,18 @@
 # El orden no es una preferencia de estilo: es lo que decide si una pieza se
 # puede probar aislada y si alguien puede entender una parte sin cargar el resto.
 
+# Los puertos son la capa más baja: lo único que habla con lo que no es sldb (hoy, git).
+# No importan nada del sistema. `level` es solo un nombre: el orden lo da la posición.
+[[layers]]
+level = -1
+name = "puertos"
+packages = ["ports"]
+rationale = """
+La interfaz con lo de afuera, una por cosa (hoy `ports/git.py`). No decide nada y no conoce
+nodos, documentos ni stores, así que cualquier otra capa puede llamarla sin crear un ciclo.
+`tools/check_axes.py --ports` rechaza una llamada a `git` fuera de acá.
+"""
+
 [[layers]]
 level = 0
 name = "núcleo"
@@ -432,6 +444,15 @@ does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas 
 identity = false
 
 [[axis]]
+id = "puertos"
+ring = "0a"
+paths = ["ports"]
+external = []
+does = "hablar con lo que no es sldb: hoy, correr git; una función por pregunta que sldb le hace"
+identity = false
+note = "no importa nada de sldb; `tools/check_axes.py --ports` exige que ninguna otra pieza lance git"
+
+[[axis]]
 id = "codigo"
 ring = "0a"
 paths = ["code"]
@@ -649,6 +670,14 @@ needed_by = 48  # medido 2026-11-27 (refactor por anillos): store/predicates.py 
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
+id = "puertos"
+axes = ["puertos"]
+needs = 0
+needed_by = 2  # medido 2026-11-28 (refactor por módulos): op_almacen y op_documentos llaman a git por ports/git.py
+extractable_today = false
+why = "la interfaz con git: no depende de nadie y la llaman desde el almacén y las operaciones"
+
+[[unit]]
 id = "grafo"
 axes = ["grafo"]
 needs = 5  # GO03: eval de store/graph/backend reutiliza el parser where de store/query_engine
@@ -725,7 +754,7 @@ notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puert
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje", "reglas", "vistas_compuestas"]
-needs = 72  # medido 2026-11-27 (refactor por anillos): store/query.py pasa de federación a consulta (reclasificación); antes 73. medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py → persistencia; antes 72. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 71. medido 2026-11-11 (secrest2): op_aristas, op_modelos y op_documentos leen y escriben por store/source_guard.py; antes 70. medido 2026-11-11 (secrest, rebasada sobre H9): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 69. 2026-11-11 (H9): vistas_compuestas → lectura_de_fuentes (api/views/view_source.py); antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
+needs = 74  # medido 2026-11-28 (refactor por módulos): op_almacen y op_documentos hablan con git por el eje puertos (ports/git.py); antes 72. medido 2026-11-27 (refactor por anillos): store/query.py pasa de federación a consulta (reclasificación); antes 73. medido 2026-11-25 (anchors_resolve): api/anchors/resolve_pointers.py → persistencia; antes 72. medido 2026-11-21 (dirty persistido): op_documentos persiste el conjunto sucio por store/documents_dirty_persist.py (lock, layout, firma); antes 71. medido 2026-11-11 (secrest2): op_aristas, op_modelos y op_documentos leen y escriben por store/source_guard.py; antes 70. medido 2026-11-11 (secrest, rebasada sobre H9): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 69. 2026-11-11 (H9): vistas_compuestas → lectura_de_fuentes (api/views/view_source.py); antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
 needed_by = 14  # medido 2026-11-27 (refactor por anillos): corpus lee doc_hashes de api/documents y no de api/journal.py; antes 15. medido (D4): api/matching lee por api/documents (runtime_documents), api/stores (open_store) y api/edges (edge_reading); antes 12. medido 2026-11-15 (sldb mcp): el eje mcp es transporte sobre api; antes 11. medido 2026-11-10: GO05 api/where.py → op_aristas, GD23 → op_modelos; antes 47/9
 verdict = "fachada"
 why = """

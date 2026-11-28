@@ -1,5 +1,6 @@
 # Deuda de anillos y de tamaño. Solo puede encogerse: `tools/check_axes.py`
 # rechaza una entrada que ya no existe, una que creció y cualquiera nueva.
+# `[[git]]` cuenta las llamadas a git fuera de `ports/` (hoy ninguna: lo ideal es que siga vacía).
 # Regenerar todo con `--write-debt` borraría el trabajo hecho: no se hace.
 
 [[import]]

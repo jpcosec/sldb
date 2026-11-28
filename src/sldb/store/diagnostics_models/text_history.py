@@ -9,9 +9,9 @@ from disk is `orphan`. Outside a git work tree everything is `undetermined`.
 
 from __future__ import annotations
 
-import subprocess
 from pathlib import Path
 
+from sldb.ports.git import git_output
 from sldb.store.hashing import hash_text
 
 MEANINGS = {
@@ -36,21 +36,13 @@ def text_history(root: Path, rel_path: str, indexed_hash: str | None, exists: bo
 
 
 def _commits(root: Path, rel_path: str) -> list[str] | None:
-    out = _git(root, "log", "--follow", f"-n{_DEPTH}", "--format=%H", "--", rel_path)
+    out = git_output(root, "log", "--follow", f"-n{_DEPTH}", "--format=%H", "--", rel_path)
     return None if out is None else out.split()
 
 
 def _hash_at(root: Path, commit: str, rel_path: str) -> str | None:
-    text = _git(root, "show", f"{commit}:{rel_path}")
+    text = git_output(root, "show", f"{commit}:{rel_path}")
     return hash_text(text) if text is not None else None
-
-
-def _git(root: Path, *argv: str) -> str | None:
-    try:
-        done = subprocess.run(["git", *argv], cwd=root, capture_output=True, text=True, check=False)
-    except OSError:
-        return None
-    return done.stdout if done.returncode == 0 else None
 
 
 def with_history(doc, root: Path):

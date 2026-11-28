@@ -4,12 +4,12 @@ transactions call and roll back) and reported by `stores check` when it is missi
 
 from __future__ import annotations
 
-import subprocess
 import sys
 from pathlib import Path
 
 from sldb.api.stores.merge_driver_install import DRIVER, DRIVER_NAME, install_merge_driver
 from sldb.core.finding import Finding, alert
+from sldb.ports.git import git_stdout, toplevel
 
 FIX = "sldb stores merge-driver --install"
 
@@ -71,14 +71,8 @@ def merge_driver_finding(store_path: Path) -> list[Finding]:
 
 
 def _top(path: Path) -> Path | None:
-    cwd = path.parent if path.parent.is_dir() else path
-    try:
-        run = subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=cwd, capture_output=True, text=True, check=False)
-    except OSError:
-        return None
-    return Path(run.stdout.strip()) if run.returncode == 0 and run.stdout.strip() else None
+    return toplevel(path)
 
 
 def _config(top: Path, key: str) -> str:
-    run = subprocess.run(["git", "config", "--get", key], cwd=top, capture_output=True, text=True, check=False)
-    return run.stdout.strip()
+    return git_stdout(top, "config", "--get", key, check=False).strip()

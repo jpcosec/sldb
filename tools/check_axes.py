@@ -13,6 +13,9 @@ Qué rechaza:
 - un archivo de `src/` que ningún eje reclama
 - una dependencia externa confinada a un eje que se filtró a otro
 - un eje marcado `extractable` que empezó a importar de fuera
+- un archivo reclamado por dos ejes
+
+Con `--ports`: una llamada a `subprocess` con `git` fuera del eje `puertos`.
 
 Qué no ve: si la descripción de lo que un eje «sabe hacer» es buena. Eso es prosa
 y queda para revisión humana.
@@ -230,11 +233,51 @@ def debt_problems(found: dict[str, int], declared: dict[str, int], what: str) ->
     return problems
 
 
+#: Funciones de `subprocess` que lanzan un proceso.
+_SPAWN = {"run", "Popen", "call", "check_call", "check_output"}
+
+
+def _starts_with_git(node: ast.expr) -> bool:
+    """El comando es una lista o un texto cuyo primer elemento es `git`."""
+    if isinstance(node, (ast.List, ast.Tuple)):
+        return bool(node.elts) and _starts_with_git(node.elts[0])
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value.split(" ", 1)[0] == "git"
+    return False
+
+
+def git_calls(rels: list[str]) -> dict[str, int]:
+    """Llamadas a `subprocess` cuyo comando empieza con `git`, por archivo (con `ast`)."""
+    found: dict[str, int] = {}
+    for rel in rels:
+        tree = ast.parse((SRC / rel).read_text(encoding="utf-8", errors="ignore"))
+        bare = {a.asname or a.name for n in ast.walk(tree)
+                if isinstance(n, ast.ImportFrom) and n.module == "subprocess" for a in n.names}
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call) or not node.args:
+                continue
+            func = node.func
+            spawn = ((isinstance(func, ast.Attribute) and func.attr in _SPAWN
+                      and isinstance(func.value, ast.Name) and func.value.id == "subprocess")
+                     or (isinstance(func, ast.Name) and func.id in bare and func.id in _SPAWN))
+            if spawn and _starts_with_git(node.args[0]):
+                found[rel] = found.get(rel, 0) + 1
+    return found
+
+
+def ports_problems(owner: dict[str, str], debt: dict[str, dict[str, int]]) -> list[str]:
+    """`git` solo se corre desde el eje `puertos`; lo que queda fuera, contra la lista de deuda."""
+    rels = sorted(str(p.relative_to(SRC)) for p in SRC.rglob("*.py")
+                  if owner.get(str(p.relative_to(SRC))) != "puertos")
+    return debt_problems(git_calls(rels), debt["git"], "llamada a git fuera de los puertos")
+
+
 def load_debt(path: Path = DEBT) -> dict[str, dict[str, int]]:
     raw = tomllib.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
     return {
         "import": {f"{e['file']} -> {e['module']}": 0 for e in raw.get("import", [])},
         "size": {e["key"]: e["lines"] for e in raw.get("size", [])},
+        "git": {e["file"]: e["calls"] for e in raw.get("git", [])},
     }
 
 
@@ -265,6 +308,8 @@ def write_debt(axes: list[dict], owner: dict[str, str]) -> None:
         lines += ["[[import]]", f'file = "{f}"', f'module = "{m}"', ""]
     for key, n in sorted(size_offenders(sorted(owner)).items()):
         lines += ["[[size]]", f'key = "{key}"', f"lines = {n}", ""]
+    for rel, n in sorted(git_calls(sorted(str(p.relative_to(SRC)) for p in SRC.rglob("*.py"))).items()):
+        lines += ["[[git]]", f'file = "{rel}"', f"calls = {n}", ""]
     DEBT.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -370,6 +415,8 @@ def main() -> int:
                         help="solo la puerta de anillos: imports hacia un anillo externo")
     modes.add_argument("--size", action="store_true",
                         help="solo la puerta de tamaño: funciones y archivos sobre el techo")
+    modes.add_argument("--ports", action="store_true",
+                       help="solo la puerta de puertos: git se corre solo desde el eje `puertos`")
     modes.add_argument("--write-debt", action="store_true",
                         help="escribe la deuda actual en contracts/anillos_deuda.toml")
     modes.add_argument("--units", action="store_true",
@@ -390,13 +437,15 @@ def main() -> int:
         write_debt(axes, owner)
         return 0
 
-    if args.rings or args.size:
+    if args.rings or args.size or args.ports:
         debt = load_debt()
-        found = anillos_problems(axes, owner, debt) if args.rings else size_problems(owner, debt)
-        name = "anillos" if args.rings else "tamaño"
+        name, key, check = (("anillos", "import", anillos_problems) if args.rings
+                            else ("tamaño", "size", size_problems) if args.size
+                            else ("puertos", "git", ports_problems))
+        found = check(axes, owner, debt) if args.rings else check(owner, debt)
         for problem in found:
             print(f"  ERROR  {problem}")
-        print(f"  deuda  {len(debt['import' if args.rings else 'size'])} entradas; solo pueden salir")
+        print(f"  deuda  {len(debt[key])} entradas; solo pueden salir")
         print(f"{'FAIL' if found else 'PASS'}: {name} — {len(found)} violaciones")
         return 1 if found else 0
 

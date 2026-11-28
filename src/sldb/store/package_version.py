@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import re
-import subprocess
 from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
+
+from sldb.ports.git import describe_checkout
 
 _DIST_NAME = "structuredLanguageDB"
 
@@ -31,25 +32,12 @@ def _source_checkout_dir() -> Path | None:
     return None
 
 
-def _git_describe(directory: Path) -> str | None:
-    """`git -C <directory> describe --tags --always --dirty`, or None if git fails or is missing."""
-    try:
-        done = subprocess.run(
-            ["git", "-C", str(directory), "describe", "--tags", "--always", "--dirty"],
-            capture_output=True, text=True, timeout=2, check=False,
-        )
-    except (FileNotFoundError, subprocess.TimeoutExpired):
-        return None
-    described = done.stdout.strip()
-    return described if done.returncode == 0 and described else None
-
-
 def source_revision() -> str | None:
     """`git describe --tags --always --dirty` of the source checkout, or None outside git."""
     checkout = _source_checkout_dir()
     if checkout is None or not (checkout / ".git").exists():
         return None
-    return _git_describe(checkout)
+    return describe_checkout(checkout)
 
 
 def version_line() -> str:

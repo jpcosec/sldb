@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import os
-import subprocess
 from pathlib import Path
 
 from sldb.api.documents.move_path_remap import Remap
+from sldb.ports.git import unignored_files
 
 
 def moved_entries(root: Path, remap: Remap) -> tuple[list[str], list[str]]:
@@ -38,8 +38,5 @@ def _candidates(root: Path) -> list[str]:
 
 def _git_files(root: Path) -> list[str] | None:
     """git's listing of the repo (tracked and untracked, not ignored), or None outside a repo or without git."""
-    try:
-        git = subprocess.run(["git", "ls-files", "-z", "-c", "-o", "--exclude-standard"], cwd=root, capture_output=True, check=False)
-    except OSError:
-        return None
-    return [p for p in git.stdout.decode("utf-8", "surrogateescape").split("\0") if p] if git.returncode == 0 else None
+    listed = unignored_files(root)
+    return None if listed is None else [p for p in listed.decode("utf-8", "surrogateescape").split("\0") if p]

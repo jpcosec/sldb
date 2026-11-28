@@ -20,7 +20,6 @@ import contextlib
 import io
 import json
 import shutil
-import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +28,7 @@ from sldb.api.stores.store_declaration import load_declaration
 from sldb.api.stores.unread_documents import unread_declared
 from sldb.cli.commands.stores_link_alert import link_missing_alert
 from sldb.core.finding import alert, error
+from sldb.ports.git import unignored_files
 from sldb.store.io import invalidate_index_cache
 from sldb.store.layout import store_exists
 
@@ -80,7 +80,7 @@ def _integrity(store: Path) -> tuple[int, dict]:
 
 
 def _copy_sources(root: Path, copy: Path, store: Path, derived: tuple[str, ...]) -> Path:
-    listed = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=root, capture_output=True, check=True).stdout
+    listed = unignored_files(root, check=True)
     for name in filter(None, listed.decode().split("\0")):
         if not name.startswith(derived) and ((root / name).is_symlink() or (root / name).is_file()):
             (copy / name).parent.mkdir(parents=True, exist_ok=True)
