@@ -47,6 +47,40 @@ Los nombres de eje son los de `contracts/layers.toml`.
 | 3 | Lo compuesto | vistas, notaciones, composición de texto, análisis del grafo, similitud y corpus, selfdoc |
 | caras | No agregan operaciones | CLI, MCP, HTTP, adaptadores; los avisos de cambio (hooks de git, daemon) |
 
+## Módulos del sistema que queremos, por anillo
+
+Los anillos ordenan módulos: qué módulo puede usar a cuál. Esta tabla toma la lista de módulos
+que dio JP el 2026-11-27 y los ubica. Es propuesta del agente, sin revisar. El reparto de más
+arriba es otro: ubica los 32 ejes del código de hoy.
+
+| Anillo | Módulo | Qué tiene adentro |
+|---|---|---|
+| 0a | AST | Leer una fuente como árbol. Uno por tipo de fuente, todos iguales en importancia: documento (lo que hoy son modelos), código (hoy tree-sitter), datos, texto libre. |
+| 0a | Lectura y escritura | De la fuente al árbol y del árbol a la fuente, por tipo de fuente. |
+| 0b | Base de datos | El grafo guardado: nodos, relaciones y hechos. Con kimun, Datalevin. |
+| 0b | Lenguaje de consultas | Preguntar y filtrar. Es el de la base de datos. |
+| 0b | Condicionales | Decir "si pasa esto". Usa el lenguaje de consultas. |
+| 1 | Anclaje | Atar un nodo a una parte de una fuente y notar que cambió. Usa AST y base de datos. |
+| 1 | Hooks | Hacer algo cuando algo ocurre. |
+| 1 | Máquinas de estado | Estados y pasos permitidos. Usa hooks y condicionales. |
+| 2 | git | Historia y cambio a nivel de archivo. |
+| 3 | Clases | Nombres para lo que comparte forma o papel, por tipo de fuente. |
+| 3 | Estructuras lingüísticas o de documento | Formas conocidas de textos. |
+| 3 | Estructuras semánticas | Formas conocidas de significado. |
+| 3 | Patrones de código | Formas conocidas en código. |
+| caras | Línea de comandos, API, MCP, REPL | Por dónde se le habla. |
+| afuera | Librerías | Lo que antes se llamó plugins. Usan todo lo anterior. |
+
+Dudas de ubicación:
+
+- **Base de datos en el 0b.** En el reparto de hoy la persistencia está en el 0b y "el store
+  entero" en el 2. Si el lenguaje de consultas es el de la base de datos, las dos van juntas en
+  el 0b.
+- **Clases.** JP las listó junto a anclaje, AST y lectura, por tipo de documento. Aquí están en
+  el 3 porque se declaran encima. Si son parte de cómo se lee cada tipo de fuente, bajan al 0a.
+- **git en el 2.** Si el anclaje lo usa para saber que un archivo cambió, baja al 1 o antes.
+- **Anillo 2.** Quedó con un solo módulo. Puede que sobre.
+
 ## Lo que lo sostiene (JP, 2026-11-26 y 27)
 
 - Un documento no necesita modelo para existir. El anillo 0 trabaja con cualquier fuente como

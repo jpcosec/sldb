@@ -1,5 +1,11 @@
 # sldb: piezas del nivel 3
 
+> **Aviso (2026-11-27).** Esto no es lo que JP pidió. Pidió ordenar en anillos los módulos, como
+> en el refactor; eso está en `mecanismos/anillos.md`. Esta página es otra cosa: un inventario
+> de conceptos del sistema con sus ejes y sus dependencias, repartido en círculos a mano. Los
+> "anillos" de aquí no son los anillos de módulos. Se conserva por si sirve como mapa de
+> conceptos.
+
 Borrador, sin aprobar. Inventario de las piezas del nivel 3, ordenadas por anillos y
 etiquetadas en ejes. Es el paso previo a declararlas como grafo (método aprobado por JP el
 2026-11-27). No habla del estado actual.
