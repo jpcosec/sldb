@@ -47,16 +47,20 @@ afuera, y qué no hace.
 | Módulo | Qué hace | Entrega | Depende de | Habla afuera con | No hace | Principio |
 |---|---|---|---|---|---|---|
 | **Puertos** | Es el único lugar que habla con lo que no es sldb. | Una interfaz por cada cosa de afuera. | nada | git, el motor de base de datos, tree-sitter, el disco | No decide nada. No conoce nodos ni árboles. | 3 |
-| **Árboles** | Lee una fuente como árbol de partes y la vuelve a escribir igual. Vale para todo tipo de fuente. | Un árbol; la dirección de cada parte; la huella de una parte. | Puertos | tree-sitter, el disco | No conoce el grafo, ni modelos, ni documentos. | 2 |
-| **Grafo** | Guarda nodos, relaciones y hechos, con su identidad, su autor y su origen, dentro de un store. | Crear, leer, cambiar y declarar retirado. | Puertos | el motor de base de datos | No conoce fuentes ni árboles. No pone nombres. | 1, 6 |
+| **Grafo** | Guarda nodos, relaciones y hechos, con su identidad, su autor y su origen, dentro de un store. Es solo significado. | Crear, leer, cambiar y declarar retirado. | Puertos | el motor de base de datos | No conoce fuentes ni árboles. No pone nombres. | 1, 6 |
+| **Árboles** | Lee una fuente como árbol de partes y la vuelve a escribir igual. Vale para todo tipo de fuente. Un árbol es grafo: nodos unidos por relaciones de estructura (qué contiene a qué, en qué orden), y además puede llevar otro significado. | Un árbol hecho de nodos y relaciones; la dirección de cada parte; la huella de una parte. | Puertos, Grafo | tree-sitter, el disco | No conoce modelos ni documentos. | 2 |
 | **Consulta** | Un solo lenguaje para preguntar y filtrar sobre el grafo. | Respuestas que dicen hasta dónde miraron. Evaluar una condición. | Grafo | el motor de base de datos | No escribe. No conoce modelos ni documentos. | 8 |
 | **Anclaje** | Ata un nodo a una parte de una fuente, recuerda qué vio y nota que cambió. | Anclar, comprobar, anclar de nuevo. | Árboles, Grafo, Puertos | git, el disco | No decide qué significa el cambio ni a quién afecta. | 3 |
 | **Proyección** | Saca nodos hacia afuera con reglas dichas, y escribe un cambio sobre la versión que se vio. | Proyectar; editar; decir qué conserva una proyección. | Árboles, Grafo, Anclaje | el disco | No decide si un cambio se permite. | 2 |
 | **Sostén** | Baja un cambio por las relaciones que lo llevan y dice qué quedó firme, movido o suelto. | Qué depende de qué; el estado de un nodo o de una zona. | Grafo, Consulta, Anclaje | nada | No arregla nada. No decide si algo es cierto. | 7 |
 | **Acción** | Hace algo cuando algo ocurre, con una condición y con autor. | Sin definir (`abiertos/hooks.md`). | Consulta, Sostén | lo que cada acción declare | Sin definir. | 4 |
 
-Las dependencias van en un solo sentido: Puertos, luego Árboles y Grafo (que no se conocen
-entre sí), luego Consulta, Anclaje, Proyección, Sostén y Acción.
+Las dependencias van en un solo sentido: Puertos; Grafo; Consulta y Árboles; Anclaje;
+Proyección; Sostén; Acción.
+
+La diferencia entre Grafo y Árboles (JP, 2026-11-27): en el grafo hay solo significado; en un
+árbol se mezclan el significado de la estructura y otros significados. Por eso Árboles usa a
+Grafo y queda en un nivel intermedio, no al lado.
 
 Lo que la prueba deja fuera del kernel, aunque hoy esté mezclado con él:
 
