@@ -73,6 +73,22 @@ def test_long_file_is_an_offender(tmp_path, monkeypatch):
     assert check_axes.size_offenders(["a.py"]) == {"a.py": 301}
 
 
+def test_file_claimed_by_two_axes_is_found(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"x/a.py": "", "x/b.py": ""})
+    axes = [{"id": "uno", "paths": ["x"]}, {"id": "dos", "paths": ["x/a.py"]}]
+    assert check_axes.duplicate_claims(axes) == {"x/a.py": ["uno", "dos"]}
+
+
+def test_disjoint_axes_have_no_duplicate_claims(tmp_path, monkeypatch):
+    _tree(tmp_path, monkeypatch, {"x/a.py": "", "y/b.py": ""})
+    axes = [{"id": "uno", "paths": ["x"]}, {"id": "dos", "paths": ["y", "x/ausente.py"]}]
+    assert check_axes.duplicate_claims(axes) == {}
+
+
+def test_real_repo_has_no_file_in_two_axes():
+    assert check_axes.duplicate_claims(check_axes.load()["axis"]) == {}
+
+
 def test_real_repo_gates_pass():
     contract = check_axes.load()
     owner, _ = check_axes.owner_map(contract["axis"])

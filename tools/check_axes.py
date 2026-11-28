@@ -88,6 +88,25 @@ def owner_map(axes: list[dict]) -> tuple[dict[str, str], set[str]]:
     return owner, wildcard
 
 
+def duplicate_claims(axes: list[dict]) -> dict[str, list[str]]:
+    """Archivos que las rutas de dos ejes distintos reclaman a la vez.
+
+    `owner_map` deja ganar al último del TOML y el empate no se ve; esto lo hace
+    visible. Un archivo con dos dueños no tiene anillo ni unidad claros.
+    """
+    claims: dict[str, list[str]] = defaultdict(list)
+    for axis in axes:
+        for declared in axis["paths"]:
+            target = SRC / declared
+            files = [target] if target.suffix == ".py" else sorted(target.rglob("*.py"))
+            for path in files:
+                if path.is_file():
+                    ids = claims[str(path.relative_to(SRC))]
+                    if axis["id"] not in ids:
+                        ids.append(axis["id"])
+    return {rel: ids for rel, ids in claims.items() if len(ids) > 1}
+
+
 def coupling(owner: dict[str, str]) -> dict[tuple[str, str], int]:
     """Aristas entre ejes: un import absoluto de un archivo de A a un archivo de B.
 
@@ -408,6 +427,11 @@ def main() -> int:
             if not (SRC / declared).exists():
                 problems.append(
                     f"el eje `{axis['id']}` declara `{declared}` y no existe")
+
+    # Un archivo reclamado por dos ejes: el último del TOML gana y nadie se entera.
+    for rel, ids in sorted(duplicate_claims(axes).items()):
+        problems.append(f"archivo en dos ejes: {rel} — lo reclaman `{'`, `'.join(ids)}`; "
+                        f"deja solo uno")
 
     # Un archivo que ningún eje reclama: una capacidad nueva sin declarar, o un
     # archivo que cambió de sitio sin que el mapa lo siguiera.

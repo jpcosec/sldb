@@ -231,7 +231,7 @@ identity = true
 [[axis]]
 id = "contrato"
 ring = "0b"
-paths = ["models"]
+paths = ["models/__init__.py", "models/anchor_doc.py", "models/anchor_state.py", "models/builtin_relation_types.py", "models/cli_command_doc.py", "models/code_anchor_doc.py", "models/code_ref.py", "models/doc_anchor_value.py", "models/knowledge_surface.py", "models/knowledge_tag.py", "models/provenance.py", "models/provenance_block.py", "models/python_symbol_doc.py", "models/relation_doc.py", "models/relation_type_doc.py", "models/rule_doc.py", "models/structured_doc.py", "models/surface_doc.py", "models/transition_attributes.py", "models/field_schema"]
 external = ["pydantic"]
 does = "qué es un documento válido"
 identity = true
@@ -418,7 +418,7 @@ identity = false
 [[axis]]
 id = "op_almacen"
 ring = "2"
-paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
+paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py", "api/journal.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
 identity = false
@@ -426,7 +426,7 @@ identity = false
 [[axis]]
 id = "op_aristas"
 ring = "0b"
-paths = ["api/edges", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
+paths = ["api/edges/__init__.py", "api/edges/apply_effects.py", "api/edges/builtin_relation_writes.py", "api/edges/check_edges.py", "api/edges/document_edge.py", "api/edges/document_edges.py", "api/edges/edge_check_report.py", "api/edges/edge_effects.py", "api/edges/edge_evidence.py", "api/edges/edge_reading.py", "api/edges/edge_serialization.py", "api/edges/init_relations.py", "api/edges/rebuild_edges.py", "api/edges/referrer.py", "api/edges/referrer_frontmatter.py", "api/edges/referrers.py", "api/edges/relation_models.py", "api/edges/relations_init_report.py", "api/edges/rewrite_mentions.py", "api/edges/rewrite_plan.py", "api/edges/rewrite_references.py", "api/edges/rewrite_report.py", "api/edges/rewrite_values.py", "api/edges/unresolved_references.py", "api/edges/project_graph", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
 external = []
 does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas de grafo"
 identity = false
